@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class BundleBuilder | Level Building Sidekick </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BundleBuilder | Level Building Sidekick ">
+      
+      <meta name="description" content="Class meant to collect data entered by the user through the Wizard, and create a main  asset.">
+      <link rel="icon" href="..//images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/new/ignacio-r-develop/apiSpec/new?filename=ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder.md&amp;value=---%0Auid%3A%20ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="..//images/logo.svg" alt="Level Building Sidekick">
+            Level Building Sidekick
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder">
+
+
+
+  <h1 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder" class="text-break">
+Class BundleBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ISILab.html">ISILab</a>.<a class="xref" href="ISILab.LBS.html">LBS</a>.<a class="xref" href="ISILab.LBS.Plugin.html">Plugin</a>.<a class="xref" href="ISILab.LBS.Plugin.UI.html">UI</a>.<a class="xref" href="ISILab.LBS.Plugin.UI.Editor.html">Editor</a>.<a class="xref" href="ISILab.LBS.Plugin.UI.Editor.Windows.html">Windows</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary">Class meant to collect data entered by the user through the Wizard, and create a main <a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Bundle.html">Bundle</a> asset.</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BundleBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BundleBuilder</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder__ctor_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.#ctor*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder__ctor" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.#ctor">
+  BundleBuilder()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L265"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BundleBuilder()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_bundleName_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.bundleName*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_bundleName" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.bundleName">
+  bundleName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string bundleName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_childrenCharacteristics_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.childrenCharacteristics*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_childrenCharacteristics" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.childrenCharacteristics">
+  childrenCharacteristics
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Type&gt; childrenCharacteristics { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_layerType_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.layerType*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_layerType" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.layerType">
+  layerType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string layerType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_layerTypeFlag_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.layerTypeFlag*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_layerTypeFlag" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.layerTypeFlag">
+  layerTypeFlag
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L253"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BundleFlags layerTypeFlag { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.BundleFlags.html">BundleFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_mainCharacteristics_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.mainCharacteristics*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_mainCharacteristics" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.mainCharacteristics">
+  mainCharacteristics
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Type&gt; mainCharacteristics { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_newAssignBundles_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.newAssignBundles*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_newAssignBundles" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.newAssignBundles">
+  newAssignBundles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L260"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Bundle&gt; newAssignBundles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Bundle.html">Bundle</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_newSubBundles_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.newSubBundles*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_newSubBundles" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.newSubBundles">
+  newSubBundles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L258"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Bundle&gt; newSubBundles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Bundle.html">Bundle</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_objects_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.objects*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_objects" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.objects">
+  objects
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;List&lt;GameObject&gt;&gt; objects { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">GameObject</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_GetBundleConfiguration_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.GetBundleConfiguration*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_GetBundleConfiguration_ISILab_LBS_Plugin_Components_Bundles_Bundle__System_String_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.GetBundleConfiguration(ISILab.LBS.Plugin.Components.Bundles.Bundle@,System.String)">
+  GetBundleConfiguration(ref Bundle, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Sets base bundle parameters based on the selected layer type.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetBundleConfiguration(ref Bundle bundle, string layerType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bundle</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Bundle.html">Bundle</a></dt>
+    <dd>Reference of the bundle whose parameters are setted.</dd>
+    <dt><code>layerType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd>Layer type selected for the bundle.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_SaveBundleFlag_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.SaveBundleFlag*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_SaveBundleFlag" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.SaveBundleFlag">
+  SaveBundleFlag()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L361"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SaveBundleFlag()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_ToString_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.ToString*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_ToString" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L337"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_TryAssign_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.TryAssign*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_TryAssign_ISILab_LBS_Plugin_Components_Bundles_Bundle_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.TryAssign(ISILab.LBS.Plugin.Components.Bundles.Bundle)">
+  TryAssign(Bundle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L329"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void TryAssign(Bundle mainBundle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mainBundle</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Bundle.html">Bundle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_TryBuild_" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.TryBuild*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_UI_Editor_Windows_BundleBuilder_TryBuild" data-uid="ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder.TryBuild">
+  TryBuild()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Creates a main <a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Bundle.html">Bundle</a> asset and its children, assigning their corresponding assets and characteristics.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void TryBuild()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/BundleWizardPopup.cs/#L249" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

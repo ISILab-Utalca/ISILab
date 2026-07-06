@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>LBS - Primeros pasos | Level Building Sidekick </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="LBS - Primeros pasos | Level Building Sidekick ">
+      
+      
+      <link rel="icon" href="../..//images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/.docfx/es/getting_started/getting_started.es.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../..//images/logo.svg" alt="Level Building Sidekick">
+            Level Building Sidekick
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+
+<h2 id="uso">Uso</h2>
+<p>Para empezar a trabajar, seleccione la ventana ISILab <strong>Window&gt;ISILab&gt;LevelBuildingSidekick</strong>, esto abrirá la <code>ventana principal</code> de la herramienta con la que se podrá empezar a trabajar en un proyecto vacio. A continuación se presenta una descripcion general de que puede hacer con la herramienta:</p>
+<hr>
+<h2 id="ventana-principal">Ventana Principal</h2>
+<p><img src="/images/getting_started/Unity_1OnOncbeB3.png" alt="LBS Main Window" title="Main Window"></p>
+<p>En la ventana principal, encontrarás un área de trabajo grande visualizada con un mosaico de cuadrados, en esta área puedes colocar, mover y eliminar elementos para dar forma a tus niveles. A la derecha de esta, encontrarás un inspector interno que te permitirá trabajar con los valores específicos de los elementos que se van a modificar, sus comportamientos básicos y los asistentes que te ayudarán a trabajar con esta herramienta.</p>
+<p>Además de esto, en la barra vertical situada entre los dos elementos mencionados anteriormente encontramos dos botones generales que permiten mostrar y ocultar dos paneles principales para organizar el trabajo. El primero corresponde a un panel para organizar el contenido del nivel por capas, el segundo corresponde al panel que nos permitirá pasar estas capas a estructuras directamente utilizables en Unity.</p>
+<h3 id="layers">Layers</h3>
+<p><img src="/images/getting_started/layer_info_01.png" alt="Layer Panel"></p>
+<p>The layers that are created are displayed here. For each type of layer you will have different working tools, and the inspector view will change as well.</p>
+<p>currently there a 3 types of layers:</p>
+<ul>
+<li>Map generation layer. <a href="../module_1a_layer/module_1a_layer.es.html">See Module-1A</a> or <a href="../module_1b_layer/module_1b_layer.es.html">Module-1B</a></li>
+<li>Entities population layer. <a href="../population_layer/population_layer.es.html">See Module-2</a></li>
+<li>Quest design layer.</li>
+</ul>
+<h3 id="3d-generation">3D Generation</h3>
+<p><img src="/images/getting_started/3DInfo_01.png" alt="3D Size panel"></p>
+<p>The 3D generator window can be displayed by toggle the <code>3D</code> button in the side panel, you can press it again to hide the panel.</p>
+<h4 id="features">Features</h4>
+<p>When generating you can choose to build a single layer (the current selected one) or all the layers in the current project. The generator can be tweak with some configuration option:</p>
+<ul>
+<li><strong>Replace Previous:</strong> Allow replace same name tile.</li>
+<li><strong>Tile Size:</strong> override the default tile size of the set.</li>
+<li><strong>Generate Ceiling:</strong> (<em>Only in step 1A</em>) Close the room and use the <code>Ceiling</code> bundle.</li>
+<li><strong>Build Light Probe:</strong> (<em>Only in step 1A</em>) Generate light probes inside each room, allow easy dynamic lighting.</li>
+<li><strong>Bake Lights:</strong> (<em>Only in step 1A</em>) Automatically bake light for high quality static lighting.</li>
+<li><strong>Build Reflections:</strong> (<em>Only in step 1A</em>) Generate a <code>ReflectionProbe</code> Object in the center of each room.</li>
+</ul>
+<hr>
+<h2 id="lbs-inspector-panel">LBS Inspector Panel</h2>
+<p><img src="/images/getting_started/Step_1A_Info_Side_panel_01.png" alt="Side Panel Info"></p>
+<p>From the bottom-left side panel you can access to a variety of layer specific sections:</p>
+<ul>
+<li><strong>Current data:</strong> The information of the selected object in the workspace is displayed.</li>
+<li><strong>Layer Behavior / Manual Mode:</strong>  You can access the brushes and other options for working manually in the workspace.</li>
+<li><strong>Assistants / IA:</strong> The assistants belonging to each type of layer can be displayed.</li>
+</ul>
+<h2 id="old-documentation-spanish">Old documentation (Spanish)</h2>
+<p>For a detailed documentation of the LBS we have created a manual for an older version <code>0.2.0 or earlier</code>. We will soon publish a new and updated manual.</p>
+<p><a href="/isilab-website/LBS_manual_21x14.8_compressed.pdf">LBS USER MANUAL ES 2023</a></p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/.docfx/es/getting_started/getting_started.es.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

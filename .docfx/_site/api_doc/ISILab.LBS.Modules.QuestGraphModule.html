@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class QuestGraphModule | Level Building Sidekick </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class QuestGraphModule | Level Building Sidekick ">
+      
+      <meta name="description" content="The graph contains the quest nodes and edges, it also contains the grammar reference to validate the graph and the root node reference to easily access it.   Also contains multiple actions and delegates to update the graph and notify the changes to the editor and the following classes: : Controls the adding, removal of graph nodes and edges.: Controls data assignment within a graph node of QuestNode type: Controls the validity of the graph&#39;s structure and gives fixing recommendations.: Reads context from other layers (assigned by the user) and recommends new nodes based on the other layer&#39;s data.">
+      <link rel="icon" href="..//images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/new/ignacio-r-develop/apiSpec/new?filename=ISILab_LBS_Modules_QuestGraphModule.md&amp;value=---%0Auid%3A%20ISILab.LBS.Modules.QuestGraphModule%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="..//images/logo.svg" alt="Level Building Sidekick">
+            Level Building Sidekick
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ISILab.LBS.Modules.QuestGraphModule">
+
+
+
+  <h1 id="ISILab_LBS_Modules_QuestGraphModule" data-uid="ISILab.LBS.Modules.QuestGraphModule" class="text-break">
+Class QuestGraphModule  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ISILab.html">ISILab</a>.<a class="xref" href="ISILab.LBS.html">LBS</a>.<a class="xref" href="ISILab.LBS.Modules.html">Modules</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary">The graph contains the quest nodes and edges, it also contains the grammar reference to validate the graph and the root node reference to easily access it.
+
+<p>
+Also contains multiple actions and delegates to update the graph and notify the changes to the editor and the following classes:
+<ul><li><a class="xref" href="ISILab.LBS.Behaviours.QuestBehaviour.html">QuestBehaviour</a>: Controls the adding, removal of graph nodes and edges.</li><li><a class="xref" href="ISILab.LBS.Behaviours.NodeDataBehaviour.html">NodeDataBehaviour</a>: Controls data assignment within a graph node of QuestNode type</li><li><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html">GrammarAssistant</a>: Controls the validity of the graph's structure and gives fixing recommendations.</li><li><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Assistant.QuestAssistant.html">QuestAssistant</a>: Reads context from other layers (assigned by the user) and recommends new nodes based on the other layer's data.</li></ul>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class QuestGraphModule : LBSModule, ICloneable, ISelectable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="ISILab.LBS.Modules.LBSModule.html">LBSModule</a></div>
+      <div><span class="xref">QuestGraphModule</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
+      <div><a class="xref" href="ISILab.LBS.Modules.ISelectable.html">ISelectable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id">LBSModule.id</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer">LBSModule.OwnerLayer</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID">LBSModule.ID</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged">LBSModule.OnChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_">LBSModule.OnAttach(LBSLayer)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_">LBSModule.OnDetach(LBSLayer)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule__ctor_" data-uid="ISILab.LBS.Modules.QuestGraphModule.#ctor*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule__ctor" data-uid="ISILab.LBS.Modules.QuestGraphModule.#ctor">
+  QuestGraphModule()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuestGraphModule()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_GoToNodeInGraph" data-uid="ISILab.LBS.Modules.QuestGraphModule.GoToNodeInGraph">
+  GoToNodeInGraph
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;Vector2Int&gt; GoToNodeInGraph</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">Vector2Int</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_OnAddEdge" data-uid="ISILab.LBS.Modules.QuestGraphModule.OnAddEdge">
+  OnAddEdge
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;QuestEdge&gt; OnAddEdge</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="ISILab.LBS.Modules.QuestEdge.html">QuestEdge</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_OnAddNode" data-uid="ISILab.LBS.Modules.QuestGraphModule.OnAddNode">
+  OnAddNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;GraphNode&gt; OnAddNode</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_OnNodeSelected" data-uid="ISILab.LBS.Modules.QuestGraphModule.OnNodeSelected">
+  OnNodeSelected
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;GraphNode&gt; OnNodeSelected</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_OnRemoveEdge" data-uid="ISILab.LBS.Modules.QuestGraphModule.OnRemoveEdge">
+  OnRemoveEdge
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;QuestEdge&gt; OnRemoveEdge</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="ISILab.LBS.Modules.QuestEdge.html">QuestEdge</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_OnRemoveNode" data-uid="ISILab.LBS.Modules.QuestGraphModule.OnRemoveNode">
+  OnRemoveNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;GraphNode&gt; OnRemoveNode</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_OnUpdateGraph" data-uid="ISILab.LBS.Modules.QuestGraphModule.OnUpdateGraph">
+  OnUpdateGraph
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action OnUpdateGraph</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_SuggestionDistance" data-uid="ISILab.LBS.Modules.QuestGraphModule.SuggestionDistance">
+  SuggestionDistance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float SuggestionDistance = 1.5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_ViewNodeWidthOffset" data-uid="ISILab.LBS.Modules.QuestGraphModule.ViewNodeWidthOffset">
+  ViewNodeWidthOffset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float ViewNodeWidthOffset = 100</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_Grammar_" data-uid="ISILab.LBS.Modules.QuestGraphModule.Grammar*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_Grammar" data-uid="ISILab.LBS.Modules.QuestGraphModule.Grammar">
+  Grammar
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Grammar whose's rules and terminals are used to assign and validate quest nodes. It must be stored using GUIDs to avoid corruption.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ShowOnLayerTemplate]
+public LBSGrammar Grammar { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.AI.Grammar.LBSGrammar.html">LBSGrammar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_GraphEdges_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GraphEdges*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_GraphEdges" data-uid="ISILab.LBS.Modules.QuestGraphModule.GraphEdges">
+  GraphEdges
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;QuestEdge&gt; GraphEdges { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Modules.QuestEdge.html">QuestEdge</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_GraphNodes_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GraphNodes*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_GraphNodes" data-uid="ISILab.LBS.Modules.QuestGraphModule.GraphNodes">
+  GraphNodes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;GraphNode&gt; GraphNodes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_QuestNodes_" data-uid="ISILab.LBS.Modules.QuestGraphModule.QuestNodes*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_QuestNodes" data-uid="ISILab.LBS.Modules.QuestGraphModule.QuestNodes">
+  QuestNodes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Access to the graph nodes of QuestNode type</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;QuestNode&gt; QuestNodes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_Root_" data-uid="ISILab.LBS.Modules.QuestGraphModule.Root*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_Root" data-uid="ISILab.LBS.Modules.QuestGraphModule.Root">
+  Root
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuestNode Root { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_SelectedGraphNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.SelectedGraphNode*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_SelectedGraphNode" data-uid="ISILab.LBS.Modules.QuestGraphModule.SelectedGraphNode">
+  SelectedGraphNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">The active selected graph node by the user.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphNode SelectedGraphNode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_SelectedQuestData_" data-uid="ISILab.LBS.Modules.QuestGraphModule.SelectedQuestData*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_SelectedQuestData" data-uid="ISILab.LBS.Modules.QuestGraphModule.SelectedQuestData">
+  SelectedQuestData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Access to the data of the selected QuestNode</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuestNodeData SelectedQuestData { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Components.QuestNodeData.html">QuestNodeData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_SelectedQuestNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.SelectedQuestNode*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_SelectedQuestNode" data-uid="ISILab.LBS.Modules.QuestGraphModule.SelectedQuestNode">
+  SelectedQuestNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Access to the selected graph node as a QuestNode</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuestNode SelectedQuestNode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_AddEdge_" data-uid="ISILab.LBS.Modules.QuestGraphModule.AddEdge*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_AddEdge_ISILab_LBS_Components_GraphNode_ISILab_LBS_Components_GraphNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.AddEdge(ISILab.LBS.Components.GraphNode,ISILab.LBS.Components.GraphNode)">
+  AddEdge(GraphNode, GraphNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L393"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tuple&lt;string, LogType&gt; AddEdge(GraphNode from, GraphNode to)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a></dt>
+    <dd></dd>
+    <dt><code>to</code> <a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <span class="xref">LogType</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_AddNewNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.AddNewNode*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_AddNewNode_ISILab_LBS_Behaviours_QuestBehaviour_UnityEngine_Vector2_" data-uid="ISILab.LBS.Modules.QuestGraphModule.AddNewNode(ISILab.LBS.Behaviours.QuestBehaviour,UnityEngine.Vector2)">
+  AddNewNode(QuestBehaviour, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L281"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphNode AddNewNode(QuestBehaviour behaviour, Vector2 pos)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>behaviour</code> <a class="xref" href="ISILab.LBS.Behaviours.QuestBehaviour.html">QuestBehaviour</a></dt>
+    <dd></dd>
+    <dt><code>pos</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_AddNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.AddNode*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_AddNode_ISILab_LBS_Components_GraphNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.AddNode(ISILab.LBS.Components.GraphNode)">
+  AddNode(GraphNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L339"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddNode(GraphNode node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_AddQuestNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.AddQuestNode*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_AddQuestNode_System_String_UnityEngine_Vector2_" data-uid="ISILab.LBS.Modules.QuestGraphModule.AddQuestNode(System.String,UnityEngine.Vector2)">
+  AddQuestNode(string, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L301"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Adds a quest node from a given action type and position. The action type is used to assign the terminalID of the node, which is used to validate the node's data and grammar rules.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuestNode AddQuestNode(string action, Vector2 pos)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd>terminal(for example, "kill")</dd>
+    <dt><code>pos</code> <span class="xref">Vector2</span></dt>
+    <dd>position the node gets added at</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
+    <dd>the added <a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_AddSuggestionNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.AddSuggestionNode*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_AddSuggestionNode_ISILab_LBS_Components_QuestNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.AddSuggestionNode(ISILab.LBS.Components.QuestNode)">
+  AddSuggestionNode(QuestNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L326"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddSuggestionNode(QuestNode generatedQuestNode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>generatedQuestNode</code> <a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_ChangeConnection_" data-uid="ISILab.LBS.Modules.QuestGraphModule.ChangeConnection*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_ChangeConnection_ISILab_LBS_Modules_QuestEdge_System_Type_" data-uid="ISILab.LBS.Modules.QuestGraphModule.ChangeConnection(ISILab.LBS.Modules.QuestEdge,System.Type)">
+  ChangeConnection(QuestEdge, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L701"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ChangeConnection(QuestEdge edge, Type graphNodeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>edge</code> <a class="xref" href="ISILab.LBS.Modules.QuestEdge.html">QuestEdge</a></dt>
+    <dd></dd>
+    <dt><code>graphNodeType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_Clear_" data-uid="ISILab.LBS.Modules.QuestGraphModule.Clear*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_Clear" data-uid="ISILab.LBS.Modules.QuestGraphModule.Clear">
+  Clear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L705"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Cleans all the information saved in.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_Clone_" data-uid="ISILab.LBS.Modules.QuestGraphModule.Clone*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_Clone" data-uid="ISILab.LBS.Modules.QuestGraphModule.Clone">
+  Clone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L657"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Creates a copy of the representation.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_ExpandNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.ExpandNode*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_ExpandNode_System_Collections_Generic_List_System_String__ISILab_LBS_Components_QuestNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.ExpandNode(System.Collections.Generic.List{System.String},ISILab.LBS.Components.QuestNode)">
+  ExpandNode(List&lt;string&gt;, QuestNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L577"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Inserts all the nodes to replace the reference node</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuestNode ExpandNode(List&lt;string&gt; expandActions, QuestNode referenceNode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expandActions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd>all the actions that correspond to a new node</dd>
+    <dt><code>referenceNode</code> <a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
+    <dd>the node that will be expanded(replaced)</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_GenerateUniqueId_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GenerateUniqueId*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_GenerateUniqueId_System_String_System_Collections_Generic_IEnumerable_System_String__" data-uid="ISILab.LBS.Modules.QuestGraphModule.GenerateUniqueId(System.String,System.Collections.Generic.IEnumerable{System.String})">
+  GenerateUniqueId(string, IEnumerable&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L758"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Generates an unique ID</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GenerateUniqueId(string baseName, IEnumerable&lt;string&gt; existingIds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>baseName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd>the base name: the action name</dd>
+    <dt><code>existingIds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd>the list of existing IDs</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd>the unique ID</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_GetBounds_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetBounds*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_GetBounds" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetBounds">
+  GetBounds()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L706"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Gets the bounding rectangle of the representation.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Rect GetBounds()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_GetBranches_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetBranches*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_GetBranches_ISILab_LBS_Components_GraphNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetBranches(ISILab.LBS.Components.GraphNode)">
+  GetBranches(GraphNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L443"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Finds all the <a class="xref" href="ISILab.LBS.Modules.QuestEdge.html">QuestEdge</a> where the param node is the source, so it can be considered as the branches of that node.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;QuestEdge&gt; GetBranches(GraphNode node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a></dt>
+    <dd>source node</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Modules.QuestEdge.html">QuestEdge</a>&gt;</dt>
+    <dd>list of edges</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_GetEdge_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetEdge*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_GetEdge_UnityEngine_Vector2_System_Single_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetEdge(UnityEngine.Vector2,System.Single)">
+  GetEdge(Vector2, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L417"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Returns a <a class="xref" href="ISILab.LBS.Modules.QuestEdge.html">QuestEdge</a>. by passing a position and a delta distance(error margin) to check if its near the edge's middle point connection.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuestEdge GetEdge(Vector2 pos, float delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector2</span></dt>
+    <dd>Position to check</dd>
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd>Delta distance (error margin)</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.QuestEdge.html">QuestEdge</a></dt>
+    <dd>The edge if found, otherwise null</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_GetNodeAtPosition_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetNodeAtPosition*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_GetNodeAtPosition__1_UnityEngine_Vector2_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetNodeAtPosition``1(UnityEngine.Vector2)">
+  GetNodeAtPosition&lt;T&gt;(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T GetNodeAtPosition&lt;T&gt;(Vector2 pos) where T : GraphNode</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_GetRoots_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetRoots*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_GetRoots_ISILab_LBS_Components_GraphNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetRoots(ISILab.LBS.Components.GraphNode)">
+  GetRoots(GraphNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L473"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Finds all the <a class="xref" href="ISILab.LBS.Modules.QuestEdge.html">QuestEdge</a> that have the param node as destination.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;QuestEdge&gt; GetRoots(GraphNode node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a></dt>
+    <dd>destination node</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Modules.QuestEdge.html">QuestEdge</a>&gt;</dt>
+    <dd>list of edges</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_GetSelected_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetSelected*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_GetSelected_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Modules.QuestGraphModule.GetSelected(UnityEngine.Vector2Int)">
+  GetSelected(Vector2Int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L687"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;object&gt; GetSelected(Vector2Int pos)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_InsertQuestNodeAfter_" data-uid="ISILab.LBS.Modules.QuestGraphModule.InsertQuestNodeAfter*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_InsertQuestNodeAfter_System_String_ISILab_LBS_Components_QuestNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.InsertQuestNodeAfter(System.String,ISILab.LBS.Components.QuestNode)">
+  InsertQuestNodeAfter(string, QuestNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L507"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">finds the edge of a referenced node. makes a new action that turns into the "To"
+of the connection and makes a new edge from the new action and the original "To"
+of the referenced node</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuestNode InsertQuestNodeAfter(string action, QuestNode referenceNode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd>The action type for the new node</dd>
+    <dt><code>referenceNode</code> <a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
+    <dd>The node after which the new node will be inserted</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_InsertQuestNodeBefore_" data-uid="ISILab.LBS.Modules.QuestGraphModule.InsertQuestNodeBefore*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_InsertQuestNodeBefore_System_String_ISILab_LBS_Components_QuestNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.InsertQuestNodeBefore(System.String,ISILab.LBS.Components.QuestNode)">
+  InsertQuestNodeBefore(string, QuestNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L542"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Inserts a new node before a specified reference node</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuestNode InsertQuestNodeBefore(string action, QuestNode referenceNode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd>The action type for the new node</dd>
+    <dt><code>referenceNode</code> <a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
+    <dd>The node before which the new node will be inserted</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_IsEmpty_" data-uid="ISILab.LBS.Modules.QuestGraphModule.IsEmpty*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_IsEmpty" data-uid="ISILab.LBS.Modules.QuestGraphModule.IsEmpty">
+  IsEmpty()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L655"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Check if there are any nodes in the graph</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsEmpty()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_IsLooped_" data-uid="ISILab.LBS.Modules.QuestGraphModule.IsLooped*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_IsLooped_ISILab_LBS_Components_GraphNode_ISILab_LBS_Components_GraphNode_System_Collections_Generic_HashSet_ISILab_LBS_Components_GraphNode__" data-uid="ISILab.LBS.Modules.QuestGraphModule.IsLooped(ISILab.LBS.Components.GraphNode,ISILab.LBS.Components.GraphNode,System.Collections.Generic.HashSet{ISILab.LBS.Components.GraphNode})">
+  IsLooped(GraphNode, GraphNode, HashSet&lt;GraphNode&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L375"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Checks to avoid loops in the graph by traversing it from the destination node to the source node, if it finds the source node again it means there is a loop and the connection should not be added.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsLooped(GraphNode origin, GraphNode current, HashSet&lt;GraphNode&gt; visited)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>origin</code> <a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a></dt>
+    <dd>starting node</dd>
+    <dt><code>current</code> <a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a></dt>
+    <dd>iteration node</dd>
+    <dt><code>visited</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a>&gt;</dt>
+    <dd>set of marked visited nodes</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd>true if a loop is found, false otherwise</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_Print_" data-uid="ISILab.LBS.Modules.QuestGraphModule.Print*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_Print" data-uid="ISILab.LBS.Modules.QuestGraphModule.Print">
+  Print()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L704"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">prints by console basic information of 
+the representation.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Print()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_RemoveEdge_" data-uid="ISILab.LBS.Modules.QuestGraphModule.RemoveEdge*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_RemoveEdge_ISILab_LBS_Modules_QuestEdge_" data-uid="ISILab.LBS.Modules.QuestGraphModule.RemoveEdge(ISILab.LBS.Modules.QuestEdge)">
+  RemoveEdge(QuestEdge)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L403"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveEdge(QuestEdge edge)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>edge</code> <a class="xref" href="ISILab.LBS.Modules.QuestEdge.html">QuestEdge</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_RemoveNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.RemoveNode*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_RemoveNode_ISILab_LBS_Components_GraphNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.RemoveNode(ISILab.LBS.Components.GraphNode)">
+  RemoveNode(GraphNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveNode(GraphNode node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_Reselect_" data-uid="ISILab.LBS.Modules.QuestGraphModule.Reselect*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_Reselect" data-uid="ISILab.LBS.Modules.QuestGraphModule.Reselect">
+  Reselect()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reselect()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_Rewrite_" data-uid="ISILab.LBS.Modules.QuestGraphModule.Rewrite*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_Rewrite_ISILab_LBS_Modules_LBSModule_" data-uid="ISILab.LBS.Modules.QuestGraphModule.Rewrite(ISILab.LBS.Modules.LBSModule)">
+  Rewrite(LBSModule)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L707"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Rewrites the representation based on another LBSModule.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Rewrite(LBSModule other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="ISILab.LBS.Modules.LBSModule.html">LBSModule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_SetRoot_" data-uid="ISILab.LBS.Modules.QuestGraphModule.SetRoot*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_SetRoot_ISILab_LBS_Components_QuestNode_" data-uid="ISILab.LBS.Modules.QuestGraphModule.SetRoot(ISILab.LBS.Components.QuestNode)">
+  SetRoot(QuestNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L618"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Assigns a new root to the graph. It must be a <a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRoot(QuestNode node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
+    <dd>The node to set as root</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Modules_QuestGraphModule_ValidateGraph_" data-uid="ISILab.LBS.Modules.QuestGraphModule.ValidateGraph*"></a>
+
+  <h3 id="ISILab_LBS_Modules_QuestGraphModule_ValidateGraph" data-uid="ISILab.LBS.Modules.QuestGraphModule.ValidateGraph">
+  ValidateGraph()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Checks and updates the validation of the whole graph against the grammar rules, the nodes' data and connections. 
+It should be called after any change in the graph to make sure the graph is updated and valid.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ValidateGraph()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphModule.cs/#L28" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
