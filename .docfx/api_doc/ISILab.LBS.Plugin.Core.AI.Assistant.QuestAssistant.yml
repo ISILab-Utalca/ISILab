@@ -43,13 +43,13 @@ items:
     content: >-
       [Serializable]
 
-      [RequieredModule(new Type[] { typeof(QuestGraphModule) })]
+      [RequieredModule(new Type[] { typeof(Graph) })]
 
       public class QuestAssistant : LBSAssistant, ICloneable
     content.vb: >-
       <Serializable>
 
-      <RequieredModule(New Type() { GetType(QuestGraphModule) })>
+      <RequieredModule(New Type() { GetType(Graph) })>
 
       Public Class QuestAssistant Inherits LBSAssistant Implements ICloneable
   inheritance:
@@ -248,11 +248,11 @@ items:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
   syntax:
-    content: public QuestGraphModule Graph { get; }
+    content: public Graph Graph { get; }
     parameters: []
     return:
-      type: ISILab.LBS.Modules.QuestGraphModule
-    content.vb: Public ReadOnly Property Graph As QuestGraphModule
+      type: ISILab.LBS.Modules.Graph
+    content.vb: Public ReadOnly Property Graph As Graph
   overload: ISILab.LBS.Plugin.Core.AI.Assistant.QuestAssistant.Graph*
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestAssistant.OnSuggestionAdded
   commentId: F:ISILab.LBS.Plugin.Core.AI.Assistant.QuestAssistant.OnSuggestionAdded
@@ -514,7 +514,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ConnectAllNodes
     path: ../LBS/Plugin/Core/AI/Assistant/QuestAssistant.cs
-    startLine: 167
+    startLine: 170
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -542,7 +542,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GenerateCandidates
     path: ../LBS/Plugin/Core/AI/Assistant/QuestAssistant.cs
-    startLine: 180
+    startLine: 183
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -585,7 +585,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetSuggestions
     path: ../LBS/Plugin/Core/AI/Assistant/QuestAssistant.cs
-    startLine: 212
+    startLine: 215
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -1324,13 +1324,13 @@ references:
   name: Graph
   nameWithType: QuestAssistant.Graph
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestAssistant.Graph
-- uid: ISILab.LBS.Modules.QuestGraphModule
-  commentId: T:ISILab.LBS.Modules.QuestGraphModule
+- uid: ISILab.LBS.Modules.Graph
+  commentId: T:ISILab.LBS.Modules.Graph
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraphModule.html
-  name: QuestGraphModule
-  nameWithType: QuestGraphModule
-  fullName: ISILab.LBS.Modules.QuestGraphModule
+  href: ISILab.LBS.Modules.Graph.html
+  name: Graph
+  nameWithType: Graph
+  fullName: ISILab.LBS.Modules.Graph
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html

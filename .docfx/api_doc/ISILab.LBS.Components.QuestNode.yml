@@ -5,14 +5,15 @@ items:
   id: QuestNode
   parent: ISILab.LBS.Components
   children:
-  - ISILab.LBS.Components.QuestNode.#ctor(System.String,UnityEngine.Vector2,System.String,ISILab.LBS.Modules.QuestGraphModule)
-  - ISILab.LBS.Components.QuestNode.CreateCloneInstance
+  - ISILab.LBS.Components.QuestNode.#ctor(System.String,UnityEngine.Vector2,ISILab.AI.Grammar.GrammarTerminal,ISILab.LBS.Modules.Graph)
   - ISILab.LBS.Components.QuestNode.Data
   - ISILab.LBS.Components.QuestNode.IsValid
   - ISILab.LBS.Components.QuestNode.NodeType
   - ISILab.LBS.Components.QuestNode.QuestState
   - ISILab.LBS.Components.QuestNode.TerminalID
   - ISILab.LBS.Components.QuestNode.ToString
+  - ISILab.LBS.Components.QuestNode.ValidData
+  - ISILab.LBS.Components.QuestNode.ValidGrammar
   langs:
   - csharp
   - vb
@@ -22,12 +23,12 @@ items:
   type: Class
   source:
     remote:
-      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      path: LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: QuestNode
-    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
-    startLine: 222
+    path: ../LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+    startLine: 16
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -35,39 +36,36 @@ items:
     content: >-
       [Serializable]
 
-      public class QuestNode : GraphNode, ICloneable
+      public class QuestNode : Node, ICloneable
     content.vb: >-
       <Serializable>
 
-      Public Class QuestNode Inherits GraphNode Implements ICloneable
+      Public Class QuestNode Inherits Node Implements ICloneable
   inheritance:
   - System.Object
-  - ISILab.LBS.Components.GraphNode
+  - ISILab.LBS.Components.Node
   implements:
   - System.ICloneable
   inheritedMembers:
-  - ISILab.LBS.Components.GraphNode.Or
-  - ISILab.LBS.Components.GraphNode.And
-  - ISILab.LBS.Components.GraphNode.validGrammar
-  - ISILab.LBS.Components.GraphNode.validConnections
-  - ISILab.LBS.Components.GraphNode.x
-  - ISILab.LBS.Components.GraphNode.y
-  - ISILab.LBS.Components.GraphNode.graph
-  - ISILab.LBS.Components.GraphNode.nodePosition
-  - ISILab.LBS.Components.GraphNode.Graph
-  - ISILab.LBS.Components.GraphNode.ID
-  - ISILab.LBS.Components.GraphNode.Position
-  - ISILab.LBS.Components.GraphNode.ValidGrammar
-  - ISILab.LBS.Components.GraphNode.ValidConnections
-  - ISILab.LBS.Components.GraphNode.NodePosition
-  - ISILab.LBS.Components.GraphNode.OnSelect
-  - ISILab.LBS.Components.GraphNode.OnDeselect
-  - ISILab.LBS.Components.GraphNode.Select(System.Boolean)
-  - ISILab.LBS.Components.GraphNode.Clone
-  - ISILab.LBS.Components.GraphNode.Equals(System.Object)
-  - ISILab.LBS.Components.GraphNode.GetHashCode
-  - ISILab.LBS.Components.GraphNode.Equal(ISILab.LBS.Components.GraphNode)
-  - ISILab.LBS.Components.GraphNode.IsSelected
+  - ISILab.LBS.Components.Node.id
+  - ISILab.LBS.Components.Node.x
+  - ISILab.LBS.Components.Node.y
+  - ISILab.LBS.Components.Node.graph
+  - ISILab.LBS.Components.Node.area
+  - ISILab.LBS.Components.Node.kind
+  - ISILab.LBS.Components.Node.Kind
+  - ISILab.LBS.Components.Node.ID
+  - ISILab.LBS.Components.Node.Graph
+  - ISILab.LBS.Components.Node.Position
+  - ISILab.LBS.Components.Node.Area
+  - ISILab.LBS.Components.Node.ValidConnections
+  - ISILab.LBS.Components.Node.OnSelect
+  - ISILab.LBS.Components.Node.OnDeselect
+  - ISILab.LBS.Components.Node.Select(System.Boolean)
+  - ISILab.LBS.Components.Node.Clone
+  - ISILab.LBS.Components.Node.Equals(System.Object)
+  - ISILab.LBS.Components.Node.GetHashCode
+  - ISILab.LBS.Components.Node.IsSelected
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
@@ -75,45 +73,6 @@ items:
   attributes:
   - type: System.SerializableAttribute
     ctor: System.SerializableAttribute.#ctor
-    arguments: []
-- uid: ISILab.LBS.Components.QuestNode.Data
-  commentId: P:ISILab.LBS.Components.QuestNode.Data
-  id: Data
-  parent: ISILab.LBS.Components.QuestNode
-  langs:
-  - csharp
-  - vb
-  name: Data
-  nameWithType: QuestNode.Data
-  fullName: ISILab.LBS.Components.QuestNode.Data
-  type: Property
-  source:
-    remote:
-      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
-      branch: ignacio-r-develop
-      repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: Data
-    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
-    startLine: 247
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: >-
-      [JsonIgnore]
-
-      public QuestNodeData Data { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Components.QuestNodeData
-    content.vb: >-
-      <JsonIgnore>
-
-      Public Property Data As QuestNodeData
-  overload: ISILab.LBS.Components.QuestNode.Data*
-  attributes:
-  - type: Newtonsoft.Json.JsonIgnoreAttribute
-    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
     arguments: []
 - uid: ISILab.LBS.Components.QuestNode.TerminalID
   commentId: P:ISILab.LBS.Components.QuestNode.TerminalID
@@ -128,12 +87,12 @@ items:
   type: Property
   source:
     remote:
-      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      path: LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TerminalID
-    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
-    startLine: 254
+    path: ../LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+    startLine: 44
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -154,6 +113,45 @@ items:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
     arguments: []
+- uid: ISILab.LBS.Components.QuestNode.Data
+  commentId: P:ISILab.LBS.Components.QuestNode.Data
+  id: Data
+  parent: ISILab.LBS.Components.QuestNode
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: QuestNode.Data
+  fullName: ISILab.LBS.Components.QuestNode.Data
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Data
+    path: ../LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+    startLine: 51
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public QuestNodeData Data { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.QuestNodeData
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property Data As QuestNodeData
+  overload: ISILab.LBS.Components.QuestNode.Data*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.QuestNode.NodeType
   commentId: P:ISILab.LBS.Components.QuestNode.NodeType
   id: NodeType
@@ -167,12 +165,12 @@ items:
   type: Property
   source:
     remote:
-      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      path: LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: NodeType
-    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
-    startLine: 261
+    path: ../LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+    startLine: 58
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -180,14 +178,14 @@ items:
     content: >-
       [JsonIgnore]
 
-      public QuestNode.ENodeType NodeType { get; set; }
+      public GraphNodeType NodeType { get; set; }
     parameters: []
     return:
-      type: ISILab.LBS.Components.QuestNode.ENodeType
+      type: ISILab.LBS.Modules.GraphNodeType
     content.vb: >-
       <JsonIgnore>
 
-      Public Property NodeType As QuestNode.ENodeType
+      Public Property NodeType As GraphNodeType
   overload: ISILab.LBS.Components.QuestNode.NodeType*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
@@ -206,12 +204,12 @@ items:
   type: Property
   source:
     remote:
-      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      path: LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: QuestState
-    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
-    startLine: 268
+    path: ../LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+    startLine: 65
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -232,74 +230,102 @@ items:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
     arguments: []
-- uid: ISILab.LBS.Components.QuestNode.#ctor(System.String,UnityEngine.Vector2,System.String,ISILab.LBS.Modules.QuestGraphModule)
-  commentId: M:ISILab.LBS.Components.QuestNode.#ctor(System.String,UnityEngine.Vector2,System.String,ISILab.LBS.Modules.QuestGraphModule)
-  id: '#ctor(System.String,UnityEngine.Vector2,System.String,ISILab.LBS.Modules.QuestGraphModule)'
+- uid: ISILab.LBS.Components.QuestNode.ValidGrammar
+  commentId: P:ISILab.LBS.Components.QuestNode.ValidGrammar
+  id: ValidGrammar
   parent: ISILab.LBS.Components.QuestNode
   langs:
   - csharp
   - vb
-  name: QuestNode(string, Vector2, string, QuestGraphModule)
-  nameWithType: QuestNode.QuestNode(string, Vector2, string, QuestGraphModule)
-  fullName: ISILab.LBS.Components.QuestNode.QuestNode(string, UnityEngine.Vector2, string, ISILab.LBS.Modules.QuestGraphModule)
-  type: Constructor
+  name: ValidGrammar
+  nameWithType: QuestNode.ValidGrammar
+  fullName: ISILab.LBS.Components.QuestNode.ValidGrammar
+  type: Property
   source:
     remote:
-      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      path: LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: .ctor
-    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
-    startLine: 280
+    id: ValidGrammar
+    path: ../LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+    startLine: 71
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: public QuestNode(string id, Vector2 position, string action, QuestGraphModule graph)
+    content: public bool ValidGrammar { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ValidGrammar As Boolean
+  overload: ISILab.LBS.Components.QuestNode.ValidGrammar*
+- uid: ISILab.LBS.Components.QuestNode.ValidData
+  commentId: P:ISILab.LBS.Components.QuestNode.ValidData
+  id: ValidData
+  parent: ISILab.LBS.Components.QuestNode
+  langs:
+  - csharp
+  - vb
+  name: ValidData
+  nameWithType: QuestNode.ValidData
+  fullName: ISILab.LBS.Components.QuestNode.ValidData
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ValidData
+    path: ../LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+    startLine: 76
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public bool ValidData { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property ValidData As Boolean
+  overload: ISILab.LBS.Components.QuestNode.ValidData*
+- uid: ISILab.LBS.Components.QuestNode.#ctor(System.String,UnityEngine.Vector2,ISILab.AI.Grammar.GrammarTerminal,ISILab.LBS.Modules.Graph)
+  commentId: M:ISILab.LBS.Components.QuestNode.#ctor(System.String,UnityEngine.Vector2,ISILab.AI.Grammar.GrammarTerminal,ISILab.LBS.Modules.Graph)
+  id: '#ctor(System.String,UnityEngine.Vector2,ISILab.AI.Grammar.GrammarTerminal,ISILab.LBS.Modules.Graph)'
+  parent: ISILab.LBS.Components.QuestNode
+  langs:
+  - csharp
+  - vb
+  name: QuestNode(string, Vector2, GrammarTerminal, Graph)
+  nameWithType: QuestNode.QuestNode(string, Vector2, GrammarTerminal, Graph)
+  fullName: ISILab.LBS.Components.QuestNode.QuestNode(string, UnityEngine.Vector2, ISILab.AI.Grammar.GrammarTerminal, ISILab.LBS.Modules.Graph)
+  type: Constructor
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: .ctor
+    path: ../LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+    startLine: 84
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public QuestNode(string id, Vector2 position, GrammarTerminal terminal, Graph graph)
     parameters:
     - id: id
       type: System.String
     - id: position
       type: UnityEngine.Vector2
-    - id: action
-      type: System.String
+    - id: terminal
+      type: ISILab.AI.Grammar.GrammarTerminal
     - id: graph
-      type: ISILab.LBS.Modules.QuestGraphModule
-    content.vb: Public Sub New(id As String, position As Vector2, action As String, graph As QuestGraphModule)
+      type: ISILab.LBS.Modules.Graph
+    content.vb: Public Sub New(id As String, position As Vector2, terminal As GrammarTerminal, graph As Graph)
   overload: ISILab.LBS.Components.QuestNode.#ctor*
-  nameWithType.vb: QuestNode.New(String, Vector2, String, QuestGraphModule)
-  fullName.vb: ISILab.LBS.Components.QuestNode.New(String, UnityEngine.Vector2, String, ISILab.LBS.Modules.QuestGraphModule)
-  name.vb: New(String, Vector2, String, QuestGraphModule)
-- uid: ISILab.LBS.Components.QuestNode.CreateCloneInstance
-  commentId: M:ISILab.LBS.Components.QuestNode.CreateCloneInstance
-  id: CreateCloneInstance
-  parent: ISILab.LBS.Components.QuestNode
-  langs:
-  - csharp
-  - vb
-  name: CreateCloneInstance()
-  nameWithType: QuestNode.CreateCloneInstance()
-  fullName: ISILab.LBS.Components.QuestNode.CreateCloneInstance()
-  type: Method
-  source:
-    remote:
-      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
-      branch: ignacio-r-develop
-      repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: CreateCloneInstance
-    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
-    startLine: 290
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  example: []
-  syntax:
-    content: protected override GraphNode CreateCloneInstance()
-    return:
-      type: ISILab.LBS.Components.GraphNode
-    content.vb: Protected Overrides Function CreateCloneInstance() As GraphNode
-  overridden: ISILab.LBS.Components.GraphNode.CreateCloneInstance
-  overload: ISILab.LBS.Components.QuestNode.CreateCloneInstance*
+  nameWithType.vb: QuestNode.New(String, Vector2, GrammarTerminal, Graph)
+  fullName.vb: ISILab.LBS.Components.QuestNode.New(String, UnityEngine.Vector2, ISILab.AI.Grammar.GrammarTerminal, ISILab.LBS.Modules.Graph)
+  name.vb: New(String, Vector2, GrammarTerminal, Graph)
 - uid: ISILab.LBS.Components.QuestNode.ToString
   commentId: M:ISILab.LBS.Components.QuestNode.ToString
   id: ToString
@@ -313,12 +339,12 @@ items:
   type: Method
   source:
     remote:
-      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      path: LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToString
-    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
-    startLine: 301
+    path: ../LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+    startLine: 100
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -328,7 +354,7 @@ items:
     return:
       type: System.String
     content.vb: Public Overrides Function ToString() As String
-  overridden: ISILab.LBS.Components.GraphNode.ToString
+  overridden: ISILab.LBS.Components.Node.ToString
   overload: ISILab.LBS.Components.QuestNode.ToString*
 - uid: ISILab.LBS.Components.QuestNode.IsValid
   commentId: M:ISILab.LBS.Components.QuestNode.IsValid
@@ -343,12 +369,12 @@ items:
   type: Method
   source:
     remote:
-      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      path: LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsValid
-    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
-    startLine: 306
+    path: ../LBS/Plugin/Components/Data/Quest/Nodes/QuestNode.cs
+    startLine: 102
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -358,7 +384,7 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Overrides Function IsValid() As Boolean
-  overridden: ISILab.LBS.Components.GraphNode.IsValid
+  overridden: ISILab.LBS.Components.Node.IsValid
   overload: ISILab.LBS.Components.QuestNode.IsValid*
 references:
 - uid: ISILab.LBS.Components
@@ -402,13 +428,13 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: ISILab.LBS.Components.GraphNode
-  commentId: T:ISILab.LBS.Components.GraphNode
+- uid: ISILab.LBS.Components.Node
+  commentId: T:ISILab.LBS.Components.Node
   parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.GraphNode.html
-  name: GraphNode
-  nameWithType: GraphNode
-  fullName: ISILab.LBS.Components.GraphNode
+  href: ISILab.LBS.Components.Node.html
+  name: Node
+  nameWithType: Node
+  fullName: ISILab.LBS.Components.Node
 - uid: System.ICloneable
   commentId: T:System.ICloneable
   parent: System
@@ -417,133 +443,119 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
-- uid: ISILab.LBS.Components.GraphNode.Or
-  commentId: F:ISILab.LBS.Components.GraphNode.Or
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Or
-  name: Or
-  nameWithType: GraphNode.Or
-  fullName: ISILab.LBS.Components.GraphNode.Or
-- uid: ISILab.LBS.Components.GraphNode.And
-  commentId: F:ISILab.LBS.Components.GraphNode.And
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_And
-  name: And
-  nameWithType: GraphNode.And
-  fullName: ISILab.LBS.Components.GraphNode.And
-- uid: ISILab.LBS.Components.GraphNode.validGrammar
-  commentId: F:ISILab.LBS.Components.GraphNode.validGrammar
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_validGrammar
-  name: validGrammar
-  nameWithType: GraphNode.validGrammar
-  fullName: ISILab.LBS.Components.GraphNode.validGrammar
-- uid: ISILab.LBS.Components.GraphNode.validConnections
-  commentId: F:ISILab.LBS.Components.GraphNode.validConnections
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_validConnections
-  name: validConnections
-  nameWithType: GraphNode.validConnections
-  fullName: ISILab.LBS.Components.GraphNode.validConnections
-- uid: ISILab.LBS.Components.GraphNode.x
-  commentId: F:ISILab.LBS.Components.GraphNode.x
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_x
+- uid: ISILab.LBS.Components.Node.id
+  commentId: F:ISILab.LBS.Components.Node.id
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_id
+  name: id
+  nameWithType: Node.id
+  fullName: ISILab.LBS.Components.Node.id
+- uid: ISILab.LBS.Components.Node.x
+  commentId: F:ISILab.LBS.Components.Node.x
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_x
   name: x
-  nameWithType: GraphNode.x
-  fullName: ISILab.LBS.Components.GraphNode.x
-- uid: ISILab.LBS.Components.GraphNode.y
-  commentId: F:ISILab.LBS.Components.GraphNode.y
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_y
+  nameWithType: Node.x
+  fullName: ISILab.LBS.Components.Node.x
+- uid: ISILab.LBS.Components.Node.y
+  commentId: F:ISILab.LBS.Components.Node.y
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_y
   name: y
-  nameWithType: GraphNode.y
-  fullName: ISILab.LBS.Components.GraphNode.y
-- uid: ISILab.LBS.Components.GraphNode.graph
-  commentId: F:ISILab.LBS.Components.GraphNode.graph
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_graph
+  nameWithType: Node.y
+  fullName: ISILab.LBS.Components.Node.y
+- uid: ISILab.LBS.Components.Node.graph
+  commentId: F:ISILab.LBS.Components.Node.graph
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_graph
   name: graph
-  nameWithType: GraphNode.graph
-  fullName: ISILab.LBS.Components.GraphNode.graph
-- uid: ISILab.LBS.Components.GraphNode.nodePosition
-  commentId: F:ISILab.LBS.Components.GraphNode.nodePosition
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_nodePosition
-  name: nodePosition
-  nameWithType: GraphNode.nodePosition
-  fullName: ISILab.LBS.Components.GraphNode.nodePosition
-- uid: ISILab.LBS.Components.GraphNode.Graph
-  commentId: P:ISILab.LBS.Components.GraphNode.Graph
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Graph
-  name: Graph
-  nameWithType: GraphNode.Graph
-  fullName: ISILab.LBS.Components.GraphNode.Graph
-- uid: ISILab.LBS.Components.GraphNode.ID
-  commentId: P:ISILab.LBS.Components.GraphNode.ID
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ID
+  nameWithType: Node.graph
+  fullName: ISILab.LBS.Components.Node.graph
+- uid: ISILab.LBS.Components.Node.area
+  commentId: F:ISILab.LBS.Components.Node.area
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_area
+  name: area
+  nameWithType: Node.area
+  fullName: ISILab.LBS.Components.Node.area
+- uid: ISILab.LBS.Components.Node.kind
+  commentId: F:ISILab.LBS.Components.Node.kind
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_kind
+  name: kind
+  nameWithType: Node.kind
+  fullName: ISILab.LBS.Components.Node.kind
+- uid: ISILab.LBS.Components.Node.Kind
+  commentId: P:ISILab.LBS.Components.Node.Kind
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Kind
+  name: Kind
+  nameWithType: Node.Kind
+  fullName: ISILab.LBS.Components.Node.Kind
+- uid: ISILab.LBS.Components.Node.ID
+  commentId: P:ISILab.LBS.Components.Node.ID
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_ID
   name: ID
-  nameWithType: GraphNode.ID
-  fullName: ISILab.LBS.Components.GraphNode.ID
-- uid: ISILab.LBS.Components.GraphNode.Position
-  commentId: P:ISILab.LBS.Components.GraphNode.Position
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Position
+  nameWithType: Node.ID
+  fullName: ISILab.LBS.Components.Node.ID
+- uid: ISILab.LBS.Components.Node.Graph
+  commentId: P:ISILab.LBS.Components.Node.Graph
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Graph
+  name: Graph
+  nameWithType: Node.Graph
+  fullName: ISILab.LBS.Components.Node.Graph
+- uid: ISILab.LBS.Components.Node.Position
+  commentId: P:ISILab.LBS.Components.Node.Position
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Position
   name: Position
-  nameWithType: GraphNode.Position
-  fullName: ISILab.LBS.Components.GraphNode.Position
-- uid: ISILab.LBS.Components.GraphNode.ValidGrammar
-  commentId: P:ISILab.LBS.Components.GraphNode.ValidGrammar
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ValidGrammar
-  name: ValidGrammar
-  nameWithType: GraphNode.ValidGrammar
-  fullName: ISILab.LBS.Components.GraphNode.ValidGrammar
-- uid: ISILab.LBS.Components.GraphNode.ValidConnections
-  commentId: P:ISILab.LBS.Components.GraphNode.ValidConnections
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ValidConnections
+  nameWithType: Node.Position
+  fullName: ISILab.LBS.Components.Node.Position
+- uid: ISILab.LBS.Components.Node.Area
+  commentId: P:ISILab.LBS.Components.Node.Area
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Area
+  name: Area
+  nameWithType: Node.Area
+  fullName: ISILab.LBS.Components.Node.Area
+- uid: ISILab.LBS.Components.Node.ValidConnections
+  commentId: P:ISILab.LBS.Components.Node.ValidConnections
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_ValidConnections
   name: ValidConnections
-  nameWithType: GraphNode.ValidConnections
-  fullName: ISILab.LBS.Components.GraphNode.ValidConnections
-- uid: ISILab.LBS.Components.GraphNode.NodePosition
-  commentId: P:ISILab.LBS.Components.GraphNode.NodePosition
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_NodePosition
-  name: NodePosition
-  nameWithType: GraphNode.NodePosition
-  fullName: ISILab.LBS.Components.GraphNode.NodePosition
-- uid: ISILab.LBS.Components.GraphNode.OnSelect
-  commentId: F:ISILab.LBS.Components.GraphNode.OnSelect
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_OnSelect
+  nameWithType: Node.ValidConnections
+  fullName: ISILab.LBS.Components.Node.ValidConnections
+- uid: ISILab.LBS.Components.Node.OnSelect
+  commentId: F:ISILab.LBS.Components.Node.OnSelect
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_OnSelect
   name: OnSelect
-  nameWithType: GraphNode.OnSelect
-  fullName: ISILab.LBS.Components.GraphNode.OnSelect
-- uid: ISILab.LBS.Components.GraphNode.OnDeselect
-  commentId: F:ISILab.LBS.Components.GraphNode.OnDeselect
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_OnDeselect
+  nameWithType: Node.OnSelect
+  fullName: ISILab.LBS.Components.Node.OnSelect
+- uid: ISILab.LBS.Components.Node.OnDeselect
+  commentId: F:ISILab.LBS.Components.Node.OnDeselect
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_OnDeselect
   name: OnDeselect
-  nameWithType: GraphNode.OnDeselect
-  fullName: ISILab.LBS.Components.GraphNode.OnDeselect
-- uid: ISILab.LBS.Components.GraphNode.Select(System.Boolean)
-  commentId: M:ISILab.LBS.Components.GraphNode.Select(System.Boolean)
-  parent: ISILab.LBS.Components.GraphNode
+  nameWithType: Node.OnDeselect
+  fullName: ISILab.LBS.Components.Node.OnDeselect
+- uid: ISILab.LBS.Components.Node.Select(System.Boolean)
+  commentId: M:ISILab.LBS.Components.Node.Select(System.Boolean)
+  parent: ISILab.LBS.Components.Node
   isExternal: true
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Select_System_Boolean_
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Select_System_Boolean_
   name: Select(bool)
-  nameWithType: GraphNode.Select(bool)
-  fullName: ISILab.LBS.Components.GraphNode.Select(bool)
-  nameWithType.vb: GraphNode.Select(Boolean)
-  fullName.vb: ISILab.LBS.Components.GraphNode.Select(Boolean)
+  nameWithType: Node.Select(bool)
+  fullName: ISILab.LBS.Components.Node.Select(bool)
+  nameWithType.vb: Node.Select(Boolean)
+  fullName.vb: ISILab.LBS.Components.Node.Select(Boolean)
   name.vb: Select(Boolean)
   spec.csharp:
-  - uid: ISILab.LBS.Components.GraphNode.Select(System.Boolean)
+  - uid: ISILab.LBS.Components.Node.Select(System.Boolean)
     name: Select
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Select_System_Boolean_
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Select_System_Boolean_
   - name: (
   - uid: System.Boolean
     name: bool
@@ -551,49 +563,49 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Components.GraphNode.Select(System.Boolean)
+  - uid: ISILab.LBS.Components.Node.Select(System.Boolean)
     name: Select
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Select_System_Boolean_
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Select_System_Boolean_
   - name: (
   - uid: System.Boolean
     name: Boolean
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
-- uid: ISILab.LBS.Components.GraphNode.Clone
-  commentId: M:ISILab.LBS.Components.GraphNode.Clone
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Clone
+- uid: ISILab.LBS.Components.Node.Clone
+  commentId: M:ISILab.LBS.Components.Node.Clone
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Clone
   name: Clone()
-  nameWithType: GraphNode.Clone()
-  fullName: ISILab.LBS.Components.GraphNode.Clone()
+  nameWithType: Node.Clone()
+  fullName: ISILab.LBS.Components.Node.Clone()
   spec.csharp:
-  - uid: ISILab.LBS.Components.GraphNode.Clone
+  - uid: ISILab.LBS.Components.Node.Clone
     name: Clone
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Clone
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Clone
   - name: (
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Components.GraphNode.Clone
+  - uid: ISILab.LBS.Components.Node.Clone
     name: Clone
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Clone
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Clone
   - name: (
   - name: )
-- uid: ISILab.LBS.Components.GraphNode.Equals(System.Object)
-  commentId: M:ISILab.LBS.Components.GraphNode.Equals(System.Object)
-  parent: ISILab.LBS.Components.GraphNode
+- uid: ISILab.LBS.Components.Node.Equals(System.Object)
+  commentId: M:ISILab.LBS.Components.Node.Equals(System.Object)
+  parent: ISILab.LBS.Components.Node
   isExternal: true
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Equals_System_Object_
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Equals_System_Object_
   name: Equals(object)
-  nameWithType: GraphNode.Equals(object)
-  fullName: ISILab.LBS.Components.GraphNode.Equals(object)
-  nameWithType.vb: GraphNode.Equals(Object)
-  fullName.vb: ISILab.LBS.Components.GraphNode.Equals(Object)
+  nameWithType: Node.Equals(object)
+  fullName: ISILab.LBS.Components.Node.Equals(object)
+  nameWithType.vb: Node.Equals(Object)
+  fullName.vb: ISILab.LBS.Components.Node.Equals(Object)
   name.vb: Equals(Object)
   spec.csharp:
-  - uid: ISILab.LBS.Components.GraphNode.Equals(System.Object)
+  - uid: ISILab.LBS.Components.Node.Equals(System.Object)
     name: Equals
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Equals_System_Object_
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Equals_System_Object_
   - name: (
   - uid: System.Object
     name: object
@@ -601,76 +613,51 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Components.GraphNode.Equals(System.Object)
+  - uid: ISILab.LBS.Components.Node.Equals(System.Object)
     name: Equals
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Equals_System_Object_
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_Equals_System_Object_
   - name: (
   - uid: System.Object
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: ISILab.LBS.Components.GraphNode.GetHashCode
-  commentId: M:ISILab.LBS.Components.GraphNode.GetHashCode
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_GetHashCode
+- uid: ISILab.LBS.Components.Node.GetHashCode
+  commentId: M:ISILab.LBS.Components.Node.GetHashCode
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_GetHashCode
   name: GetHashCode()
-  nameWithType: GraphNode.GetHashCode()
-  fullName: ISILab.LBS.Components.GraphNode.GetHashCode()
+  nameWithType: Node.GetHashCode()
+  fullName: ISILab.LBS.Components.Node.GetHashCode()
   spec.csharp:
-  - uid: ISILab.LBS.Components.GraphNode.GetHashCode
+  - uid: ISILab.LBS.Components.Node.GetHashCode
     name: GetHashCode
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_GetHashCode
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_GetHashCode
   - name: (
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Components.GraphNode.GetHashCode
+  - uid: ISILab.LBS.Components.Node.GetHashCode
     name: GetHashCode
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_GetHashCode
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_GetHashCode
   - name: (
   - name: )
-- uid: ISILab.LBS.Components.GraphNode.Equal(ISILab.LBS.Components.GraphNode)
-  commentId: M:ISILab.LBS.Components.GraphNode.Equal(ISILab.LBS.Components.GraphNode)
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Equal_ISILab_LBS_Components_GraphNode_
-  name: Equal(GraphNode)
-  nameWithType: GraphNode.Equal(GraphNode)
-  fullName: ISILab.LBS.Components.GraphNode.Equal(ISILab.LBS.Components.GraphNode)
-  spec.csharp:
-  - uid: ISILab.LBS.Components.GraphNode.Equal(ISILab.LBS.Components.GraphNode)
-    name: Equal
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Equal_ISILab_LBS_Components_GraphNode_
-  - name: (
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Components.GraphNode.Equal(ISILab.LBS.Components.GraphNode)
-    name: Equal
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Equal_ISILab_LBS_Components_GraphNode_
-  - name: (
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
-  - name: )
-- uid: ISILab.LBS.Components.GraphNode.IsSelected
-  commentId: M:ISILab.LBS.Components.GraphNode.IsSelected
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_IsSelected
+- uid: ISILab.LBS.Components.Node.IsSelected
+  commentId: M:ISILab.LBS.Components.Node.IsSelected
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_IsSelected
   name: IsSelected()
-  nameWithType: GraphNode.IsSelected()
-  fullName: ISILab.LBS.Components.GraphNode.IsSelected()
+  nameWithType: Node.IsSelected()
+  fullName: ISILab.LBS.Components.Node.IsSelected()
   spec.csharp:
-  - uid: ISILab.LBS.Components.GraphNode.IsSelected
+  - uid: ISILab.LBS.Components.Node.IsSelected
     name: IsSelected
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_IsSelected
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_IsSelected
   - name: (
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Components.GraphNode.IsSelected
+  - uid: ISILab.LBS.Components.Node.IsSelected
     name: IsSelected
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_IsSelected
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_IsSelected
   - name: (
   - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
@@ -818,19 +805,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.LBS.Components.QuestNode.Data*
-  commentId: Overload:ISILab.LBS.Components.QuestNode.Data
-  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_Data
-  name: Data
-  nameWithType: QuestNode.Data
-  fullName: ISILab.LBS.Components.QuestNode.Data
-- uid: ISILab.LBS.Components.QuestNodeData
-  commentId: T:ISILab.LBS.Components.QuestNodeData
-  parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.QuestNodeData.html
-  name: QuestNodeData
-  nameWithType: QuestNodeData
-  fullName: ISILab.LBS.Components.QuestNodeData
 - uid: ISILab.LBS.Components.QuestNode.TerminalID*
   commentId: Overload:ISILab.LBS.Components.QuestNode.TerminalID
   href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_TerminalID
@@ -848,77 +822,32 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: ISILab.LBS.Components.QuestNode.Data*
+  commentId: Overload:ISILab.LBS.Components.QuestNode.Data
+  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_Data
+  name: Data
+  nameWithType: QuestNode.Data
+  fullName: ISILab.LBS.Components.QuestNode.Data
+- uid: ISILab.LBS.Components.QuestNodeData
+  commentId: T:ISILab.LBS.Components.QuestNodeData
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.QuestNodeData.html
+  name: QuestNodeData
+  nameWithType: QuestNodeData
+  fullName: ISILab.LBS.Components.QuestNodeData
 - uid: ISILab.LBS.Components.QuestNode.NodeType*
   commentId: Overload:ISILab.LBS.Components.QuestNode.NodeType
   href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_NodeType
   name: NodeType
   nameWithType: QuestNode.NodeType
   fullName: ISILab.LBS.Components.QuestNode.NodeType
-- uid: ISILab.LBS.Components.QuestNode.ENodeType
-  commentId: T:ISILab.LBS.Components.QuestNode.ENodeType
-  parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.QuestNode.html
-  name: QuestNode.ENodeType
-  nameWithType: QuestNode.ENodeType
-  fullName: ISILab.LBS.Components.QuestNode.ENodeType
-  spec.csharp:
-  - uid: ISILab.LBS.Components.QuestNode
-    name: QuestNode
-    href: ISILab.LBS.Components.QuestNode.html
-  - name: .
-  - uid: ISILab.LBS.Components.QuestNode.ENodeType
-    name: ENodeType
-    href: ISILab.LBS.Components.QuestNode.ENodeType.html
-  spec.vb:
-  - uid: ISILab.LBS.Components.QuestNode
-    name: QuestNode
-    href: ISILab.LBS.Components.QuestNode.html
-  - name: .
-  - uid: ISILab.LBS.Components.QuestNode.ENodeType
-    name: ENodeType
-    href: ISILab.LBS.Components.QuestNode.ENodeType.html
-- uid: ISILab.LBS.Components.QuestNode.QuestState*
-  commentId: Overload:ISILab.LBS.Components.QuestNode.QuestState
-  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_QuestState
-  name: QuestState
-  nameWithType: QuestNode.QuestState
-  fullName: ISILab.LBS.Components.QuestNode.QuestState
-- uid: ISILab.LBS.Components.QuestState
-  commentId: T:ISILab.LBS.Components.QuestState
-  parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.QuestState.html
-  name: QuestState
-  nameWithType: QuestState
-  fullName: ISILab.LBS.Components.QuestState
-- uid: ISILab.LBS.Components.QuestNode.#ctor*
-  commentId: Overload:ISILab.LBS.Components.QuestNode.#ctor
-  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode__ctor_System_String_UnityEngine_Vector2_System_String_ISILab_LBS_Modules_QuestGraphModule_
-  name: QuestNode
-  nameWithType: QuestNode.QuestNode
-  fullName: ISILab.LBS.Components.QuestNode.QuestNode
-  nameWithType.vb: QuestNode.New
-  fullName.vb: ISILab.LBS.Components.QuestNode.New
-  name.vb: New
-- uid: UnityEngine.Vector2
-  commentId: T:UnityEngine.Vector2
-  parent: UnityEngine
-  isExternal: true
-  name: Vector2
-  nameWithType: Vector2
-  fullName: UnityEngine.Vector2
-- uid: ISILab.LBS.Modules.QuestGraphModule
-  commentId: T:ISILab.LBS.Modules.QuestGraphModule
+- uid: ISILab.LBS.Modules.GraphNodeType
+  commentId: T:ISILab.LBS.Modules.GraphNodeType
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraphModule.html
-  name: QuestGraphModule
-  nameWithType: QuestGraphModule
-  fullName: ISILab.LBS.Modules.QuestGraphModule
-- uid: UnityEngine
-  commentId: N:UnityEngine
-  isExternal: true
-  name: UnityEngine
-  nameWithType: UnityEngine
-  fullName: UnityEngine
+  href: ISILab.LBS.Modules.GraphNodeType.html
+  name: GraphNodeType
+  nameWithType: GraphNodeType
+  fullName: ISILab.LBS.Modules.GraphNodeType
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html
@@ -949,81 +878,25 @@ references:
   - uid: ISILab.LBS.Modules
     name: Modules
     href: ISILab.LBS.Modules.html
-- uid: ISILab.LBS.Components.GraphNode.CreateCloneInstance
-  commentId: M:ISILab.LBS.Components.GraphNode.CreateCloneInstance
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_CreateCloneInstance
-  name: CreateCloneInstance()
-  nameWithType: GraphNode.CreateCloneInstance()
-  fullName: ISILab.LBS.Components.GraphNode.CreateCloneInstance()
-  spec.csharp:
-  - uid: ISILab.LBS.Components.GraphNode.CreateCloneInstance
-    name: CreateCloneInstance
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_CreateCloneInstance
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Components.GraphNode.CreateCloneInstance
-    name: CreateCloneInstance
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_CreateCloneInstance
-  - name: (
-  - name: )
-- uid: ISILab.LBS.Components.QuestNode.CreateCloneInstance*
-  commentId: Overload:ISILab.LBS.Components.QuestNode.CreateCloneInstance
-  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_CreateCloneInstance
-  name: CreateCloneInstance
-  nameWithType: QuestNode.CreateCloneInstance
-  fullName: ISILab.LBS.Components.QuestNode.CreateCloneInstance
-- uid: ISILab.LBS.Components.GraphNode.ToString
-  commentId: M:ISILab.LBS.Components.GraphNode.ToString
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ToString
-  name: ToString()
-  nameWithType: GraphNode.ToString()
-  fullName: ISILab.LBS.Components.GraphNode.ToString()
-  spec.csharp:
-  - uid: ISILab.LBS.Components.GraphNode.ToString
-    name: ToString
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ToString
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Components.GraphNode.ToString
-    name: ToString
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ToString
-  - name: (
-  - name: )
-- uid: ISILab.LBS.Components.QuestNode.ToString*
-  commentId: Overload:ISILab.LBS.Components.QuestNode.ToString
-  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_ToString
-  name: ToString
-  nameWithType: QuestNode.ToString
-  fullName: ISILab.LBS.Components.QuestNode.ToString
-- uid: ISILab.LBS.Components.GraphNode.IsValid
-  commentId: M:ISILab.LBS.Components.GraphNode.IsValid
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_IsValid
-  name: IsValid()
-  nameWithType: GraphNode.IsValid()
-  fullName: ISILab.LBS.Components.GraphNode.IsValid()
-  spec.csharp:
-  - uid: ISILab.LBS.Components.GraphNode.IsValid
-    name: IsValid
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_IsValid
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Components.GraphNode.IsValid
-    name: IsValid
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_IsValid
-  - name: (
-  - name: )
-- uid: ISILab.LBS.Components.QuestNode.IsValid*
-  commentId: Overload:ISILab.LBS.Components.QuestNode.IsValid
-  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_IsValid
-  name: IsValid
-  nameWithType: QuestNode.IsValid
-  fullName: ISILab.LBS.Components.QuestNode.IsValid
+- uid: ISILab.LBS.Components.QuestNode.QuestState*
+  commentId: Overload:ISILab.LBS.Components.QuestNode.QuestState
+  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_QuestState
+  name: QuestState
+  nameWithType: QuestNode.QuestState
+  fullName: ISILab.LBS.Components.QuestNode.QuestState
+- uid: ISILab.LBS.Components.QuestState
+  commentId: T:ISILab.LBS.Components.QuestState
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.QuestState.html
+  name: QuestState
+  nameWithType: QuestState
+  fullName: ISILab.LBS.Components.QuestState
+- uid: ISILab.LBS.Components.QuestNode.ValidGrammar*
+  commentId: Overload:ISILab.LBS.Components.QuestNode.ValidGrammar
+  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_ValidGrammar
+  name: ValidGrammar
+  nameWithType: QuestNode.ValidGrammar
+  fullName: ISILab.LBS.Components.QuestNode.ValidGrammar
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -1035,4 +908,126 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: ISILab.LBS.Components.QuestNode.ValidData*
+  commentId: Overload:ISILab.LBS.Components.QuestNode.ValidData
+  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_ValidData
+  name: ValidData
+  nameWithType: QuestNode.ValidData
+  fullName: ISILab.LBS.Components.QuestNode.ValidData
+- uid: ISILab.LBS.Components.QuestNode.#ctor*
+  commentId: Overload:ISILab.LBS.Components.QuestNode.#ctor
+  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode__ctor_System_String_UnityEngine_Vector2_ISILab_AI_Grammar_GrammarTerminal_ISILab_LBS_Modules_Graph_
+  name: QuestNode
+  nameWithType: QuestNode.QuestNode
+  fullName: ISILab.LBS.Components.QuestNode.QuestNode
+  nameWithType.vb: QuestNode.New
+  fullName.vb: ISILab.LBS.Components.QuestNode.New
+  name.vb: New
+- uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: ISILab.AI.Grammar.GrammarTerminal
+  commentId: T:ISILab.AI.Grammar.GrammarTerminal
+  parent: ISILab.AI.Grammar
+  href: ISILab.AI.Grammar.GrammarTerminal.html
+  name: GrammarTerminal
+  nameWithType: GrammarTerminal
+  fullName: ISILab.AI.Grammar.GrammarTerminal
+- uid: ISILab.LBS.Modules.Graph
+  commentId: T:ISILab.LBS.Modules.Graph
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.Graph.html
+  name: Graph
+  nameWithType: Graph
+  fullName: ISILab.LBS.Modules.Graph
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.AI.Grammar
+  commentId: N:ISILab.AI.Grammar
+  href: ISILab.html
+  name: ISILab.AI.Grammar
+  nameWithType: ISILab.AI.Grammar
+  fullName: ISILab.AI.Grammar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    href: ISILab.AI.Grammar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    href: ISILab.AI.Grammar.html
+- uid: ISILab.LBS.Components.Node.ToString
+  commentId: M:ISILab.LBS.Components.Node.ToString
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_ToString
+  name: ToString()
+  nameWithType: Node.ToString()
+  fullName: ISILab.LBS.Components.Node.ToString()
+  spec.csharp:
+  - uid: ISILab.LBS.Components.Node.ToString
+    name: ToString
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Components.Node.ToString
+    name: ToString
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_ToString
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Components.QuestNode.ToString*
+  commentId: Overload:ISILab.LBS.Components.QuestNode.ToString
+  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_ToString
+  name: ToString
+  nameWithType: QuestNode.ToString
+  fullName: ISILab.LBS.Components.QuestNode.ToString
+- uid: ISILab.LBS.Components.Node.IsValid
+  commentId: M:ISILab.LBS.Components.Node.IsValid
+  parent: ISILab.LBS.Components.Node
+  href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_IsValid
+  name: IsValid()
+  nameWithType: Node.IsValid()
+  fullName: ISILab.LBS.Components.Node.IsValid()
+  spec.csharp:
+  - uid: ISILab.LBS.Components.Node.IsValid
+    name: IsValid
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_IsValid
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Components.Node.IsValid
+    name: IsValid
+    href: ISILab.LBS.Components.Node.html#ISILab_LBS_Components_Node_IsValid
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Components.QuestNode.IsValid*
+  commentId: Overload:ISILab.LBS.Components.QuestNode.IsValid
+  href: ISILab.LBS.Components.QuestNode.html#ISILab_LBS_Components_QuestNode_IsValid
+  name: IsValid
+  nameWithType: QuestNode.IsValid
+  fullName: ISILab.LBS.Components.QuestNode.IsValid
 shouldSkipMarkup: true

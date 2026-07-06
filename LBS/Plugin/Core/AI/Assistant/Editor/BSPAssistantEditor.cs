@@ -38,7 +38,7 @@ namespace ISILab.LBS.VisualElements
         public BSPAssistantEditor(object target) : base(target)
         {
             assistant = target as BSPAssistant;             // MUST HAVE
-            assistant.changeCallback += SetFieldsInfo;      // RECOMMENDED
+            assistant.AreaChanged += SetFieldsInfo;      // RECOMMENDED
             CreateVisualElement();                          // MUST HAVE
         }
 
@@ -63,7 +63,7 @@ namespace ISILab.LBS.VisualElements
             // Set Callbacks
             // These are important to modify the assistant values and any other
             // instruction you'll need.
-            runButton.clicked += Run;
+            runButton.clicked += Execute;
             areaField.RegisterValueChangedCallback(val =>
             {
                 assistant.Area = new RectInt()
@@ -128,6 +128,7 @@ namespace ISILab.LBS.VisualElements
         public void SetTools(ToolKit toolKit)
         {
             var manipulator = new BSPAssistantManipulator();
+            manipulator.Execute += Execute;
             var t1 = new LBSTool(manipulator);
             t1.OnSelect += LBSInspectorPanel.ActivateAssistantTab;
             toolKit.ActivateTool(t1, assistant.OwnerLayer, assistant);
@@ -138,17 +139,6 @@ namespace ISILab.LBS.VisualElements
         public CancellationTokenSource CancellationTokenSource { get; set; }    // MUST HAVE
         public ToolBarMain TaskBar { get; set; }                                // MUST HAVE
 
-        private void Run()
-        {
-            if (asyncToggle.value)
-            {
-                Execute();
-            }
-            else
-            {
-                assistant.RunSynced();
-            }
-        }
 
         // Prepares and runs the algorithm in a thread  (HIGHLY RECOMMENDED)
         private void Execute()

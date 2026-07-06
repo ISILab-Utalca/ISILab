@@ -12,6 +12,9 @@ items:
   - ISILab.LBS.Modules.ConstrainsZonesModule
   - ISILab.LBS.Modules.Constraint
   - ISILab.LBS.Modules.ConstraintPair
+  - ISILab.LBS.Modules.Edge
+  - ISILab.LBS.Modules.Graph
+  - ISILab.LBS.Modules.GraphNodeType
   - ISILab.LBS.Modules.ISelectable
   - ISILab.LBS.Modules.LBSModule
   - ISILab.LBS.Modules.LBSNote
@@ -21,8 +24,6 @@ items:
   - ISILab.LBS.Modules.NoteModule
   - ISILab.LBS.Modules.PathOSStorage
   - ISILab.LBS.Modules.PathfindInfo
-  - ISILab.LBS.Modules.QuestEdge
-  - ISILab.LBS.Modules.QuestGraphModule
   - ISILab.LBS.Modules.SimulationEntityData
   - ISILab.LBS.Modules.StairShape
   - ISILab.LBS.Modules.StairsModule
@@ -151,13 +152,13 @@ references:
   name: NoteModule
   nameWithType: NoteModule
   fullName: ISILab.LBS.Modules.NoteModule
-- uid: ISILab.LBS.Modules.QuestEdge
-  commentId: T:ISILab.LBS.Modules.QuestEdge
+- uid: ISILab.LBS.Modules.Edge
+  commentId: T:ISILab.LBS.Modules.Edge
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestEdge.html
-  name: QuestEdge
-  nameWithType: QuestEdge
-  fullName: ISILab.LBS.Modules.QuestEdge
+  href: ISILab.LBS.Modules.Edge.html
+  name: Edge
+  nameWithType: Edge
+  fullName: ISILab.LBS.Modules.Edge
 - uid: ISILab.LBS.Modules.ISelectable
   commentId: T:ISILab.LBS.Modules.ISelectable
   parent: ISILab.LBS.Modules
@@ -244,13 +245,20 @@ references:
   name: PathfindInfo
   nameWithType: PathfindInfo
   fullName: ISILab.LBS.Modules.PathfindInfo
-- uid: ISILab.LBS.Modules.QuestGraphModule
-  commentId: T:ISILab.LBS.Modules.QuestGraphModule
+- uid: ISILab.LBS.Modules.GraphNodeType
+  commentId: T:ISILab.LBS.Modules.GraphNodeType
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraphModule.html
-  name: QuestGraphModule
-  nameWithType: QuestGraphModule
-  fullName: ISILab.LBS.Modules.QuestGraphModule
+  href: ISILab.LBS.Modules.GraphNodeType.html
+  name: GraphNodeType
+  nameWithType: GraphNodeType
+  fullName: ISILab.LBS.Modules.GraphNodeType
+- uid: ISILab.LBS.Modules.Graph
+  commentId: T:ISILab.LBS.Modules.Graph
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.Graph.html
+  name: Graph
+  nameWithType: Graph
+  fullName: ISILab.LBS.Modules.Graph
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html

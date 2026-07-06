@@ -12,18 +12,16 @@ items:
   - ISILab.LBS.Components.Addon_Trigger
   - ISILab.LBS.Components.Addon_TriggerUnlock
   - ISILab.LBS.Components.Addon_Unlock
-  - ISILab.LBS.Components.AndNode
   - ISILab.LBS.Components.Blueprint
   - ISILab.LBS.Components.BranchNode
   - ISILab.LBS.Components.BundleTarget
   - ISILab.LBS.Components.BundleTargetGraph
   - ISILab.LBS.Components.BundleTileMapAddons
-  - ISILab.LBS.Components.GraphNode
   - ISILab.LBS.Components.LBSTag
   - ISILab.LBS.Components.LBSTag.TagEvent
-  - ISILab.LBS.Components.OrNode
+  - ISILab.LBS.Components.Node
+  - ISILab.LBS.Components.NodeKind
   - ISILab.LBS.Components.QuestNode
-  - ISILab.LBS.Components.QuestNode.ENodeType
   - ISILab.LBS.Components.QuestNodeData
   - ISILab.LBS.Components.QuestState
   - ISILab.LBS.Components.SimulationTag
@@ -104,6 +102,12 @@ references:
   name: Addon_Trigger
   nameWithType: Addon_Trigger
   fullName: ISILab.LBS.Components.Addon_Trigger
+- uid: ISILab.LBS.Components.BranchNode
+  commentId: T:ISILab.LBS.Components.BranchNode
+  href: ISILab.LBS.Components.BranchNode.html
+  name: BranchNode
+  nameWithType: BranchNode
+  fullName: ISILab.LBS.Components.BranchNode
 - uid: ISILab.LBS.Components.BundleTileMapAddons
   commentId: T:ISILab.LBS.Components.BundleTileMapAddons
   parent: ISILab.LBS.Components
@@ -137,69 +141,6 @@ references:
   name: Addon_Destruct
   nameWithType: Addon_Destruct
   fullName: ISILab.LBS.Components.Addon_Destruct
-- uid: ISILab.LBS.Components.QuestState
-  commentId: T:ISILab.LBS.Components.QuestState
-  parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.QuestState.html
-  name: QuestState
-  nameWithType: QuestState
-  fullName: ISILab.LBS.Components.QuestState
-- uid: ISILab.LBS.Components.GraphNode
-  commentId: T:ISILab.LBS.Components.GraphNode
-  parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.GraphNode.html
-  name: GraphNode
-  nameWithType: GraphNode
-  fullName: ISILab.LBS.Components.GraphNode
-- uid: ISILab.LBS.Components.BranchNode
-  commentId: T:ISILab.LBS.Components.BranchNode
-  parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.BranchNode.html
-  name: BranchNode
-  nameWithType: BranchNode
-  fullName: ISILab.LBS.Components.BranchNode
-- uid: ISILab.LBS.Components.OrNode
-  commentId: T:ISILab.LBS.Components.OrNode
-  href: ISILab.LBS.Components.OrNode.html
-  name: OrNode
-  nameWithType: OrNode
-  fullName: ISILab.LBS.Components.OrNode
-- uid: ISILab.LBS.Components.AndNode
-  commentId: T:ISILab.LBS.Components.AndNode
-  href: ISILab.LBS.Components.AndNode.html
-  name: AndNode
-  nameWithType: AndNode
-  fullName: ISILab.LBS.Components.AndNode
-- uid: ISILab.LBS.Components.QuestNode
-  commentId: T:ISILab.LBS.Components.QuestNode
-  parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.QuestNode.html
-  name: QuestNode
-  nameWithType: QuestNode
-  fullName: ISILab.LBS.Components.QuestNode
-- uid: ISILab.LBS.Components.QuestNode.ENodeType
-  commentId: T:ISILab.LBS.Components.QuestNode.ENodeType
-  parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.QuestNode.html
-  name: QuestNode.ENodeType
-  nameWithType: QuestNode.ENodeType
-  fullName: ISILab.LBS.Components.QuestNode.ENodeType
-  spec.csharp:
-  - uid: ISILab.LBS.Components.QuestNode
-    name: QuestNode
-    href: ISILab.LBS.Components.QuestNode.html
-  - name: .
-  - uid: ISILab.LBS.Components.QuestNode.ENodeType
-    name: ENodeType
-    href: ISILab.LBS.Components.QuestNode.ENodeType.html
-  spec.vb:
-  - uid: ISILab.LBS.Components.QuestNode
-    name: QuestNode
-    href: ISILab.LBS.Components.QuestNode.html
-  - name: .
-  - uid: ISILab.LBS.Components.QuestNode.ENodeType
-    name: ENodeType
-    href: ISILab.LBS.Components.QuestNode.ENodeType.html
 - uid: ISILab.LBS.Components.QuestNodeData
   commentId: T:ISILab.LBS.Components.QuestNodeData
   parent: ISILab.LBS.Components
@@ -207,6 +148,20 @@ references:
   name: QuestNodeData
   nameWithType: QuestNodeData
   fullName: ISILab.LBS.Components.QuestNodeData
+- uid: ISILab.LBS.Components.NodeKind
+  commentId: T:ISILab.LBS.Components.NodeKind
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.NodeKind.html
+  name: NodeKind
+  nameWithType: NodeKind
+  fullName: ISILab.LBS.Components.NodeKind
+- uid: ISILab.LBS.Components.Node
+  commentId: T:ISILab.LBS.Components.Node
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.Node.html
+  name: Node
+  nameWithType: Node
+  fullName: ISILab.LBS.Components.Node
 - uid: ISILab.LBS.Components.Addon_Patrol
   commentId: T:ISILab.LBS.Components.Addon_Patrol
   href: ISILab.LBS.Components.Addon_Patrol.html
@@ -219,6 +174,20 @@ references:
   name: Addon_Key
   nameWithType: Addon_Key
   fullName: ISILab.LBS.Components.Addon_Key
+- uid: ISILab.LBS.Components.QuestState
+  commentId: T:ISILab.LBS.Components.QuestState
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.QuestState.html
+  name: QuestState
+  nameWithType: QuestState
+  fullName: ISILab.LBS.Components.QuestState
+- uid: ISILab.LBS.Components.QuestNode
+  commentId: T:ISILab.LBS.Components.QuestNode
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.QuestNode.html
+  name: QuestNode
+  nameWithType: QuestNode
+  fullName: ISILab.LBS.Components.QuestNode
 - uid: ISILab.LBS.Components.LBSTag
   commentId: T:ISILab.LBS.Components.LBSTag
   parent: ISILab.LBS.Components

@@ -41,9 +41,9 @@ namespace ISILab.LBS.VisualElements
         {
             foreach (LBSLayer _refLayer in layers)
             {
-               // var layer = reflayer.Clone() as LBSLayer;
-                if (_refLayer == null) continue;
-                foreach (LBSBehaviour behaviour in _refLayer.Behaviours)
+                var layer = _refLayer.Clone() as LBSLayer;
+                if (layer == null) continue;
+                foreach (LBSBehaviour behaviour in layer.Behaviours)
                 {
                     if (behaviour is NoteBehaviour)
                         continue;
