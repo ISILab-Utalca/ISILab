@@ -31,7 +31,7 @@ namespace ISILab.LBS.Characteristics
         #endregion
 
         #region FIELDS
-        [Tooltip("4-Conected: 0: Right, 1: Up, 2: Left, 3: Down")]
+        [Tooltip("4-Connected: 0: Right, 1: Up, 2: Left, 3: Down\n4 represents Center, but it can be ignored.")]
         [SerializeField, JsonRequired]
         private List<string> connections = new List<string>();
 

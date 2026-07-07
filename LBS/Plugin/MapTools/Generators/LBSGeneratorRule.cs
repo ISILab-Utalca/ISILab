@@ -1,4 +1,6 @@
 using System;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
@@ -47,5 +49,24 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// </summary>
         /// <returns></returns>
         public abstract object Clone();
+    }
+
+    public abstract class ToGenerate
+    {
+        LBSTile tileRef;
+        Bundle bundleRef;
+        GameObject objectRef;
+        
+        public LBSTile Tile { get => tileRef; set => tileRef = value; }
+        public Bundle Bundle { get => bundleRef; set => bundleRef = value; }
+        public GameObject GameObject { get => objectRef; set => objectRef = value; }
+
+        public ToGenerate(LBSTile tile = null, Bundle bundle = null, GameObject obj = null)
+        {
+            if (tile != null) tileRef = tile;
+            if (bundle != null) bundleRef = bundle;
+            if (obj != null) objectRef = obj;
+        }
+
     }
 }
