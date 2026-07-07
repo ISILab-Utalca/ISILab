@@ -528,34 +528,53 @@ namespace LBS.Components
 
         public object Clone()
         {
+            // Floors / Modules
+            foreach (var m in FirstModules)
+            {
+                if (m is null) throw new InvalidOperationException($"{Name} has a Null Module.");
+            }
             LBSFloor[] clonedModules = floors != null ? CloneFloorArray(floors) : Array.Empty<LBSFloor>();
 
+            // Assistants
             List<LBSAssistant> clonedAssistants = new();
             if (assistants != null)
             {
                 clonedAssistants = assistants
-                    .Where(a => a != null)
-                    .Select(a => a.Clone() as LBSAssistant)
+                    .Select(a =>
+                    {
+                        if (a is null) throw new InvalidOperationException($"{Name} has a Null Assistant.");
+                        return a.Clone() as LBSAssistant;
+                    })
                     .Where(cloned => cloned != null)
                     .ToList();
             }
 
+            // Generator Rules
             List<LBSGeneratorRule> clonedRules = new();
             if (generatorRules != null)
             {
                 clonedRules = generatorRules
                     .Where(r => r != null)
-                    .Select(r => r.Clone() as LBSGeneratorRule)
+                    .Select(r =>
+                    {
+                        if (r is null) throw new InvalidOperationException($"{Name} has a Null Generator Rule.");
+                        return r.Clone() as LBSGeneratorRule;
+                    })
                     .Where(cloned => cloned != null)
                     .ToList();
             }
 
+            // Behaviours
             List<LBSBehaviour> clonedBehaviours = new();
             if (behaviours != null)
             {
                 clonedBehaviours = behaviours
                     .Where(b => b != null)
-                    .Select(b => b.Clone() as LBSBehaviour)
+                    .Select(b =>
+                    {
+                        if (b is null) throw new InvalidOperationException($"{Name} has a Null Behaviour.");
+                        return b.Clone() as LBSBehaviour;
+                    })
                     .Where(cloned => cloned != null)
                     .ToList();
             }

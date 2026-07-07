@@ -35,21 +35,16 @@ MonoBehaviour:
     behaviours:
     - rid: 6524972785853792769
     - rid: 6524972785853792770
-    - rid: -2
     assistants:
     - rid: 1508221576461156358
-    - rid: 3414068331253334082
-    - rid: -2
+    - rid: 3414068420413227008
     generatorRules:
     - rid: 1508221576461156359
     - rid: 1508221576461156360
-    - rid: -2
     index: 0
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 1508221576237548539
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
@@ -61,7 +56,6 @@ MonoBehaviour:
         - rid: 1508221576461156365
         - rid: 1508221576461156367
         - rid: 6524972859793081011
-        - rid: -2
     - rid: 1508221576237548540
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
@@ -2157,8 +2151,8 @@ MonoBehaviour:
           - rid: 1508221576461156360
           index: 0
         pairs: []
-    - rid: 3414068331253334082
-      type: {class: NewAssistant, ns: , asm: LBS}
+    - rid: 3414068420413227008
+      type: {class: BSPAssistant, ns: , asm: LBS}
       data:
         visible: 1
         ownerLayer:
@@ -2184,17 +2178,18 @@ MonoBehaviour:
           - rid: 6524972785853792770
           assistants:
           - rid: 1508221576461156358
-          - rid: 3414068331253334082
+          - rid: 3414068420413227008
           generatorRules:
           - rid: 1508221576461156359
           - rid: 1508221576461156360
           index: 0
         colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
-        name: NewAssistant
+        name: BSPAssistant
         iconGuid: ad8feef201665454ca79e31b7d798ac3
         icon: {fileID: 0}
         exampleMember: 
-        poem: 
+        minPartitionSize: 10
+        minRoomSize: 4
     - rid: 6524972785853792769
       type: {class: SchemaBehaviour, ns: ISILab.LBS.Plugin.Components.Behaviours, asm: LBS}
       data:
