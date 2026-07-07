@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>LBS - Modulp 1A -  Generacion de Habitaciones | Level Building Sidekick </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="LBS - Modulp 1A -  Generacion de Habitaciones | Level Building Sidekick ">
+      
+      <meta name="description" content="Module 1A is intended for designing indoor scenery, such as dungeons or buildings.">
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/blob/api-docs/.docfx/es/module_1a_layer/module_1a_layer.es.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="Level Building Sidekick">
+            Level Building Sidekick
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+
+<h2 id="module-1a---interior-layer">Module 1A - Interior Layer</h2>
+<p><img src="/images/module_1a_layer/Step_1A_map_Info_01.png" alt="Tilemap"></p>
+<p>The method use a <code>Tilemap</code> approach, representing the level created in this module. The rooms can be modified by painting or removing the Tiles. You can create zones to determine the number and positions of the rooms, by changing the data of these zones you can determine their size, and by generating connections you indicate which rooms are connected by doors.</p>
+<h3 id="tools">Tools</h3>
+<p><img src="/images/module_1a_layer/step_1A_Info_01.png" alt="Interior layers tools" title="layer"></p>
+<p><strong>Select:</strong> With select active you can select any part of a zone to view its information. This appears in the LBS inspector option under <code>Current Data</code> section.</p>
+<p><strong>Brush:</strong> Allows you to paint areas or rooms.
+{.item}</p>
+<p><strong>Erase:</strong> Allows you to delete one or more tiles from the created zones.</p>
+<p><strong>Set interior connection:</strong> For the creation of walls, doors or placing gaps between zones.</p>
+<h3 id="behavior-and-manual-usage">Behavior and manual usage</h3>
+<p><img src="/images/module_1a_layer/select_and_paint_01.gif" alt="How To Paint Gif"></p>
+<h3 id="assistant">Assistant</h3>
+<p>The Assistant/Wizard in step 1A uses the Hill Climbing algorithm, seeking to meet 3 criteria:</p>
+<ul>
+<li>If the connection between zones is fulfilled.</li>
+<li>If the rooms are the right size, and any space it considers empty will be filled.</li>
+<li>The wizard will give more importance to the connection between zones, and will give less importance to the deletion of empty spaces within zones.</li>
+</ul>
+<h4 id="assistant-mode">Assistant mode</h4>
+<p>After adding the connections between zones we can click on <code>Assistants</code> side panel if it is not already displayed.</p>
+<p>A constraint panel will appear that uses artificial intelligence to know how far it can extend the dimensions of the room when creating
+room connections.</p>
+<p>Optional: Press the button <code>Recalculate Constraints</code> to automatically calculate the current zone size settings if they were resized before Hill Climbing was run.</p>
+<p>Click the <code>Execute</code> button to run the optimization algorithm, which will try to find a room configuration that meets the user's constraints.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When running the algorithm, the operation may take some time to complete, the time taken depends directly on the number of rooms, the number of connections and the shape of the room.</p>
+</div>
+<p><img src="/images/module_1a_layer/assitant_example_1a.gif" alt="How To Use Assistant"></p>
+<h3 id="3d-generation">3D Generation</h3>
+<p><img src="/images/module_1a_layer/3d_generation_02.gif" alt="3D Generation"></p>
+<p><img src="/images/module_1a_layer/3d_gen_capture_01.png" alt="3D Result"></p>
+<p>The LBS 3D Generator can produce mind-boggling graphics easily.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/api-docs/.docfx/es/module_1a_layer/module_1a_layer.es.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
