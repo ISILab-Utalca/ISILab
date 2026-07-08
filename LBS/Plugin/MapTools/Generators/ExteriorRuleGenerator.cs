@@ -125,6 +125,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     var adjacentGens = new Dictionary<string, ToGenerateExterior>();
                     adjacentGens = SetAdjacentGens(toGenerateList, toGenTile);
 
+                    Debug.Log("Choosing pattern for [" + toGenTile.Tile.x + " | " + toGenTile.Tile.y + "]");
                     var pref = ChoosePatternByGrid(toGenTile, adjacentGens);
                     if (pref == null)
                     {
@@ -215,10 +216,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private IOrderedEnumerable<ToGenerateExterior> OrderBySameConnection(List<ToGenerateExterior> list)
         {
             var reorderedTiles = list.OrderByDescending(c => new bool[] {
-            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x - 1, c.Tile.Position.y))) == null),
-            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x + 1, c.Tile.Position.y))) == null),
-            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x, c.Tile.Position.y + 1))) == null),
-            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x, c.Tile.Position.y - 1))) == null)
+            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x - 1, c.Tile.Position.y)) && (c.Bundle.Equals(d.Bundle))) == null),
+            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x + 1, c.Tile.Position.y)) && (c.Bundle.Equals(d.Bundle))) == null),
+            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x, c.Tile.Position.y + 1)) && (c.Bundle.Equals(d.Bundle))) == null),
+            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x, c.Tile.Position.y - 1)) &&(c.Bundle.Equals(d.Bundle))) == null)
             }.Count(t => t));
 
             return reorderedTiles;
@@ -269,29 +270,20 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             //3. If the direction has a preference, find, inside the direction's grid, the AssetGrid matching its preference. This can be done via the GetGrid method.
             //4. Save access to the asset grid in checkedGrids, alongside the direction key.
-            if(adjacentGens.ContainsKey("Left"))
+            string[] directions = { "Left", "Right", "Up", "Down" };
+            foreach(string direction in directions)
             {
-                var leftGrid = adjacentGens["Left"].Bundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentGens["Left"].GameObject);
-                if (leftGrid != null) checkedGrids.Add("Left", leftGrid);
-                //debugDirect += "left | ";
-            }
-            if (adjacentGens.ContainsKey("Right"))
-            {
-                var rightGrid = adjacentGens["Right"].Bundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentGens["Right"].GameObject);
-                if (rightGrid != null) checkedGrids.Add("Right", rightGrid);
-                //debugDirect += "right | ";
-            }
-            if (adjacentGens.ContainsKey("Up"))
-            {
-                var upGrid = adjacentGens["Up"].Bundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentGens["Up"].GameObject);
-                if (upGrid != null) checkedGrids.Add("Up", upGrid);
-                //debugDirect += "right | ";
-            }
-            if (adjacentGens.ContainsKey("Down"))
-            {
-                var downGrid = adjacentGens["Down"].Bundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentGens["Down"].GameObject);
-                if (downGrid != null) checkedGrids.Add("Down", downGrid);
-                //debugDirect += "down | ";
+                if(adjacentGens.ContainsKey(direction))
+                {
+                    var adjacentGrid = adjacentGens[direction].Bundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault();
+                    if(adjacentGrid!=null)
+                    {
+                        var adjacentPref = adjacentGrid.GetGrid(adjacentGens[direction].GameObject);
+                        if (adjacentPref != null) checkedGrids.Add(direction, adjacentPref);
+                        //debugDirect += direction + " | ";
+
+                    }
+                }
             }
 
             //Debug.Log(debugDirect);
@@ -299,40 +291,39 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             //6a. We check the list and immediately remove any "incompatible" assets we find.
             //We check opposite borders (right border in left object, so on and so forth) and, if any of the flags don't equate with the opposite border or aren't 0,
             //we remove the grid and break the for loop.
-            int gridSize = gridSelector.GridSize;
 
             //First of all, let's identify all 4 directions. We need to make sure the adjacent gen and current gen have the same bundles or it'll start comparing
             //incompatible grids.
+            var leftSide = adjacentGens.ContainsKey("Left")
+                ? adjacentGens["Left"].Bundle == toGen.Bundle
+                    ? checkedGrids.ContainsKey("Left")
+                        ? "Generated"
+                        : "Unchecked"
+                    : "Border"
+                : "Border";
+            var rightSide = adjacentGens.ContainsKey("Right")
+                ? adjacentGens["Right"].Bundle == toGen.Bundle
+                    ? checkedGrids.ContainsKey("Right")
+                        ? "Generated"
+                        : "Unchecked"
+                    : "Border"
+                : "Border";
+            var topSide = adjacentGens.ContainsKey("Up")
+                ? adjacentGens["Up"].Bundle == toGen.Bundle
+                    ? checkedGrids.ContainsKey("Up")
+                        ? "Generated"
+                        : "Unchecked"
+                    : "Border"
+                : "Border";
+            var downSide = adjacentGens.ContainsKey("Down")
+                ? adjacentGens["Down"].Bundle == toGen.Bundle
+                    ? checkedGrids.ContainsKey("Down")
+                        ? "Generated"
+                        : "Unchecked"
+                    : "Border"
+                : "Border";
 
-            var leftSide = checkedGrids.ContainsKey("Left")
-                ? "Generated"
-                : adjacentGens.ContainsKey("Left")
-                    ? adjacentGens["Left"].Bundle == toGen.Bundle
-                    ? "Unchecked"
-                    : "Border"
-                : "Border";
-            var rightSide = checkedGrids.ContainsKey("Right")
-                ? "Generated"
-                : adjacentGens.ContainsKey("Right")
-                    ? adjacentGens["Right"].Bundle == toGen.Bundle
-                    ? "Unchecked"
-                    : "Border"
-                : "Border";
-            var topSide = checkedGrids.ContainsKey("Up")
-                ? "Generated"
-                : adjacentGens.ContainsKey("Up")
-                    ? adjacentGens["Up"].Bundle == toGen.Bundle
-                    ? "Unchecked"
-                    : "Border"
-                : "Border";
-            var downSide = checkedGrids.ContainsKey("Down")
-                ? "Generated"
-                : adjacentGens.ContainsKey("Down")
-                    ? adjacentGens["Down"].Bundle == toGen.Bundle
-                    ? "Unchecked"
-                    : "Border"
-                : "Border";
-            //Debug.Log("LEFT: " + leftSide + "| RIGHT: " + rightSide + "| UP: " + topSide + " | DOWN: " + downSide);
+            Debug.Log("LEFT: " + leftSide + " | RIGHT: " + rightSide + " | UP: " + topSide + " | DOWN: " + downSide);
 
             foreach (AssetConnectionGrid grid in gridSelector.GridList)
             {
@@ -353,7 +344,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                                 {
                                     if (topSide == "Generated")
                                     {
-                                        if (checkedGrids["Up"].FlagFromVector(0, grid.BorderSize - 1) != -1) removalClause = true;
+                                        if (checkedGrids["Up"].FlagFromVector(0, grid.BorderSize - 1) == -1) removalClause = true;
                                     }
                                     else if (topSide != "Border") removalClause = true;
                                 }
@@ -370,7 +361,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         case "Generated":
                             //If the grid flag has a code other than 0, it HAS to be compared to the generated tile near it. If it is 0, it can connect to anything except borders.
                             int flag = checkedGrids["Left"].FlagFromVector(grid.BorderSize - 1, i);
-                            if (flag != 0)
+                            if ((flag != 0) && (grid.FlagFromVector(0, i) != 0))
                             {
                                 removalClause = (flag != grid.FlagFromVector(0, i));
                             } else
@@ -378,7 +369,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                                 removalClause = grid.FlagFromVector(0, i) == -1;
                             } break;
                     }
-                    if (removalClause) { assetGridList.Remove(grid); /*Debug.Log(grid.AssetReference.obj + "removed in left side because of " + i);*/ break; }
+                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in left side because of " + i); break; }
 
                     switch(rightSide)
                     {
@@ -401,7 +392,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                                 {
                                     if (downSide == "Generated")
                                     {
-                                        if (checkedGrids["Down"].FlagFromVector(grid.BorderSize - 1, 0) != -1) removalClause = true;
+                                        if (checkedGrids["Down"].FlagFromVector(grid.BorderSize - 1, 0) == -1) removalClause = true;
                                     }
                                     else if (downSide != "Border") removalClause = true;
                                 }
@@ -409,7 +400,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                             break;
                         case "Generated":
                             int flag = checkedGrids["Right"].FlagFromVector(0, i);
-                            if (flag != 0)
+                            if ((flag != 0) && (grid.FlagFromVector(grid.BorderSize - 1, i) != 0))
                             {
                                 removalClause = (flag != grid.FlagFromVector(grid.BorderSize - 1, i));
                             }
@@ -419,7 +410,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                             }
                             break;
                     }
-                    if (removalClause) { assetGridList.Remove(grid); /*Debug.Log(grid.AssetReference.obj + "removed in right side because of "+i);*/ break; }
+                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in right side because of "+i); break; }
 
                     switch (topSide)
                     {
@@ -433,7 +424,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                                 {
                                     if (leftSide == "Generated")
                                     {
-                                        if (checkedGrids["Left"].FlagFromVector(grid.BorderSize - 1, 0) != -1) removalClause = true;
+                                        if (checkedGrids["Left"].FlagFromVector(grid.BorderSize - 1, 0) == -1) removalClause = true;
                                     }
                                     else if (leftSide != "Border") removalClause = true;
 
@@ -450,7 +441,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                             break;
                         case "Generated":
                             int flag = checkedGrids["Up"].FlagFromVector(i, grid.BorderSize-1);
-                            if (flag != 0)
+                            if ((flag != 0) && (grid.FlagFromVector(i, 0)!=0))
                             {
                                 removalClause = (flag != grid.FlagFromVector(i, 0));
                             }
@@ -460,10 +451,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                             }
                             break;
                     }
-                    if (removalClause) { assetGridList.Remove(grid); /*Debug.Log(grid.AssetReference.obj + "removed in up side because of " + i);*/ break; }
+                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in up side because of " + i); break; }
 
+                    
                     switch (downSide)
                     {
+                        
                         case "Border":
                             removalClause = grid.FlagFromVector(i, grid.BorderSize - 1) != -1;
                             break;
@@ -474,7 +467,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                                 {
                                     if (leftSide == "Generated")
                                     {
-                                        if (checkedGrids["Left"].FlagFromVector(grid.BorderSize - 1, grid.BorderSize - 1) != -1) removalClause = true; 
+                                        if (checkedGrids["Left"].FlagFromVector(grid.BorderSize - 1, grid.BorderSize - 1) == -1) removalClause = true; 
                                     }
                                     else if (leftSide != "Border") removalClause = true;
 
@@ -491,7 +484,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                             break;
                         case "Generated":
                             int flag = checkedGrids["Down"].FlagFromVector(i, 0);
-                            if (flag != 0)
+                            if ((flag != 0) && (grid.FlagFromVector(i, grid.BorderSize - 1)!=0))
                             {
                                 removalClause = (flag != grid.FlagFromVector(i, grid.BorderSize - 1));
                             }
@@ -501,13 +494,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                             }
                             break;
                     }
-                    if (removalClause) { assetGridList.Remove(grid); /*Debug.Log(grid.AssetReference.obj + "removed in down side because of " + i);*/ break; }
+                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in down side because of " + i); break; }
                 }
             }
             //Hopefully it's not a lot of executions
             //7. We can assume every grid in the curating list is compatible with everything around it, so we choose a random from the remaining ones
             //Let's return the preferred object!
             var chosenObj = assetGridList.Count > 0 ? UnityEngine.Random.Range(0, assetGridList.Count) : 0;
+            Debug.Log("Chosen object: " + chosenObj);
             return assetGridList.Count > 0
                 ? assetGridList[chosenObj].AssetReference.obj
                 : gridSelector.GridList[gridSelector.DefaultAsset].AssetReference.obj;
@@ -563,7 +557,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         int direction;
         public int Direction { get => direction; set => direction = value; }
 
-        public ToGenerateExterior(LBSTile tile = null, Bundle bundle = null, GameObject obj = null, int direct = -1) : base()
+        public ToGenerateExterior(LBSTile tile = null, Bundle bundle = null, GameObject obj = null, int direct = -1) : base(tile, bundle, obj)
         {
             if(direct != -1)
             {
