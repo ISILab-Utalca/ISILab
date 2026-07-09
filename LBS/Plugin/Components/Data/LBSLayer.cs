@@ -1,9 +1,9 @@
 using ISILab.Commons.Utility;
 using ISILab.Extensions;
 using ISILab.LBS;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
@@ -14,6 +14,7 @@ using PathOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Type = System.Type;
@@ -29,6 +30,7 @@ namespace LBS.Components
         [SerializeField, JsonRequired] public string iconGuid = "915dd173939598c43ab48bbec50425e8";
 
         [SerializeField, JsonRequired] private string id = "Default ID";
+        [SerializeField, JsonRequired] private string subTypeId = "None";
         [SerializeField, JsonRequired] private string name = "Layer name";
         [SerializeField] private Vector2Int tileSize = new Vector2Int(2, 2);
 
@@ -51,6 +53,7 @@ namespace LBS.Components
 
         [JsonIgnore] public LBSLevelData Parent { get => _parent; set => _parent = value; }
         [JsonIgnore] public string ID { get => id; }
+        [JsonIgnore] public string SubTypeID { get => subTypeId; }
         [JsonIgnore] public string Name { get => name; set => name = value; }
         [JsonIgnore] public int ActiveFloor { get => activeFloor; }
         [JsonIgnore] public int FloorCount { get => floors.Length; }
@@ -94,14 +97,14 @@ namespace LBS.Components
         #region Constructors
         public LBSLayer()
         {
-            for(int i = 0; i < floors.Length; i++)
-            {
-                floors[i] ??= new ();
-            }
             behaviours ??= new List<LBSBehaviour>();
             assistants ??= new List<LBSAssistant>();
             generatorRules ??= new List<LBSGeneratorRule>();
             floors = new LBSFloor[LBSSettings.Instance.general.defaultFloorCount];
+            for(int i = 0; i < floors.Length; i++)
+            {
+                floors[i] ??= new ();
+            }
 
             IsVisible = true;
             id = GetType().Name;
@@ -113,7 +116,7 @@ namespace LBS.Components
             IEnumerable<LBSGeneratorRule> rules,
             IEnumerable<LBSBehaviour> behaviours,
             LBSLevelData parent,
-            string ID, bool visible, string name, string iconGuid, Vector2Int tileSize) : this()
+            string ID, string SubTypeID, bool visible, string name, string iconGuid, Vector2Int tileSize) : this()
         {
             floors = new LBSFloor[modules.Length];
             for (int i = 0; i < modules.Length; i++)
@@ -127,6 +130,7 @@ namespace LBS.Components
 
             Parent = parent;
             id = ID;
+            subTypeId = SubTypeID;
             IsVisible = visible;
             this.name = name;
             this.iconGuid = iconGuid;
@@ -158,9 +162,11 @@ namespace LBS.Components
         public List<LBSModule> Modules(int floorIndex = -1)
         {
             if (floorIndex < 0) floorIndex = activeFloor;
+            if (floors[floorIndex] == null)
+                ;
             return new(floors[floorIndex].Modules);
         }
-
+ 
         public bool AddModule(LBSModule module, int levelIndex = -1)
         {
             if (module == null) return false;
@@ -195,6 +201,21 @@ namespace LBS.Components
         {
             for (int i = 0; i < floors.Length; i++)
             {
+                // Null parameter removes all null references
+                if(module is null)
+                {
+                    for(int j = 0; j < floors[i].Modules.Count; j++)
+                    {
+                        if(floors[i].Modules[j] is null)
+                        {
+                            floors[i].Modules.RemoveAt(j);
+                            j--;
+                        }
+                    }
+                    continue;
+                }
+
+                // Find module and remove it
                 var toRemove = floors[i].Modules.Find(m => m.ID == module.ID);
                 if (toRemove != null)
                 {
@@ -213,6 +234,14 @@ namespace LBS.Components
         public T GetModule<T>(string moduleID = "", int index = -1) where T : LBSModule
         {
             if (index < 0) index = activeFloor;
+            if (floors is null)
+                ;
+            if (floors[index] is null)
+                ;
+            if (floors[index].Modules is null)
+                ;
+            if (floors[index].Modules.OfType<T>() is null)
+                ;
             if (string.IsNullOrEmpty(moduleID))
                 return floors[index].Modules.OfType<T>().FirstOrDefault();
 
@@ -285,7 +314,19 @@ namespace LBS.Components
 
         public void RemoveBehaviour(LBSBehaviour behaviour)
         {
-            if (behaviour == null) return;
+            if (behaviour == null) 
+            {
+                for(int i = 0; i < behaviours.Count; i++)
+                {
+                    if(behaviours[i] == null)
+                    {
+                        behaviours.RemoveAt(i);
+                        i--;
+                    }
+                }
+                return;
+            }
+
             if (behaviours.Remove(behaviour))
                 behaviour.OnDetachLayer(this);
         }
@@ -329,7 +370,19 @@ namespace LBS.Components
 
         public void RemoveAssistant(LBSAssistant assistant)
         {
-            if (assistant == null) return;
+            if (assistant == null)
+            {
+                for (int i = 0; i < assistants.Count; i++)
+                {
+                    if (assistants[i] == null)
+                    {
+                        assistants.RemoveAt(i);
+                        i--;
+                    }
+                }
+                return;
+            }
+
             if (assistants.Remove(assistant))
                 assistant.OnDetachLayer(this);
         }
@@ -351,7 +404,25 @@ namespace LBS.Components
             generatorRules.Add(rule);
         }
 
-        public bool RemoveGeneratorRule(LBSGeneratorRule rule) => generatorRules.Remove(rule);
+        public bool RemoveGeneratorRule(LBSGeneratorRule rule)
+        {
+            if(rule is null)
+            {
+                bool removedAny = false;
+                for (int i = 0; i < generatorRules.Count; i++)
+                {
+                    if (generatorRules[i] == null)
+                    {
+                        generatorRules.RemoveAt(i);
+                        removedAny = true;
+                        i--;
+                    }
+                }
+                return removedAny;
+            }
+
+            return generatorRules.Remove(rule);
+        }
 
         #endregion
 
@@ -370,6 +441,12 @@ namespace LBS.Components
         {
             if (string.IsNullOrEmpty(newID)) return;
             id = newID;
+        }
+
+        public void SetSubTypeID(string newSubTypeID)
+        {
+            if (string.IsNullOrEmpty(newSubTypeID)) return;
+            subTypeId = newSubTypeID;
         }
 
         public void ChangeFloorCount(uint newCount)
@@ -451,34 +528,53 @@ namespace LBS.Components
 
         public object Clone()
         {
+            // Floors / Modules
+            foreach (var m in FirstModules)
+            {
+                if (m is null) throw new InvalidOperationException($"{Name} has a Null Module.");
+            }
             LBSFloor[] clonedModules = floors != null ? CloneFloorArray(floors) : Array.Empty<LBSFloor>();
 
+            // Assistants
             List<LBSAssistant> clonedAssistants = new();
             if (assistants != null)
             {
                 clonedAssistants = assistants
-                    .Where(a => a != null)
-                    .Select(a => a.Clone() as LBSAssistant)
+                    .Select(a =>
+                    {
+                        if (a is null) throw new InvalidOperationException($"{Name} has a Null Assistant.");
+                        return a.Clone() as LBSAssistant;
+                    })
                     .Where(cloned => cloned != null)
                     .ToList();
             }
 
+            // Generator Rules
             List<LBSGeneratorRule> clonedRules = new();
             if (generatorRules != null)
             {
                 clonedRules = generatorRules
                     .Where(r => r != null)
-                    .Select(r => r.Clone() as LBSGeneratorRule)
+                    .Select(r =>
+                    {
+                        if (r is null) throw new InvalidOperationException($"{Name} has a Null Generator Rule.");
+                        return r.Clone() as LBSGeneratorRule;
+                    })
                     .Where(cloned => cloned != null)
                     .ToList();
             }
 
+            // Behaviours
             List<LBSBehaviour> clonedBehaviours = new();
             if (behaviours != null)
             {
                 clonedBehaviours = behaviours
                     .Where(b => b != null)
-                    .Select(b => b.Clone() as LBSBehaviour)
+                    .Select(b =>
+                    {
+                        if (b is null) throw new InvalidOperationException($"{Name} has a Null Behaviour.");
+                        return b.Clone() as LBSBehaviour;
+                    })
                     .Where(cloned => cloned != null)
                     .ToList();
             }
@@ -490,6 +586,7 @@ namespace LBS.Components
                 clonedBehaviours,
                 Parent,
                 id,
+                subTypeId,
                 visible,
                 name,
                 iconGuid,

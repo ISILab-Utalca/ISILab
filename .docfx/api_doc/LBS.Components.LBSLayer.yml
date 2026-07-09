@@ -6,7 +6,7 @@ items:
   parent: LBS.Components
   children:
   - LBS.Components.LBSLayer.#ctor
-  - LBS.Components.LBSLayer.#ctor(LBS.Components.LBSFloor[],System.Collections.Generic.IEnumerable{ISILab.LBS.Assistants.LBSAssistant},System.Collections.Generic.IEnumerable{ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule},System.Collections.Generic.IEnumerable{ISILab.LBS.Behaviours.LBSBehaviour},ISILab.LBS.LBSLevelData,System.String,System.Boolean,System.String,System.String,UnityEngine.Vector2Int)
+  - LBS.Components.LBSLayer.#ctor(LBS.Components.LBSFloor[],System.Collections.Generic.IEnumerable{ISILab.LBS.Assistants.LBSAssistant},System.Collections.Generic.IEnumerable{ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule},System.Collections.Generic.IEnumerable{ISILab.LBS.Behaviours.LBSBehaviour},ISILab.LBS.LBSLevelData,System.String,System.String,System.Boolean,System.String,System.String,UnityEngine.Vector2Int)
   - LBS.Components.LBSLayer.ActiveFloor
   - LBS.Components.LBSLayer.AddAssistant(ISILab.LBS.Assistants.LBSAssistant)
   - LBS.Components.LBSLayer.AddBehaviour(ISILab.LBS.Behaviours.LBSBehaviour)
@@ -72,6 +72,8 @@ items:
   - LBS.Components.LBSLayer.ReplaceModule(ISILab.LBS.Modules.LBSModule,ISILab.LBS.Modules.LBSModule)
   - LBS.Components.LBSLayer.SetID(System.String)
   - LBS.Components.LBSLayer.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  - LBS.Components.LBSLayer.SetSubTypeID(System.String)
+  - LBS.Components.LBSLayer.SubTypeID
   - LBS.Components.LBSLayer.TileSize
   - LBS.Components.LBSLayer.ToFixedPosition(UnityEngine.Vector2)
   - LBS.Components.LBSLayer.ToFixedPosition(UnityEngine.Vector2,UnityEngine.Vector2)
@@ -183,7 +185,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: index
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 41
+    startLine: 42
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -234,7 +236,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsVisible
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 47
+    startLine: 48
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -273,7 +275,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsBlocked
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 48
+    startLine: 49
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -312,7 +314,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsLocked
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 49
+    startLine: 50
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -351,7 +353,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Parent
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 51
+    startLine: 52
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -390,7 +392,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ID
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 52
+    startLine: 53
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -407,6 +409,45 @@ items:
 
       Public ReadOnly Property ID As String
   overload: LBS.Components.LBSLayer.ID*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: LBS.Components.LBSLayer.SubTypeID
+  commentId: P:LBS.Components.LBSLayer.SubTypeID
+  id: SubTypeID
+  parent: LBS.Components.LBSLayer
+  langs:
+  - csharp
+  - vb
+  name: SubTypeID
+  nameWithType: LBSLayer.SubTypeID
+  fullName: LBS.Components.LBSLayer.SubTypeID
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SubTypeID
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 54
+  assemblies:
+  - LBS
+  namespace: LBS.Components
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public string SubTypeID { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property SubTypeID As String
+  overload: LBS.Components.LBSLayer.SubTypeID*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
@@ -429,7 +470,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Name
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 53
+    startLine: 55
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -468,7 +509,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ActiveFloor
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 54
+    startLine: 56
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -507,7 +548,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: FloorCount
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 55
+    startLine: 57
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -546,7 +587,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Behaviours
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 58
+    startLine: 60
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -585,7 +626,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Assistants
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 59
+    startLine: 61
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -624,7 +665,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GeneratorRules
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 60
+    startLine: 62
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -663,7 +704,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: FirstModules
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 64
+    startLine: 66
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -702,7 +743,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: FirstBehaviours
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 65
+    startLine: 67
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -741,7 +782,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: FirstAssistants
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 66
+    startLine: 68
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -780,7 +821,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: FirstGeneratorRules
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 67
+    startLine: 69
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -819,7 +860,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TileSize
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 69
+    startLine: 71
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -858,7 +899,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnChangeName
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 83
+    startLine: 85
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -885,7 +926,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnChange
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 84
+    startLine: 86
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -912,7 +953,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnTileSizeChange
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 85
+    startLine: 87
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -939,7 +980,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAddModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 86
+    startLine: 88
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -966,7 +1007,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnReplaceModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 87
+    startLine: 89
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -993,7 +1034,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnRemoveModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 88
+    startLine: 90
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1020,7 +1061,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextAdd
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 89
+    startLine: 91
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1047,7 +1088,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextRemove
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 90
+    startLine: 92
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1074,7 +1115,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 94
+    startLine: 96
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1085,16 +1126,16 @@ items:
   nameWithType.vb: LBSLayer.New()
   fullName.vb: LBS.Components.LBSLayer.New()
   name.vb: New()
-- uid: LBS.Components.LBSLayer.#ctor(LBS.Components.LBSFloor[],System.Collections.Generic.IEnumerable{ISILab.LBS.Assistants.LBSAssistant},System.Collections.Generic.IEnumerable{ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule},System.Collections.Generic.IEnumerable{ISILab.LBS.Behaviours.LBSBehaviour},ISILab.LBS.LBSLevelData,System.String,System.Boolean,System.String,System.String,UnityEngine.Vector2Int)
-  commentId: M:LBS.Components.LBSLayer.#ctor(LBS.Components.LBSFloor[],System.Collections.Generic.IEnumerable{ISILab.LBS.Assistants.LBSAssistant},System.Collections.Generic.IEnumerable{ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule},System.Collections.Generic.IEnumerable{ISILab.LBS.Behaviours.LBSBehaviour},ISILab.LBS.LBSLevelData,System.String,System.Boolean,System.String,System.String,UnityEngine.Vector2Int)
-  id: '#ctor(LBS.Components.LBSFloor[],System.Collections.Generic.IEnumerable{ISILab.LBS.Assistants.LBSAssistant},System.Collections.Generic.IEnumerable{ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule},System.Collections.Generic.IEnumerable{ISILab.LBS.Behaviours.LBSBehaviour},ISILab.LBS.LBSLevelData,System.String,System.Boolean,System.String,System.String,UnityEngine.Vector2Int)'
+- uid: LBS.Components.LBSLayer.#ctor(LBS.Components.LBSFloor[],System.Collections.Generic.IEnumerable{ISILab.LBS.Assistants.LBSAssistant},System.Collections.Generic.IEnumerable{ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule},System.Collections.Generic.IEnumerable{ISILab.LBS.Behaviours.LBSBehaviour},ISILab.LBS.LBSLevelData,System.String,System.String,System.Boolean,System.String,System.String,UnityEngine.Vector2Int)
+  commentId: M:LBS.Components.LBSLayer.#ctor(LBS.Components.LBSFloor[],System.Collections.Generic.IEnumerable{ISILab.LBS.Assistants.LBSAssistant},System.Collections.Generic.IEnumerable{ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule},System.Collections.Generic.IEnumerable{ISILab.LBS.Behaviours.LBSBehaviour},ISILab.LBS.LBSLevelData,System.String,System.String,System.Boolean,System.String,System.String,UnityEngine.Vector2Int)
+  id: '#ctor(LBS.Components.LBSFloor[],System.Collections.Generic.IEnumerable{ISILab.LBS.Assistants.LBSAssistant},System.Collections.Generic.IEnumerable{ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule},System.Collections.Generic.IEnumerable{ISILab.LBS.Behaviours.LBSBehaviour},ISILab.LBS.LBSLevelData,System.String,System.String,System.Boolean,System.String,System.String,UnityEngine.Vector2Int)'
   parent: LBS.Components.LBSLayer
   langs:
   - csharp
   - vb
-  name: LBSLayer(LBSFloor[], IEnumerable<LBSAssistant>, IEnumerable<LBSGeneratorRule>, IEnumerable<LBSBehaviour>, LBSLevelData, string, bool, string, string, Vector2Int)
-  nameWithType: LBSLayer.LBSLayer(LBSFloor[], IEnumerable<LBSAssistant>, IEnumerable<LBSGeneratorRule>, IEnumerable<LBSBehaviour>, LBSLevelData, string, bool, string, string, Vector2Int)
-  fullName: LBS.Components.LBSLayer.LBSLayer(LBS.Components.LBSFloor[], System.Collections.Generic.IEnumerable<ISILab.LBS.Assistants.LBSAssistant>, System.Collections.Generic.IEnumerable<ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule>, System.Collections.Generic.IEnumerable<ISILab.LBS.Behaviours.LBSBehaviour>, ISILab.LBS.LBSLevelData, string, bool, string, string, UnityEngine.Vector2Int)
+  name: LBSLayer(LBSFloor[], IEnumerable<LBSAssistant>, IEnumerable<LBSGeneratorRule>, IEnumerable<LBSBehaviour>, LBSLevelData, string, string, bool, string, string, Vector2Int)
+  nameWithType: LBSLayer.LBSLayer(LBSFloor[], IEnumerable<LBSAssistant>, IEnumerable<LBSGeneratorRule>, IEnumerable<LBSBehaviour>, LBSLevelData, string, string, bool, string, string, Vector2Int)
+  fullName: LBS.Components.LBSLayer.LBSLayer(LBS.Components.LBSFloor[], System.Collections.Generic.IEnumerable<ISILab.LBS.Assistants.LBSAssistant>, System.Collections.Generic.IEnumerable<ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule>, System.Collections.Generic.IEnumerable<ISILab.LBS.Behaviours.LBSBehaviour>, ISILab.LBS.LBSLevelData, string, string, bool, string, string, UnityEngine.Vector2Int)
   type: Constructor
   source:
     remote:
@@ -1103,12 +1144,12 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 108
+    startLine: 111
   assemblies:
   - LBS
   namespace: LBS.Components
   syntax:
-    content: public LBSLayer(LBSFloor[] modules, IEnumerable<LBSAssistant> assistant, IEnumerable<LBSGeneratorRule> rules, IEnumerable<LBSBehaviour> behaviours, LBSLevelData parent, string ID, bool visible, string name, string iconGuid, Vector2Int tileSize)
+    content: public LBSLayer(LBSFloor[] modules, IEnumerable<LBSAssistant> assistant, IEnumerable<LBSGeneratorRule> rules, IEnumerable<LBSBehaviour> behaviours, LBSLevelData parent, string ID, string SubTypeID, bool visible, string name, string iconGuid, Vector2Int tileSize)
     parameters:
     - id: modules
       type: LBS.Components.LBSFloor[]
@@ -1122,6 +1163,8 @@ items:
       type: ISILab.LBS.LBSLevelData
     - id: ID
       type: System.String
+    - id: SubTypeID
+      type: System.String
     - id: visible
       type: System.Boolean
     - id: name
@@ -1130,11 +1173,11 @@ items:
       type: System.String
     - id: tileSize
       type: UnityEngine.Vector2Int
-    content.vb: Public Sub New(modules As LBSFloor(), assistant As IEnumerable(Of LBSAssistant), rules As IEnumerable(Of LBSGeneratorRule), behaviours As IEnumerable(Of LBSBehaviour), parent As LBSLevelData, ID As String, visible As Boolean, name As String, iconGuid As String, tileSize As Vector2Int)
+    content.vb: Public Sub New(modules As LBSFloor(), assistant As IEnumerable(Of LBSAssistant), rules As IEnumerable(Of LBSGeneratorRule), behaviours As IEnumerable(Of LBSBehaviour), parent As LBSLevelData, ID As String, SubTypeID As String, visible As Boolean, name As String, iconGuid As String, tileSize As Vector2Int)
   overload: LBS.Components.LBSLayer.#ctor*
-  nameWithType.vb: LBSLayer.New(LBSFloor(), IEnumerable(Of LBSAssistant), IEnumerable(Of LBSGeneratorRule), IEnumerable(Of LBSBehaviour), LBSLevelData, String, Boolean, String, String, Vector2Int)
-  fullName.vb: LBS.Components.LBSLayer.New(LBS.Components.LBSFloor(), System.Collections.Generic.IEnumerable(Of ISILab.LBS.Assistants.LBSAssistant), System.Collections.Generic.IEnumerable(Of ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule), System.Collections.Generic.IEnumerable(Of ISILab.LBS.Behaviours.LBSBehaviour), ISILab.LBS.LBSLevelData, String, Boolean, String, String, UnityEngine.Vector2Int)
-  name.vb: New(LBSFloor(), IEnumerable(Of LBSAssistant), IEnumerable(Of LBSGeneratorRule), IEnumerable(Of LBSBehaviour), LBSLevelData, String, Boolean, String, String, Vector2Int)
+  nameWithType.vb: LBSLayer.New(LBSFloor(), IEnumerable(Of LBSAssistant), IEnumerable(Of LBSGeneratorRule), IEnumerable(Of LBSBehaviour), LBSLevelData, String, String, Boolean, String, String, Vector2Int)
+  fullName.vb: LBS.Components.LBSLayer.New(LBS.Components.LBSFloor(), System.Collections.Generic.IEnumerable(Of ISILab.LBS.Assistants.LBSAssistant), System.Collections.Generic.IEnumerable(Of ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule), System.Collections.Generic.IEnumerable(Of ISILab.LBS.Behaviours.LBSBehaviour), ISILab.LBS.LBSLevelData, String, String, Boolean, String, String, UnityEngine.Vector2Int)
+  name.vb: New(LBSFloor(), IEnumerable(Of LBSAssistant), IEnumerable(Of LBSGeneratorRule), IEnumerable(Of LBSBehaviour), LBSLevelData, String, String, Boolean, String, String, Vector2Int)
 - uid: LBS.Components.LBSLayer.ChangeFloor(System.Int32)
   commentId: M:LBS.Components.LBSLayer.ChangeFloor(System.Int32)
   id: ChangeFloor(System.Int32)
@@ -1153,7 +1196,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ChangeFloor
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 138
+    startLine: 142
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1185,7 +1228,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Modules
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 156
+    startLine: 160
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1219,7 +1262,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 162
+    startLine: 168
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1255,7 +1298,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 174
+    startLine: 180
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1286,7 +1329,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveModuleInAllFloors
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 192
+    startLine: 198
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1315,7 +1358,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 206
+    startLine: 212
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1351,7 +1394,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 208
+    startLine: 214
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1385,7 +1428,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 211
+    startLine: 217
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1423,7 +1466,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetRule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 221
+    startLine: 235
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1456,7 +1499,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ReplaceModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 243
+    startLine: 257
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1487,7 +1530,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddBehaviour
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 256
+    startLine: 270
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1516,7 +1559,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveBehaviour
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 284
+    startLine: 298
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1545,7 +1588,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetBehaviour
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 291
+    startLine: 305
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1581,7 +1624,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddAssistant
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 301
+    startLine: 315
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1610,7 +1653,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveAssistant
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 328
+    startLine: 342
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1639,7 +1682,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAssistant
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 335
+    startLine: 349
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1673,7 +1716,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAssistant
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 337
+    startLine: 351
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1709,7 +1752,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddGeneratorRule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 346
+    startLine: 360
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1738,7 +1781,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveGeneratorRule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 352
+    startLine: 366
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1769,7 +1812,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetID
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 367
+    startLine: 381
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1793,6 +1836,38 @@ items:
   nameWithType.vb: LBSLayer.SetID(String)
   fullName.vb: LBS.Components.LBSLayer.SetID(String)
   name.vb: SetID(String)
+- uid: LBS.Components.LBSLayer.SetSubTypeID(System.String)
+  commentId: M:LBS.Components.LBSLayer.SetSubTypeID(System.String)
+  id: SetSubTypeID(System.String)
+  parent: LBS.Components.LBSLayer
+  langs:
+  - csharp
+  - vb
+  name: SetSubTypeID(string)
+  nameWithType: LBSLayer.SetSubTypeID(string)
+  fullName: LBS.Components.LBSLayer.SetSubTypeID(string)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SetSubTypeID
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 387
+  assemblies:
+  - LBS
+  namespace: LBS.Components
+  syntax:
+    content: public void SetSubTypeID(string newSubTypeID)
+    parameters:
+    - id: newSubTypeID
+      type: System.String
+    content.vb: Public Sub SetSubTypeID(newSubTypeID As String)
+  overload: LBS.Components.LBSLayer.SetSubTypeID*
+  nameWithType.vb: LBSLayer.SetSubTypeID(String)
+  fullName.vb: LBS.Components.LBSLayer.SetSubTypeID(String)
+  name.vb: SetSubTypeID(String)
 - uid: LBS.Components.LBSLayer.ChangeFloorCount(System.UInt32)
   commentId: M:LBS.Components.LBSLayer.ChangeFloorCount(System.UInt32)
   id: ChangeFloorCount(System.UInt32)
@@ -1811,7 +1886,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ChangeFloorCount
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 373
+    startLine: 393
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1843,7 +1918,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Reload
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 385
+    startLine: 405
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1869,7 +1944,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveAll
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 395
+    startLine: 415
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1895,7 +1970,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPosition
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 407
+    startLine: 427
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1926,7 +2001,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPositionOffset
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 418
+    startLine: 438
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1959,7 +2034,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPositionOffset
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 419
+    startLine: 439
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1995,7 +2070,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: FixedToPosition
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 421
+    startLine: 441
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2031,7 +2106,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPosition
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 429
+    startLine: 449
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2064,7 +2139,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ClearEvents
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 439
+    startLine: 459
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2090,7 +2165,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 450
+    startLine: 470
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2121,7 +2196,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CloneFloorArray
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 461
+    startLine: 519
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2155,7 +2230,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 470
+    startLine: 528
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2191,7 +2266,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 482
+    startLine: 540
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2221,7 +2296,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnChangeUpdate
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 488
+    startLine: 546
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2247,7 +2322,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: InvokeNameChanged
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 489
+    startLine: 547
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2273,7 +2348,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextAddInvoke
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 490
+    startLine: 548
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2299,7 +2374,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextRemoveInvoke
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 491
+    startLine: 549
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2325,7 +2400,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsExteriorLayer
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 545
+    startLine: 603
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2356,7 +2431,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsPopulationLayer
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 552
+    startLine: 610
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2384,7 +2459,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsQuestLayer
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 558
+    startLine: 616
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2412,7 +2487,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsInteriorLayer
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 564
+    startLine: 622
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2440,7 +2515,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAreaClone
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 580
+    startLine: 638
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2478,7 +2553,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAnchor
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 603
+    startLine: 661
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2511,7 +2586,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetPosition
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 625
+    startLine: 683
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2547,7 +2622,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CaptureAreaData
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 643
+    startLine: 701
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2590,7 +2665,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: MergeLayerData
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 648
+    startLine: 706
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2987,6 +3062,12 @@ references:
   name: ID
   nameWithType: LBSLayer.ID
   fullName: LBS.Components.LBSLayer.ID
+- uid: LBS.Components.LBSLayer.SubTypeID*
+  commentId: Overload:LBS.Components.LBSLayer.SubTypeID
+  href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_SubTypeID
+  name: SubTypeID
+  nameWithType: LBSLayer.SubTypeID
+  fullName: LBS.Components.LBSLayer.SubTypeID
 - uid: LBS.Components.LBSLayer.Name*
   commentId: Overload:LBS.Components.LBSLayer.Name
   href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_Name
@@ -3842,6 +3923,12 @@ references:
   name: SetID
   nameWithType: LBSLayer.SetID
   fullName: LBS.Components.LBSLayer.SetID
+- uid: LBS.Components.LBSLayer.SetSubTypeID*
+  commentId: Overload:LBS.Components.LBSLayer.SetSubTypeID
+  href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_SetSubTypeID_System_String_
+  name: SetSubTypeID
+  nameWithType: LBSLayer.SetSubTypeID
+  fullName: LBS.Components.LBSLayer.SetSubTypeID
 - uid: LBS.Components.LBSLayer.ChangeFloorCount*
   commentId: Overload:LBS.Components.LBSLayer.ChangeFloorCount
   href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_ChangeFloorCount_System_UInt32_

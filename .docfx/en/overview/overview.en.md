@@ -16,7 +16,7 @@ LBS is a mixed-initiative content generation tool focused on creating content su
 
 Level Building Sidekick (LBS) allows interactive software developers to define the architecture, constraints, graphical elements and decorative details to be used in the construction of a proposed game level. This process allows an increase of the quality and diversity of content they can offer their players. The tool allows artists to upload any type of art they create for their game, allowing them to compose custom art sets for different genres, sections or styles. 
 
-![LBS Editor](/images/overview/lbs_2025.png)
+![LBS Editor](../../images/overview/lbs_2025.png)
 
 ## Assistants
 

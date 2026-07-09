@@ -79,12 +79,12 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
         #region METHODS
         public void MoveArea(Zone zone, Vector2Int dir)
         {
-            var tiles = GetTiles(zone);
+            List<LBSTile> tiles = GetTiles(zone);
 
-            var old = new List<LBSTile>();
+            List<LBSTile> old = new();
 
             //var poss = new List<Vector2Int>();
-            foreach (var t in tiles)
+            foreach (LBSTile t in tiles)
             {
                 old.Add(t.Clone() as LBSTile);
                 t.Position += new Vector2Int(dir.x, dir.y);
@@ -98,23 +98,23 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
         private void RecalcPivotZone(Zone zone)
         {
-            var tiles = GetTiles(zone);
+            List<LBSTile> tiles = GetTiles(zone);
 
-            var pos = tiles.GetBounds();
+            Rect pos = tiles.GetBounds();
 
             zone.Pivot = pos.center;
         }
 
         private void RecalcPivotZone(Zone zone, List<LBSTile> tiles)
         {
-            var pos = tiles.GetBounds();
+            Rect pos = tiles.GetBounds();
 
             zone.Pivot = pos.center;
         }
 
         public void AddPair(TileZonePair pair)
         {
-            var current = GetPairTile(pair.Tile.Position);
+            TileZonePair current = GetPairTile(pair.Tile.Position);
             if (current != null)
             {
                 pairs.Remove(current);
@@ -144,7 +144,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
         public Zone GetZone(LBSTile tile)
         {
-            var p = GetPairTile(tile);
+            TileZonePair p = GetPairTile(tile);
             if (p == null)
                 return null;
             return p.Zone;
@@ -156,14 +156,14 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
             OnRemoveZone?.Invoke(this, zone);
 
             var toRemove = new List<TileZonePair>();
-            foreach (var pair in pairs)
+            foreach (TileZonePair pair in pairs)
             {
                 if (pair.Zone.Equals(zone))
                     toRemove.Add(pair);
             }
             OnChanged?.Invoke(this, toRemove.Cast<object>().ToList(), null);
 
-            foreach (var pair in toRemove)
+            foreach (TileZonePair pair in toRemove)
             {
                 pairs.Remove(pair);
                 OnRemovePair?.Invoke(this, pair);
@@ -175,7 +175,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
             if (pairs.Count <= 0)
                 return null;
 
-            foreach (var pair in pairs)
+            foreach (TileZonePair pair in pairs)
             {
                 if (pair.Tile.Equals(tile))
                     return pair;
@@ -192,7 +192,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
         public List<LBSTile> GetTiles(Zone zone)
         {
             var tiles = new List<LBSTile>();
-            foreach (var pair in pairs)
+            foreach (TileZonePair pair in pairs)
             {
                 if (pair.Zone.Equals(zone))
                 {
@@ -226,7 +226,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
         public void RemovePair(LBSTile tile)
         {
-            var t = GetPairTile(tile);
+            TileZonePair t = GetPairTile(tile);
             pairs.Remove(t);
             OnChanged?.Invoke(this, new List<object>() { t }, null);
             OnRemovePair?.Invoke(this, t);
@@ -234,7 +234,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
         public void RemovePair(int index)
         {
-            var pair = pairs[index];
+            TileZonePair pair = pairs[index];
             pairs.RemoveAt(index);
             OnChanged?.Invoke(this, new List<object>() { pair }, null);
             OnRemovePair?.Invoke(this, pair);
@@ -386,7 +386,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
             IEnumerable<LBSTile> tiles = ZonesWithTiles.SelectMany(zwt => GetTiles(zwt));
             foreach(LBSTile tile in tiles)
             {
-                var pair = connectedTM.GetPair(tile);
+                TileConnectionsPair pair = connectedTM.GetPair(tile);
                 if (pair is null) continue;
                 HashSet<string> set = pair.Connections.ToHashSet(); // Null ref (Simulation Layer create)
                 

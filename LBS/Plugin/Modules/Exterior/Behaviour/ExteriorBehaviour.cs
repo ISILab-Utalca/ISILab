@@ -278,7 +278,8 @@ namespace ISILab.LBS.Behaviours
                 }
                 else if (overwrite)
                 {
-                    originalTile = incomingTile.Clone() as LBSTile;
+                    //originalTile = incomingTile.Clone() as LBSTile;
+                    TileMap.AddTile(incomingTile.Clone() as LBSTile);
                 }
             }
 
@@ -295,7 +296,9 @@ namespace ISILab.LBS.Behaviours
                 }
                 else if (overwrite)
                 {
-                    originalConnectionPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                    //originalConnectionPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                    var NewPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                    Connections.AddPair(NewPair.Tile, NewPair.Connections, NewPair.EditedByIA);
                 }
             }
 

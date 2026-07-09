@@ -510,7 +510,8 @@ namespace ISILab.LBS.Behaviours
                 }
                 else if (overwrite)
                 {
-                    originalTile = incomingTile.Clone() as LBSTile;
+                    //originalTile = incomingTile.Clone() as LBSTile;
+                    TileMap.AddTile(incomingTile.Clone() as LBSTile);
                 }
             }
 
@@ -518,22 +519,33 @@ namespace ISILab.LBS.Behaviours
             {
                 TileBundleGroup incomingTbg = cloneTileBundle[i];
 
-                for (int j = 0; j < TileBundleGroup.Count; j++)
+                var og = BundleTilemap.GetGroup(incomingTbg.AreaRect.position);
+                if(og == null)
                 {
-                    var originalTbg = TileBundleGroup[j];
-                    if (originalTbg.AreaRect.position == incomingTbg.AreaRect.position)
-                    {
-                        if (overwrite)
-                        {
-                            originalTbg = incomingTbg.Clone() as TileBundleGroup;
-                        }
-                    }
-                    else
-                    {
-                        _bundleTileMap.AddGroup(incomingTbg.Clone() as TileBundleGroup);
-                    }
-
+                    _bundleTileMap.AddGroup(incomingTbg.Clone() as TileBundleGroup);
                 }
+                else if (overwrite)
+                {
+                    //og = incomingTbg.Clone() as TileBundleGroup;
+                    _bundleTileMap.AddGroup(incomingTbg.Clone() as TileBundleGroup);
+                }
+
+                //for (int j = 0; j < TileBundleGroup.Count; j++)
+                //{
+                //    var originalTbg = TileBundleGroup[j];
+                //    if (originalTbg.AreaRect.position == incomingTbg.AreaRect.position)
+                //    {
+                //        if (overwrite)
+                //        {
+                //            originalTbg = incomingTbg.Clone() as TileBundleGroup;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        _bundleTileMap.AddGroup(incomingTbg.Clone() as TileBundleGroup);
+                //    }
+
+                //}
 
             }
 

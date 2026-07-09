@@ -37,7 +37,7 @@ MonoBehaviour:
     - rid: 6524972785853792770
     assistants:
     - rid: 1508221576461156358
-    - rid: 6524973148879200423
+    - rid: 3414068420413227008
     generatorRules:
     - rid: 1508221576461156359
     - rid: 1508221576461156360
@@ -2151,6 +2151,45 @@ MonoBehaviour:
           - rid: 1508221576461156360
           index: 0
         pairs: []
+    - rid: 3414068420413227008
+      type: {class: BSPAssistant, ns: , asm: LBS}
+      data:
+        visible: 1
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1508221576237548539
+          - rid: 6524972859793080408
+          - rid: 6524972859793080409
+          - rid: 6524972859793080410
+          - rid: 6524972859793080411
+          - rid: 6524972859793080412
+          - rid: 6524972859793080413
+          - rid: 6524972859793080414
+          - rid: 6524972859793080415
+          - rid: 6524972859793080416
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
+        name: BSPAssistant
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
+        icon: {fileID: 0}
+        exampleMember: 
+        minPartitionSize: 10
+        minRoomSize: 4
     - rid: 6524972785853792769
       type: {class: SchemaBehaviour, ns: ISILab.LBS.Plugin.Components.Behaviours, asm: LBS}
       data:
@@ -7720,41 +7759,3 @@ MonoBehaviour:
           - rid: 1508221576461156360
           index: 0
         notes: []
-    - rid: 6524973148879200423
-      type: {class: BSPAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: ISILab}
-      data:
-        visible: 1
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Interior_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 1508221576237548539
-          - rid: 6524972859793080408
-          - rid: 6524972859793080409
-          - rid: 6524972859793080410
-          - rid: 6524972859793080411
-          - rid: 6524972859793080412
-          - rid: 6524972859793080413
-          - rid: 6524972859793080414
-          - rid: 6524972859793080415
-          - rid: 6524972859793080416
-          behaviours:
-          - rid: 6524972785853792769
-          - rid: 6524972785853792770
-          assistants:
-          - rid: 1508221576461156358
-          - rid: 6524973148879200423
-          generatorRules:
-          - rid: 1508221576461156359
-          - rid: 1508221576461156360
-          index: 0
-        colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
-        name: BSPAssistant
-        iconGuid: ad8feef201665454ca79e31b7d798ac3
-        icon: {fileID: 0}
-        minPartitionSize: 10
-        minRoomSize: 4

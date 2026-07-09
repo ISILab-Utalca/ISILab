@@ -37,12 +37,13 @@ namespace ISILab.LBS.VisualElements
         #endregion
         
         #region METHODS
-        public override void InitCustomEditors(ref List<LBSLayer> _layers)
+        public override void InitCustomEditors(ref List<LBSLayer> layers)
         {
-            foreach (LBSLayer refLayer in _layers)
+            foreach (LBSLayer _refLayer in layers)
             {
-                if (refLayer == null) continue;
-                var modList = refLayer.Modules(refLayer.ActiveFloor);
+                LBSLayer layer = _refLayer.Clone() as LBSLayer;
+                if (layer == null) continue;
+                var modList = layer.Modules(layer.ActiveFloor);
                 foreach (LBSModule module in modList)
                 {
                     if (module is null) continue;
