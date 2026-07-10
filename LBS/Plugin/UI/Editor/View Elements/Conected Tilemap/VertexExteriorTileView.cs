@@ -26,7 +26,7 @@ namespace ISILab.LBS.VisualElements
         readonly Color invalidColor = Color.white;
         float boderWidth = 1f;
 
-        public VertexExteriorTileView(List<string> connections = null) : base(connections, "ConnectedVertexBasedTile")
+        public VertexExteriorTileView(List<string> connections = null, string centerTag = "") : base(connections, "ConnectedVertexBasedTile")
         {
             connections ??= new List<string>() { "", "", "", "" };
 
@@ -86,7 +86,7 @@ namespace ISILab.LBS.VisualElements
 
 
        
-        public override void SetConnections(string[] tags)
+        public override void SetConnections(string[] tags, string centerTag = "")
         {
             var tts = LBSAssetsStorage.Instance.Get<LBSTag>();
 

@@ -75,6 +75,7 @@ namespace ISILab.LBS.Manipulators
                         _exterior.identifierToSet.Label == null ||_exterior.identifierToSet.Label == "Empty" ) continue;
             
                     SetConnections(tile, pos, paintNeighbors);
+                    _exterior.SetCenter(tile, _exterior.identifierToSet.Label);
                 }
             }
 

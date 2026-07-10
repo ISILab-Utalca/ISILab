@@ -19,7 +19,7 @@ namespace ISILab.LBS.VisualElements
         private LBSCustomPainterCircle leftConnection, rightConnection, topConnection, bottomConnection;
         private LBSPainterVisualElement leftSide, rightSide, topSide, bottomSide;
         private LBSCustomPainterBox center;
-        public EdgeExteriorTileView(List<string> connections = null) : base(connections, "ConnectedTile")
+        public EdgeExteriorTileView(List<string> connections = null, string centerTag = "") : base(connections, "ConnectedTile")
         {
             connections ??= new List<string>() { "", "", "", "" };
 
@@ -48,37 +48,37 @@ namespace ISILab.LBS.VisualElements
             bottomSide = this.Q<LBSPainterVisualElement>("BottomSide");
 
 
-            SetConnections(connections.ToArray());
+            SetConnections(connections.ToArray(), centerTag);
            
-                var centerPoint = new Vector2(50, 50);
+            var centerPoint = new Vector2(50, 50);
 
-                leftConnection.MinPos = centerPoint*Vector2.left + centerPoint;
-                rightConnection.MinPos = centerPoint*Vector2.right + centerPoint;
-                bottomConnection.MinPos = centerPoint*Vector2.up + centerPoint;
-                topConnection.MinPos = centerPoint*Vector2.down + centerPoint;
+            leftConnection.MinPos = centerPoint*Vector2.left + centerPoint;
+            rightConnection.MinPos = centerPoint*Vector2.right + centerPoint;
+            bottomConnection.MinPos = centerPoint*Vector2.up + centerPoint;
+            topConnection.MinPos = centerPoint*Vector2.down + centerPoint;
 
-                center.MinPos = centerPoint / 2f;
-                center.MaxPos = centerPoint + (centerPoint / 2f);
+            center.MinPos = centerPoint / 2f;
+            center.MaxPos = centerPoint + (centerPoint / 2f);
 
-                // Force initialization repaint updates
-                topConnection.MarkDirtyRepaint();
-                rightConnection.MarkDirtyRepaint();
-                bottomConnection.MarkDirtyRepaint();
-                leftConnection.MarkDirtyRepaint();
-                center.MarkDirtyRepaint();
+            // Force initialization repaint updates
+            topConnection.MarkDirtyRepaint();
+            rightConnection.MarkDirtyRepaint();
+            bottomConnection.MarkDirtyRepaint();
+            leftConnection.MarkDirtyRepaint();
+            center.MarkDirtyRepaint();
 
-                SetConnections(connections.ToArray());
-                SetSelectionMode(true);
+            SetConnections(connections.ToArray(), centerTag);
+            SetSelectionMode(true);
 
-                this.SetBorder(Color.black, 0);
-                style.display = DisplayStyle.Flex;
+            this.SetBorder(Color.black, 0);
+            style.display = DisplayStyle.Flex;
  
 
             style.overflow = Overflow.Hidden;
             style.display = DisplayStyle.None;
         }
 
-        public override void SetConnections(string[] tags)
+        public override void SetConnections(string[] tags, string centerTag = "")
         {
             List<LBSTag> tts = LBSAssetsStorage.Instance.Get<LBSTag>();
             Color invalidColor = Color.white;
@@ -160,9 +160,13 @@ namespace ISILab.LBS.VisualElements
                     .OrderByDescending(kvp => kvp.Value)
                     .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
+                Color centerColor = string.IsNullOrEmpty(centerTag) ?
+                    orderedConnectionColors.First().Key :
+                    tts.Find(t => t.Label.Equals(centerTag)).Color;
+
                 // Kept SetBackgroundColor here as center uses it uniformly, 
                 // but you can change it to center.FillColor = ... if needed.
-                center.FillColor = tags.Contains("") ? invalidColor : orderedConnectionColors.First().Key;
+                center.FillColor = tags.Contains("") ? invalidColor : centerColor;//orderedConnectionColors.First().Key;
             }
             else
             {

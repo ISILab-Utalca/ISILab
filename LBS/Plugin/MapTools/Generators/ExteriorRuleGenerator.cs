@@ -29,13 +29,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private Tuple<LBSDirection, int> GetBundle(LBSDirectionedGroup group, string[] conections)
         {
             // Get connections
-            var connections = group.GetDirs();
+            List<LBSDirection> connections = group.GetDirs();
 
-            foreach (var connection in connections)
+            foreach (LBSDirection connection in connections)
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    var curDir = connection.Connections.Rotate(i);
+                    List<string> curDir = connection.Connections.Rotate(i);
                     if (curDir.SequenceEqual(conections))
                     {
                        // Debug.Log("found");
@@ -50,7 +50,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
 
-            var bundles = LBSAssetsStorage.Instance.Get<Bundle>();
+            List<Bundle> bundles = LBSAssetsStorage.Instance.Get<Bundle>();
 
             if (layer.Behaviours.Count == 0)
             {
@@ -58,7 +58,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
             
             var exteriorBehaviour = layer.Behaviours.Find(b => b is ExteriorBehaviour) as ExteriorBehaviour;
-            var bundle = exteriorBehaviour?.Bundle; 
+            Bundle bundle = exteriorBehaviour?.Bundle; 
             if (bundle == null)
             {
                 return new GeneratedGO(null, new LBSLog("Bundle not found", LogType.Error));
@@ -73,7 +73,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             GameObject nonNavContainer = new GameObject("NotNavigable");
             navContainer.transform.parent = mainPivot.transform;
             nonNavContainer.transform.parent = mainPivot.transform;
-            var scale = settings.scale;
+            Vector3 scale = settings.scale;
 
             // Get modules
             var mapMod = layer.GetModule<TileMapModule>();
@@ -87,10 +87,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             //This may take a bit, though! -Alice
 
             //We have the tiles here
-            var chosenTiles = mapMod.Tiles;
+            List<LBSTile> chosenTiles = mapMod.Tiles;
 
             //This is a HORRIFYING way to order the tiles. PLEASE change it if you find a better way! -Alice
-            var chosenTilesOrdered = OrderBySameConnection(chosenTiles);
+            IOrderedEnumerable<LBSTile> chosenTilesOrdered = OrderBySameConnection(chosenTiles);
 
             //Debug.Log("MODULE | W: " + mapMod.Width + " | H: " + mapMod.Height + " | COUNT: "+chosenTiles.Count);
             var tilePrefPair = new Dictionary<LBSTile, GameObject>();
@@ -98,10 +98,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             foreach(LBSTile chosenTile in chosenTilesOrdered)
             {
                 // This gets the bundle immediately
-                var pair = GetBundle(selected, connctMod.GetConnections(chosenTile).ToArray());
+                Tuple<LBSDirection, int> pair = GetBundle(selected, connctMod.GetConnections(chosenTile).ToArray());
 
                 //Get current bundle
-                var currentBundle = pair?.Item1?.Owner;
+                Bundle currentBundle = pair?.Item1?.Owner;
                 //Debug.Log(chosenTile.Position.x + " | " + chosenTile.Position.y + " : " + currentBundle);
 
                 //Then see if it has a selector. If not, we go for random!
@@ -115,20 +115,20 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     var adjacentPrefs = new Dictionary<string, GameObject>();
 
                     //Left!
-                    var leftTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x-1, chosenTile.Position.y)));
+                    LBSTile leftTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x-1, chosenTile.Position.y)));
                     if (leftTile != null)
                     {
-                        var leftBundle = GetBundle(selected, connctMod.GetConnections(leftTile).ToArray()).Item1.Owner;
+                        Bundle leftBundle = GetBundle(selected, connctMod.GetConnections(leftTile).ToArray()).Item1.Owner;
                         if (leftBundle.Equals(currentBundle)) {
                             adjacentBundles.Add("Left", leftBundle);
                             if (tilePrefPair.ContainsKey(leftTile)) adjacentPrefs.Add("Left", tilePrefPair[leftTile]);
                         }
                     }
                     //Right!
-                    var rightTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x + 1, chosenTile.Position.y)));
+                    LBSTile rightTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x + 1, chosenTile.Position.y)));
                     if (rightTile != null)
                     {
-                        var rightBundle = GetBundle(selected, connctMod.GetConnections(rightTile).ToArray()).Item1.Owner;
+                        Bundle rightBundle = GetBundle(selected, connctMod.GetConnections(rightTile).ToArray()).Item1.Owner;
                         if (rightBundle.Equals(currentBundle))
                         {
                             adjacentBundles.Add("Right", rightBundle);
@@ -136,20 +136,20 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         }
                     }
                     //Up!
-                    var upTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x, chosenTile.Position.y + 1)));
+                    LBSTile upTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x, chosenTile.Position.y + 1)));
                     if (upTile != null)
                     {
-                        var upBundle = GetBundle(selected, connctMod.GetConnections(upTile).ToArray()).Item1.Owner;
+                        Bundle upBundle = GetBundle(selected, connctMod.GetConnections(upTile).ToArray()).Item1.Owner;
                         if (upBundle.Equals(currentBundle)) {
                             adjacentBundles.Add("Up", upBundle);
                             if (tilePrefPair.ContainsKey(upTile)) adjacentPrefs.Add("Up", tilePrefPair[upTile]);
                         }   
                     }
                     //Down!
-                    var downTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x, chosenTile.Position.y - 1)));
+                    LBSTile downTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x, chosenTile.Position.y - 1)));
                     if (downTile != null)
                     {
-                        var downBundle = GetBundle(selected, connctMod.GetConnections(downTile).ToArray()).Item1.Owner;
+                        Bundle downBundle = GetBundle(selected, connctMod.GetConnections(downTile).ToArray()).Item1.Owner;
                         if (downBundle.Equals(currentBundle))
                         {
                             adjacentBundles.Add("Down", downBundle);
@@ -158,7 +158,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     }
 
                     //var pref = pair?.Item1?.Owner?.Assets?.RandomRullete(w => w.probability)?.obj;
-                    var pref = ChoosePatternByGrid(currentBundle, adjacentBundles, adjacentPrefs);
+                    GameObject pref = ChoosePatternByGrid(currentBundle, adjacentBundles, adjacentPrefs);
                     if(pref==null) {
                         //Debug.Log("starter chosen instead of grid");
                         pref = pair?.Item1?.Owner?.Assets[0]?.obj;
@@ -169,16 +169,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 else
                 {
                     //This is the same because I'm still figuring this out lol
-                    var pref = pair?.Item1?.Owner?.Assets?.RandomRullete(w => w.probability)?.obj;
+                    GameObject pref = pair?.Item1?.Owner?.Assets?.RandomRullete(w => w.probability)?.obj;
                     tilePrefPair.Add(chosenTile, pref);
                 }
             }
 
             foreach(KeyValuePair<LBSTile, GameObject> keyPair in tilePrefPair) {
 
-                var tile = keyPair.Key;
-                var pref = keyPair.Value;
-                var pair = GetBundle(selected, connctMod.GetConnections(tile).ToArray());
+                LBSTile tile = keyPair.Key;
+                GameObject pref = keyPair.Value;
+                Tuple<LBSDirection, int> pair = GetBundle(selected, connctMod.GetConnections(tile).ToArray());
 
                 if (pref == null)
                 {
@@ -208,7 +208,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 goToTileMap.Add(go, tile);
 
-                var current = pair.Item1.Owner;
+                Bundle current = pair.Item1.Owner;
                 // Add ref component
                 LBSGenerated generatedComponent = go.AddComponent<LBSGenerated>();
                 generatedComponent.BundleRef = current;
@@ -225,13 +225,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             //Decides the position of the pivot based on the average position of every object generated
             //This is after we've created every object, so don't touch it, Alice!
-            var x = tiles.Average(t => t.transform.position.x);
-            var y = tiles.Min(t => t.transform.position.y);
-            var z = tiles.Average(t => t.transform.position.z);
+            float x = tiles.Average(t => t.transform.position.x);
+            float y = tiles.Min(t => t.transform.position.y);
+            float z = tiles.Average(t => t.transform.position.z);
 
             mainPivot.transform.position = new Vector3(x, y, z);
 
-            foreach (var tile in tiles)
+            foreach (GameObject tile in tiles)
             {
                 LBSTile logicalTile = goToTileMap[tile];
                 List<string> connections = connctMod.GetConnections(logicalTile);

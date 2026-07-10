@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49fb3215f5e8c1242aa1598a18cd8a53, type: 3}
-  m_Name: Proto_E_Two_Ground_Two_Dark
+  m_Name: Proto_E_Two_Water_Two_Ground_Ground
   m_EditorClassIdentifier: 
   bundleName: 
   layerContentFlags: 2
-  type: 1
+  type: 0
   anchorPosition: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   iconGuid: 
   icon: {fileID: 0}
   assets:
-  - obj: {fileID: 5220412750460723291, guid: 93acc2fd5810f6149979fcaa79f0a3ea, type: 3}
-    probability: 0
+  - obj: {fileID: 7186673553856494103, guid: c211f7e27c07c384eb7b64d412aa0e00, type: 3}
+    probability: 1
     id: 
   characteristics:
-  - rid: 5085006314459627539
+  - rid: 6010000043355406893
   elementFlag: 0
   tileSize: {x: 1, y: 1}
   childsBundles: []
@@ -37,19 +37,19 @@ MonoBehaviour:
       positiveZ: 1
     mesh: {fileID: 0}
     material: {fileID: 0}
-  guid: 
+  guid: 9191e9fe81a76094b97d192bff3ab98c
   entityType: 0
   admissibleTypes: 
   references:
     version: 2
     RefIds:
-    - rid: 5085006314459627539
+    - rid: 6010000043355406893
       type: {class: LBSDirection, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 11400000}
         connections:
+        - Water
         - Grass
         - Grass
-        - Darkness
-        - Darkness
+        - Water
         center: Grass

@@ -57,7 +57,7 @@ namespace ISILab.LBS.Modules
             this.gridType = gridType;
             foreach (var t in tiles)
             {
-                AddPair(t.Tile, t.Connections, t.EditedByIA);
+                AddPair(t.Tile, t.Connections, t.Center, t.EditedByIA);
             }
             Pathfind = pathfindInfo;
             //OnChanged += (m, old, pair) =>
@@ -70,9 +70,9 @@ namespace ISILab.LBS.Modules
         #region METHODS
         public void SetConnection(LBSTile tile, int direction, string connection, bool editedByIA)
         {
-            var pair = GetPair(tile);
+            TileConnectionsPair pair = GetPair(tile);
 
-            var old = new TileConnectionsPair(tile, pair.Connections, pair.EditedByIA);
+            var old = new TileConnectionsPair(tile, pair.Connections, pair.Center, pair.EditedByIA);
 
             pair.SetConnection(direction, connection, editedByIA);
 
@@ -81,11 +81,22 @@ namespace ISILab.LBS.Modules
 
         public void SetConnections(LBSTile tile, List<string> connections, List<bool> canBeEditedByIA)
         {
-            var pair = GetPair(tile);
+            TileConnectionsPair pair = GetPair(tile);
 
-            var old = new TileConnectionsPair(tile, pair.Connections, pair.EditedByIA);
+            var old = new TileConnectionsPair(tile, pair.Connections, pair.Center, pair.EditedByIA);
 
             pair.SetConnections(connections, canBeEditedByIA);
+
+            OnChanged?.Invoke(this, new List<object>() { old }, new List<object>() { pair });
+        }
+
+        public void SetCenter(LBSTile tile, string center)
+        {
+            TileConnectionsPair pair = GetPair(tile);
+
+            var old = new TileConnectionsPair(tile, pair.Connections, pair.Center, pair.EditedByIA);
+
+            pair.SetCenter(center);
 
             OnChanged?.Invoke(this, new List<object>() { old }, new List<object>() { pair });
         }
@@ -93,6 +104,21 @@ namespace ISILab.LBS.Modules
         public void AddPair(LBSTile tile, List<string> connections, List<bool> canBeEditedByIA)
         {
             var pair = new TileConnectionsPair(tile, connections, canBeEditedByIA);
+            var current = GetPair(pair.Tile);
+            if (current != null)
+            {
+                pairs.Remove(current);
+                OnRemovePair?.Invoke(this, current);
+            }
+            pairs.Add(pair);
+
+            OnChanged?.Invoke(this, null, new List<object>() { pair });
+            OnAddPair?.Invoke(this, pair);
+        }
+
+        public void AddPair(LBSTile tile, List<string> connections, string center, List<bool> canBeEditedByIA)
+        {
+            var pair = new TileConnectionsPair(tile, connections, center, canBeEditedByIA);
             var current = GetPair(pair.Tile);
             if (current != null)
             {
@@ -145,6 +171,13 @@ namespace ISILab.LBS.Modules
             TileConnectionsPair p = GetPair(pos);
             if (p is null) return new List<string>();
             return p.Connections;
+        }
+
+        public string GetPairCenter(LBSTile tile)
+        {
+            TileConnectionsPair p = GetPair(tile);
+            if (p is null) return string.Empty;
+            return p.Center;
         }
 
         public void RemoveTile(TileConnectionsPair pair)
@@ -238,7 +271,7 @@ namespace ISILab.LBS.Modules
             Clear();
             foreach (var t in connectedTileMap.pairs)
             {
-                AddPair(t.Tile, t.Connections, t.EditedByIA);
+                AddPair(t.Tile, t.Connections, t.Center, t.EditedByIA);
             }
         }
 
@@ -305,21 +338,21 @@ namespace ISILab.LBS.Modules
         private List<string> connections = new List<string>();
 
         [SerializeField, SerializeReference, JsonRequired]
+        private string center;
+
+        [SerializeField, SerializeReference, JsonRequired]
         private List<bool> editedByIA = new List<bool>();
         #endregion
 
         #region PROEPRTIES
         [JsonIgnore]
-        public LBSTile Tile
-        {
-            get => tile;
-        }
+        public LBSTile Tile => tile;
 
         [JsonIgnore]
-        public List<string> Connections
-        {
-            get => connections;
-        }
+        public List<string> Connections => connections;
+
+        [JsonIgnore]
+        public string Center => center;
 
         public List<bool> EditedByIA => editedByIA;
         #endregion
@@ -329,6 +362,14 @@ namespace ISILab.LBS.Modules
         {
             this.tile = tile;
             this.connections = connections.ToList();
+            this.editedByIA = editedByIA;
+        }
+
+        public TileConnectionsPair(LBSTile tile, IEnumerable<string> connections, string center, List<bool> editedByIA)
+        {
+            this.tile = tile;
+            this.connections = connections.ToList();
+            this.center = center;
             this.editedByIA = editedByIA;
         }
         #endregion
@@ -346,11 +387,14 @@ namespace ISILab.LBS.Modules
             this.editedByIA[index] = editedByIA;
         }
 
+        public void SetCenter(string center) => this.center = center;
+
         public object Clone()
         {
             return new TileConnectionsPair(
                 CloneRefs.Get(tile) as LBSTile,
                 connections.Select(c => c.Clone() as string),
+                center,
                 new List<bool>(editedByIA)
                 );
         }
@@ -374,6 +418,8 @@ namespace ISILab.LBS.Modules
                 if (!c1.Equals(c2)) return false;
             }
 
+            if(!Equals(center, other.center)) return false;
+            
             var eCount = other.editedByIA.Count;
 
             for (int i = 0; i < eCount; i++)
@@ -399,7 +445,9 @@ namespace ISILab.LBS.Modules
             {
                 s += $"'{conn}', "; 
             }
-            s.Remove(s.Length - 2);
+            if (string.IsNullOrEmpty(center))
+                s.Remove(s.Length - 2);
+            else s += $" C={center}";
             s += "}";
             return s;
         }
@@ -420,6 +468,7 @@ namespace ISILab.LBS.Modules
             return ret;
         }
 
+        // TODO: Hacer que primero considere el centro. Si no existe, usar método actual.
         public static bool IsFloor(this TileConnectionsPair current, List<string> floorTags)
         {
             if (current == null) return false;

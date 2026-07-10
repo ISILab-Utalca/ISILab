@@ -1,12 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.Commons.Extensions;
 using ISILab.Extensions;
 using ISILab.LBS;
 using ISILab.LBS.Components;
 using Newtonsoft.Json;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 
@@ -35,18 +36,24 @@ namespace ISILab.LBS.Characteristics
         [SerializeField, JsonRequired]
         private List<string> connections = new List<string>();
 
+        [SerializeField, JsonRequired]
+        private string center;
+
 
         public const string Right = "Right";
         public const string Left = "Left";
         public const string Up = "Up";
         public const string Down = "Down";
-        public const string Center = "Center";
+        //public const string Center = "Center";
 
         #endregion
 
         #region PROPERTIES
         [JsonIgnore]
         public List<string> Connections => new List<string>(connections);
+
+        [JsonIgnore]
+        public string Center => center ?? string.Empty;
 
         [JsonIgnore]
         public int Size
@@ -157,6 +164,19 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
+        public void SetCenter(LBSTag tag)
+        {
+            try
+            {
+                center = tag.Label;
+            }
+            catch
+            {
+                Debug.LogError("[ISILab] LBSTag not found. The project's LBS Asset Storage may be outdated.");
+                return;
+            }
+        }
+
         public override object Clone()
         {
             return new LBSDirection(new List<string>(this.connections));
@@ -175,6 +195,7 @@ namespace ISILab.LBS.Characteristics
             {
                 if (this.Connections[i] != other.Connections[i]) { return false; }
             }
+            if(!Equals(Center, other.Center)) return false;
             return true;
         }
 
