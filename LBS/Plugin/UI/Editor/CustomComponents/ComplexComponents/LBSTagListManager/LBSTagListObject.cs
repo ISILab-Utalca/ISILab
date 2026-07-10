@@ -13,10 +13,17 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
 {
+    /// <summary>
+    /// A visual element for the objects contained in any particular <b>Tag List Group</b> visual element. Any Tag List Object is directly associated with
+    /// a tag or <b>Tag Group</b> to be manipulated.
+    /// </summary>
     [UxmlElement]
     public partial class LBSTagListObject : LBSCustomListItem
     {
         #region FIELDS
+        /// <summary>
+        /// A personalized enumerator to define whether the object is associated to an individual tag or a <b>Tag Group</b>.
+        /// </summary>
         public enum objectType { Individual, Group };
         private objectType type;
         private Bundle.TagType tagType;
@@ -38,6 +45,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #endregion
 
         #region PROPERTIES
+        /// <summary>
+        /// References the name currently associted to the tag object.
+        /// </summary>
         public string Name {
             get => tagName;
             set
@@ -46,6 +56,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 tagLabel.text = tagName;
             }
         }
+        /// <summary>
+        /// References the tag object's type (either Individual or Group). Changing the type will additionally change the representing image for the object.
+        /// </summary>
         public objectType Type
         {
             get => type;
@@ -61,11 +74,10 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 icon.style.backgroundImage = new StyleBackground(imageIcon);
             }
         }
-        public Bundle.TagType TagType
-        {
-            get => tagType;
-            set => tagType = value;
-        }
+        
+        /// <summary>
+        /// References the object's associated tag, or the one that will be manipulated via the object.
+        /// </summary>
         public ScriptableObject AssociatedTag
         {
             get => associatedTag;
@@ -77,12 +89,19 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 }
             }
         }
+
+        /// <summary>
+        /// The <b>Tag List</b> containing this visual element within.
+        /// </summary>
         public LBSTagListGroup Owner
         {
             get => owner;
             set => owner = value;
         }
 
+        /// <summary>
+        /// Checks whether the object, as well as its associated tag, can be removed.
+        /// </summary>
         [UxmlAttribute]
         public bool IsRemovable
         {
@@ -99,16 +118,32 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #endregion
 
         #region EVENTS
+        /// <summary>
+        /// Called when the associated object changes owners. It is automatically removed from the previous visual element and added to the new one.
+        /// </summary>
         public Action OnOwnerChanged;
+        /// <summary>
+        /// Called when the object's associated <b>Layer Tag</b> is changed or removed.
+        /// </summary>
         public Action OnLayerTagRemoved;
         #endregion
 
         #region CONSTRUCTORS
+        /// <summary>
+        /// Basic constructor. Initializes the object with no further instructions.
+        /// </summary>
         public LBSTagListObject()
         {
             Init();
         }
 
+        /// <summary>
+        /// A complex constructor that allows for the creation of a fully personalized tag object. Currently unused.
+        /// </summary>
+        /// <param name="group">The <b>Tag Group List</b> this object will be associated to.</param>
+        /// <param name="associatedTag">The tag (or <b>Tag Group</b>) associated with this object.</param>
+        /// <param name="removable">Checks whether the object would be removable with a <b>Remove</b> button or not.</param>
+        /// <param name="layerTypeRemovable">Checks whether the object's layer tag would be removable or not.</param>
         public LBSTagListObject(LBSTagListGroup group, ScriptableObject associatedTag, bool removable, bool layerTypeRemovable = false) : base()
         {
             Init();
@@ -180,6 +215,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #endregion
 
         #region METHODS
+        /// <summary>
+        /// Basic initializer for tag objects. It automatically sets all relevant buttons for easy usage, including the <b>Remove</b> button and relevant icons.
+        /// </summary>
         public void Init()
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSTagListObject");
@@ -208,6 +246,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             layerTagContainer = this.Q<VisualElement>("LayerTagContainer");
         }
 
+        /// <summary>
+        /// Adds a <b>Layer Tag</b> to the object in the form of a visual element. The Layer Tag can be personalized to define the layer the object works in.
+        /// </summary>
         public void AddLayerTag()
         {
             layerTagContainer.Clear();
@@ -239,6 +280,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             }
         }
         
+        /// <summary>
+        /// Removes the associated tag from its respective group, then automatically cleans up both the hierarchy and the visual element.
+        /// </summary>
         public void RemoveFromGroup()
         {
             var answer = EditorUtility.DisplayDialog("Remove Tag?", "Removing this tag from its associated group. Proceed?", "Continue", "Cancel");
@@ -263,7 +307,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 }
             }
         }
-
+        /// <summary>
+        /// Completely deletes the associated, then automatically does cleanup.
+        /// </summary>
         public void DeleteTag()
         {
             var answer = EditorUtility.DisplayDialog("Delete Tag?", "Deleting this tag. Proceed?", "Continue", "Cancel");

@@ -1,0 +1,42 @@
+
+#logo {
+  max-height: 32px;
+  width: auto;
+  margin: 8px;
+}
+
+.navbar-nav a[href*="/en/"], 
+.navbar-nav a[href*="/es/"] {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Inyecta la bandera de Ingles antes del texto */
+.navbar-nav a[href*="/en/"]::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('images/us-flag.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Inyecta la bandera de Español antes del texto */
+.navbar-nav a[href*="/es/"]::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('images/es-flag.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Fuerza al menú a separarse del título de la aplicación */
+.navbar-brand {
+    margin-right: 3rem !important; /* Añade un espacio extra a la derecha del título */
+}
