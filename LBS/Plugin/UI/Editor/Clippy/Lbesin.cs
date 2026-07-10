@@ -2,26 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.EditorCoroutines.Editor;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 [UxmlElement]
 public partial class Lbesin : VisualElement
 {
-    private readonly Vector2 offset = new Vector2(48,48);
+    private readonly Color SelectorColor = new Color(0.125f, 0.216f, 0.851f, 1);
+    private readonly Color IconColor = new Color(0.306f, 0.937f, 0.737f, 1);
+    private readonly Vector2 offset = new Vector2(60,48);
+    private readonly Dictionary<Button, string> _icons = new();
 
     private Dictionary<VisualElement, List<EditorCoroutine>> _activeCoroutines = new ();
     private bool dragging;
+    private bool isResetVisible;
     private Vector2 dragOffset;
 
     VisualElement _draggable;
+    VisualElement _icon;
     VisualElement _reset;
     VisualElement _modSelector;
-    VisualElement[] _modButtons;
+    VisualElement _modBackground;
+    Button[] _modButtons;
+
 
     VisualElement Draggable 
     {
         get => _draggable ??= this.Q<VisualElement>("Draggable");
+    }
+    VisualElement Icon
+    {
+        get => _icon ??= this.Q<VisualElement>("Icon");
     }
     VisualElement Reset
     {
@@ -31,14 +41,18 @@ public partial class Lbesin : VisualElement
     {
         get => _modSelector ??= Draggable.Q<VisualElement>("ModSelector");
     }
-    VisualElement[] ModButtons
+    VisualElement ModBackground
+    {
+        get => _modBackground ??= this.Q<VisualElement>("ModBackground");
+    }
+    Button[] ModButtons
     {
         get => _modButtons ??= new[]
         {
-            ModSelector.Q<VisualElement>("1"),
-            ModSelector.Q<VisualElement>("2"),
-            ModSelector.Q<VisualElement>("3"),
-            ModSelector.Q<VisualElement>("4")
+            this.Q<Button>("1"),
+            this.Q<Button>("2"),
+            this.Q<Button>("3"),
+            this.Q<Button>("4")
         };
     }
 
@@ -59,6 +73,11 @@ public partial class Lbesin : VisualElement
         var visualTree = Resources.Load<VisualTreeAsset>("Lbesin");
         visualTree.CloneTree(this);
 
+        _icons[ModButtons[0]] = "Icons/Vectorial/Population/Icon=Scroll";
+        _icons[ModButtons[1]] = "Icons/Vectorial/Population/Icon=Hearth";
+        _icons[ModButtons[2]] = "Icons/Vectorial/Population/Icon=Helmet";
+        _icons[ModButtons[3]] = "Icons/Vectorial/SideToolBar/Icon=AI_Assistant";
+
         // Set callbacks
         Draggable.RegisterCallback<PointerDownEvent>(OnPointerDown);
         Draggable.RegisterCallback<PointerMoveEvent>(OnPointerMove);
@@ -67,61 +86,109 @@ public partial class Lbesin : VisualElement
 
         Draggable.RegisterCallback<MouseEnterEvent>(evt => 
         {
-            StartCoroutine(ShowImage(ModSelector), ModSelector);
+            ShowImage(ModBackground);
             foreach (var button in ModButtons)
             {
-                StartCoroutine(ShowImage(button), button);
+                ShowImage(button);
             }
         });
         Draggable.RegisterCallback<MouseLeaveEvent>(evt =>
         {
-            StartCoroutine(HideImage(ModSelector), ModSelector);
+            HideImage(ModBackground);
             foreach (var button in ModButtons)
             {
-                StartCoroutine(HideImage(button), button);
+                HideImage(button);
             }
         });
 
         Reset.RegisterCallback<ClickEvent>(evt => 
         {
-            StartCoroutine(HideImage(Reset), Reset);
+            HideImage(Reset);
             ResetPosition();
         });
 
-        // Initial values
-        StartCoroutine(HideImage(Reset), Reset);
-        StartCoroutine(HideImage(ModSelector), ModSelector);
         foreach (var button in ModButtons)
         {
-            StartCoroutine(HideImage(button), button);
+            var currentButton = button;
+            currentButton.RegisterCallback<ClickEvent>(evt =>
+            {
+                var source = (Button)evt.currentTarget;
+
+                var path = _icons[(Button)evt.currentTarget];
+
+                var image = Resources.Load<VectorImage>(path);
+
+                Icon.style.backgroundImage = new StyleBackground(image);
+            });
+        }
+
+        // Initial values
+        Reset.style.unityBackgroundImageTintColor = IconColor;
+        ModBackground.style.unityBackgroundImageTintColor = SelectorColor;
+        foreach (var button in ModButtons)
+        {
+            var currentButton = button;
+            currentButton.style.unityBackgroundImageTintColor = IconColor;
+        }
+
+        isResetVisible = false;
+        HideImage(Reset);
+        HideImage(ModBackground);
+        foreach (var button in ModButtons)
+        {
+            var currentButton = button;
+            HideImage(  currentButton);
         }
     }
 
     #region COROUTINES
-    private IEnumerator ShowImage(VisualElement ve)
+    private void StartCoroutine(IEnumerator routine, VisualElement owner)
     {
-        var c = ve.style.unityBackgroundImageTintColor.value;
-        var a = c.a;
-        do
+        if (!_activeCoroutines.ContainsKey(owner))
         {
-            a += 0.2f;
-            ve.style.unityBackgroundImageTintColor = new Color(c.r, c.g, c.b, a);
-            yield return new EditorWaitForSeconds(0.05f);
-        } while (a < 1);
-        ve.style.unityBackgroundImageTintColor = new Color(c.r, c.g, c.b, 1);
+            _activeCoroutines[owner] = new List<EditorCoroutine>();
+        }
+        StopAllRoutines(owner);
+        _activeCoroutines[owner].Add(EditorCoroutineUtility.StartCoroutine(routine, owner));
     }
-    private IEnumerator HideImage(VisualElement ve)
+    private void StopAllRoutines(VisualElement owner)
     {
-        var c = ve.style.unityBackgroundImageTintColor.value;
-        var a = c.a;
-        do
+        if (_activeCoroutines.ContainsKey(owner))
         {
-            a -= 0.2f;
-            ve.style.unityBackgroundImageTintColor = new Color(c.r, c.g, c.b, a);
-            yield return new EditorWaitForSeconds(0.05f);
-        } while (a > 0);
-        ve.style.unityBackgroundImageTintColor = new Color(c.r, c.g, c.b, 0);
+            foreach (var coroutine in _activeCoroutines[owner])
+            {
+                EditorCoroutineUtility.StopCoroutine(coroutine);
+            }
+            _activeCoroutines[owner].Clear();
+        }
     }
+    private IEnumerator FadeImage(VisualElement ve, float targetAlpha)
+    {
+        Color color = ve.style.unityBackgroundImageTintColor.value;
+
+        double previousTime = UnityEditor.EditorApplication.timeSinceStartup;
+
+        while (!Mathf.Approximately(color.a, targetAlpha))
+        {
+            double currentTime = UnityEditor.EditorApplication.timeSinceStartup;
+            float deltaTime = (float)(currentTime - previousTime);
+            previousTime = currentTime;
+
+            color.a = Mathf.MoveTowards(
+                color.a,
+                targetAlpha,
+                4 * deltaTime);
+
+            ve.style.unityBackgroundImageTintColor = color;
+
+            yield return null;
+        }
+
+        color.a = targetAlpha;
+        ve.style.unityBackgroundImageTintColor = color;
+    }
+    private void ShowImage(VisualElement ve) => StartCoroutine(FadeImage(ve, 1f), ve);
+    private void HideImage(VisualElement ve) => StartCoroutine(FadeImage(ve, 0f), ve);
     #endregion
 
     #region POINTER EVENTS
@@ -129,19 +196,27 @@ public partial class Lbesin : VisualElement
     {
         if (evt.button != 0) // Left mouse button
             return;
+        if (evt.target is Button)
+            return;
 
         dragging = true;
         dragOffset = evt.localPosition;
         Debug.Log("Offset: " + dragOffset);
 
         PointerCaptureHelper.CapturePointer(Draggable, evt.pointerId);
-        evt.StopPropagation();
+        //evt.StopPropagation();
     }
 
     private void OnPointerMove(PointerMoveEvent evt)
     {
         if (!dragging || !PointerCaptureHelper.HasPointerCapture(Draggable, evt.pointerId))
             return;
+
+        if (!isResetVisible)
+        {
+            isResetVisible = true;
+            ShowImage(Reset);
+        }
 
         Position = new Vector2(evt.position.x - dragOffset.x - offset.x, evt.position.y - dragOffset.y - offset.y);
     }
@@ -162,27 +237,6 @@ public partial class Lbesin : VisualElement
     }
     #endregion
 
-    private void StartCoroutine(IEnumerator routine, VisualElement owner)
-    {
-        if(!_activeCoroutines.ContainsKey(owner))
-        {
-            _activeCoroutines[owner] = new List<EditorCoroutine>();
-        }
-        StopAllRoutines(owner);
-        _activeCoroutines[owner].Add(EditorCoroutineUtility.StartCoroutine(routine, owner));
-    }
-    private void StopAllRoutines(VisualElement owner)
-    {
-        if (_activeCoroutines.ContainsKey(owner))
-        {
-            foreach (var coroutine in _activeCoroutines[owner])
-            {
-                EditorCoroutineUtility.StopCoroutine(coroutine);
-            }
-            _activeCoroutines[owner].Clear();
-        }
-    }
-
     private void KeepOnBounds()
     {
         if(Position.x < 0 || Position.y < 0)
@@ -190,10 +244,15 @@ public partial class Lbesin : VisualElement
             Position = new Vector2(Mathf.Max(Position.x, 0), Mathf.Max(Position.y, 0));
         }
     }
-
     private void ResetPosition()
     {
+        isResetVisible = false;
+        HideImage(Reset);
         Position = Vector2.zero;
     }
 
+    public void SetDisplay(DisplayStyle ds)
+    {
+        this.style.display = ds;
+    }
 }
