@@ -112,10 +112,20 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 //Identify what bundle the tile is.
                 var pair = GetBundle(selected, connctMod.GetConnections(tile), connctMod.GetPairCenter(tile));
                 //This should make things better!
-                var toGen = new ToGenerateExterior(tile, pair.Item1?.Owner, null, pair.Item2);
+                //var toGen = new ToGenerateExterior(tile, pair?.Item1?.Owner, null, pair is not null ? pair.Item2 : -1);
+                if(pair is not null)
+                {
+                    var toGen = new ToGenerateExterior(tile, pair.Item1?.Owner, null, pair.Item2);
 
-                //So now we work with these
-                toGenerateList.Add(toGen);
+                    //So now we work with these
+                    toGenerateList.Add(toGen);
+                }
+                else
+                {
+                    Debug.LogWarning("[ISILab]: Element generation has failed, " +
+                        "make sure you have properly configured and assigned " +
+                        "the Bundles you want to generate with.");
+                }
             }
 
             //This is a HORRIFYING way to order the tiles. PLEASE change it if you find a better way! -Alice
@@ -143,7 +153,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     if (pref == null)
                     {
                         //Debug.Log("starter chosen instead of grid");
-                        pref = toGenTile.Bundle.Assets[0]?.obj;
+                        pref = toGenTile.Bundle != null ? toGenTile.Bundle.Assets[0]?.obj : null;
                     }
                     //Debug.Log("ADDING CHOSEN PREFERENCE: " + pref);
                     toGenTile.GameObject = pref;        
