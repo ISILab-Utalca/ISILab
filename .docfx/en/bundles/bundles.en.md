@@ -45,7 +45,7 @@ Here are the types of bundles and some of the considerations to keep in mind whe
 
 This layer works mainly with connecting ground tiles. To be able to asign the bundle's connections it is necessary to know the rotation of the object respect of its Y axis. In the shown example, according to the image, the positive side of the Z axis has a grass section, and positive X has a section of grass with path
 
-![Exterior Bundle](/images/bundles/exterior1.png "Exterior Bundle")
+![Exterior Bundle](../../images/bundles/exterior1.png "Exterior Bundle")
 
 Prefab’s considerations:
 - The visible part of the plain must be in the positive Y direction.
@@ -66,9 +66,9 @@ Prefab’s considerations:
 
 Population is basically everything related to extra elements or props in the scenario; Decoration, enemies, npc’s, items, etc.
 
-![Population Bundle Correct Pivot](/images/bundles/populationCorrectPivot.png)
+![Population Bundle Correct Pivot](../../images/bundles/populationCorrectPivot.png)
 
-![Population Bundle Incorrect Pivot](/images/bundles/populationIncorrectPivot.png)
+![Population Bundle Incorrect Pivot](../../images/bundles/populationIncorrectPivot.png)
 
 Prefab’s considerations:
 - Position is recommended to be zero in the plains X, Y, and Z. If not, it will be generated in the scene in its corresponding position.
@@ -135,7 +135,7 @@ The process of creating bundles based on existing prefab assets can be achieved 
 
 You can access the Bundle Manager window through the LBS main window or Unity’s window menu, in here, you can create new bundles and inspect the existing ones.
 
-![Bundle Manager](/images/bundles/BM_0.png)
+![Bundle Manager](../../images/bundles/BM_0.png)
 
 #### Features
 
@@ -150,23 +150,23 @@ You can access the Bundle Manager window through the LBS main window or Unity’
 
 ##### Step 1: Layer Selection
 
-![Bundle Manager](/images/bundles/BM_1.png)
+![Bundle Manager](../../images/bundles/BM_1.png)
 
 ##### Step 2: Convert Prefab Assets into Bundles
 
-![Bundle Manager](/images/bundles/BM_2.png)
+![Bundle Manager](../../images/bundles/BM_2.png)
 
 ##### Step 3: Asign pre existing bundles 
 
-![Bundle Manager](/images/bundles/BM_3.png)
+![Bundle Manager](../../images/bundles/BM_3.png)
 
 ##### Step 4: Add Characteristics
 
-![Bundle Manager](/images/bundles/BM_4.png)
+![Bundle Manager](../../images/bundles/BM_4.png)
 
 ##### Step 5: Summary
 
-![Bundle Manager](/images/bundles/BM_5.png)
+![Bundle Manager](../../images/bundles/BM_5.png)
 
 ---
 
@@ -180,11 +180,11 @@ alternatively, you may do Right Click > Create > ISILab > LBS > Bundle.
 
 #### Bundle (Multiple)
 “Bundle (Multiple)” (Alt + B) will make multiple bundles, one for each selected prefab asset.
-![Creating Bundles through Unity's project window](/images/bundles/PW_2.png)
+![Creating Bundles through Unity's project window](../../images/bundles/PW_2.png)
 
 #### Bundle (Single)
 "Bundle (Single)" (Alt + Shift + B) means LBS will make one single bundle with all selected prefab assets
-![Creating Bundles through Unity's project window](/images/bundles/PW_3.png)
-![Creating Bundles through Unity's project window](/images/bundles/PW_4.png)
+![Creating Bundles through Unity's project window](../../images/bundles/PW_3.png)
+![Creating Bundles through Unity's project window](../../images/bundles/PW_4.png)
 
 

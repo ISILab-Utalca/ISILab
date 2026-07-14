@@ -99,11 +99,6 @@ namespace ISILab.LBS.Characteristics
         {
             return  new List<string>();
         }
-
-        public virtual LBSCharacteristicRule GetCharacteristicRule()
-        {
-            return null;
-        }
         #endregion
 
     }

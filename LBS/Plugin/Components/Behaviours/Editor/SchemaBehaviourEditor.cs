@@ -233,6 +233,8 @@ namespace ISILab.LBS.Behaviours.Editor
             
             areaPallete.Repaint();
 
+            behaviour.NewBlueprintArea -= RepaintPostAddZone;
+            behaviour.NewBlueprintArea += RepaintPostAddZone;
         }
 
         private void SetConnectionPallete()
@@ -272,6 +274,11 @@ namespace ISILab.LBS.Behaviours.Editor
         {
             var newZone = behaviour.AddZone();
 
+            RepaintPostAddZone(newZone);
+        }
+
+        private void RepaintPostAddZone(Zone newZone)
+        {
             areaPallete.Options = new object[behaviour.Zones.Count];
             for (int i = 0; i < behaviour.Zones.Count; i++)
             {

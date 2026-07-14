@@ -130,6 +130,10 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         #endregion
 
+        #region EVENTS
+        public Action<Zone> NewBlueprintArea;
+        #endregion
+
         #region CONSTRUCTORS
         public SchemaBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
         #endregion
@@ -188,20 +192,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         public Zone AddZone(string insideStyle = null, string outsideStyle = null)
         {
-            string prefix = "Zone: ";
-            int counter = 0;
-            string suffix = " (" + OwnerLayer.Name + ")";
-            string name = prefix + counter;
-            IEnumerable<string> names = areas.Zones.Select(z => z.ID);
-            while (names.Contains(name))
-            {
-                counter++;
-                name = prefix;
-                
-                if (counter < 10) name += "0" + counter;
-                else   name += counter;
-               
-            }
+            string name = GetNewZoneName();
 
             var c = new Color().RandomColorHSV();
             var zone = new Zone(name, c)
@@ -212,6 +203,26 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
             areas.AddZone(zone);
             return zone;
+        }
+
+        private string GetNewZoneName()
+        {
+            string prefix = "Zone: ";
+            int counter = 0;
+            string suffix = " (" + OwnerLayer.Name + ")";
+            string name = prefix + counter;
+            IEnumerable<string> names = areas.Zones.Select(z => z.ID);
+            while (names.Contains(name))
+            {
+                counter++;
+                name = prefix;
+
+                if (counter < 10) name += "0" + counter;
+                else name += counter;
+
+            }
+
+            return name;
         }
 
         public void RemoveZone(Zone zone)
@@ -724,32 +735,37 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         public bool MergeLayerData(object incoming, bool overwrite)
         {
-            SchemaBehaviour merger = incoming as SchemaBehaviour;
-            if (merger == null) return false;
+            if (incoming is not SchemaBehaviour merger) return false;
 
             for (int i = 0; i < merger.areas.Zones.Count; i++)
             {
-                var incomingZone = merger.areas.Zones[i];
+                Zone incomingZone = merger.areas.Zones[i];
 
-                var originalZone = areas.Zones.FirstOrDefault(z => z.ID == incomingZone.ID);
+                Zone originalZone = areas.Zones.FirstOrDefault(z => z.ID == incomingZone.ID);
 
                 if (originalZone == null)
                 {
-                    areas.AddZone(incomingZone.Clone() as Zone);
+                    Zone clone = incomingZone.Clone() as Zone;
+                    areas.AddZone(clone);
+                    NewBlueprintArea?.Invoke(clone);
                 }
                 else if (overwrite)
                 {
-                    areas.RemoveZone(originalZone);
-                    areas.AddZone(incomingZone.Clone() as Zone);
+                    //areas.RemoveZone(originalZone);
+                    incomingZone.ID = GetNewZoneName();
+                    Zone clone = incomingZone.Clone() as Zone;
+                    //clone.ID = GetNewZoneName(); // Probar si cambiar el ID antes de clonar. Si funciona, el cambio seria permanente pero inofensivo en teoria.
+                    areas.AddZone(clone);
+                    NewBlueprintArea?.Invoke(clone);
                 }
             }
 
             for (int i = 0; i < merger.areas.PairTiles.Count; i++)
             {
-                var incomingPair = merger.areas.PairTiles[i];
+                TileZonePair incomingPair = merger.areas.PairTiles[i];
 
-                var incomingTile = incomingPair.Tile;
-                var incomingZone = incomingPair.Zone;
+                LBSTile incomingTile = incomingPair.Tile;
+                Zone incomingZone = incomingPair.Zone;
 
                 TileZonePair originalTile = areas.GetPairTile(incomingTile.Position);
 
@@ -758,7 +774,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                     var newTile = incomingTile.Clone() as LBSTile;
                     tileMap.AddTile(newTile);
 
-                    var zone = areas.Zones.First(z => z.ID == incomingZone.ID);
+                    Zone zone = areas.Zones.First(z => z.ID == incomingZone.ID);
                     areas.AddTile(newTile, zone);
                 }
                 else if (overwrite)
@@ -768,19 +784,19 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                     var newTile = incomingTile.Clone() as LBSTile;
                     tileMap.AddTile(newTile);
 
-                    var zone = areas.Zones.First(z => z.ID == incomingZone.ID);
+                    Zone zone = areas.Zones.First(z => z.ID == incomingZone.ID);
                     areas.AddTile(newTile, zone);
                 }
             }
 
             for (int i = 0; i < merger.TileConnections.Pairs.Count; i++)
             {
-                var incomingConnectionPair = merger.TileConnections.Pairs[i];
+                TileConnectionsPair incomingConnectionPair = merger.TileConnections.Pairs[i];
 
-                var tile = tileMap.GetTile(incomingConnectionPair.Tile.Position);
+                LBSTile tile = tileMap.GetTile(incomingConnectionPair.Tile.Position);
                 if (tile == null) continue;
 
-                var originalPair = TileConnections.GetPair(tile);
+                TileConnectionsPair originalPair = TileConnections.GetPair(tile);
 
                 if (originalPair == null)
                 {
@@ -789,9 +805,13 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                 }
                 else if (overwrite)
                 {
-                    originalPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                    //originalPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                    var newPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                    TileConnections.AddPair(tile, newPair.Connections, newPair.EditedByIA);
                 }
             }
+
+            RecalculateWalls();
 
             return true;
         }

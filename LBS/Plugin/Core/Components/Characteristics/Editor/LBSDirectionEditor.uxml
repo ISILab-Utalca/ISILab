@@ -1,22 +1,18 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:VisualElement name="VisualElement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);">
+        <ISILab.LBS.CustomComponents.LBSCustomObjectField label="Center Tag:" icon-side="None" name="Center" style="margin-bottom: 10px;" />
         <ui:VisualElement style="flex-grow: 1; background-color: rgb(91, 91, 91); flex-direction: row; align-items: center;">
-            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: resource(&apos;Icons/Arrows/Icon=ArrowRight&apos;); max-width: 16px; max-height: 16px; min-width: 16px; min-height: 16px;" />
-            <uie:ObjectField label="Right Direction Tag: " name="Right" style="flex-grow: 1; flex-shrink: 1;" />
+            <ISILab.LBS.CustomComponents.LBSCustomObjectField name="Right" label="Right Direction Tag:" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Arrows/Icon=ArrowRight.svg?fileID=7388822144124034973&amp;guid=83eafacbab9ab554299bc4d0f124d980&amp;type=3#Icon=ArrowRight" icon-side="Left" style="width: 99%;" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
-            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: resource(&apos;Icons/Arrows/Icon=ArrowUp&apos;); max-width: 16px; max-height: 16px; min-width: 16px; min-height: 16px;" />
-            <uie:ObjectField label="Up Direction Tag: " name="Up" style="flex-grow: 1; flex-shrink: 1;" />
+            <ISILab.LBS.CustomComponents.LBSCustomObjectField label="Up Direction Tag:" name="Up" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Arrows/Icon=ArrowUp.svg?fileID=7388822144124034973&amp;guid=f1fc1f0912d5a60458848af61a94e118&amp;type=3#Icon=ArrowUp" style="width: 99%;" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; background-color: rgb(91, 91, 91); flex-direction: row; align-items: center;">
-            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: resource(&apos;Icons/Arrows/Icon=ArrowLeft&apos;); max-width: 16px; max-height: 16px; min-width: 16px; min-height: 16px;" />
-            <uie:ObjectField label="Left Direction Tag: " name="Left" style="flex-grow: 1; flex-shrink: 1;" />
+            <ISILab.LBS.CustomComponents.LBSCustomObjectField name="Left" label="Left Direction Tag:" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Arrows/Icon=ArrowLeft.svg?fileID=7388822144124034973&amp;guid=bd96d266e4bde964183b9e2aeba8d4a8&amp;type=3#Icon=ArrowLeft" style="width: 99%;" />
         </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
-            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: resource(&apos;Icons/Arrows/Icon=ArrowDown&apos;); max-width: 16px; max-height: 16px; min-width: 16px; min-height: 16px;" />
-            <uie:ObjectField label="Down Direction Tag: " name="Down" style="flex-grow: 1; flex-shrink: 1;" />
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: stretch; justify-content: flex-start; align-self: auto; align-content: flex-start; overflow: visible; -unity-text-align: upper-left; white-space: normal; flex-shrink: 1;">
+            <ISILab.LBS.CustomComponents.LBSCustomObjectField name="Down" label="Down Direction Tag:" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Arrows/Icon=ArrowDown.svg?fileID=7388822144124034973&amp;guid=b570a25de51f01c41bd82dbe5372bb3f&amp;type=3#Icon=ArrowDown" style="width: 99%;" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:Button text="Open Direction Tool" icon-image="project://database/Assets/ISI%20Lab/Commons/Assets2D/Resources/Icons/Vectorial/Icon=ConnectionType.svg?fileID=7388822144124034973&amp;guid=aa37444bbc7d2aa4185a69cf71c35048&amp;type=3#Icon=ConnectionType" name="OpenDirectionToolButton" style="height: 45px;" />
-    <ui:VisualElement name="Render" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/ISI%20Lab/Macros/placeholder.png?fileID=2800000&amp;guid=edcbfe04a88995d49aabd5bf8ee28e79&amp;type=3#placeholder&quot;); -unity-background-scale-mode: scale-to-fit; background-size: 32px 32px; background-color: rgb(0, 0, 0); width: 200px; height: 200px; align-self: center; display: none; visibility: hidden;" />
+    <ui:Button text="Open Direction Tool" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Icon=ConnectionType.svg?fileID=7388822144124034973&amp;guid=aa37444bbc7d2aa4185a69cf71c35048&amp;type=3#Icon=ConnectionType" name="OpenDirectionToolButton" style="height: 45px;" />
 </ui:UXML>

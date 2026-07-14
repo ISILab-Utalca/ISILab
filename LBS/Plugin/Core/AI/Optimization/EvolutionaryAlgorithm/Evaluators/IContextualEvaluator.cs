@@ -116,7 +116,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         combinedSectorTM.AddZone(zone);
                     }
                     combinedSectorTM.AddTile(tile, zone);
-                    combinedConnectedTM.AddPair(tile, currentConnectedTM.GetConnections(tile), currentConnectedTM.GetPair(tile).EditedByIA);
+                    combinedConnectedTM.AddPair(tile, currentConnectedTM.GetConnections(tile), currentConnectedTM.GetPairCenter(tile), currentConnectedTM.GetPair(tile).EditedByIA);
                     combinedLayer.GetModule<TileMapModule>().AddTile(tile);
                 }
             }

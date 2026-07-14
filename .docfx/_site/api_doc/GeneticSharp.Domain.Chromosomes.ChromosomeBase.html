@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ChromosomeBase | Level Building Sidekick </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ChromosomeBase | Level Building Sidekick ">
+      
+      <meta name="description" content="A base class for chromosomes.">
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/new/ignacio-r-develop/apiSpec/new?filename=GeneticSharp_Domain_Chromosomes_ChromosomeBase.md&amp;value=---%0Auid%3A%20GeneticSharp.Domain.Chromosomes.ChromosomeBase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="Level Building Sidekick">
+            Level Building Sidekick
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase">
+
+
+
+  <h1 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase" class="text-break">
+Class ChromosomeBase  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="GeneticSharp.html">GeneticSharp</a>.<a class="xref" href="GeneticSharp.Domain.html">Domain</a>.<a class="xref" href="GeneticSharp.Domain.Chromosomes.html">Chromosomes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary">A base class for chromosomes.</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ChromosomeBase</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="ISILab.AI.Categorization.ChromosomeBase2D.html">ChromosomeBase2D</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase__ctor_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase__ctor" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor">
+  ChromosomeBase()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ChromosomeBase()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase__ctor_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase__ctor_System_Int32_System_Collections_Generic_HashSet_System_Int32__System_Collections_Generic_HashSet_System_Int32__" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})">
+  ChromosomeBase(int, HashSet&lt;int&gt;, HashSet&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Initializes a new instance of the <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a> class.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ChromosomeBase(int length, HashSet&lt;int&gt; immutables = null, HashSet&lt;int&gt; invalids = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd>The length, in genes, of the chromosome.</dd>
+    <dt><code>immutables</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>invalids</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_genes" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes">
+  genes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected object[] genes</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_immutableIndexes" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes">
+  immutableIndexes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected HashSet&lt;int&gt; immutableIndexes</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_invalidIndexes" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes">
+  invalidIndexes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected HashSet&lt;int&gt; invalidIndexes</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Fitness_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Fitness" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness">
+  Fitness
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Gets or sets the fitness of the chromosome in the current problem.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Fitness { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_ImmutablesCount_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_ImmutablesCount" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount">
+  ImmutablesCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ImmutablesCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Length_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Length" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length">
+  Length
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Gets the length, in genes, of the chromosome.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Length { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_xFitness_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_xFitness" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness">
+  xFitness
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Gets or sets the fitness.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double xFitness { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd>The fitness.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_yFitness_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_yFitness" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness">
+  yFitness
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Gets or sets the fitness.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double yFitness { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd>The fitness.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Clone_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Clone" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone">
+  Clone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CloneChromosome_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CloneChromosome" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome">
+  CloneChromosome()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Creates a clone.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ChromosomeBase CloneChromosome()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
+    <dd>The chromosome clone.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CompareTo_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CompareTo_GeneticSharp_Domain_Chromosomes_ChromosomeBase_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)">
+  CompareTo(ChromosomeBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L269"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Compares the current object with another object of the same type.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(ChromosomeBase other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
+    <dd>The other chromosome.</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd>The to.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGene_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGene_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)">
+  CreateGene(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Creates the gene on specified index.
+<remarks>
+It's a shortcut to:  
+<pre><code class="lang-csharp">ReplaceGene(index, GenerateGene(index));</code></pre>
+</remarks></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void CreateGene(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd>The gene index.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGenes_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGenes" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes">
+  CreateGenes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L342"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Creates all genes
+<remarks>
+It's a shortcut to: 
+<pre><code class="lang-csharp">for (int i = 0; i &lt; Length; i++)
+{
+    ReplaceGene(i, GenerateGene(i));
+}</code></pre>
+</remarks></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void CreateGenes()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateNewChromosome_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateNewChromosome" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome">
+  CreateNewChromosome()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Creates a new chromosome using the same structure of this.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ChromosomeBase CreateNewChromosome()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
+    <dd>The new chromosome.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Equals_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Equals_System_Object_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Determines whether the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> is equal to the current <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> to compare with the current <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>.</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><code>true</code> if the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> is equal to the current
+    <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>; otherwise, <code>false</code>.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GenerateGene_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GenerateGene" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene">
+  GenerateGene()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L373"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract object GenerateGene()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetDataSquence_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetDataSquence__1" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1">
+  GetDataSquence&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L409"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T[] GetDataSquence&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>T[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetData_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetData__1" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1">
+  GetData&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L400"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T GetData&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)">
+  GetGene(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L363"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object GetGene(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene__1_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)">
+  GetGene&lt;T&gt;(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Gets the gene in the specified index.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual T GetGene&lt;T&gt;(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd>The gene index.</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd>The gene.</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes">
+  GetGenes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L368"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object[] GetGenes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes__1" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1">
+  GetGenes&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Gets the genes.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual T[] GetGenes&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>T[]</dt>
+    <dd>The genes.</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetHashCode_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetHashCode" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L310"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Returns a hash code for this instance.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsImmutable_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsImmutable_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)">
+  IsImmutable(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L419"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsImmutable(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsInvalid_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsInvalid_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)">
+  IsInvalid(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L424"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsInvalid(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsValid_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsValid" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid">
+  IsValid()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L386"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool IsValid()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)">
+  ReplaceGene&lt;T&gt;(int, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Replaces the gene in the specified index.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ReplaceGene&lt;T&gt;(int index, T gene)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd>The gene index to replace.</dd>
+    <dt><code>gene</code> <span class="xref">T</span></dt>
+    <dd>The new gene.</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd>index;There is no Gene on index {0} to be replaced..With(index)</dd>
+  </dl>
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])">
+  ReplaceGenes&lt;T&gt;(int, T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Replaces the genes starting in the specified index.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ReplaceGenes&lt;T&gt;(int startIndex, T[] genes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd>Start index.</dd>
+    <dt><code>genes</code> T[]</dt>
+    <dd>The genes.</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0____remarks">Remarks</h4>
+  <div class="markdown level1 remarks">The genes to be replaced can't be greater than the available space between the start index and the end of the chromosome.</div>
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Resize_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Resize_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)">
+  Resize(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Resizes the chromosome to the new length.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Resize(int newLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd>The new length.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])">
+  SetDataSequence&lt;T&gt;(T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L388"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDataSequence&lt;T&gt;(T[] data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> T[]</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)">
+  SetData&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L414"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetData&lt;T&gt;(T data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDeafult_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDeafult_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)">
+  SetDeafult(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L429"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void SetDeafult(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_Equality_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Equality*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_Equality_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Equality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)">
+  operator ==(ChromosomeBase, ChromosomeBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Implements the operator ==.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(ChromosomeBase first, ChromosomeBase second)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
+    <dd>The first.</dd>
+    <dt><code>second</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
+    <dd>The second.</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd>The result of the operator.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_GreaterThan_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_GreaterThan*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_GreaterThan_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_GreaterThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)">
+  operator &gt;(ChromosomeBase, ChromosomeBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Implements the operator &gt;.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(ChromosomeBase first, ChromosomeBase second)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
+    <dd>The first.</dd>
+    <dt><code>second</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
+    <dd>The second.</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd>The result of the operator.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_Inequality_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Inequality*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_Inequality_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Inequality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)">
+  operator !=(ChromosomeBase, ChromosomeBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Implements the operator !=.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(ChromosomeBase first, ChromosomeBase second)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
+    <dd>The first.</dd>
+    <dt><code>second</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
+    <dd>The second.</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd>The result of the operator.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_LessThan_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_LessThan*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_LessThan_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_LessThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)">
+  operator &lt;(ChromosomeBase, ChromosomeBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Implements the operator &lt;.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(ChromosomeBase first, ChromosomeBase second)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
+    <dd>The first.</dd>
+    <dt><code>second</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
+    <dd>The second.</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd>The result of the operator.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -45,6 +45,7 @@ namespace ISILab.LBS.CustomComponents
                     }
                     iconVisualElement.style.display = DisplayStyle.Flex;
                     iconVisualElement.style.backgroundImage = new StyleBackground(iconImage);
+                    SetIconPosition(iconPosition);
                 }
             }
         }
@@ -88,9 +89,11 @@ namespace ISILab.LBS.CustomComponents
             
             iconVisualElement = new VisualElement();
             iconVisualElement.AddToClassList(LBSCustomStyle.LBS_ICON);
-            this.Add(iconVisualElement);
             
-            if (iconImage != null)
+            this.Add(iconVisualElement); 
+            iconVisualElement.style.flexGrow = 1;
+            iconVisualElement.style.maxWidth = 16;
+            if (iconImage != null) // No entra
             {
                 iconVisualElement.style.backgroundImage = new StyleBackground(iconImage);
                 SetIconPosition(iconPosition);

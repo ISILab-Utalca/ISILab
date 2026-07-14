@@ -20,8 +20,9 @@ namespace ISILab.Commons.Utility.Editor
 
         public static T GetAssetByName<T>(string name, bool exactMatch = false)
         {
-            string[] guids = AssetDatabase.FindAssets(name);
             object obj = null;
+            if (exactMatch && name == "") return (T)obj;
+            string[] guids = AssetDatabase.FindAssets(name);
             foreach (var guid in guids)
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);

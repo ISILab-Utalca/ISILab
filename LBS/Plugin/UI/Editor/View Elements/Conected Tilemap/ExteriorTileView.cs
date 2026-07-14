@@ -48,7 +48,7 @@ namespace ISILab.LBS.VisualElements
             
         }
 
-        public abstract void SetConnections(string[] tags);
+        public abstract void SetConnections(string[] tags, string center);
 
         public virtual void SetTileCenter(LBSTag identifier)
         {

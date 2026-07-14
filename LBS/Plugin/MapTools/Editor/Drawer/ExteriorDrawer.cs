@@ -62,6 +62,7 @@ namespace ISILab.LBS.Drawers
             foreach (LBSTile newTile in newTiles)
             {
                 List<string> connections = connectMod.GetConnections(newTile);
+                string center = connectMod.GetPairCenter(newTile);
 
                 ExteriorTileView tView;
                 List<GraphElement> previousElement = view.GetElementsFromLayer(exterior.OwnerLayer, newTile);
@@ -69,16 +70,16 @@ namespace ISILab.LBS.Drawers
                 {
                     replaceCount++;
                     tView = previousElement[0] as ExteriorTileView;
-                    tView.SetConnections(connections.ToArray());
+                    tView.SetConnections(connections.ToArray(), center);
                 }
                 else
                 {
                     createCount++;
-                    tView = GetTileView(newTile, connections, teselationSize, exterior.GridType);
+                    tView = GetTileView(newTile, connections, center, teselationSize, exterior.GridType);
                     if(tView is null) return;
 
                     // Stores using LBSTile as key
-                    tView.SetConnections(connections.ToArray());
+                    tView.SetConnections(connections.ToArray(), center);
                     view.AddElementToLayerContainer(exterior.OwnerLayer, newTile, tView);
                 } 
                         
@@ -158,20 +159,21 @@ namespace ISILab.LBS.Drawers
             foreach (LBSTile tile in exterior.Tiles)
             {   
                 List<string> connections = connectMod.GetConnections(tile);
+                string center = connectMod.GetPairCenter(tile);
                 ExteriorTileView tView;
                 List<GraphElement> previousElement = view.GetElementsFromLayer(exterior.OwnerLayer, tile);
                 if (previousElement is not null && previousElement.Count > 0)
                 {
                     replaceCount++;
                     tView = previousElement[0] as ExteriorTileView;
-                    tView.SetConnections(connections.ToArray());
+                    tView.SetConnections(connections.ToArray(), center);
                     tView.style.display = DisplayStyle.Flex;
                    // tView.SetSelectionMode(isSelected);
                 }
                 else
                 {
                     createCount++;
-                    tView = GetTileView(tile, connections, teselationSize, exterior.GridType);
+                    tView = GetTileView(tile, connections, center, teselationSize, exterior.GridType);
                     // Stores using LBSTile as key
                     view.AddElementToLayerContainer(exterior.OwnerLayer, tile, tView);
                     exterior.Keys.Add(tile);
@@ -259,7 +261,7 @@ namespace ISILab.LBS.Drawers
         //    }
         //}
 
-        private ExteriorTileView GetTileView(LBSTile tile, List<string> connections, Vector2 teselationSize, ConnectedTileType gridType)
+        private ExteriorTileView GetTileView(LBSTile tile, List<string> connections, string center, Vector2 teselationSize, ConnectedTileType gridType)
         {
             if(!connections.Any()) return null;
             
@@ -267,10 +269,10 @@ namespace ISILab.LBS.Drawers
             switch(gridType)
             {
                 case ConnectedTileType.EdgeBased:
-                    tView = new EdgeExteriorTileView(connections);
+                    tView = new EdgeExteriorTileView(connections, center);
                     break;
                 case ConnectedTileType.VertexBased:
-                    tView = new VertexExteriorTileView(connections);
+                    tView = new VertexExteriorTileView(connections, center);
                     break;
             }
 

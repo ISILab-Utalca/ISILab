@@ -170,13 +170,20 @@ namespace ISILab.LBS.Behaviours
         public void SetConnection(LBSTile tile, int direction, string connection, bool canEditedByAI)
         {
             RequestTilePaint(tile);
-            var t = OwnerLayer.GetModule<ConnectedTileMapModule>().GetPair(tile);
+            TileConnectionsPair t = OwnerLayer.GetModule<ConnectedTileMapModule>().GetPair(tile);
             t.SetConnection(direction, connection, canEditedByAI);
         }
 
         public List<string> GetConnections(LBSTile tile)
         {
             return Connections.GetConnections(tile);
+        }
+
+        public void SetCenter(LBSTile tile, string tag)
+        {
+            RequestTilePaint(tile);
+            TileConnectionsPair t = OwnerLayer.GetModule<ConnectedTileMapModule>().GetPair(tile);
+            t.SetCenter(tag);
         }
 
         public void RequestTilesRepaint(IEnumerable<LBSTile> tiles)
@@ -278,7 +285,8 @@ namespace ISILab.LBS.Behaviours
                 }
                 else if (overwrite)
                 {
-                    originalTile = incomingTile.Clone() as LBSTile;
+                    //originalTile = incomingTile.Clone() as LBSTile;
+                    TileMap.AddTile(incomingTile.Clone() as LBSTile);
                 }
             }
 
@@ -291,11 +299,13 @@ namespace ISILab.LBS.Behaviours
                 if (originalConnectionPair == null)
                 {
                     var NewPair = incomingConnectionPair.Clone() as TileConnectionsPair;
-                    Connections.AddPair(NewPair.Tile, NewPair.Connections, NewPair.EditedByIA);
+                    Connections.AddPair(NewPair.Tile, NewPair.Connections, NewPair.Center, NewPair.EditedByIA);
                 }
                 else if (overwrite)
                 {
-                    originalConnectionPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                    //originalConnectionPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                    var NewPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                    Connections.AddPair(NewPair.Tile, NewPair.Connections, NewPair.Center, NewPair.EditedByIA);
                 }
             }
 

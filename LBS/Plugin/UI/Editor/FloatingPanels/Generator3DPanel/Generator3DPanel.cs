@@ -128,7 +128,6 @@ namespace ISILab.LBS.VisualElements.Editor
                 _settings.scale = evt.newValue;
                 LBSSettings.Instance.MarkSettingsAsDirty();
             });
-            _scaleField.value = DEFAULT_SCALE;
 
             _buildLightProbes = this.Q<LBSCustomToggleField>("LightProbes");
             _buildLightProbes.RegisterValueChangedCallback(evt =>

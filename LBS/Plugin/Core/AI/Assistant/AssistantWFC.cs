@@ -488,12 +488,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
                 //a
                 Candidate selected = current.Value.RandomRullete(c => c.weigth);
-                
+
                 //b
-                List<string> connections = selected.bundle.GetConnection(selected.rotation).ToList();
+                LBSDirection d = selected.bundle;
+                List<string> connections = d.GetConnection(selected.rotation).ToList();
+                string center = d.Center;
                 
                 //c
                 connected.SetConnections(current.Key, connections, new List<bool>() { false, false, false, false });
+                connected.SetCenter(current.Key, center);
                 
                 //d
                 currentCalcs[current.Key] = new List<Candidate>() { selected };
