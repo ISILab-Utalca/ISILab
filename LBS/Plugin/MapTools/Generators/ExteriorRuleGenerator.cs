@@ -12,11 +12,8 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
 using LBS.Components;
-using LBS.Components.TileMap;
-using SharpNeatLib.Maths;
 using UnityEditor;
 using UnityEngine;
-using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
@@ -26,31 +23,41 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         // For template construction
         public ExteriorRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
 
-
-        private Tuple<LBSDirection, int> GetBundle(LBSDirectionedGroup group, string[] conections)
+        // TODO: AGREGAR CENTRO PARA EVITAR IMPRECISIONES!!!!
+        private Tuple<LBSDirection, int> GetBundle(LBSDirectionedGroup group, List<string> connections, string center)
         {
+            //List<string> fullTile = new(connections);
+            
             // Get connections
-            var connections = group.GetDirs();
+            List<LBSDirection> extTiles = group.GetDirs();
+            List<Tuple<LBSDirection, int>> possibles = new();
 
-            foreach (var connection in connections)
+            foreach (LBSDirection extTile in extTiles)
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    var curDir = connection.Connections.Rotate(i);
-                    if (curDir.SequenceEqual(conections))
+                    List<string> curDir = extTile.Connections.Rotate(i);
+                    if (curDir.SequenceEqual(connections))
                     {
-                        return new Tuple<LBSDirection, int>(connection, i);
+                        if (center is null)
+                        {
+                            possibles.Add(new Tuple<LBSDirection, int>(extTile, i));
+                        }
+                        else if (center.Equals(extTile.Center))
+                        {
+                            return new Tuple<LBSDirection, int>(extTile, i);
+                        }
                     }
                 }
             }
-            return null;
+            return possibles.FirstOrDefault();
         }
 
 
         public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
 
-            var bundles = LBSAssetsStorage.Instance.Get<Bundle>();
+            var bundles = LBSAssetsStorage.Instance.Get<Bundle>(); // Como se esta usando esto??
 
             if (layer.Behaviours.Count == 0)
             {
@@ -65,14 +72,20 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
 
             List<string> navigableTags = exteriorBehaviour.NavigableTags;
+            bool usingNavigableTags = navigableTags.Count > 0;// false;
             var selected = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
             
             // Create pivot
             var mainPivot = new GameObject("Exterior");
-            GameObject navContainer = new GameObject("Navigable");
-            GameObject nonNavContainer = new GameObject("NotNavigable");
-            navContainer.transform.parent = mainPivot.transform;
-            nonNavContainer.transform.parent = mainPivot.transform;
+            GameObject navContainer = null;
+            GameObject nonNavContainer = null;
+            if(usingNavigableTags)
+            {
+                navContainer = new GameObject("Navigable");
+                nonNavContainer = new GameObject("NotNavigable");
+                navContainer.transform.parent = mainPivot.transform;
+                nonNavContainer.transform.parent = mainPivot.transform;
+            }
             var scale = settings.scale;
 
             // Get modules
@@ -97,7 +110,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             foreach(LBSTile tile in chosenTiles) {
 
                 //Identify what bundle the tile is.
-                var pair = GetBundle(selected, connctMod.GetConnections(tile).ToArray());
+                var pair = GetBundle(selected, connctMod.GetConnections(tile), connctMod.GetPairCenter(tile));
                 //This should make things better!
                 var toGen = new ToGenerateExterior(tile, pair.Item1?.Owner, null, pair.Item2);
 
@@ -189,24 +202,43 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             mainPivot.transform.position = new Vector3(x, y, z);
 
-            foreach (var tile in tiles)
+            
+            foreach (GameObject tile in tiles)
             {
-                LBSTile logicalTile = goToTileMap[tile];
-                List<string> connections = connctMod.GetConnections(logicalTile);
-                int validConnectionsCount = connections.Count(c => navigableTags.Contains(c));
-
-                // Determine if the tile is navigable based on its connections (can be changed if you want more or less connections to be navigable)
-                bool isNavigable = validConnectionsCount >= 2;
-
-                if (isNavigable)
+                if (usingNavigableTags)
                 {
-                    tile.transform.parent = navContainer.transform;
+                    bool isNavigable = false;
+                    LBSTile logicalTile = goToTileMap[tile];
+                    string center = connctMod.GetPairCenter(logicalTile);
+
+                    if (!string.IsNullOrEmpty(center))
+                    {
+                        isNavigable = navigableTags.Contains(center);
+                    }
+                    else
+                    {
+                        // Determine if the tile is navigable based on its connections (can be changed if you want more or less connections to be navigable)
+                        List<string> connections = connctMod.GetConnections(logicalTile);
+                        int validConnectionsCount = connections.Count(c => navigableTags.Contains(c));
+
+                        isNavigable = validConnectionsCount >= 2;
+                    }
+
+                    if (isNavigable)
+                    {
+                        tile.transform.parent = navContainer.transform;
+                    }
+                    else
+                    {
+                        tile.transform.parent = nonNavContainer.transform;
+                    }
                 }
                 else
                 {
-                    tile.transform.parent = nonNavContainer.transform;
+                    tile.transform.parent = mainPivot.transform;
                 }
             }
+            
 
             mainPivot.transform.position += settings.position;
 

@@ -363,7 +363,9 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             // Exterior Layers: GameObjects
             List<GameObject> exteriorLayerGameObjects =
                             GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
-                            .Where(obj => obj.name == "Navigable").ToList();
+                            .Where(obj => (obj.name == "Exterior" && (obj.transform.childCount == 0 || !obj.transform.GetChild(0).gameObject.name.EndsWith("Navigable"))) || obj.name == "Navigable")
+                            //.Where(obj => obj.transform.childCount == 1 && obj.transform?.GetChild(0).name == "Exterior")
+                            .ToList();
 
             // Si no se encuentra, advierte.
             if (interiorLayerGameObjects.Count == 0 && exteriorLayerGameObjects.Count == 0)
