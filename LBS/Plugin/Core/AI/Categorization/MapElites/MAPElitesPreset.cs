@@ -78,7 +78,8 @@ namespace ISILab.LBS.AI.Categorization
             get => mapElites?.YEvaluator;
             set => mapElites.YEvaluator = value;
         }
-        
+
+        [SerializeField]
         public Vector2 YThreshold
         {
             get => mapElites.YThreshold;

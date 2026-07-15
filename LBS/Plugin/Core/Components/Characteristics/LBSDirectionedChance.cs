@@ -15,7 +15,7 @@ namespace ISILab.LBS.Characteristics
 
     public class LBSDirectionedChance : LBSCharacteristic, ICloneable
     {
-
+        [SerializeField]
         public class TileDirectionChance
         {
             [SerializeField]
@@ -28,7 +28,7 @@ namespace ISILab.LBS.Characteristics
             public float chance;
         }
 
-
+        [SerializeField]
         public class TileDirection
         {
             [SerializeField]

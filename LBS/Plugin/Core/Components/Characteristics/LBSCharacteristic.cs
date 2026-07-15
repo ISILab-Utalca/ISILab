@@ -38,6 +38,7 @@ namespace ISILab.LBS.Characteristics
         #endregion
 
         #region CONSTRUCTORS
+        [SerializeField]
         public LBSCharacteristic() {   }
         #endregion
 
