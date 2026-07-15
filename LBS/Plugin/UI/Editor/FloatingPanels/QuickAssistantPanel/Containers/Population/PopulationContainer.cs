@@ -396,7 +396,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
     }
 
-    [SerializeField]
+
     public struct BoolIntPair
     {
         public bool boolean;
