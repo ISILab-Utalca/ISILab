@@ -99,9 +99,9 @@ namespace PathOS
             if (hasScreenshot)
             {
                 if (screenshotReference != null)
-                    screenshotID = screenshotReference.GetInstanceID();
+                    screenshotID = screenshotReference.GetEntityId().GetHashCode();
                 else
-                    screenshotReference = EditorUtility.InstanceIDToObject(screenshotID) as ScreenshotManager;
+                    screenshotReference = EditorUtility.EntityIdToObject(screenshotID) as ScreenshotManager;
             }
 
             hasScreenshot = screenshotReference != null;
@@ -111,10 +111,10 @@ namespace PathOS
             {
                 if (managerReference != null)
                 {
-                    managerID = managerReference.GetInstanceID();
+                    managerID = managerReference.GetEntityId().GetHashCode();
                 }
                 else
-                    managerReference = EditorUtility.InstanceIDToObject(managerID) as PathOSManager;
+                    managerReference = EditorUtility.EntityIdToObject(managerID) as PathOSManager;
             }
 
             hasManager = managerReference != null;
@@ -123,9 +123,9 @@ namespace PathOS
             if (hasAgent)
             {
                 if (agentReference != null)
-                    agentID = agentReference.GetInstanceID();
+                    agentID = agentReference.GetEntityId().GetHashCode();
                 else
-                    agentReference = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
+                    agentReference = EditorUtility.EntityIdToObject(agentID) as PathOSAgent;
             }
 
             hasAgent = agentReference != null;
@@ -261,7 +261,7 @@ namespace PathOS
 
                 if (hasAgent)
                 {
-                    agentID = agentReference.GetInstanceID();
+                    agentID = agentReference.GetEntityId().GetHashCode();
                 }
             }
 
@@ -310,7 +310,7 @@ namespace PathOS
 
                 if (hasManager)
                 {
-                    managerID = managerReference.GetInstanceID();
+                    managerID = managerReference.GetEntityId().GetHashCode();
                 }
             }
 
@@ -358,7 +358,7 @@ namespace PathOS
 
                 if (hasScreenshot)
                 {
-                    screenshotID = screenshotReference.GetInstanceID();
+                    screenshotID = screenshotReference.GetEntityId().GetHashCode();
                 }
             }
 
@@ -407,17 +407,17 @@ namespace PathOS
         private void GrabScreenshotReference()
         {
             if (hasScreenshot && null == screenshotReference)
-                screenshotReference = EditorUtility.InstanceIDToObject(screenshotID) as ScreenshotManager;
+                screenshotReference = EditorUtility.EntityIdToObject(screenshotID) as ScreenshotManager;
         }
         private void GrabManagerReference()
         {
             if (hasManager && null == managerReference)
-                managerReference = EditorUtility.InstanceIDToObject(managerID) as PathOSManager;
+                managerReference = EditorUtility.EntityIdToObject(managerID) as PathOSManager;
         }
         private void GrabAgentReference()
         {
             if (hasAgent && null == agentReference)
-                agentReference = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
+                agentReference = EditorUtility.EntityIdToObject(agentID) as PathOSAgent;
         }
     }
 

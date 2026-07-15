@@ -89,7 +89,7 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
         static void CreateBundleAsset(UnityEngine.Object obj, string pathName)
         {
             ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
-                obj.GetInstanceID(),
+                obj.GetEntityId(),
                 ScriptableObject.CreateInstance<EndBundleNameEditAction>(),
                 pathName,
                 AssetPreview.GetMiniThumbnail(obj),
@@ -143,7 +143,7 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
             string fullPath = Path.Combine(desiredPath, fileName);
             if (!AssetDatabase.IsValidFolder(desiredPath))
             {
-                // Esta función de System.IO crea toda la cadena de carpetas de una vez
+                // Esta funciï¿½n de System.IO crea toda la cadena de carpetas de una vez
                 Directory.CreateDirectory(desiredPath);
 
                 // Importante: Refrescar el AssetDatabase para que Unity reconozca las nuevas carpetas
@@ -154,21 +154,26 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
         #endregion
     }
 
-    internal class EndBundleNameEditAction : UnityEditor.ProjectWindowCallback.EndNameEditAction
+    internal class EndBundleNameEditAction : UnityEditor.ProjectWindowCallback.AssetCreationEndAction
     {
-        public override void Action(int instanceId, string pathName, string resourceFile)
+        public  void Action(int instanceId, string pathName, string resourceFile)
         {
-            Bundle bundle = EditorUtility.InstanceIDToObject(instanceId) as Bundle;
+            Bundle bundle = EditorUtility.EntityIdToObject(instanceId) as Bundle;
             AssetDatabase.CreateAsset(bundle, AssetDatabase.GenerateUniqueAssetPath(pathName));
             bundle.GUID = AssetMacro.GetGuidFromAsset(bundle);
             Debug.Log($"Created new Bundle: '{bundle.name}', '{bundle.GUID}'");
             AssetDatabase.Refresh();
         }
 
-        public override void Cancelled(int instanceId, string pathName, string resourceFile)
+        public  void Cancelled(int instanceId, string pathName, string resourceFile)
         {
-            Bundle bundle = EditorUtility.InstanceIDToObject(instanceId) as Bundle;
+            Bundle bundle = EditorUtility.EntityIdToObject(instanceId) as Bundle;
             DestroyImmediate(bundle, true);
+        }
+
+        public override void Action(EntityId entityId, string pathName, string resourceFile)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

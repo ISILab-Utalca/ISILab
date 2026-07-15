@@ -120,7 +120,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
                 logger.WriteHeader("FLOOR_COUNT," + floorCount);
                 logger.WriteHeader("SAMPLE," + sampleRate);
 
-                loggers.Add(logObjects[i].GetInstanceID(), logger);
+                loggers.Add(logObjects[i].GetEntityId().GetHashCode(), logger);
 
                 ++fileIndex;
             }
@@ -163,7 +163,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
         {
             if (enableLogging)
             {
-                int instanceID = caller.GetInstanceID();
+                int instanceID = caller.GetEntityId().GetHashCode();
 
                 if (loggers.ContainsKey(instanceID))
                     loggers[instanceID].WriteHeader(header);
@@ -175,7 +175,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
         {
             if (enableLogging)
             {
-                int instanceID = caller.GetInstanceID();
+                int instanceID = caller.GetEntityId().GetHashCode();
 
                 if (loggers.ContainsKey(instanceID))
                     loggers[instanceID].LogInteraction(interacted.name, interacted.transform);

@@ -471,7 +471,7 @@ namespace PathOS
         public PerceivedEntity(LevelEntity entityRef)
         {
             this.entityRef = entityRef;
-            this.instanceID = entityRef.objectRef.GetInstanceID();
+            this.instanceID = entityRef.objectRef.GetEntityId().GetHashCode();
             this.perceivedPos = entityRef.objectRef.transform.position;
         }
 

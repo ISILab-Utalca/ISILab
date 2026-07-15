@@ -70,12 +70,12 @@ namespace PathOS
 
             public RuntimeAgentReference(PathOSAgent agent)
             {
-                instanceID = agent.GetInstanceID();
+                instanceID = agent.GetEntityId().GetHashCode();
             }
 
             public void UpdateReference()
             {
-                agent = EditorUtility.InstanceIDToObject(instanceID) as PathOSAgent;
+                agent = EditorUtility.EntityIdToObject(instanceID) as PathOSAgent;
             }
         }
 
@@ -197,9 +197,9 @@ namespace PathOS
             if (hasAgent)
             {
                 if (agent != null)
-                    agentID = agent.GetInstanceID();
+                    agentID = agent.GetEntityId().GetHashCode();
                 else
-                    agent = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
+                    agent = EditorUtility.EntityIdToObject(agentID) as PathOSAgent;
             }
 
             hasAgent = agent != null;
@@ -858,7 +858,7 @@ namespace PathOS
         {
             if (hasAgent && null == agent)
             {
-                agent = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
+                agent = EditorUtility.EntityIdToObject(agentID) as PathOSAgent;
             }
         }
 

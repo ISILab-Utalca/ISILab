@@ -599,13 +599,13 @@ namespace PathOS
                             EditorUtility.SetDirty(managerReference);
                             EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
 
-                            int selectedID = selection.GetInstanceID();
+                            int selectedID = selection.GetEntityId().GetHashCode();
 
                             bool addNewEntry = !activeToggle.isClear;
 
                             for (int i = 0; i < managerReference.levelEntities.Count; ++i)
                             {
-                                if (managerReference.levelEntities[i].objectRef.GetInstanceID() == selectedID)
+                                if (managerReference.levelEntities[i].objectRef.GetEntityId().GetHashCode() == selectedID)
                                 {
                                     if (activeToggle.isClear)
                                         managerReference.levelEntities.RemoveAt(i);

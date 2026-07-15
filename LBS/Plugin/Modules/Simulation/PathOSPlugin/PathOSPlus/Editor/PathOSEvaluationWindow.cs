@@ -63,7 +63,7 @@ namespace PathOS
             this.category = category;
             this.selection = selection;
             this.selectionName = selectionName;
-            selectionID = selection.GetInstanceID();
+            selectionID = selection.GetEntityId().GetHashCode();
             this.entityType = entityType;
         }
     }
@@ -530,7 +530,7 @@ namespace PathOS
 
                 if (EditorGUI.EndChangeCheck())
                 {
-                    if (userComments[i].selection != null) userComments[i].selectionID = userComments[i].selection.GetInstanceID();
+                    if (userComments[i].selection != null) userComments[i].selectionID = userComments[i].selection.GetEntityId().GetHashCode();
                     SaveData();
                 }
 
@@ -863,10 +863,10 @@ namespace PathOS
             {
                 if (managerReference != null)
                 {
-                    managerID = managerReference.GetInstanceID();
+                    managerID = managerReference.GetEntityId().GetHashCode();
                 }
                 else
-                    managerReference = EditorUtility.InstanceIDToObject(managerID) as PathOSManager;
+                    managerReference = EditorUtility.EntityIdToObject(managerID) as PathOSManager;
             }
 
             hasManager = managerReference != null;
@@ -1110,7 +1110,7 @@ namespace PathOS
         private void GrabManagerReference()
         {
             if (hasManager && null == managerReference)
-                managerReference = EditorUtility.InstanceIDToObject(managerID) as PathOSManager;
+                managerReference = EditorUtility.EntityIdToObject(managerID) as PathOSManager;
         }
     }
 
