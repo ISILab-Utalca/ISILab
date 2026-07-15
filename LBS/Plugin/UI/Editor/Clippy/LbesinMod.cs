@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 public class LbesinMod : ScriptableObject
 {
     public string Id;
+    public int SortingIndex;
     public Color Color;
     public VectorImage Icon;
 

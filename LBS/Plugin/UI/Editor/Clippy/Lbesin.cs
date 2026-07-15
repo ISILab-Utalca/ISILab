@@ -75,7 +75,7 @@ public partial class Lbesin : VisualElement
         visualTree.CloneTree(this);
 
         // Create Mods
-        var modes = Resources.FindObjectsOfTypeAll<LbesinMod>();
+        var modes = Resources.FindObjectsOfTypeAll<LbesinMod>().OrderBy(m => m.SortingIndex).ToArray();
         var buttons = new List<Button>();
         for (int i = 0; i < modes.Length; i++)
         {
