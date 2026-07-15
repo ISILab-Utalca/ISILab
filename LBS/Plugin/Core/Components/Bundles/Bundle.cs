@@ -225,7 +225,6 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         public List<Bundle> ChildsBundles => new List<Bundle>(childsBundles);
 
         
-        [SerializeField]
         public bool IsLeaf => (childsBundles.Count <= 0);
 
         public Positioning Positioning => anchorPosition;
