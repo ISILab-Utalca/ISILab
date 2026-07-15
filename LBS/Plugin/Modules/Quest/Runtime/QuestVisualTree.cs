@@ -192,7 +192,7 @@ namespace ISILab.LBS.VisualElements
                     foreach (var req in requirements)
                     {
                         requirementNodes.Add(new TreeViewItemData<QuestTrigger>(
-                            req.gameObject.GetInstanceID() ^ branch.gameObject.GetInstanceID(),
+                            req.gameObject.GetEntityId().GetHashCode() ^ branch.gameObject.GetEntityId().GetHashCode(),
                             req,
                             new List<TreeViewItemData<QuestTrigger>>()
                         ));
@@ -200,7 +200,7 @@ namespace ISILab.LBS.VisualElements
 
                     // Add the branch as the direct child, holding its prerequisites
                     children.Add(new TreeViewItemData<QuestTrigger>(
-                        branch.gameObject.GetInstanceID(),
+                        branch.gameObject.GetEntityId().GetHashCode(),
                         branch,
                         requirementNodes
                     ));
@@ -208,7 +208,7 @@ namespace ISILab.LBS.VisualElements
             }
 
             return new TreeViewItemData<QuestTrigger>(
-                trigger.gameObject.GetInstanceID(),
+                trigger.gameObject.GetEntityId().GetHashCode(),
                 trigger,
                 children
             );

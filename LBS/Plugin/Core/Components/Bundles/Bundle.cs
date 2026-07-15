@@ -129,7 +129,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         [SerializeReference, HideInInspector]
         private Positioning anchorPosition = Positioning.Center;
 
-        [SerializeReference, HideInInspector]
+        [SerializeField, HideInInspector]
         private Color color;
 
         [SerializeField, HideInInspector] 

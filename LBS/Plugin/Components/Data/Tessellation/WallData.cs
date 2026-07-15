@@ -15,10 +15,10 @@ namespace ISILab.LBS.Components
         [SerializeField, JsonRequired, SerializeReference]
         protected string ownerID;
 
-        [SerializeField, JsonRequired, SerializeReference]
+        [SerializeField, JsonRequired]
         protected Vector2Int dir; // direccion a la que mira con respecto a su habitacion
 
-        [SerializeField, JsonRequired, SerializeReference]
+        [SerializeField, JsonRequired]
         protected List<Vector2Int> allTiles;
 
         #endregion

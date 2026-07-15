@@ -13,7 +13,7 @@ namespace ISILab
             var action = ScriptableObject.CreateInstance<CreateAssistantWithEditorAction>();
 
             ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
-                0,
+                action.ActionID,
                 action,
                 "NewAssistant.cs",
                 null,
@@ -21,10 +21,19 @@ namespace ISILab
         }
     }
 
-    public class CreateAssistantWithEditorAction : EndNameEditAction
+    public class CreateAssistantWithEditorAction : AssetCreationEndAction
     {
-        public override void Action(int instanceId, string pathName, string resourceFile)
+
+        private EntityId actionID;
+
+        public EntityId ActionID
         {
+            get { return actionID; }
+            set { actionID = value; }
+        }
+        public override void Action(EntityId entityId, string pathName, string resourceFile)
+        {
+            actionID = entityId;
             // Create the runtime script
             string template = File.ReadAllText(resourceFile);
             string className = Path.GetFileNameWithoutExtension(pathName);

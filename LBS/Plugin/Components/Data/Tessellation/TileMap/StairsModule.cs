@@ -129,7 +129,7 @@ namespace ISILab.LBS.Modules
     public class LBSStair
     {
         #region FIELDS
-        [SerializeField, JsonRequired, SerializeReference]
+        [SerializeField, JsonRequired]
         private List<Vector2Int> _positions = new();
 
         [SerializeField, JsonRequired, SerializeReference]
@@ -141,7 +141,7 @@ namespace ISILab.LBS.Modules
         [SerializeField, JsonRequired, SerializeReference]
         private int _height = 1;
 
-        [SerializeField, JsonRequired, SerializeReference]
+        [SerializeField, JsonRequired]
         private Color _color;
         [SerializeField, JsonRequired, SerializeReference]
         private StairShape _shape; // unused

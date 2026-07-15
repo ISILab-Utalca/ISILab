@@ -255,7 +255,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             /* unlocables use their instanced ID just as when they are assigned to their 
              * connection/lock handler */
-            if (IsUnlockable()) return gameObject.GetInstanceID().ToString();
+            if (IsUnlockable()) return gameObject.GetEntityId().ToString();
 
             // common items use the bundle guid
             return AssetMacro.GetGuidFromAsset(BundleRef);

@@ -133,7 +133,7 @@ namespace ISILab.LBS.Macros
             if (obj is Object unityObject)
             {
                 message +=
-                    $" | UnityInstanceID: {unityObject.GetInstanceID()}" +
+                    $" | UnityInstanceID: {unityObject.GetEntityId().ToString()}" +
                     $" | UnityName: {unityObject.name}";
             }
 
