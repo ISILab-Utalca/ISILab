@@ -25,6 +25,7 @@ namespace ISILab.LBS.Drawers
 
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
+            //Debug.Log("ExteriorDrawer.Draw()");
             // Get behaviours
             if (target is not ExteriorBehaviour exterior) return;
             // Get modules
@@ -45,6 +46,7 @@ namespace ISILab.LBS.Drawers
 
         public override void UpdateTiles(object target, MainView view, Vector2 teselationSize)
         {
+            //Debug.Log("ExteriorDrawer.UpdateTiles()");
             if (target is not ExteriorBehaviour exterior) return;
             var connectMod = exterior.OwnerLayer.GetModule<ConnectedTileMapModule>();
 
@@ -54,6 +56,7 @@ namespace ISILab.LBS.Drawers
 
         private void PaintNewTiles(ExteriorBehaviour exterior, ConnectedTileMapModule connectMod, Vector2 teselationSize, MainView view)
         {
+            //Debug.Log("ExteriorDrawer.PaintNewTiles()");
             bool isSelected = exterior.OwnerLayer == LBSMainWindow.Instance.SelectedLayer;
             int replaceCount = 0, createCount = 0;
             IEnumerable<LBSTile> newTiles = exterior.RetrieveNewTiles().Cast<LBSTile>();
@@ -92,9 +95,10 @@ namespace ISILab.LBS.Drawers
         }
         private void UpdateLoadedTiles(ExteriorBehaviour exterior, ConnectedTileMapModule connectMod, Vector2 teselationSize, MainView view)
         {
+            //Debug.Log("ExteriorDrawer.UpdateLoadedTiles()");
             exterior.Keys.RemoveWhere(item => item == null);
             bool isSelected = exterior.OwnerLayer == LBSMainWindow.Instance.SelectedLayer;
-          //  Debug.Log($"Layer{exterior.OwnerLayer.Name} : Selected => {isSelected}");
+            //Debug.Log($"Layer{exterior.OwnerLayer.Name} : Selected => {isSelected}");
             // Update stored tile
             foreach (object obj in exterior.Keys)
             {
@@ -121,17 +125,19 @@ namespace ISILab.LBS.Drawers
                     if (!tView.visible) continue;
 
                     List<string> connections = connectMod.GetConnections(tile);
-                    UpdateTileView(ref tView, tile, connections, teselationSize, exterior.GridType, exterior.OwnerLayer.index, isSelected);
+                    string center = connectMod.GetPairCenter(tile);
+                    UpdateTileView(ref tView, tile, connections, center, teselationSize, exterior.GridType, exterior.OwnerLayer.index, isSelected);
                 }
             }
         }
         
-        private void UpdateTileView(ref ExteriorTileView tView, LBSTile tile, List<string> connections, Vector2 teselationSize, ConnectedTileType gridType, int layerIndex, bool layerSelected)
+        private void UpdateTileView(ref ExteriorTileView tView, LBSTile tile, List<string> connections, string center, Vector2 teselationSize, ConnectedTileType gridType, int layerIndex, bool layerSelected)
         {
-            switch(gridType)
+            //Debug.Log("ExteriorDrawer.UpdateTileView() Edge or Vertex");
+            switch (gridType)
             {
                 case ConnectedTileType.EdgeBased:
-                    (tView as EdgeExteriorTileView).SetConnections(connections.ToArray());
+                    (tView as EdgeExteriorTileView).SetConnections(connections.ToArray(), center);
                     break;
                 case ConnectedTileType.VertexBased:
                     (tView as VertexExteriorTileView).SetConnections(connections.ToArray());
@@ -142,6 +148,7 @@ namespace ISILab.LBS.Drawers
 
         private void UpdateTileView(ref ExteriorTileView tView, LBSTile tile, Vector2 teselationSize, ConnectedTileType gridType, int layerIndex, bool layerSelected)
         {
+            //Debug.Log("ExteriorDrawer.UpdateTileView()");
             var pos = new Vector2(tile.Position.x, -tile.Position.y);
 
             Vector2 size = DefaultSize * teselationSize;
@@ -152,6 +159,7 @@ namespace ISILab.LBS.Drawers
 
         private void LoadAllTiles(ExteriorBehaviour exterior, ConnectedTileMapModule connectMod, Vector2 teselationSize, MainView view)
         {
+            //Debug.Log("ExteriorDrawer.LoadAllTiles()");
             bool isSelected = exterior.OwnerLayer == LBSMainWindow.Instance.SelectedLayer;
 
             int replaceCount = 0, createCount = 0;
