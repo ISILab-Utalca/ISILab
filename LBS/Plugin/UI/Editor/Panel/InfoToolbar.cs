@@ -13,7 +13,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
         
         private LBSCustomButton clearNotificationButton;
         private LBSCustomToggle disableNotificationButton;
-        
+        private LBSCustomToggle disableClippyButton;
+
         private VisualElement toolInformation;
         private Label toolLabel;
         
@@ -40,6 +41,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
 
             clearNotificationButton = this.Q<LBSCustomButton>("CleanNotificationsButton");
             disableNotificationButton = this.Q<LBSCustomToggle>("DisableNotificationsButton");
+            disableClippyButton = this.Q<LBSCustomToggle>("DisableClippyButton");
 
             toolInformation = this.Q<VisualElement>("ToolInformation");
             toolLabel  = this.Q<Label>("ToolText");
@@ -59,7 +61,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
 
         public void Bind(LBSMainWindow _mainWindow, ref Label WarningText, ref VisualElement Warning)
         { 
-            LBSMainWindow.notifier.SetButtons(clearNotificationButton, disableNotificationButton);
+            LBSMainWindow.notifier.SetButtons(clearNotificationButton, disableNotificationButton, disableClippyButton);
             warningNotification.visible = false;
             Warning = warningNotification;
             WarningText = warningText;

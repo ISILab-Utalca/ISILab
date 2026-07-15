@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Editor.Windows;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -147,12 +148,19 @@ namespace LBS.VisualElements
             scrollView?.Clear();
         }
         
-        public void SetButtons(LBSCustomButton cleanButton, LBSCustomToggle disableNotificationButton)
+        public void SetButtons(
+            LBSCustomButton cleanButton, 
+            LBSCustomToggle disableNotificationButton, 
+            LBSCustomToggle disableClippyButton)
         {
             cleanButton.RegisterCallback<ClickEvent>(vt => ClearNotifications());
             disableNotificationButton.RegisterValueChangedCallback(evt =>
             {
                 notificationOn = evt.newValue;
+            });
+            disableClippyButton.RegisterValueChangedCallback(evt =>
+            {
+                LBSMainWindow.Instance.ToggleClippy(evt.newValue);
             });
         }
 

@@ -117,7 +117,6 @@ namespace ISILab.LBS.Editor.Windows
         private static VisualElement warningNotification;
         private static Label warningLabel;
         public static NotifierViewer notifier;
-
         #endregion
 
         #region MAIN VIEW
@@ -158,6 +157,7 @@ namespace ISILab.LBS.Editor.Windows
         private LBSWaitTaskOverlay taskOverlay;
 
         private ScrollView subPanelScrollView;
+        private Lbesin clippy;
 
         [UxmlAttribute]
         private SplitView splitView;
@@ -238,6 +238,7 @@ namespace ISILab.LBS.Editor.Windows
             sideBarPanel = rootVisualElement.Q<LBSSideBarPanel>("LBSSideBarPanel");
 
             subPanelScrollView = rootVisualElement.Q<ScrollView>("SubPanelScrollView");
+            clippy = rootVisualElement.Q<Lbesin>("Lbesin");
 
             extraPanel = rootVisualElement.Q<VisualElement>("ExtraPanel");
             bottomPanel = rootVisualElement.Q<VisualElement>("BottomPanel");
@@ -721,6 +722,10 @@ namespace ISILab.LBS.Editor.Windows
             evt.StopImmediatePropagation();
         }
 
+        public void ToggleClippy(bool value)
+        {
+            clippy.SetDisplay(value ? DisplayStyle.Flex : DisplayStyle.None);
+        }
         #endregion
     }
 
