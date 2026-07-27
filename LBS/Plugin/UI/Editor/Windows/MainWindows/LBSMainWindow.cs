@@ -20,6 +20,7 @@ using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using ISILab.LBS.AI.Clippy.VisualElements;
 using Debug = UnityEngine.Debug;
 using InfoToolbar = ISILab.LBS.Plugin.UI.Editor.Panel.InfoToolbar;
 using LBSSideBarPanel = ISILab.LBS.Plugin.UI.Editor.Panel.LBSSideBarPanel;
