@@ -76,7 +76,6 @@ namespace PathOS
             set => memoryState.memPathChance = value;
         }
 
-        [SerializeField]
         public float ExperienceScale { get => tuning.experienceScale; internal set => tuning.experienceScale = value; }
 
         #endregion

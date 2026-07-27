@@ -1,5 +1,7 @@
+using ISILab.Extensions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.EditorCoroutines.Editor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -7,10 +9,9 @@ using UnityEngine.UIElements;
 [UxmlElement]
 public partial class Lbesin : VisualElement
 {
-    private readonly Color SelectorColor = new Color(0.125f, 0.216f, 0.851f, 1);
     private readonly Color IconColor = new Color(0.306f, 0.937f, 0.737f, 1);
-    private readonly Vector2 offset = new Vector2(60,48);
-    private readonly Dictionary<Button, string> _icons = new();
+    private readonly Vector2 Offset = new Vector2(60,48);
+    private readonly Dictionary<Button, LbesinMod> Modes = new();
 
     private Dictionary<VisualElement, List<EditorCoroutine>> _activeCoroutines = new ();
     private bool dragging;
@@ -22,6 +23,7 @@ public partial class Lbesin : VisualElement
     VisualElement _reset;
     VisualElement _modSelector;
     VisualElement _modBackground;
+    VisualElement _buttonsContainer;
     Button[] _modButtons;
 
 
@@ -45,15 +47,14 @@ public partial class Lbesin : VisualElement
     {
         get => _modBackground ??= this.Q<VisualElement>("ModBackground");
     }
+    VisualElement ButtonsContainer
+    {
+        get => _buttonsContainer ??= this.Q<VisualElement>("ButtonsContainer");
+    }
     Button[] ModButtons
     {
-        get => _modButtons ??= new[]
-        {
-            this.Q<Button>("1"),
-            this.Q<Button>("2"),
-            this.Q<Button>("3"),
-            this.Q<Button>("4")
-        };
+        get => _modButtons;
+        set => _modButtons = _modButtons is null ? value : throw new System.InvalidOperationException("modButtons can only be set once.");
     }
 
     private Vector2 Position
@@ -73,10 +74,20 @@ public partial class Lbesin : VisualElement
         var visualTree = Resources.Load<VisualTreeAsset>("Lbesin");
         visualTree.CloneTree(this);
 
-        _icons[ModButtons[0]] = "Icons/Vectorial/Population/Icon=Scroll";
-        _icons[ModButtons[1]] = "Icons/Vectorial/Population/Icon=Hearth";
-        _icons[ModButtons[2]] = "Icons/Vectorial/Population/Icon=Helmet";
-        _icons[ModButtons[3]] = "Icons/Vectorial/SideToolBar/Icon=AI_Assistant";
+        // Create Mods
+        var modes = Resources.FindObjectsOfTypeAll<LbesinMod>().OrderBy(m => m.SortingIndex).ToArray();
+        var buttons = new List<Button>();
+        for (int i = 0; i < modes.Length; i++)
+        {
+            var m = modes[i];
+            var b = m.GenerateButton();
+            Modes[b] = m;
+
+            SetButtonPosition(b, 45 * (i - (modes.Length / 2)));
+            ButtonsContainer.Add(b);
+            buttons.Add(b);
+        }
+        ModButtons = buttons.ToArray();
 
         // Set callbacks
         Draggable.RegisterCallback<PointerDownEvent>(OnPointerDown);
@@ -86,19 +97,11 @@ public partial class Lbesin : VisualElement
 
         Draggable.RegisterCallback<MouseEnterEvent>(evt => 
         {
-            ShowImage(ModBackground);
-            foreach (var button in ModButtons)
-            {
-                ShowImage(button);
-            }
+            ShowImage(ModSelector);
         });
         Draggable.RegisterCallback<MouseLeaveEvent>(evt =>
         {
-            HideImage(ModBackground);
-            foreach (var button in ModButtons)
-            {
-                HideImage(button);
-            }
+            HideImage(ModSelector);
         });
 
         Reset.RegisterCallback<ClickEvent>(evt => 
@@ -112,33 +115,22 @@ public partial class Lbesin : VisualElement
             var currentButton = button;
             currentButton.RegisterCallback<ClickEvent>(evt =>
             {
-                var source = (Button)evt.currentTarget;
-
-                var path = _icons[(Button)evt.currentTarget];
-
-                var image = Resources.Load<VectorImage>(path);
+                var source = (Button) evt.currentTarget;
+                var image = Modes[source].Icon;
+                var color = Modes[source].Color;
 
                 Icon.style.backgroundImage = new StyleBackground(image);
+                Icon.style.unityBackgroundImageTintColor = color;
             });
         }
 
         // Initial values
         Reset.style.unityBackgroundImageTintColor = IconColor;
-        ModBackground.style.unityBackgroundImageTintColor = SelectorColor;
-        foreach (var button in ModButtons)
-        {
-            var currentButton = button;
-            currentButton.style.unityBackgroundImageTintColor = IconColor;
-        }
+        ModBackground.style.unityBackgroundImageTintColor = IconColor;
 
         isResetVisible = false;
         HideImage(Reset);
-        HideImage(ModBackground);
-        foreach (var button in ModButtons)
-        {
-            var currentButton = button;
-            HideImage(  currentButton);
-        }
+        HideImage(ModSelector);
     }
 
     #region COROUTINES
@@ -177,7 +169,7 @@ public partial class Lbesin : VisualElement
             color.a = Mathf.MoveTowards(
                 color.a,
                 targetAlpha,
-                4 * deltaTime);
+                8 * deltaTime);
 
             ve.style.unityBackgroundImageTintColor = color;
 
@@ -186,6 +178,11 @@ public partial class Lbesin : VisualElement
 
         color.a = targetAlpha;
         ve.style.unityBackgroundImageTintColor = color;
+
+        foreach(VisualElement son in ve.Children())
+        {
+            StartCoroutine(FadeImage(son, targetAlpha), son);
+        }
     }
     private void ShowImage(VisualElement ve) => StartCoroutine(FadeImage(ve, 1f), ve);
     private void HideImage(VisualElement ve) => StartCoroutine(FadeImage(ve, 0f), ve);
@@ -218,7 +215,7 @@ public partial class Lbesin : VisualElement
             ShowImage(Reset);
         }
 
-        Position = new Vector2(evt.position.x - dragOffset.x - offset.x, evt.position.y - dragOffset.y - offset.y);
+        Position = new Vector2(evt.position.x - dragOffset.x - Offset.x, evt.position.y - dragOffset.y - Offset.y);
     }
 
     private void OnPointerUp(PointerUpEvent evt)
@@ -239,10 +236,15 @@ public partial class Lbesin : VisualElement
 
     private void KeepOnBounds()
     {
-        if(Position.x < 0 || Position.y < 0)
-        {
-            Position = new Vector2(Mathf.Max(Position.x, 0), Mathf.Max(Position.y, 0));
-        }
+        if (parent == null) return;
+
+        Rect parentRect = parent.layout;
+        Rect myRect = Draggable.layout;
+
+        Vector2 pos = Position;
+        pos.x = Mathf.Clamp(pos.x, 0 - Offset.x, parentRect.width - myRect.width - Offset.x);
+        pos.y = Mathf.Clamp(pos.y, 0, parentRect.height - myRect.height);
+        Position = pos;
     }
     private void ResetPosition()
     {
@@ -254,5 +256,15 @@ public partial class Lbesin : VisualElement
     public void SetDisplay(DisplayStyle ds)
     {
         this.style.display = ds;
+    }
+
+    private readonly Vector2 ButtonRadius = Vector2.right * 45;
+    private void SetButtonPosition(Button button, float angle)
+    {
+        var pos = ButtonRadius.Rotate(angle);
+
+        button.style.translate = new Translate(
+            new Length(pos.x, LengthUnit.Pixel),
+            new Length(pos.y, LengthUnit.Pixel));
     }
 }

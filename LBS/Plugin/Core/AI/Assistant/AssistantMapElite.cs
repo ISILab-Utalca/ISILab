@@ -56,7 +56,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         [JsonIgnore]
         public bool Testing { get; set; } = false;
 
-        [SerializeField, JsonRequired]
+        [JsonRequired]
         public Rect RawToolRect { get; set; }
 
         // TODO: MapEliteAreaSelector has ctrl + z (undo functionality) to recover RawToolRect previous state, but for some reason
