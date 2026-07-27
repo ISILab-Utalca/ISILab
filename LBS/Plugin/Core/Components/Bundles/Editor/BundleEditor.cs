@@ -104,14 +104,12 @@ namespace ISILab.LBS.Bundles.Editor
             if (interiorSettings)
                 SerializeProperty("anchorPosition");
 
-            if (exteriorSettings)
-                //;
+            if (exteriorSettings) { }
 
             if (populationSettings)
                 SerializeProperties("elementFlag", "tileSize", "microGenTool");
 
-            if (questSettings)
-                //;
+            if (questSettings) { }
 
             if (simulationSettings)
             {

@@ -16,7 +16,7 @@ namespace ISILab.LBS.VisualElements
     {
         private static VisualTreeAsset view;
 
-        private LBSCustomPainterCircle leftConnection, rightConnection, topConnection, bottomConnection;
+        private LBSCustomPainterCircle leftConnection, rightConnection, topConnection, bottomConnection, centerCircle;
         private LBSPainterVisualElement leftSide, rightSide, topSide, bottomSide;
         private LBSCustomPainterBox center;
         public EdgeExteriorTileView(List<string> connections = null, string centerTag = "") : base(connections, "ConnectedTile")
@@ -35,12 +35,14 @@ namespace ISILab.LBS.VisualElements
             bottomConnection = new LBSCustomPainterCircle();
 
             center = new LBSCustomPainterBox();
+            centerCircle = new LBSCustomPainterCircle();
 
             this.Add(leftConnection);
             this.Add(rightConnection);
             this.Add(topConnection);
             this.Add(bottomConnection);
             this.Add(center);
+            this.Add(centerCircle);
 
             leftSide = this.Q<LBSPainterVisualElement>("LeftSide");
             rightSide = this.Q<LBSPainterVisualElement>("RightSide");
@@ -60,12 +62,15 @@ namespace ISILab.LBS.VisualElements
             center.MinPos = centerPoint / 2f;
             center.MaxPos = centerPoint + (centerPoint / 2f);
 
+            centerCircle.MinPos = centerPoint;
+
             // Force initialization repaint updates
             topConnection.MarkDirtyRepaint();
             rightConnection.MarkDirtyRepaint();
             bottomConnection.MarkDirtyRepaint();
             leftConnection.MarkDirtyRepaint();
             center.MarkDirtyRepaint();
+            centerCircle.MarkDirtyRepaint();
 
             SetConnections(connections.ToArray(), centerTag);
             SetSelectionMode(true);
@@ -166,11 +171,17 @@ namespace ISILab.LBS.VisualElements
 
                 // Kept SetBackgroundColor here as center uses it uniformly, 
                 // but you can change it to center.FillColor = ... if needed.
-                center.FillColor = tags.Contains("") ? invalidColor : centerColor;//orderedConnectionColors.First().Key;
+                Color cColor = tags.Contains("") ? invalidColor : centerColor;
+                center.FillColor = cColor;//orderedConnectionColors.First().Key;
+                centerCircle.FillColor = BrightenColor(cColor);
+                centerCircle.style.display = DisplayStyle.Flex;
+                //center.style.display = DisplayStyle.Flex;
             }
             else
             {
                 center.FillColor = invalidColor;
+                centerCircle.style.display = DisplayStyle.None;
+                //center.style.display = DisplayStyle.None;
             }
         }
 
@@ -194,7 +205,7 @@ namespace ISILab.LBS.VisualElements
             topConnection.style.display = displayConnection;
             rightConnection.style.display = displayConnection;
             bottomConnection.style.display = displayConnection;
-
+            centerCircle.style.display = displayConnection;
 
            // topSide.LineWidth = lineWidth;
            // leftSide.LineWidth = lineWidth;

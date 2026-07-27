@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEditor;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -292,14 +293,21 @@ namespace ISILab.LBS.VisualElements
                     }
                 }
 
+                const int requiredNavPoints = 3;
                 // Get tiles
                 foreach (var pair in module.Pairs)
                 {
                     // Check if tile is navigable
+                    string center = pair.Center;
                     int navigablePoints = 0;
-                    foreach (var connection in pair.Connections)
+                    foreach (var tag in navTags)
                     {
-                        foreach (var tag in navTags)
+                        if(center == tag.Label)
+                        {
+                            navigablePoints = requiredNavPoints;
+                            break;
+                        }
+                        foreach (var connection in pair.Connections)
                         {
                             if (connection == tag.label)
                             {
@@ -310,7 +318,7 @@ namespace ISILab.LBS.VisualElements
                     }
 
                     // Adds tile to positions
-                    if (navigablePoints >= 3)
+                    if (navigablePoints >= requiredNavPoints)
                     {
                         var tile = pair.Tile;
                         if (allPositions.Contains(tile.Position)) continue;
@@ -388,7 +396,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
     }
 
-    [SerializeField]
+
     public struct BoolIntPair
     {
         public bool boolean;

@@ -473,11 +473,22 @@ namespace ISILab.LBS.Modules
         {
             if (current == null) return false;
 
-            const int minFloorCount = 3;
-            int floorCount = 0;
-            foreach (string connection in current.Connections)
+            if (!string.IsNullOrEmpty(current.Center))
             {
                 foreach (string floorTag in floorTags)
+                {
+                    if (current.Center.Equals(floorTag))
+                        return true;
+                }
+                return false;
+            }
+
+            const int minFloorCount = 3;
+            int floorCount = 0;
+
+            foreach (string floorTag in floorTags)
+            {
+                foreach (string connection in current.Connections)
                 {
                     if (connection.Equals(floorTag))
                     {
