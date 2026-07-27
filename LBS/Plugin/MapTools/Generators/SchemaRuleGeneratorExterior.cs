@@ -263,9 +263,17 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             }
 
-            var x = subPivots.Average(t => t.transform.position.x);
-            var y = subPivots.Min(t => t.transform.position.y);
-            var z = subPivots.Average(t => t.transform.position.z);
+            float x, y, z;
+            if (subPivots.Count > 0)
+            {
+                x = subPivots.Average(t => t.transform.position.x);
+                y = subPivots.Min(t => t.transform.position.y);
+                z = subPivots.Average(t => t.transform.position.z);
+            }
+            else
+            {
+                x = y = z = 0f;
+            }
             mainPivot.transform.position = new Vector3(x, y, z);
 
             foreach (GameObject sp in subPivots)
