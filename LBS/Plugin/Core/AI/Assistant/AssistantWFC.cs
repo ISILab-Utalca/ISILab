@@ -941,6 +941,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             {
                 // Get characteristics and weigh
                 float weigth = group.Weights[i].weight;
+                if(weigth == 0f) continue;
                 LBSDirection sBundle = group.Weights[i].target.GetCharacteristics<LBSDirection>()[0];
 
                 for (int j = 0; j < 4; j++)
@@ -963,7 +964,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     }
                 }
             }
-
             return candidates;
         }
 
