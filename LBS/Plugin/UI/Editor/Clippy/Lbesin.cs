@@ -11,7 +11,6 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
     [UxmlElement]
     public partial class Lbesin : VisualElement, IEasyEditorCoroutines
     {
-        private readonly Color IconColor = new Color(0.306f, 0.937f, 0.737f, 1);
         private readonly Vector2 Offset = new Vector2(60, 48);
         private readonly Dictionary<Button, LbesinMod> Modes = new();
 
@@ -26,7 +25,7 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
         VisualElement _modSelector;
         VisualElement _modBackground;
         VisualElement _buttonsContainer;
-        VisualElement _lbesinChatbox;
+        LbesinChatbox _lbesinChatbox;
         Button[] _modButtons;
 
         VisualElement Reset
@@ -53,9 +52,9 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
         {
             get => _buttonsContainer ??= this.Q<VisualElement>("ButtonsContainer");
         }
-        VisualElement LbesinChatbox
+        LbesinChatbox LbesinChatbox
         {
-            get => _lbesinChatbox ??= this.Q<VisualElement>("LbesinChatbox");
+            get => _lbesinChatbox ??= this.Q<LbesinChatbox>("LbesinChatbox");
         }
         Button[] ModButtons
         {
@@ -74,6 +73,17 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
             }
         }
 
+        private Color GlobalTint
+        {
+            set
+            {
+                Icon.style.unityBackgroundImageTintColor = value;
+                Reset.style.unityBackgroundImageTintColor = value;
+                ModBackground.style.unityBackgroundImageTintColor = value;
+                LbesinChatbox.Tint = value;
+            }
+        }
+
         public Dictionary<VisualElement, List<EditorCoroutine>> ActiveCoroutines => _activeCoroutines;
 
         public Lbesin() : base()
@@ -84,6 +94,11 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
 
             // Find Modes
             var modes = Resources.FindObjectsOfTypeAll<LbesinMod>().OrderBy(m => m.SortingIndex).ToArray();
+            if(modes.Length < 1)
+            {
+                Debug.LogError("[Lbesin]: No mode was found.");
+            }
+
             var buttons = new List<Button>();
             for (int i = 0; i < modes.Length; i++)
             {
@@ -98,6 +113,7 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
             ModButtons = buttons.ToArray();
 
             //--------------- CALLBACKS ---------------//
+            // Element - Action
 
             // Draggable - Drag
             Draggable.RegisterCallback<PointerDownEvent>(OnPointerDown);
@@ -106,16 +122,16 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
             Draggable.RegisterCallback<PointerCaptureOutEvent>(OnPointerCaptureOut);
 
             // Draggable - Fade
-            Draggable.RegisterCallback<MouseEnterEvent>(evt => { this.ShowImage(ModSelector); });
-            Draggable.RegisterCallback<MouseLeaveEvent>(evt => { this.HideImage(ModSelector); });
+            ModSelector.RegisterCallback<MouseEnterEvent>(evt => { this.ShowImage(ModSelector); });
+            ModSelector.RegisterCallback<MouseLeaveEvent>(evt => { this.HideImage(ModSelector); });
 
-            // Reset
-            Reset.RegisterCallback<ClickEvent>(evt => { 
+            // Reset - Set initial position
+            Reset.RegisterCallback<ClickEvent>(evt => {
                 this.HideImage(Reset); 
                 ResetPosition();
             });
 
-            // Buttons
+            // Buttons - Change Icon
             foreach (var button in ModButtons)
             {
                 var currentButton = button;
@@ -126,13 +142,13 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
                     var color = Modes[source].Color;
 
                     Icon.style.backgroundImage = new StyleBackground(image);
-                    Icon.style.unityBackgroundImageTintColor = color;
+                    GlobalTint = color;
                 });
             }
 
             //--------------- INITIAL VALUES ---------------//
-            Reset.style.unityBackgroundImageTintColor = IconColor;
-            ModBackground.style.unityBackgroundImageTintColor = IconColor;
+            Icon.style.backgroundImage = new StyleBackground(Modes.First().Value.Icon);
+            GlobalTint = Modes.First().Value.Color;
 
             isResetVisible = false;
             this.HideImage(Reset);
@@ -147,9 +163,7 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
             if (evt.target is Button)
                 return;
 
-            dragging = true;
             dragOffset = evt.localPosition;
-            Debug.Log("Offset: " + dragOffset);
 
             PointerCaptureHelper.CapturePointer(Draggable, evt.pointerId);
             //evt.StopPropagation();
@@ -157,9 +171,10 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
 
         private void OnPointerMove(PointerMoveEvent evt)
         {
-            if (!dragging || !PointerCaptureHelper.HasPointerCapture(Draggable, evt.pointerId))
+            if (!PointerCaptureHelper.HasPointerCapture(Draggable, evt.pointerId))
                 return;
 
+            dragging = true;
             if (!isResetVisible)
             {
                 isResetVisible = true;
@@ -174,6 +189,10 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
             if (!PointerCaptureHelper.HasPointerCapture(Draggable, evt.pointerId))
                 return;
 
+            if (!dragging)
+            {
+                LbesinChatbox.StartCoroutine(LbesinChatbox.OpenChatbox(), LbesinChatbox);
+            }
             dragging = false;
             PointerCaptureHelper.ReleasePointer(Draggable, evt.pointerId);
             KeepOnBounds();

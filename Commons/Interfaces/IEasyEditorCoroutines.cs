@@ -34,6 +34,15 @@ namespace ISILab.Commons.Interfaces
 
         }
 
+        public static void ShowImage(this IEasyEditorCoroutines owner, VisualElement ve)
+        {
+            owner.StartCoroutine(owner.FadeImage(ve, 1f), ve);
+        }
+        public static void HideImage(this IEasyEditorCoroutines owner, VisualElement ve)
+        {
+            owner.StartCoroutine(owner.FadeImage(ve, 0f), ve);
+        }
+
         public static IEnumerator FadeImage(this IEasyEditorCoroutines owner, VisualElement ve, float targetAlpha)
         {
             // Apply to children
@@ -67,14 +76,32 @@ namespace ISILab.Commons.Interfaces
 
         }
 
-        public static void ShowImage(this IEasyEditorCoroutines owner, VisualElement ve)
-        {
-            owner.StartCoroutine(owner.FadeImage(ve, 1f), ve);
-        }
 
-        public static void HideImage(this IEasyEditorCoroutines owner, VisualElement ve)
+        public static IEnumerator FadeOpacity(this IEasyEditorCoroutines owner, VisualElement ve, float targetAlpha)
         {
-            owner.StartCoroutine(owner.FadeImage(ve, 0f), ve);
+            // Apply to children
+            foreach (VisualElement son in ve.Children())
+            {
+                owner.StartCoroutine(owner.FadeOpacity(son, targetAlpha), son);
+            }
+
+            // Change Opacity
+            float a = ve.style.opacity.value;
+            double previousTime = UnityEditor.EditorApplication.timeSinceStartup;
+
+            while (!Mathf.Approximately(a, targetAlpha))
+            {
+                double currentTime = UnityEditor.EditorApplication.timeSinceStartup;
+                float deltaTime = (float)(currentTime - previousTime);
+                previousTime = currentTime;
+
+                a = Mathf.MoveTowards(a, targetAlpha, 4 * deltaTime);
+                ve.style.opacity = new StyleFloat(a);
+                yield return null;
+            }
+
+            a = targetAlpha;
+            ve.style.opacity = new StyleFloat(a);
         }
     }
 }
