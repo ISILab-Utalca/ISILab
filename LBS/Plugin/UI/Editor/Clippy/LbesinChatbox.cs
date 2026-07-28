@@ -75,7 +75,13 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
             visualTree.CloneTree(this);
 
             CloseButton.clicked += () => { this.StartCoroutine(CloseChatbox(), this); };
-            //this.StartCoroutine(CloseChatbox(), this);
+
+
+            // Draggable - Drag
+            //Draggable.RegisterCallback<PointerDownEvent>(OnPointerDown);
+            //Draggable.RegisterCallback<PointerMoveEvent>(OnPointerMove);
+            //Draggable.RegisterCallback<PointerUpEvent>(OnPointerUp);
+            //Draggable.RegisterCallback<PointerCaptureOutEvent>(OnPointerCaptureOut);
         }
 
 
