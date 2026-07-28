@@ -34,8 +34,10 @@ namespace ISILab.LBS.Plugin.Core.Settings
                     Debug.Log(assetName);
                     instance = Resources.Load<LBSSettings>(assetName);
                     // si sigue siendo null lo creo
-                    if (instance == null)
+                    if (instance == null){
+                        Debug.Log("[LBSSettings]: Instance wasn't found");
                         instance = ScriptableObject.CreateInstance<LBSSettings>();
+                    }
 
                     //instance.InitPaths();
                 }
@@ -59,7 +61,19 @@ namespace ISILab.LBS.Plugin.Core.Settings
         public void MarkSettingsAsDirty()
         {
             EditorUtility.SetDirty(this);
-        }        
+        }
+
+        private void OnEnable()
+        {
+            if (instance != null) return;
+            Debug.Log("LBSSettings is loading...");
+
+            Debug.Log(assetName);
+            instance = Resources.Load<LBSSettings>(assetName);
+            // si sigue siendo null lo creo
+            if (instance == null)
+                instance = ScriptableObject.CreateInstance<LBSSettings>();
+        }
         #endregion
 
         public Paths paths = new Paths();

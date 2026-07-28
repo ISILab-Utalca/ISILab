@@ -85,14 +85,18 @@ namespace ISILab.LBS.Behaviours
         public string Name => name;
 
         [JsonIgnore]
-        public HashSet<object> Keys => _keys ??= new HashSet<object>();
-
-        [JsonIgnore]
         public Action<int> FloorChangedCallback
         {
             get => levelChangedCallback;
             set => levelChangedCallback = value;
         }
+
+        [JsonIgnore]
+        public HashSet<object> Keys => _keys ??= new HashSet<object>();
+        [JsonIgnore]
+        public HashSet<object> NewTiles => _newTiles ??= new HashSet<object>();
+        [JsonIgnore]
+        public HashSet<object> ExpiredTiles => _expiredTiles ??= new HashSet<object>();
         #endregion
 
         #region CONSTRUCTORS
@@ -140,7 +144,7 @@ namespace ISILab.LBS.Behaviours
         #region VISUAL ELEMENTS HANDLING METHODS
         /* To optimally handle all the visual elements in display in the MainView of the LBS tool,
          * each behaviour has a HashSet of elements that it wants to draw, and a HashSet of elements
-         * it wants to erase, these are _newTiles and _expiredTiles respectively.
+         * it wants to erase, these are NewTiles and ExpiredTiles respectively.
         
          * Both of these HashSet use object as value, this object is the instance that will be
          * represented through a VisualElement, it might be a LBSTile, QuestNodeView, or even different
@@ -155,7 +159,7 @@ namespace ISILab.LBS.Behaviours
          * Note that "tile" here is used as any VisualElement that represents an object.
          *
          * 1.- The expired tiles are removed.
-         *     MainView gets the _expiredTiles set from all the behaviours in a layer, while clearing
+         *     MainView gets the ExpiredTiles set from all the behaviours in a layer, while clearing
          *     their memory, and erases them if they are in the view.
          *
          * 2.- The Drawers create new tiles.
@@ -166,33 +170,22 @@ namespace ISILab.LBS.Behaviours
          * 
          * 3.- New tiles, and new expired tiles are saved.
          *     In each behavior, when an action is supposed to create a new VisualElement, a representative
-         *     object is stored for later in the _newTiles set.
+         *     object is stored for later in the NewTiles set.
          *     If an action is supposed to make a VisualElement disappear, then the class used for its
-         *     construction is again stored for later but in the _expiredTiles set.
+         *     construction is again stored for later but in the ExpiredTiles set.
         */
 
         // These methods are a safer way of adding new objects to the sets
         protected void RequestTilePaint(object tile)
         {
-            _keys ??= new HashSet<object>();
-            _newTiles ??= new HashSet<object>();
-
-            _newTiles.Add(tile);
-            _keys.Add(tile);
+            NewTiles.Add(tile);
+            Keys.Add(tile);
         }
 
         protected bool RequestTileRemove(object tile)
         {
-            if (_keys == null)
-            {
-                _keys = new HashSet<object>();
-                return false;
-            }
-
-            if (!_keys.Remove(tile)) return false;
-
-            _expiredTiles ??= new HashSet<object>();
-            _expiredTiles.Add(tile);
+            if (!Keys.Remove(tile)) return false;
+            ExpiredTiles.Add(tile);
             return true;
         }
 
@@ -202,13 +195,10 @@ namespace ISILab.LBS.Behaviours
         /// </summary>
         public virtual object[] RetrieveNewTiles()
         {
-            // If null create a new one
-            _newTiles ??= new HashSet<object>();
-
             // Turn into array
-            object[] o = _newTiles.ToArray();
+            object[] o = NewTiles.ToArray();
             // Clear memory
-            _newTiles.Clear();
+            NewTiles.Clear();
 
             // Return array
             return o;
@@ -220,13 +210,10 @@ namespace ISILab.LBS.Behaviours
         /// </summary>
         public virtual object[] RetrieveExpiredTiles()
         {
-            // If null create a new one
-            _expiredTiles ??= new HashSet<object>();
-
             // Turn into array
-            object[] o = _expiredTiles.ToArray();
+            object[] o = ExpiredTiles.ToArray();
             // Clear memory
-            _expiredTiles.Clear();
+            ExpiredTiles.Clear();
 
             // Return array
             return o;
@@ -234,16 +221,14 @@ namespace ISILab.LBS.Behaviours
         /// <summary>
         /// Retrieves a read-only view of the tiles marked for erasing.
         /// </summary>
-        public IReadOnlyList<object> RetrieveExpiredReadOnly() => _expiredTiles.ToArray();
+        public IReadOnlyList<object> RetrieveExpiredReadOnly() => ExpiredTiles.ToArray();
 
         public abstract void CheckKeys();
 
         public virtual void UpdateKeys(List<object> currentList)
         {
-            //Create if not real
-            _keys ??= new HashSet<object>();
             //Turn into array
-            List<object> keyList = _keys.ToList();
+            List<object> keyList = Keys.ToList();
 
             foreach (object expiredObject in keyList)
             {
