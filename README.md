@@ -1,10 +1,3 @@
 ### Usage:
 
-Install git from [https://git-scm.com/]
-
-
-Inside your unity prject use the command prompt `git submodule add https://github.com/ISILab-Utalca/isi-lab-unity-module.git` to import the package
-
-To update a proyect that already has te current package as a  submodule use the commmand `git submodule update`
-
-
+<img width="1241" height="875" alt="lbs_test_installation" src="https://github.com/user-attachments/assets/0cdeed5b-9ca9-4aba-b401-a0670443c1e3" />
