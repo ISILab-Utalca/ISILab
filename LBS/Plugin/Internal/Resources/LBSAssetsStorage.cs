@@ -39,9 +39,9 @@ namespace ISILab.LBS.Plugin.Internal
             {
                 if (instance == null)
                 {
-                    Debug.Log(folderName + "/" + assetName);
+                    //Debug.Log(folderName + "/" + assetName);
                     instance = Resources.Load<LBSAssetsStorage>(folderName + "/" + assetName);
-                    Debug.Log("Instance loaded: " + (instance != null));
+                    Debug.Log("[LBSAssetsStorage]: Instance loaded: " + (instance != null));
                 }
                 return instance;
             }

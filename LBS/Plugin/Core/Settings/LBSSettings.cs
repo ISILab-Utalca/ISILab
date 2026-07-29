@@ -67,8 +67,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
         {
             if (instance != null) return;
             //Debug.Log("LBSSettings is loading...");
-
-            Debug.Log(assetName);
+            //Debug.Log(assetName);
             instance = Resources.Load<LBSSettings>(assetName);
             // si sigue siendo null lo creo
             if (instance == null)
