@@ -25,7 +25,7 @@ namespace ISILab.LBS.Modules
         private List<Edge> _edges = new();
 
         [SerializeReference]
-        private object root;
+        private object root = null;
 
         private object selected;
 
@@ -57,7 +57,7 @@ namespace ISILab.LBS.Modules
                     if(selected != null) OnDeselect?.Invoke(selected);
 
                     selected = value;
-                    Reselect();
+                    Reselect();//
 
                 }
             }

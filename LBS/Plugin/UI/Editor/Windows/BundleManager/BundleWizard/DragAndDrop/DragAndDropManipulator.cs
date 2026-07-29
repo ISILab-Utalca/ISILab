@@ -15,7 +15,7 @@ namespace Samples.Editor.General
         {
             public enum DragAndDropMode { SINGLE_BUNDLE, MULTIPLE_BUNDLES };
 
-            private string defaultText;
+            //private string defaultText;
 
             // The Label in the window that shows the stored asset, if any.
             Label dropLabel;
@@ -37,14 +37,14 @@ namespace Samples.Editor.General
                 dropLabel = root.Q<Label>(className: "drop-area__label");
                 RetrieveObjectsAction = retrieveObjectsAction;
 
-                if (mode == DragAndDropMode.SINGLE_BUNDLE)
+                /*if (mode == DragAndDropMode.SINGLE_BUNDLE)
                 {
                     defaultText = "Drag any number of GameObjects here to turn them into a \n\n SINGLE bundle";
                 }
                 else if (mode == DragAndDropMode.MULTIPLE_BUNDLES)
                 {
                     defaultText = "Drag any number of GameObjects here to turn them into MULTIPLE bundles";
-                }
+                }//*/
             }
 
             protected override void RegisterCallbacksOnTarget()

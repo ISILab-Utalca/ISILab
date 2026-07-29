@@ -74,12 +74,13 @@ namespace ISILab.LBS.VisualElements
             Stopwatch sw = Stopwatch.StartNew();
             long last = sw.ElapsedMilliseconds;
 
-            void Log(string name)
+            // Uncomment when needed
+            /*void Log(string name)
             {
                 long now = sw.ElapsedMilliseconds;
              //   Debug.Log($"{name}: {now - last} ms");
                 last = now;
-            }
+            }//*/
 
             noContentPanel.SetDisplay(layer is null);
             contentPanel.Clear();

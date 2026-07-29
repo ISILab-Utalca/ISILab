@@ -31,7 +31,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
                 // si es igual a null lo busco en carpeta
                 if (instance == null)
                 {
-                    Debug.Log(assetName);
+                    //Debug.Log(assetName);
                     instance = Resources.Load<LBSSettings>(assetName);
                     // si sigue siendo null lo creo
                     if (instance == null){
@@ -66,7 +66,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
         private void OnEnable()
         {
             if (instance != null) return;
-            Debug.Log("LBSSettings is loading...");
+            //Debug.Log("LBSSettings is loading...");
 
             Debug.Log(assetName);
             instance = Resources.Load<LBSSettings>(assetName);
@@ -138,7 +138,6 @@ namespace ISILab.LBS.Plugin.Core.Settings
         [System.Serializable]
         public class General
         {
-            public int defaultFloorCount = 10;
             public float zoomMax = 10;
             public float zoomMin = 0.1f;
 
