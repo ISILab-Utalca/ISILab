@@ -229,15 +229,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             {
                 case PathfindingHeuristic.Manhattan:
                     return dx + dy;
-                    break;
 
                 case PathfindingHeuristic.Octile:
                     return Mathf.Min(dx, dy) * SQRT2 + Mathf.Max(dx, dy) - Mathf.Min(dx, dy);
-                    break;
 
                 case PathfindingHeuristic.Chebyshev:
                     return Mathf.Max(dx, dy);
-                    break;
             }
             return float.MaxValue - givenCost;
         }
