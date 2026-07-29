@@ -95,6 +95,7 @@ namespace LBS.VisualElements
         #endregion
 
         #region EVENTS
+        public event Action OnToolKitChanged;
         public event Action<LBSLayer> OnEndAction;
         public event Action<LBSLayer> OnStartAction;
         #endregion
@@ -112,6 +113,8 @@ namespace LBS.VisualElements
             prevFloorButton.style.display = DisplayStyle.None;
             floorIndexField = this.Q<LBSCustomUnsignedIntegerField>("FloorIndex");
             floorIndexField.style.display = DisplayStyle.None;
+
+            OnToolKitChanged += SetSeparators;
 
             if (!Equals(instance, this))
                 instance = this;
@@ -396,6 +399,7 @@ namespace LBS.VisualElements
             {
                 toolProvider.SetTools(this);
             }
+            OnToolKitChanged?.Invoke();
         }
         
         public new void Clear()
@@ -482,10 +486,14 @@ namespace LBS.VisualElements
         private void InsertSeparatorAfter(VisualElement element)
         {
             VisualElement separator = new VisualElement();
-            separator.style.height = 1;
-            separator.style.marginTop = 4;
-            separator.style.marginBottom = 4;
-            separator.style.backgroundColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            separator.style.height = 6;
+            separator.style.marginTop = 6;
+            separator.style.marginBottom = 6;
+            //separator.style.backgroundColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            separator.style.borderTopWidth = 1f;
+            separator.style.borderBottomWidth = 1f;
+            separator.style.borderTopColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            separator.style.borderBottomColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
             separator.style.flexGrow = 1;
 
             VisualElement parent = element.parent;
@@ -498,6 +506,7 @@ namespace LBS.VisualElements
             }
             
             separators.Add(separator);
+
         }
 
         internal void DisplayManipulator(Type manipulatorType, DisplayStyle display)
