@@ -98,17 +98,18 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         {
             DisplayStyle displayStyle = display ? DisplayStyle.Flex : DisplayStyle.None;
 
+            /*
             switch (iconName)
             {
-                /*
                 case "Bundle":
                     _bundleIcon.style.display = displayStyle;
                     break;
                 case "Select":
                     _selectIcon.style.display = displayStyle;
                     break;
-                */
+            
             }
+            */
         }
 
         public void SetRemoveCallback(System.Action removeCallback)

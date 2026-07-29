@@ -6,11 +6,14 @@ namespace PathOS
 {
     public class HeuristicOS : MonoBehaviour
     {
-        [HideInInspector] public List<HeuristicScale> heuristicScales = new();
-        [HideInInspector] internal List<HeuristicScale> modifiableHeuristicScales = new();
+        [HideInInspector] public List<HeuristicScale> heuristicScales;
+        [HideInInspector] internal List<HeuristicScale> modifiableHeuristicScales;
 
-        internal Dictionary<Heuristic, float> heuristicScaleLookup = new();
-        internal Dictionary<(Heuristic, EntityType), float> entityScoringLookup = new();
+        internal Dictionary<Heuristic, float> _heuristicScaleLookup;
+        internal Dictionary<(Heuristic, EntityType), float> _entityScoringLookup;
+
+        private Dictionary<Heuristic, float> HeuristicScaleLookup => _heuristicScaleLookup ??= new();
+        private Dictionary<(Heuristic, EntityType), float> EntityScoringLookup => _entityScoringLookup ??= new();
 
         private static readonly Heuristic[] DefaultHeuristics =
         {
@@ -27,8 +30,8 @@ namespace PathOS
         {
             heuristicScales.Clear();
             modifiableHeuristicScales.Clear();
-            heuristicScaleLookup.Clear();
-            entityScoringLookup.Clear();
+            HeuristicScaleLookup.Clear();
+            EntityScoringLookup.Clear();
 
             // ROD: idk what's up with this baseValue float, like,
             // if the agent settings are gonna get re-written arbitrarily,
@@ -40,7 +43,7 @@ namespace PathOS
                 var scale = new HeuristicScale(h, baseValue);
                 heuristicScales.Add(scale);
                 modifiableHeuristicScales.Add(scale);
-                heuristicScaleLookup[h] = scale.scale;
+                HeuristicScaleLookup[h] = scale.scale;
 
                 //baseValue += 5f;
             }
@@ -80,19 +83,19 @@ namespace PathOS
             {
                 foreach (var w in set.weights)
                 {
-                    entityScoringLookup[(set.heuristic, w.entype)] = w.weight;
+                    EntityScoringLookup[(set.heuristic, w.entype)] = w.weight;
                 }
             }
         }
 
         private float GetEntityScore(Heuristic h, EntityType t)
         {
-            return entityScoringLookup.TryGetValue((h, t), out var v) ? v : 0f;
+            return EntityScoringLookup.TryGetValue((h, t), out var v) ? v : 0f;
         }
 
         private float GetHeuristicValue(Heuristic h)
         {
-            return heuristicScaleLookup.TryGetValue(h, out var v) ? v : 0f;
+            return HeuristicScaleLookup.TryGetValue(h, out var v) ? v : 0f;
         }
 
         private void ComputeHazardPenalty(PathOSAgent agent)
@@ -172,7 +175,7 @@ namespace PathOS
         {
             value = Mathf.Clamp01(value);
             modifiableHeuristicScales[index].scale = value;
-            heuristicScaleLookup[h] = value; // keep lookup in sync
+            HeuristicScaleLookup[h] = value; // keep lookup in sync
         }
     }
 }

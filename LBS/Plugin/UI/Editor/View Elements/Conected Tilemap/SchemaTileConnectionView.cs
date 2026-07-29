@@ -47,7 +47,7 @@ namespace ISILab.LBS.VisualElements
         
         private Color normalColor;
         // Set outline width here NOT in uxml
-        private float normalBorder = 0f;
+        //private float normalBorder = 0f;
         private float hoverIncrease = 0f;
         #endregion
 

@@ -34,7 +34,8 @@ namespace LBS.Components
         [SerializeField, JsonRequired] private string name = "Layer name";
         [SerializeField] private Vector2Int tileSize = new Vector2Int(2, 2);
 
-        [SerializeField, SerializeReference] private LBSFloor[] floors = new LBSFloor[10];
+        private const int defaultFloorCount = 10;
+        [SerializeField, SerializeReference] private LBSFloor[] floors = new LBSFloor[defaultFloorCount];
         [SerializeField, SerializeReference] private List<LBSBehaviour> behaviours = new();
         [SerializeField, SerializeReference] private List<LBSAssistant> assistants = new();
         [SerializeField, SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
@@ -100,16 +101,18 @@ namespace LBS.Components
             behaviours ??= new List<LBSBehaviour>();
             assistants ??= new List<LBSAssistant>();
             generatorRules ??= new List<LBSGeneratorRule>();
-            floors = new LBSFloor[LBSSettings.Instance.general.defaultFloorCount];
-            for(int i = 0; i < floors.Length; i++)
+
+            floors = new LBSFloor[defaultFloorCount];
+            for (int i = 0; i < floors.Length; i++)
             {
-                floors[i] ??= new ();
+                floors[i] ??= new();//
             }
 
             IsVisible = true;
             id = GetType().Name;
         }
 
+        // Clone constructor
         public LBSLayer(
             LBSFloor[] modules,
             IEnumerable<LBSAssistant> assistant,
@@ -162,8 +165,6 @@ namespace LBS.Components
         public List<LBSModule> Modules(int floorIndex = -1)
         {
             if (floorIndex < 0) floorIndex = activeFloor;
-            if (floors[floorIndex] == null)
-                ;
             return new(floors[floorIndex].Modules);
         }
  
@@ -234,14 +235,14 @@ namespace LBS.Components
         public T GetModule<T>(string moduleID = "", int index = -1) where T : LBSModule
         {
             if (index < 0) index = activeFloor;
-            if (floors is null)
+            /*if (floors is null)
                 ;
             if (floors[index] is null)
                 ;
             if (floors[index].Modules is null)
                 ;
             if (floors[index].Modules.OfType<T>() is null)
-                ;
+                ;*/
             if (string.IsNullOrEmpty(moduleID))
                 return floors[index].Modules.OfType<T>().FirstOrDefault();
 

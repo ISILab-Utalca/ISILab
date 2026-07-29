@@ -182,12 +182,12 @@ namespace ISILab.LBS.VisualElements
             Stopwatch sw = Stopwatch.StartNew();
             long last = sw.ElapsedMilliseconds;
 
-            void Log(string name)
+            /*void Log(string name)
             {
                 long now = sw.ElapsedMilliseconds;
                 UnityEngine.Debug.Log($"{name}: {now - last} ms");
                 last = now;
-            }
+            }//*/
 
             ToolKit.Instance.Clear();
 

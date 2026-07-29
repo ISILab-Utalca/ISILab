@@ -3,6 +3,7 @@ using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
@@ -15,7 +16,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         ConnectionData dirConnection = new ConnectionData();
 
         [SerializeField]
-        LBSTile connectinoPair;
+        LBSTile connectionPair = new LBSTile(new(0,0));
 
         #endregion
 
@@ -29,8 +30,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         public LBSTile ConnectedTile 
         { 
-            get => connectinoPair;
-            set { connectinoPair = value; }
+            get => connectionPair;
+            set { connectionPair = value; }
         }
 
         #endregion
@@ -42,9 +43,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         #region METHODS
 
-        private void Awake()
-        {
-        }
+        private void Awake() { }
 
         #endregion
     }
