@@ -96,7 +96,9 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
             var modes = Resources.FindObjectsOfTypeAll<LbesinMod>().OrderBy(m => m.SortingIndex).ToArray();
             if(modes.Length < 1)
             {
-                Debug.LogError("[Lbesin]: No mode was found.");
+                Debug.LogWarning("[Lbesin]: No mode was found.");
+                this.style.display = DisplayStyle.None;
+                return;
             }
 
             var buttons = new List<Button>();

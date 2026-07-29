@@ -202,7 +202,7 @@ namespace ISILab.LBS.Editor.Windows
 
         private void OnEnable()
         {
-            Debug.Log("[Main Window] - OnEnable");
+            //Debug.Log("[Main Window] - OnEnable");
             _instance = this;
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
@@ -265,7 +265,7 @@ namespace ISILab.LBS.Editor.Windows
         #region METHODS
         protected override void CreateGUI()
         {
-            Debug.Log("[Main Window] - CreateGUI");
+            //Debug.Log("[Main Window] - CreateGUI");
             Init();
             rootVisualElement.focusable = true;
             rootVisualElement.Focus();
