@@ -119,7 +119,7 @@ namespace ISILab.LBS.Plugin.Internal.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
-            LBSSettings.assetName = "LBSUserSettings";
+            LBSSettings.assetName = "Settings/LBSUserSettings";
             LBSSettings.ResetInstance();
             LBSSettings.Instance.ReplacePaths();
 
