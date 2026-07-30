@@ -17,14 +17,17 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
         static EvaluatorWatcher()
         {
-            string path = Path.GetFullPath(LBSSettings.Instance.paths.evaluatorsPath);
+            EditorApplication.delayCall += () =>
+            {
+                string path = Path.GetFullPath(LBSSettings.Instance.paths.evaluatorsPath);
 
-            watcher = new FileSystemWatcher(Path.GetDirectoryName(path));
+                watcher = new FileSystemWatcher(Path.GetDirectoryName(path));
 
-            watcher.Changed += OnChanged;
-            watcher.Filter = "*.cs";
-            watcher.EnableRaisingEvents = true;
-            watcher.IncludeSubdirectories = true;
+                watcher.Changed += OnChanged;
+                watcher.Filter = "*.cs";
+                watcher.EnableRaisingEvents = true;
+                watcher.IncludeSubdirectories = true;
+            };
         }
 
         static void OnChanged(object sender, FileSystemEventArgs e)
