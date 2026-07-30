@@ -84,6 +84,8 @@ namespace ISILab.LBS.VisualElements
         {
             this.RegisterCallback<KeyDownEvent>(OnKeyDown);
 
+            Debug.Log("setting tools");
+
             // We set the remover tool first as we want to avoid using switch statement twice when setting the add tool's remover.
             removeTile = new RemoveTileExterior();
             LBSTool t2 = new LBSTool(removeTile);
