@@ -63,16 +63,16 @@ namespace ISILab.LBS.Plugin.Core.Settings
             EditorUtility.SetDirty(this);
         }
 
-        private void OnEnable()
-        {
-            if (instance != null) return;
-            //Debug.Log("LBSSettings is loading...");
-            //Debug.Log(assetName);
-            instance = Resources.Load<LBSSettings>(assetName);
-            // si sigue siendo null lo creo
-            if (instance == null)
-                instance = ScriptableObject.CreateInstance<LBSSettings>();
-        }
+        //private void OnEnable()
+        //{
+        //    if (instance != null) return;
+        //    //Debug.Log("LBSSettings is loading...");
+        //    //Debug.Log(assetName);
+        //    instance = Resources.Load<LBSSettings>(assetName);
+        //    // si sigue siendo null lo creo
+        //    if (instance == null)
+        //        instance = ScriptableObject.CreateInstance<LBSSettings>();
+        //}
         #endregion
 
         public Paths paths = new Paths();
