@@ -52,7 +52,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #region VISUAL ELEMENTS
         private LBSToolbarButton disabledRemoveButton;
         private Label titleLabel;
-        private LBSToolbarButton addButton;
+        new private LBSToolbarButton addButton;
         #endregion
 
         #region PROPERTIES

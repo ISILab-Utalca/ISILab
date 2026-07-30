@@ -197,18 +197,26 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
 
             //Warning
-            if (tiles.Count == 0)
-            {
-                UnityEngine.Object.DestroyImmediate(mainPivot);
-                return new GeneratedGO(null, 
-                    new LBSLog("No tiles were created in the tool. Can't generate game object.", LogType.Error));
-            }
+            //if (tiles.Count == 0)
+            //{
+            //    UnityEngine.Object.DestroyImmediate(mainPivot);
+            //    return new GeneratedGO(null, 
+            //        new LBSLog("No tiles were created in the tool. Can't generate game object.", LogType.Error));
+            //}
 
             //Decides the position of the pivot based on the average position of every object generated
             //This is after we've created every object, so don't touch it, Alice!
-            var x = tiles.Average(t => t.transform.position.x);
-            var y = tiles.Min(t => t.transform.position.y);
-            var z = tiles.Average(t => t.transform.position.z);
+            float x, y, z;
+            if (tiles.Count > 0)
+            {
+                x = tiles.Average(t => t.transform.position.x);
+                y = tiles.Min(t => t.transform.position.y);
+                z = tiles.Average(t => t.transform.position.z);
+            }
+            else
+            {
+                x = y = z = 0f;
+            }
 
             mainPivot.transform.position = new Vector3(x, y, z);
 

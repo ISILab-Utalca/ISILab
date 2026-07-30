@@ -39,7 +39,7 @@ namespace PathOS
 
 
         internal NavMeshAgent navAgent;
-        public HeuristicOS heuristics = new();
+        public HeuristicOS heuristics;
 
         private GameObject cameraObject;
         private static bool cameraFollow;
@@ -729,7 +729,7 @@ namespace PathOS
 
                 if(adyacentFloorUnkown > currentFloorUnkown)
                 {
-                    score += Constants.Behaviour.STAIR_BIAS * heuristics.heuristicScaleLookup[Heuristic.CURIOSITY];
+                    score += Constants.Behaviour.STAIR_BIAS * heuristics._heuristicScaleLookup[Heuristic.CURIOSITY];
                 }
             }
 
@@ -881,7 +881,6 @@ namespace PathOS
             }
         }
 
-        uint estupidoFlanders = 0;
         /// <summary>
         /// Scores and explores a direction based on its potential information gain and various biases, 
         /// and updates the maximum score if necessary.
@@ -1050,7 +1049,7 @@ namespace PathOS
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit hit;
             _agentMemory.memoryMap.XZRaycastMemoryMap(origin, dir, maxDistance, out hit);
 
-            score += (heuristics.heuristicScaleLookup[Heuristic.CURIOSITY])
+            score += (heuristics._heuristicScaleLookup[Heuristic.CURIOSITY])
                 * hit.numUnexplored / PathOSNavUtility.NavmeshMemoryMapper.maxCastSamples
                 * hit.distance / eyes.navmeshCastDistance;
 
@@ -1082,13 +1081,13 @@ namespace PathOS
                     (Heuristic, EntityType) key = (heuristicScale.heuristic,
                         _agentMemory.entities[i].entity.entityType);
 
-                    if (!heuristics.entityScoringLookup.ContainsKey(key))
+                    if (!heuristics._entityScoringLookup.ContainsKey(key))
                     {
                         NPDebug.LogError("Couldn't find key " + key.ToString() + " in heuristic scoring lookup!", typeof(PathOSAgent));
                         continue;
                     }
 
-                    score += heuristicScale.scale * heuristics.entityScoringLookup[key] * dot * distFactor;
+                    score += heuristicScale.scale * heuristics._entityScoringLookup[key] * dot * distFactor;
                 }
             }
 
@@ -1114,7 +1113,7 @@ namespace PathOS
 
                 bias += Mathf.Lerp(Constants.Behaviour.FINAL_GOAL_BONUS_MIN,
                     Constants.Behaviour.FINAL_GOAL_BONUS_MAX,
-                    heuristics.heuristicScaleLookup[Heuristic.EFFICIENCY]);
+                    heuristics._heuristicScaleLookup[Heuristic.EFFICIENCY]);
 
                 //Penalize for the agent's assessment of benefit for all unvisited
                 //positive entities.
@@ -1146,13 +1145,13 @@ namespace PathOS
             {
                 (Heuristic, EntityType) key = (heuristicScale.heuristic, memory.entity.entityType);
 
-                if (!heuristics.entityScoringLookup.ContainsKey(key))
+                if (!heuristics._entityScoringLookup.ContainsKey(key))
                 {
                     NPDebug.LogError("Couldn't find key " + key.ToString() + " in heuristic scoring lookup!", typeof(PathOSAgent));
                     continue;
                 }
 
-                entityBias += heuristicScale.scale * heuristics.entityScoringLookup[key] * distFactor;
+                entityBias += heuristicScale.scale * heuristics._entityScoringLookup[key] * distFactor;
             }
             return entityBias;
         }

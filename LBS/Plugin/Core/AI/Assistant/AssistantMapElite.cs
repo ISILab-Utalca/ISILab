@@ -294,7 +294,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         private HashSet<int> CalcImmutables(Rect rect)
         {
-            int[] immutables = null;
+            //int[] immutables = null;
             var im = new HashSet<int>();
             var x = (int)rect.min.x;
             var y = (int)rect.min.y;

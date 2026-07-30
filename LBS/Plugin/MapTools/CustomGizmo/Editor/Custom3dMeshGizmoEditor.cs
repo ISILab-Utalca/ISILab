@@ -10,10 +10,10 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo.Editor
     public class Custom3dMeshGizmoEditor : UnityEditor.Editor
     {
         private WorldEditBarView rootVisualElement;
-        private bool isVisible = false;
-        private Rect popupRect;
+        //private bool isVisible = false;
+        //private Rect popupRect;
 
-        private const float buttonSize = 18;
+        //private const float buttonSize = 18;
         private const float yOffset = 200;
 
         private LBSGenerated lbsComponent;
@@ -78,17 +78,17 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo.Editor
             rootVisualElement.style.top = screenPoint.y - yOffset;
         }
 
-        void DrawPopupWindow(int windowID)
-        {
-            GUILayout.Label("This is a popup in the Scene view.");
-            if (GUILayout.Button("Close"))
-            {
-                isVisible = false;
-            }
+        //void DrawPopupWindow(int windowID)
+        //{
+        //    GUILayout.Label("This is a popup in the Scene view.");
+        //    if (GUILayout.Button("Close"))
+        //    {
+        //        isVisible = false;
+        //    }
 
-            // Make the window draggable
-            GUI.DragWindow();
-        }
+        //    // Make the window draggable
+        //    GUI.DragWindow();
+        //}
         
         
     }

@@ -373,12 +373,13 @@ namespace ISILab.LBS.VisualElements.Editor
             Stopwatch sw = Stopwatch.StartNew();
             long last = sw.ElapsedMilliseconds;
 
-            void Log(string name)
+            // Uncomment when needed
+            /*void Log(string name)
             {
                 long now = sw.ElapsedMilliseconds;
                 Debug.Log($"{name}: {now - last} ms");
                 last = now;
-            }
+            }//*/
 
             LBSMainWindow.Instance.SelectedLayer?.OnChangeUpdate();
             //Log("prev on change changed");
