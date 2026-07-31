@@ -363,7 +363,6 @@ namespace PathOS
             return hit;
         }
 
-        int estupidoFlanders = 0;
         /// <summary>
         /// Performs a visibility check from the specified origin in the given direction
         /// using a physics raycast, and updates the memory map with the result.

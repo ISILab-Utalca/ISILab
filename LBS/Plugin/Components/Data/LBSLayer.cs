@@ -34,7 +34,8 @@ namespace LBS.Components
         [SerializeField, JsonRequired] private string name = "Layer name";
         [SerializeField] private Vector2Int tileSize = new Vector2Int(2, 2);
 
-        [SerializeField, SerializeReference] private LBSFloor[] floors = new LBSFloor[10];
+        private const int defaultFloorCount = 10;
+        [SerializeField, SerializeReference] private LBSFloor[] floors = new LBSFloor[defaultFloorCount];
         [SerializeField, SerializeReference] private List<LBSBehaviour> behaviours = new();
         [SerializeField, SerializeReference] private List<LBSAssistant> assistants = new();
         [SerializeField, SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
@@ -103,17 +104,18 @@ namespace LBS.Components
             behaviours ??= new List<LBSBehaviour>();
             assistants ??= new List<LBSAssistant>();
             generatorRules ??= new List<LBSGeneratorRule>();
-            floorsCount = 10;
-            //floors = new LBSFloor[LBSSettings.Instance.general.defaultFloorCount];
-            //for(int i = 0; i < floors.Length; i++)
-            //{
-            //    floors[i] ??= new ();
-            //}
+
+            floors = new LBSFloor[defaultFloorCount];
+            for (int i = 0; i < floors.Length; i++)
+            {
+                floors[i] ??= new();//
+            }
 
             IsVisible = true;
             id = GetType().Name;
         }
 
+        // Clone constructor
         public LBSLayer(
             LBSFloor[] modules,
             IEnumerable<LBSAssistant> assistant,
@@ -152,7 +154,7 @@ namespace LBS.Components
             if(floorsCount == -1)
             {
                 floorsSizeInitialized = false;
-                floorsCount = LBSSettings.Instance.general.defaultFloorCount;
+                floorsCount = defaultFloorCount;
             }
 
             if (!floorsSizeInitialized)

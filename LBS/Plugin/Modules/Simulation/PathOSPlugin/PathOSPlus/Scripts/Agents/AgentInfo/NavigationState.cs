@@ -78,7 +78,7 @@ namespace PathOS
             //Actual look time can fluctuate based on the agent's caution and the 
             //danger in the current area.
             float lookTimeScale = agent.AgentMemory.ScoreHazards(agent.GetPosition()) *
-                agent.heuristics.heuristicScaleLookup[Heuristic.CAUTION];
+                agent.heuristics._heuristicScaleLookup[Heuristic.CAUTION];
 
             float a = baseLookTime;
 

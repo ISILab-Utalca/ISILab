@@ -42,7 +42,7 @@ namespace LBS.VisualElements
         #endregion
 
         #region EVENTS
-        public event Action<ChangeEvent<string>> OnChangeGroup;
+        //public event Action<ChangeEvent<string>> OnChangeGroup;
         public event Action<object> OnSelectOption;
         public event Action<object> OnRemoveOption;
         public event Action OnAddOption;

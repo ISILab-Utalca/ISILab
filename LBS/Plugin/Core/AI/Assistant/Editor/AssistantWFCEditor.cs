@@ -39,7 +39,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
         
         private ListView presetsList;
 
-        private string defaultWFCAssetGUID = "aa906d6d48e992141b714743bb35ff3a";
+        //private string defaultWFCAssetGUID = "aa906d6d48e992141b714743bb35ff3a";
 
         public LBSButtonListFilter BundlePickerWindow { get; set; }
 

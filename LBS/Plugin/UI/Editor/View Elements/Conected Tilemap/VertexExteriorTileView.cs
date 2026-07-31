@@ -24,7 +24,7 @@ namespace ISILab.LBS.VisualElements
         private CustomComponents.LBSCustomPainter center;
 
         readonly Color invalidColor = Color.white;
-        float boderWidth = 1f;
+        //float boderWidth = 1f;
 
         public VertexExteriorTileView(List<string> connections = null, string centerTag = "") : base(connections, "ConnectedVertexBasedTile")
         {
