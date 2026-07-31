@@ -1,4 +1,5 @@
 using ISILab.Commons.Utility;
+using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS;
 using ISILab.LBS.Assistants;
@@ -60,7 +61,7 @@ namespace LBS.Components
         [JsonIgnore] public string SubTypeID { get => subTypeId; }
         [JsonIgnore] public string Name { get => name; set => name = value; }
         [JsonIgnore] public int ActiveFloor { get => activeFloor; }
-        [JsonIgnore] public int FloorCount { get => floorsCount;/*floors.Length;*/ }
+        [JsonIgnore] public int FloorCount { get => /*floorsCount;*/floors.Length; }
 
         // Return copies to protect internal lists
         [JsonIgnore] public List<LBSBehaviour> Behaviours => new(behaviours);
@@ -69,7 +70,7 @@ namespace LBS.Components
 
         // "First" lists are less safe, but are meant to be used in editor
         // as a quick way to make design changes.
-        [JsonIgnore] public List<LBSModule> FirstModules => GetFloors()[0].Modules;
+        [JsonIgnore] public List<LBSModule> FirstModules => floors[0].Modules;
         [JsonIgnore] public List<LBSBehaviour> FirstBehaviours => behaviours;
         [JsonIgnore] public List<LBSAssistant> FirstAssistants => assistants;
         [JsonIgnore] public List<LBSGeneratorRule> FirstGeneratorRules => generatorRules;
@@ -198,9 +199,9 @@ namespace LBS.Components
         {
             if (module == null) return false;
             if (levelIndex < 0) levelIndex = activeFloor;
-            if (GetFloors()[levelIndex].Modules.Contains(module)) return false;
+            if (floors[levelIndex].Modules.Contains(module)) return false;
 
-            GetFloors()[levelIndex].Modules.Add(module);
+            floors[levelIndex].Modules.Add(module);
             module.OnAttach(this);
             OnAddModule?.Invoke(this, module);
             return true;
@@ -320,22 +321,41 @@ namespace LBS.Components
                 return;
             }
 
-            behaviours.Add(behaviour);
-
             // ensure required modules exist
             var req = behaviour.GetRequiredModules();
             if (req != null)
             {
                 foreach (Type rt in req)
                 {
-                    for (int i = 0; i < floorsCount; i++)
+                    for (int i = 0; i < FloorCount; i++)
                     {
-                        if (GetFloors()[i].Modules.All(m => m.GetType() != rt))
+                        if (FirstModules.All(m => m.GetType() != rt))
                             AddModule(Activator.CreateInstance(rt) as LBSModule, i);
                     }
                 }
             }
 
+            // ensure required assistants exist
+            req = behaviour.GetRequiredAssistants();
+            if (req != null)
+            {
+                foreach (Type rt in req)
+                {
+                    if (FirstAssistants.All(a => a.GetType() != rt))
+                    {
+                        if (Activator.CreateInstance(rt, LBSAssistant.DefaultAssistantIcon, rt.Name, LBSSettings.Instance.view.assistantColor) is LBSAssistant instance)
+                        {
+                            AddAssistant(instance);
+                        }
+                        else
+                        {
+                            Debug.LogError($"Failed to create instance of assistant type: {rt.Name}");
+                        }
+                    }
+                }
+            }
+
+            behaviours.Add(behaviour);
             behaviour.OnAttachLayer(this);
         }
 
@@ -377,8 +397,6 @@ namespace LBS.Components
                 return;
             }
 
-            assistants.Add(assistant);
-
             var req = assistant.GetRequiredModules();
             if (req != null)
             {
@@ -386,12 +404,14 @@ namespace LBS.Components
                 {
                     for (int i = 0; i < floorsCount; i++)
                     {
-                        if (GetFloors().All(m => m.GetType() != rt))
+                        if (FirstModules.All(m => m.GetType() != rt))
                             AddModule(Activator.CreateInstance(rt) as LBSModule, i);
                     }
+
                 }
             }
 
+            assistants.Add(assistant);
             assistant.OnAttachLayer(this);
         }
 
