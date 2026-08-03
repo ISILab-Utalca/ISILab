@@ -61,21 +61,6 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
         private static void OnAfterReloadScript()
         {
             //Debug.Log("[LBS Callbacks] - After Reload Script");
-            var p = EditorPrefs.GetBool("usingPackage" + Application.dataPath, false);
-            //LBSSettings.assetName = p ? "Settings/LBSUserSettings" : "LBSDefaultSettings";
-            //LBSAssetsStorage.assetName = p ? "Storage" : "StorageTemplate";
-            //LBSAssetsStorage.folderName = p ? "Cache" : "Storage";
-            Debug.Log((p ? "" : "NOT ") + "using as package");
-            if(p)
-            {
-                LBSSettings.assetName = "Settings/LBSUserSettings";
-                LBSSettings.ResetInstance();
-                LBSSettings.Instance.ReplacePaths();
-
-                LBSAssetsStorage.assetName = "Storage";
-                LBSAssetsStorage.folderName = "Cache";
-                LBSAssetsStorage.ResetInstance();
-            }
             LoadBackUp();
             ReloadCurrentLevel();
         }
