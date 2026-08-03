@@ -52,6 +52,8 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         private static VectorImage s_behaviourIcon;
         private static VectorImage s_assistantIcon;
 
+        private const string DefaultBehaviorIcon = "e17eb0e02534666439fca8ea30b4d4e4";
+        private const string DefaultAssistantIcon = "ad8feef201665454ca79e31b7d798ac3";
 
         private static Dictionary<Type, MonoScript> s_typeScriptCache = new Dictionary<Type, MonoScript>();
 
@@ -390,7 +392,6 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
                             EditorUtility.SetDirty(Template);
                             RebuildAllLists();
-                            RebuildWarningList();
                         });
                     }
                     menu.ShowAsContext();
@@ -590,13 +591,13 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                     group.Rebuild();
                 RebuildWarningList();
             }
-        }
-        private void RebuildWarningList()
-        {
-            if (_warningList == null) return;
-            _unresolvedRequirements = GetUnresolvedRequirements();
-            _warningList.RefreshItems();
-            _warningList.Rebuild();
+            void RebuildWarningList()
+            {
+                if (_warningList == null) return;
+                _unresolvedRequirements = GetUnresolvedRequirements();
+                _warningList.RefreshItems();
+                _warningList.Rebuild();
+            }
         }
 
         private static void EnsureCaches()
@@ -617,7 +618,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             // Load icons (AssetDatabase is editor-only and cheap here)
             try
             {
-                s_behaviourIcon = AssetMacro.LoadAssetByGuid<VectorImage>(LBSBehaviour.DefaultBehaviorIcon);
+                s_behaviourIcon = AssetMacro.LoadAssetByGuid<VectorImage>(DefaultBehaviorIcon);
             }
             catch
             {
@@ -626,7 +627,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
             try
             {
-                s_assistantIcon = AssetMacro.LoadAssetByGuid<VectorImage>(LBSAssistant.DefaultAssistantIcon);
+                s_assistantIcon = AssetMacro.LoadAssetByGuid<VectorImage>(DefaultAssistantIcon);
             }
             catch
             {
@@ -865,7 +866,6 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 {
                     Template.layer.AddModule(instance.Clone() as LBSModule, i);
                 }
-                RebuildWarningList();
             }
             else
             {
@@ -879,7 +879,6 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             if (Activator.CreateInstance(type, AssetMacro.GetGuidFromAsset(s_behaviourIcon), type.Name, LBSSettings.Instance.view.behavioursColor) is LBSBehaviour instance)
             {
                 Template.layer.AddBehaviour(instance);
-                RebuildWarningList();
             }
             else
             {
@@ -906,7 +905,6 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             if (Activator.CreateInstance(type) is LBSGeneratorRule instance)
             {
                 Template.layer.AddGeneratorRule(instance);
-                RebuildWarningList();
             }
             else
             {

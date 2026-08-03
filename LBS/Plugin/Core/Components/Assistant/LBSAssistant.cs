@@ -13,8 +13,6 @@ namespace ISILab.LBS.Assistants
     [Serializable]
     public abstract class LBSAssistant : ICloneable
     {
-        public static string DefaultAssistantIcon = "ad8feef201665454ca79e31b7d798ac3";
-
         #region META-FIELDS
         [SerializeField, JsonRequired, HideInInspector]
         public bool visible = true;
@@ -92,12 +90,7 @@ namespace ISILab.LBS.Assistants
         public Action OnCancellation;
         #endregion
 
-
         #region CONSTRUCTORS
-        /*public LBSAssistant()
-        {
-            name = GetType().Name;
-        }//*/
         public LBSAssistant(string IconGuid, string name, Color colorTint, Action onStart = null)
         {
             this.IconGuid = IconGuid;

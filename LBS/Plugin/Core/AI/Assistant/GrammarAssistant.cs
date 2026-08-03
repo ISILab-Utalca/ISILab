@@ -36,11 +36,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public QuestBehaviour Behavior => questBehaviour ??= OwnerLayer.GetBehaviour<QuestBehaviour>();
         #endregion
 
-        /*public GrammarAssistant() 
-        { 
-            //return GrammarAssistant("hi", "ho", Color.cyan); 
-        }//*/
-
         public GrammarAssistant(string IconGuid, string name, Color colorTint)
             : base(IconGuid, name, colorTint) { }
 
