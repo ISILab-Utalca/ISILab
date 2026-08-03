@@ -12,33 +12,27 @@ namespace ISILab
         {
             var action = ScriptableObject.CreateInstance<CreateAssistantWithEditorAction>();
 
-            try
-            {
-                ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
-                    0,
-                    action,
-                    "NewAssistant.cs",
-                    null,
-                    "Assets/ISILab/LBS/Plugin/Core/Components/Assistant/Asistant_Template/AssistantTemplate.cs.txt");
-            }
-            catch
-            {
-                ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
-                    0,
-                    action,
-                    "NewAssistant.cs",
-                    null,
-                    "Packages/Level Building Sidekick/LBS/Plugin/Core/Components/Assistant/Asistant_Template/AssistantTemplate.cs.txt");
-            }
+            UnityEditor.PackageManager.PackageInfo package = 
+                UnityEditor.PackageManager.PackageInfo.FindForAssembly(typeof(AssistantCreator).Assembly);
+
+
+            ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
+                0,
+                action,
+                "NewAssistant.cs",
+                null,
+                package.assetPath);
         }
     }
 
     public class CreateAssistantWithEditorAction : EndNameEditAction
     {
-        public override void Action(int instanceId, string pathName, string resourceFile)
+        public override void Action(int instanceId, string pathName, string assetPath)
         {
             // Create the runtime script
-            string template = File.ReadAllText(resourceFile);
+            string templatePath = Path.Combine(assetPath,
+                "LBS/Plugin/Core/Components/Assistant/Assistant_Template/AssistantTemplate.cs.txt");
+            string template = File.ReadAllText(templatePath);
             string className = Path.GetFileNameWithoutExtension(pathName);
 
             template = template.Replace("#SCRIPTNAME#", className);
@@ -55,8 +49,9 @@ namespace ISILab
             string editorPath =
                 Path.Combine(editorDirectory, $"{className}Editor.cs");
 
-            string editorTemplate = File.ReadAllText(
-                "Assets/ISILab/LBS/Plugin/Core/Components/Assistant/Asistant_Template/AssistantTemplateEditor.cs.txt");
+            templatePath = Path.Combine(assetPath,
+                "LBS/Plugin/Core/Components/Assistant/Assistant_Template/AssistantTemplateEditor.cs.txt");
+            string editorTemplate = File.ReadAllText(templatePath);
 
             editorTemplate = editorTemplate.Replace(
                 "#TARGETCLASS#",
