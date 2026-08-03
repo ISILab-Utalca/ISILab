@@ -1,9 +1,9 @@
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
@@ -21,6 +21,7 @@ using System.Xml.Linq;
 using UnityEditor;
 using UnityEditor.MemoryProfiler;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
@@ -211,7 +212,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 {
                     Undo.RecordObject(Template, "Toggle Debug View");
                     Template.DebugView = evt.newValue;
-                    EditorUtility.SetDirty(Template);
+                    EditorUtility.SetDirty(target);
 
                     // Fuerza reconstrucción del inspector
                     ActiveEditorTracker.sharedTracker.ForceRebuild();
@@ -228,7 +229,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 {
                     Undo.RecordObject(Template, changeName);
                     OnValueChanged.Invoke(evt.newValue);
-                    EditorUtility.SetDirty(Template);
+                    EditorUtility.SetDirty(target);
                 });
             }
 
@@ -242,7 +243,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 {
                     Undo.RecordObject(Template, "Change Sorting Order");
                     Template.Order = evt.newValue;
-                    EditorUtility.SetDirty(Template);
+                    EditorUtility.SetDirty(target);
                 });
             }
 
@@ -288,7 +289,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 {
                     Undo.RecordObject(Template, "Change Tile Size");
                     Template.layer.TileSize = evt.newValue;
-                    EditorUtility.SetDirty(Template);
+                    EditorUtility.SetDirty(target);
                 });
             }
 
@@ -301,7 +302,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 {
                     Undo.RecordObject(Template, "Change Floor Count");
                     Template.layer.ChangeFloorCount(evt.newValue);
-                    EditorUtility.SetDirty(Template);
+                    EditorUtility.SetDirty(target);
                 });
             }
 
@@ -388,7 +389,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                                 Debug.LogException(ex);
                             }
 
-                            EditorUtility.SetDirty(Template);
+                            EditorUtility.SetDirty(target);
                             RebuildAllLists();
                             RebuildWarningList();
                         });
@@ -418,7 +419,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                     else
                         Debug.LogWarning($"Unsupported type for removal: {typeof(T).Name}");
 
-                    EditorUtility.SetDirty(Template);
+                    EditorUtility.SetDirty(target);
                     listGroup.Rebuild();
                     RebuildWarningList();
                 };
@@ -545,13 +546,13 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 {
                     Undo.RecordObject(Template, $"Change {field.Name} of {name}");
                     field.SetValue(obj, evt.newValue);
-                    EditorUtility.SetDirty(Template);
+                    EditorUtility.SetDirty(target);
                 }
                 void PropertyChangeCallback<T>(PropertyInfo field, ChangeEvent<T> evt)
                 {
                     Undo.RecordObject(Template, $"Change {field.Name} of {name}");
                     field.SetValue(obj, evt.newValue);
-                    EditorUtility.SetDirty(Template);
+                    EditorUtility.SetDirty(target);
                 }
             }
 
@@ -775,7 +776,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             if (EditorGUI.EndChangeCheck())
             {
                 Template.DebugView = debugView;
-                EditorUtility.SetDirty(Template);
+                EditorUtility.SetDirty(target);
 
                 ActiveEditorTracker.sharedTracker.ForceRebuild();
                 return;
@@ -845,7 +846,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 try
                 {
                     onAdd?.Invoke(types[index]);
-                    EditorUtility.SetDirty(Template);
+                    EditorUtility.SetDirty(target);
                 }
                 catch (Exception ex)
                 {
@@ -865,7 +866,6 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 {
                     Template.layer.AddModule(instance.Clone() as LBSModule, i);
                 }
-                RebuildWarningList();
             }
             else
             {
@@ -876,28 +876,76 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         private void AddBehaviour(Type type)
         {
             if (type == null) return;
-            if (Activator.CreateInstance(type, AssetMacro.GetGuidFromAsset(s_behaviourIcon), type.Name, LBSSettings.Instance.view.behavioursColor) is LBSBehaviour instance)
-            {
-                Template.layer.AddBehaviour(instance);
-                RebuildWarningList();
-            }
-            else
+
+            // Instance Behaviour
+            LBSBehaviour newBehaviour = Activator.CreateInstance(
+                type, 
+                AssetMacro.GetGuidFromAsset(s_behaviourIcon), 
+                type.Name, 
+                LBSSettings.Instance.view.behavioursColor) as LBSBehaviour;
+
+            if(newBehaviour == null)
             {
                 Debug.LogError($"Failed to create instance of behaviour type: {type.Name}");
+                return;
             }
+
+            // ensure required modules exist
+            var req = newBehaviour.GetRequiredModules();
+            if (req != null)
+            {
+                foreach (Type rt in req)
+                {
+                    if (Template.layer.FirstModules.All(m => m.GetType() != rt))
+                        AddModule(rt);
+                }
+            }
+
+            // ensure required assistants exist
+            req = newBehaviour.GetRequiredAssistants();
+            if (req != null)
+            {
+                foreach (Type rt in req)
+                {
+                    if (Template.layer.FirstAssistants.All(a => a.GetType() != rt))
+                    {
+                        AddAssistant(rt);
+                    }
+                }
+            }
+
+            Template.layer.AddBehaviour(newBehaviour);
         }
 
         private void AddAssistant(Type type)
         {
             if (type == null) return;
-            if (Activator.CreateInstance(type, AssetMacro.GetGuidFromAsset(s_assistantIcon), type.Name, LBSSettings.Instance.view.assistantColor) is LBSAssistant instance)
-            {
-                Template.layer.AddAssistant(instance);
-            }
-            else
+
+            // Instance Assistant
+            LBSAssistant newAssistant = Activator.CreateInstance(
+                type,
+                AssetMacro.GetGuidFromAsset(s_assistantIcon),
+                type.Name,
+                LBSSettings.Instance.view.assistantColor) as LBSAssistant;
+
+            if(newAssistant == null)
             {
                 Debug.LogError($"Failed to create instance of assistant type: {type.Name}");
+                return;
             }
+
+            // ensure required modules exist
+            var req = newAssistant.GetRequiredModules();
+            if (req != null)
+            {
+                foreach (Type rt in req)
+                {
+                    if (Template.layer.FirstModules.All(m => m.GetType() != rt))
+                        AddModule(rt);
+                }
+            }
+
+            Template.layer.AddAssistant(newAssistant);
         }
 
         private void AddGeneratorRule(Type type)
@@ -1059,7 +1107,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         #region Utilities
         private void ApplyChanges()
         {
-            EditorUtility.SetDirty(Template);
+            EditorUtility.SetDirty(target);
             AssetDatabase.SaveAssets();
             Debug.Log("LayerTemplate saved.");
         }

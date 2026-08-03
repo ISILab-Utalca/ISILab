@@ -164,7 +164,6 @@ namespace ISILab.LBS.Behaviours
             };
 
             Graph.PostEdgesChange += ValidateGraph;
-
         }
 
 

@@ -24,7 +24,7 @@ namespace ISILab.LBS.Behaviours
 
         #region FIELDS
         [SerializeField, HideInInspector, JsonIgnore]
-        private LBSLayer ownerLayerLayer;
+        private LBSLayer ownerLayer;
 
         [SerializeField, JsonRequired]
         private Color colorTint;
@@ -50,8 +50,8 @@ namespace ISILab.LBS.Behaviours
         [JsonIgnore]
         public LBSLayer OwnerLayer
         {
-            get => ownerLayerLayer;
-            set => ownerLayerLayer = value;
+            get => ownerLayer;
+            set => ownerLayer = value;
         }
 
         [HideInInspector, SerializeField]
