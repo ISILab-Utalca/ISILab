@@ -92,28 +92,6 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
             var visualTree = Resources.Load<VisualTreeAsset>("Lbesin");
             visualTree.CloneTree(this);
 
-            // Find Modes
-            var modes = Resources.FindObjectsOfTypeAll<LbesinMod>().OrderBy(m => m.SortingIndex).ToArray();
-            if(modes.Length < 1)
-            {
-                Debug.LogWarning("[Lbesin]: No mode was found.");
-                this.style.display = DisplayStyle.None;
-                return;
-            }
-
-            var buttons = new List<Button>();
-            for (int i = 0; i < modes.Length; i++)
-            {
-                var m = modes[i];
-                var b = m.GenerateButton();
-                Modes[b] = m;
-
-                SetButtonPosition(b, 45 * (i - (modes.Length / 2)));
-                ButtonsContainer.Add(b);
-                buttons.Add(b);
-            }
-            ModButtons = buttons.ToArray();
-
             //--------------- CALLBACKS ---------------//
             // Element - Action
 
@@ -133,6 +111,36 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
                 ResetPosition();
             });
 
+            //--------------- INITIAL VALUES ---------------//
+            isResetVisible = false;
+            this.HideImage(Reset);
+            this.HideImage(ModSelector);
+        }
+
+        public void InitModes()
+        {
+            // Find Modes
+            var modes = Resources.FindObjectsOfTypeAll<LbesinMod>().OrderBy(m => m.SortingIndex).ToArray();
+            if (modes.Length < 1)
+            {
+                Debug.LogWarning("[Lbesin]: No mode was found.");
+                this.style.display = DisplayStyle.None;
+                return;
+            }
+
+            var buttons = new List<Button>();
+            for (int i = 0; i < modes.Length; i++)
+            {
+                var m = modes[i];
+                var b = m.GenerateButton();
+                Modes[b] = m;
+
+                SetButtonPosition(b, 45 * (i - (modes.Length / 2)));
+                ButtonsContainer.Add(b);
+                buttons.Add(b);
+            }
+            ModButtons = buttons.ToArray();
+
             // Buttons - Change Icon
             foreach (var button in ModButtons)
             {
@@ -148,13 +156,9 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
                 });
             }
 
-            //--------------- INITIAL VALUES ---------------//
+            // Initial Values
             Icon.style.backgroundImage = new StyleBackground(Modes.First().Value.Icon);
             GlobalTint = Modes.First().Value.Color;
-
-            isResetVisible = false;
-            this.HideImage(Reset);
-            this.HideImage(ModSelector);
         }
 
         #region POINTER EVENTS

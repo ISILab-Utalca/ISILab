@@ -34,35 +34,84 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
         static ConfigurableEvaluatorValidator()
         {
-            string folder = LBSSettings.Instance.paths.evaluatorsPath;
-            string warning = "Some evaluators are missing labels. Configurable evaluators requires these labels in order to create new parameters correctly.\n\n" +
-                            "The following labels are missing:\n";
+            EditorApplication.delayCall += Validate;
+        }
 
-            CompilationPipeline.compilationFinished += _ =>
+        static void Validate()
+        {
+            LBSSettings settings = LBSSettings.Instance;
+
+            if (settings == null)
+                return;
+
+            string folder = settings.paths.evaluatorsPath;
+
+            string warning =
+                "Some evaluators are missing labels. Configurable evaluators requires these labels " +
+                "in order to create new parameters correctly.\n\n" +
+                "The following labels are missing:\n";
+
+            IEnumerable<Type> evaluators =
+                Reflection.GetAllImplementationsOf(typeof(IConfigurableEvaluator));
+
+            bool validated = true;
+
+            foreach (Type evaluator in evaluators)
             {
-                IEnumerable<Type> evaluators = Reflection.GetAllImplementationsOf(typeof(IConfigurableEvaluator));
-                List<string> names = evaluators.Select(ev => ev.Name).ToList();
-                bool validated = true;
-                foreach (string name in names)
+                string path = Path.Combine(folder, evaluator.Name + ".cs");
+
+                if (!File.Exists(path))
+                    continue;
+
+                string fileText = File.ReadAllText(path);
+
+                foreach (string label in requiredLabels)
                 {
-                    string path = folder + Path.DirectorySeparatorChar + name + ".cs";
-                    if (!File.Exists(path)) continue;
-                    string fileText = File.ReadAllText(path);
-
-                    foreach(string label in requiredLabels)
+                    if (!fileText.Contains(label))
                     {
-                        if (!fileText.Contains(label))
-                        {
-                            validated = false;
-                            warning += $"(!) {name}\t{label}\n";
-                        }
+                        validated = false;
+                        warning += $"(!) {evaluator.Name}\t{label}\n";
                     }
-
-                    warning += "\n";
                 }
 
-                if(!validated) Debug.LogWarning(warning);
-            };
+                warning += "\n";
+            }
+
+            if (!validated)
+                Debug.LogWarning(warning);
         }
+
+        //static ConfigurableEvaluatorValidator()
+        //{
+        //    string folder = LBSSettings.Instance.paths.evaluatorsPath;
+        //    string warning = "Some evaluators are missing labels. Configurable evaluators requires these labels in order to create new parameters correctly.\n\n" +
+        //                    "The following labels are missing:\n";
+
+        //    CompilationPipeline.compilationFinished += _ =>
+        //    {
+        //        IEnumerable<Type> evaluators = Reflection.GetAllImplementationsOf(typeof(IConfigurableEvaluator));
+        //        List<string> names = evaluators.Select(ev => ev.Name).ToList();
+        //        bool validated = true;
+        //        foreach (string name in names)
+        //        {
+        //            string path = folder + Path.DirectorySeparatorChar + name + ".cs";
+        //            if (!File.Exists(path)) continue;
+        //            string fileText = File.ReadAllText(path);
+
+        //            foreach(string label in requiredLabels)
+        //            {
+        //                if (!fileText.Contains(label))
+        //                {
+        //                    validated = false;
+        //                    warning += $"(!) {name}\t{label}\n";
+        //                }
+        //            }
+
+        //            warning += "\n";
+        //        }
+
+        //        if(!validated) Debug.LogWarning(warning);
+        //    };
+        //}
     }
 }
