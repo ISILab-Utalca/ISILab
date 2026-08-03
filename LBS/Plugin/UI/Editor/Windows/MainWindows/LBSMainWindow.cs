@@ -112,12 +112,12 @@ namespace ISILab.LBS.Editor.Windows
         #region NOTIFICATIONS
 
         // Tool notification
-        private static Label toolLabel;
+        private Label toolLabel;
 
         // Warning notification
-        private static VisualElement warningNotification;
-        private static Label warningLabel;
-        public static NotifierViewer notifier;
+        private VisualElement warningNotification;
+        private Label warningLabel;
+        public NotifierViewer notifier;
         #endregion
 
         #region MAIN VIEW
@@ -126,7 +126,7 @@ namespace ISILab.LBS.Editor.Windows
         private MainView mainView;
 
         // Help overlays
-        private static VisualElement helpOverlay;
+        private VisualElement helpOverlay;
         private VisualElement noLayerSign;
         private LBSSideBarPanel sideBarPanel;
 
@@ -138,7 +138,7 @@ namespace ISILab.LBS.Editor.Windows
         #region UI LABELS
 
         private Label selectedLabel;
-        private static Label positionLabel;
+        private Label positionLabel;
 
         #endregion
 
@@ -250,6 +250,19 @@ namespace ISILab.LBS.Editor.Windows
         {
             if (_instance == this)
                 _instance = null;
+
+            /*
+            // DESUSCRIBIRSE DE EVENTOS GLOBALES O DE DATOS
+            OnLayerChange -= topToolBar.LevelChange;
+            OnLayerChange -= blueprintPanel.UpdateCaptureEnable; // Necesitarás refactorizar la lambda a un método
+            LBSController.OnLoadLevel -= OnLoadLevelCallback; // Refactoriza la lambda
+
+            if (levelData != null)
+            {
+                levelData.OnChanged -= OnLevelDataChange;
+                levelData.OnReload -= OnLevelDataReload; // Refactoriza la lambda
+            }
+            */
         }
 
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
@@ -552,7 +565,7 @@ namespace ISILab.LBS.Editor.Windows
 
         }
 
-        public static void WarningManipulator(string description = null)
+        public void WarningManipulator(string description = null)
         {
             if (warningLabel == null) return;
             warningLabel.text = description;
@@ -607,7 +620,7 @@ namespace ISILab.LBS.Editor.Windows
             LBSInspectorPanel.ReDraw();
         }
 
-        public static void MessageNotify(LBSLog lbsMessage)
+        public void MessageNotify(LBSLog lbsMessage)
         {
             notifier?.SendNotification(
                 lbsMessage.message, 
@@ -617,7 +630,7 @@ namespace ISILab.LBS.Editor.Windows
 
         public void MessageManipulator(string description) => infoToolBar?.SetToolText(description);
 
-        public static void GridPosition(Vector2 pos)
+        public void GridPosition(Vector2 pos)
         {
             _gridPosition = pos.ToInt();
             if (positionLabel == null) return;
