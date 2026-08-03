@@ -485,7 +485,7 @@ namespace ISILab.LBS.Editor.Windows
             ChangeTheme(LBSSettings.Instance.view.LBSTheme);
             #endregion
 
-            clippy.InitModes();
+            //clippy.InitModes();
         }
 
 
