@@ -12,12 +12,24 @@ namespace ISILab
         {
             var action = ScriptableObject.CreateInstance<CreateAssistantWithEditorAction>();
 
-            ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
-                0,
-                action,
-                "NewAssistant.cs",
-                null,
-                "Assets/ISILab/LBS/Plugin/Core/Components/Assistant/Asistant_Template/AssistantTemplate.cs.txt");
+            try
+            {
+                ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
+                    0,
+                    action,
+                    "NewAssistant.cs",
+                    null,
+                    "Assets/ISILab/LBS/Plugin/Core/Components/Assistant/Asistant_Template/AssistantTemplate.cs.txt");
+            }
+            catch
+            {
+                ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
+                    0,
+                    action,
+                    "NewAssistant.cs",
+                    null,
+                    "Packages/Level Building Sidekick/LBS/Plugin/Core/Components/Assistant/Asistant_Template/AssistantTemplate.cs.txt");
+            }
         }
     }
 

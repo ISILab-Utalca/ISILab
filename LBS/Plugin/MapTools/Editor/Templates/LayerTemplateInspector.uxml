@@ -45,6 +45,7 @@
             <ISILab.LBS.CustomComponents.LBSCustomLabel text="Floor Count" style="-unity-font-style: normal; font-size: 12px; max-width: 50%; flex-shrink: 0; flex-grow: 1; min-width: 50%;" />
             <ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField name="FloorCountField" max-length="100" min-value="1" value="10" style="max-height: 46px; -unity-font-style: bold; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; margin-right: 0; margin-left: 0; max-width: 50%; justify-content: space-around; flex-shrink: 1; flex-grow: 1;" />
         </ui:VisualElement>
+        <ui:Button text="Save Changes" name="SaveChangesButton" style="align-self: stretch; height: 30px;" />
         <ui:Instance template="LBSHorizontalDivider" enabled="false" name="TemplateContainer" style="display: none;" />
         <ISILab.LBS.CustomComponents.LBSCustomLabel text="Components" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 4px; margin-top: 20px;" />
         <ISILab.LBS.CustomComponents.LBSCustomListView item-template="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/CustomComponents/ComplexComponents/OverlayPanels/WarningPanel.uxml?fileID=9197481963319205126&amp;guid=65ad21365d671594a85cf837da5d8c84&amp;type=3#WarningPanel" tabindex="0" name="WarningListView" fixed-item-height="50" style="min-height: 0;" />
