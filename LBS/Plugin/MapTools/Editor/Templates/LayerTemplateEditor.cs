@@ -140,6 +140,14 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             var floorCountField = _root.Q<LBSCustomUnsignedIntegerField>("FloorCountField");
             FloorCountFieldSetup();
 
+            // Save changes button
+            var saveChangesButton = _root.Q<Button>("SaveChangesButton");
+            saveChangesButton.clicked += () =>
+            {
+                ApplyChanges();
+                RebuildAllLists();
+            };
+
             // Modules list
             var modulesListGroup = _root.Q<LBSBaseListGroup>("ModulesListGroup");
             ListGroupSetup(modulesListGroup, s_moduleOptions, Template.layer.FirstModules, (element, index) =>

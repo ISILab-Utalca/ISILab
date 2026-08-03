@@ -106,6 +106,11 @@ namespace ISILab.LBS.Behaviours
 
         public override void OnAttachLayer(LBSLayer layer)
         {
+            if(layer.GetModule<Graph>() == null)
+            {
+                Debug.LogError($"[QuestBehaviour]: Can't attach to layer {layer.Name} because it doesn't have a Graph module.");
+                return;
+            }
             OwnerLayer = layer;
 
             layer.OnChange += () =>
