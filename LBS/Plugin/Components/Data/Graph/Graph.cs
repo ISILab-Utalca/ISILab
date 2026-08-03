@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
 namespace ISILab.LBS.Modules
 {
@@ -13,7 +14,7 @@ namespace ISILab.LBS.Modules
         Start, Middle, Goal
     }
 
-    [Serializable]
+    [Serializable]//
     public class Graph : LBSModule, ICloneable
     {
   
@@ -57,7 +58,7 @@ namespace ISILab.LBS.Modules
                     if(selected != null) OnDeselect?.Invoke(selected);
 
                     selected = value;
-                    Reselect();//
+                    Reselect();
 
                 }
             }
