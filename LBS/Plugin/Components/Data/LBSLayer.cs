@@ -214,7 +214,7 @@ namespace LBS.Components
             bool removed = false;
             for (int i = 0; i < floorsCount; i++)
             {
-                removed = GetFloors()[i].Modules.Remove(module);
+                removed = floors[i].Modules.Remove(module);
                 if (removed)
                 {
                     try { module.OnDetach(this); } catch { /* swallow detach errors */ }
@@ -232,11 +232,11 @@ namespace LBS.Components
                 // Null parameter removes all null references
                 if(module is null)
                 {
-                    for(int j = 0; j < GetFloors()[i].Modules.Count; j++)
+                    for(int j = 0; j < FloorCount; j++)
                     {
-                        if(GetFloors()[i].Modules[j] is null)
+                        if(floors[i].Modules[j] is null)
                         {
-                            GetFloors()[i].Modules.RemoveAt(j);
+                            floors[i].Modules.RemoveAt(j);
                             j--;
                         }
                     }
@@ -244,10 +244,10 @@ namespace LBS.Components
                 }
 
                 // Find module and remove it
-                var toRemove = GetFloors()[i].Modules.Find(m => m.ID == module.ID);
+                var toRemove = floors[i].Modules.Find(m => m.ID == module.ID);
                 if (toRemove != null)
                 {
-                    GetFloors()[i].Modules.Remove(toRemove);
+                    floors[i].Modules.Remove(toRemove);
                     try { toRemove.OnDetach(this); } catch { /* swallow detach errors */ }
                     OnRemoveModule?.Invoke(this, toRemove);
                 }
@@ -271,9 +271,9 @@ namespace LBS.Components
             //if (floors[index].Modules.OfType<T>() is null)
             //{ }
             if (string.IsNullOrEmpty(moduleID))
-                return GetFloors()[index].Modules.OfType<T>().FirstOrDefault();
+                return floors[index].Modules.OfType<T>().FirstOrDefault();
 
-            return GetFloors()[index].Modules.FirstOrDefault(
+            return floors[index].Modules.FirstOrDefault(
                 m => (m is T || Reflection.IsSubclassOfRawGeneric(typeof(T), m.GetType())) && m.ID == moduleID) as T;
         }
 
@@ -321,40 +321,6 @@ namespace LBS.Components
                 return;
             }
 
-            // ensure required modules exist
-            var req = behaviour.GetRequiredModules();
-            if (req != null)
-            {
-                foreach (Type rt in req)
-                {
-                    for (int i = 0; i < FloorCount; i++)
-                    {
-                        if (FirstModules.All(m => m.GetType() != rt))
-                            AddModule(Activator.CreateInstance(rt) as LBSModule, i);
-                    }
-                }
-            }
-
-            // ensure required assistants exist
-            req = behaviour.GetRequiredAssistants();
-            if (req != null)
-            {
-                foreach (Type rt in req)
-                {
-                    if (FirstAssistants.All(a => a.GetType() != rt))
-                    {
-                        if (Activator.CreateInstance(rt, LBSAssistant.DefaultAssistantIcon, rt.Name, LBSSettings.Instance.view.assistantColor) is LBSAssistant instance)
-                        {
-                            AddAssistant(instance);
-                        }
-                        else
-                        {
-                            Debug.LogError($"Failed to create instance of assistant type: {rt.Name}");
-                        }
-                    }
-                }
-            }
-
             behaviours.Add(behaviour);
             behaviour.OnAttachLayer(this);
         }
@@ -395,20 +361,6 @@ namespace LBS.Components
             {
                 Debug.LogWarning($"[ISI Lab]: This layer already contains the assistant {assistant.GetType().Name}.");
                 return;
-            }
-
-            var req = assistant.GetRequiredModules();
-            if (req != null)
-            {
-                foreach (Type rt in req)
-                {
-                    for (int i = 0; i < floorsCount; i++)
-                    {
-                        if (FirstModules.All(m => m.GetType() != rt))
-                            AddModule(Activator.CreateInstance(rt) as LBSModule, i);
-                    }
-
-                }
             }
 
             assistants.Add(assistant);
