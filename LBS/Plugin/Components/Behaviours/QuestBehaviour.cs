@@ -14,7 +14,7 @@ using Color = UnityEngine.Color;
 
 namespace ISILab.LBS.Behaviours
 {
-    [RequieredModule(typeof(Graph))]
+    [RequieredModule(typeof(Graph)), RequieredAssistant(typeof(GrammarAssistant))]
     public class QuestBehaviour : LBSBehaviour, IBlueprintable
     {
         #region CONSTANTS
@@ -32,6 +32,7 @@ namespace ISILab.LBS.Behaviours
 
         private NodeKind nodeKind;
         private string activeTerminal = string.Empty;
+
 
 
         #endregion
