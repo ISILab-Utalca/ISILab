@@ -114,7 +114,6 @@ namespace LBS.VisualElements
             floorIndexField = this.Q<LBSCustomUnsignedIntegerField>("FloorIndex");
             floorIndexField.style.display = DisplayStyle.None;
 
-            OnToolKitChanged += ReorderTools;
             OnToolKitChanged += SetSeparators;
 
             if (!Equals(instance, this))
@@ -435,10 +434,6 @@ namespace LBS.VisualElements
         
         #endregion
 
-        public void ReorderTools()
-        {
-        }
-
         public void SetSeparators()
         {
             ClearSeparators();
@@ -447,10 +442,8 @@ namespace LBS.VisualElements
             
             SortedDictionary<int, List<ToolButton>> groupedButtons = new();
 
-            string weights = "";
             foreach ((LBSTool tool, ToolButton button) in tools.Values)
             {
-                weights += " | " + tool.Manipulator.GroupWeight;
                 if (button == null || button.style.display == DisplayStyle.None)
                     continue;
 
@@ -463,8 +456,6 @@ namespace LBS.VisualElements
 
                 groupedButtons[weight].Add(button);
             }
-            Debug.Log("Buttons = " + weights);
-
 
             // presets in desired order!
             List<Type> presentTypes = new()
