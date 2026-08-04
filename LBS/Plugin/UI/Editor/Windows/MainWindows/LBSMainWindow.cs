@@ -198,7 +198,7 @@ namespace ISILab.LBS.Editor.Windows
         {
             // UI can't be referenced here because inherit from a scriptable object!
             //Debug.Log("[Main Window] - Constructor");
-            _instance = this;
+            //_instance = this;
         }
         
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
