@@ -378,6 +378,7 @@ namespace ISILab.LBS.Editor.Windows
                 {
                     var il = Reflection.MakeGenericScriptable(_selectedLayer);
                     Selection.SetActiveObjectWithContext(il, il);
+                    il.hideFlags = HideFlags.DontSave; // or HideFlags.HideAndDontSave
                 }
             };
 
@@ -570,6 +571,7 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         public void RebuildWindow()
         {
+            /*
             mainView.Clear();
             this.rootVisualElement.Clear();
 
@@ -577,6 +579,7 @@ namespace ISILab.LBS.Editor.Windows
             OnDisable();
             OnEnable();
             CreateGUI();
+            */
         }
 
         /// <summary>
@@ -700,6 +703,7 @@ namespace ISILab.LBS.Editor.Windows
         }
         private void HandleInfiniteScrolling(MouseMoveEvent evt)
         {
+            // Check if middle mouse button is being held (Button 2 / Bitmask 4)
             bool isMiddlePressed = (evt.pressedButtons & 4) != 0;
             if (!isMiddlePressed) return;
 
@@ -727,9 +731,9 @@ namespace ISILab.LBS.Editor.Windows
                 screenRightLimit = Screen.currentResolution.width;
             }
 #else
-            currentScreenPos = new POINT { X = (int)evt.mousePosition.x, Y = (int)evt.mousePosition.y }; 
-            screenLeftLimit = 0;
-            screenRightLimit = Screen.currentResolution.width;
+    currentScreenPos = new POINT { X = (int)evt.mousePosition.x, Y = (int)evt.mousePosition.y }; 
+    screenLeftLimit = 0;
+    screenRightLimit = Screen.currentResolution.width;
 #endif
 
             int margin = 5;
@@ -738,55 +742,32 @@ namespace ISILab.LBS.Editor.Windows
 
             if (currentScreenPos.X <= screenLeftLimit + margin)
             {
-                newScreenX = screenRightLimit - margin - 5;
+                newScreenX = screenRightLimit - margin - 10;
                 needWarp = true;
             }
             else if (currentScreenPos.X >= screenRightLimit - margin)
             {
-                newScreenX = screenLeftLimit + margin + 5;
+                newScreenX = screenLeftLimit + margin + 10;
                 needWarp = true;
             }
 
             if (!needWarp) return;
 
+            // 1. Mark warping flag active
             IsWarpingCursor = true;
-            Event fakeUp = new Event();
-            fakeUp.type = EventType.MouseUp;
-            fakeUp.button = 2;
-            fakeUp.mousePosition = evt.mousePosition;
-            fakeUp.modifiers = evt.modifiers;
-
-            using (var upEvt = MouseUpEvent.GetPooled(fakeUp))
-            {
-                upEvt.target = targetElement;
-                targetElement.SendEvent(upEvt);
-            }
-            targetElement.ReleaseMouse();
 
 #if UNITY_EDITOR_WIN
+            // 2. Warp OS cursor position directly
             SetCursorPos(newScreenX, currentScreenPos.Y);
 #endif
 
-            targetElement.CaptureMouse();
-            float deltaJump = (newScreenX - currentScreenPos.X);
-            float pixelsPerPoint = EditorGUIUtility.pixelsPerPoint;
-            float uiDelta = deltaJump / pixelsPerPoint;
-
-            Vector2 newWindowPos = evt.mousePosition + new Vector2(uiDelta, 0);
-
-            Event fakeDown = new Event();
-            fakeDown.type = EventType.MouseDown;
-            fakeDown.button = 2;
-            fakeDown.mousePosition = newWindowPos;
-            fakeDown.modifiers = evt.modifiers;
-
-            using (var downEvt = MouseDownEvent.GetPooled(fakeDown))
+            // 3. Defer flag reset to the end of the frame outside ProcessEvent stack
+            EditorApplication.delayCall += () =>
             {
-                downEvt.target = targetElement;
-                targetElement.SendEvent(downEvt);
-            }
+                IsWarpingCursor = false;
+            };
 
-            IsWarpingCursor = false;
+            // 4. Stop propagation to prevent sudden large delta updates on target views
             evt.StopImmediatePropagation();
         }
 
