@@ -196,6 +196,16 @@ namespace ISILab.LBS.Editor.Windows
         {
             // UI can't be referenced here because inherit from a scriptable object!
             //Debug.Log("[Main Window] - Constructor");
+            _instance = this;
+        }
+        
+        [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
+        private static void ShowWindow()
+        {
+            LBSMainWindow window = GetWindow<LBSMainWindow>();
+            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
+            window.titleContent = new GUIContent("Level Builder", icon);
+            window.minSize = new Vector2(800, 400);
         }
 
         ~LBSMainWindow()
@@ -208,7 +218,7 @@ namespace ISILab.LBS.Editor.Windows
         private void OnEnable()
         {
             Debug.Log("[Main Window] - OnEnable");
-            _instance = this;
+
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
@@ -277,14 +287,7 @@ namespace ISILab.LBS.Editor.Windows
             }
         }
 
-        [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
-        private static void ShowWindow()
-        {
-            LBSMainWindow window = GetWindow<LBSMainWindow>();
-            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
-            window.titleContent = new GUIContent("Level Builder", icon);
-            window.minSize = new Vector2(800, 400);
-        }
+
 
 
         #region METHODS
