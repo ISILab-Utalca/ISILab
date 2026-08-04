@@ -292,7 +292,16 @@ namespace ISILab.LBS.Editor.Windows
             Debug.Log("[Main Window] - OnDisable");
             if (_instance == this)
             {
-                //do nothing in here!
+                // DESUSCRIBIRSE DE EVENTOS GLOBALES O DE DATOS
+                OnLayerChange -= topToolBar.LevelChange;
+                OnLayerChange -= () => blueprintPanel.UpdateCaptureEnable(); // Necesitar�s refactorizar la lambda a un m�todo
+                //LBSController.OnLoadLevel -= OnLoadLevelCallback; // Refactoriza la lambda
+
+                if (levelData != null)
+                {
+                    levelData.OnChanged -= OnLevelDataChange;
+                    levelData!.OnReload -= () => layerPanel.ResetSelection(); // Refactoriza la lambda
+                }
             }
         }
 
@@ -405,7 +414,7 @@ namespace ISILab.LBS.Editor.Windows
             topToolBar.OnLoadLevel += data =>
             {
                 LBS.loadedLevel = data;
-                RefreshWindow();
+                RebuildWindow();
                 //drawManager.RedrawLevel(levelData);
             };
             
@@ -558,7 +567,7 @@ namespace ISILab.LBS.Editor.Windows
         /// <summary>
         /// Refresh the window.
         /// </summary>
-        public void RefreshWindow()
+        public void RebuildWindow()
         {
             mainView.Clear();
             this.rootVisualElement.Clear();
