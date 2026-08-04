@@ -198,7 +198,7 @@ namespace ISILab.LBS.Editor.Windows
         {
             // UI can't be referenced here because inherit from a scriptable object!
             //Debug.Log("[Main Window] - Constructor");
-            //_instance = this;
+            _instance = this;
         }
         
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
@@ -297,7 +297,7 @@ namespace ISILab.LBS.Editor.Windows
                 /*
                 // DESUSCRIBIRSE DE EVENTOS GLOBALES O DE DATOS
                 onLayerChange -= topToolBar.LevelChange;
-                onLayerChange -= () => blueprintPanel.UpdateCaptureEnable(); // Necesitar�s refactorizar la lambda a un m�todo
+                onLayerChange -= () => blueprintPanel.UpdateCaptureEnable(); //  refactorizar la lambda a un m�todo
                 //LBSController.OnLoadLevel -= OnLoadLevelCallback; // Refactoriza la lambda
 
                 if (levelData != null)
