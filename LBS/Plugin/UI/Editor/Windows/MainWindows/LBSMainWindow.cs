@@ -218,19 +218,25 @@ namespace ISILab.LBS.Editor.Windows
         private void OnEnable()
         {
             Debug.Log("[Main Window] - OnEnable");
-
+            _instance = this;
+            Debug.Log($"_instance: {_instance.name}");
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            Debug.Log($"assembly: {assembly?.GetName().Name}");
             var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+            Debug.Log($"packageInfo: {packageInfo?.name}");
+
             if (!packageInitialized && packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
             {
                 LBS_AssetsPostProcessor.InitializeLBSPackage();
                 packageInitialized = true;
             }
+            Debug.Log($"packageInitialized: {packageInitialized}");
         }
 
         private void LoadUITree()
         {
+            Debug.Log("[LBSMainWindow] - LoadUITree");
             #region LOAD UI TREE
             //MainWindows UXML 
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSMainWindow");
@@ -238,30 +244,47 @@ namespace ISILab.LBS.Editor.Windows
             #endregion
 
             splitView = rootVisualElement.Q<SplitView>("SplitView");
+            Debug.Log($"splitView: {splitView != null}");
 
             helpOverlayAnchor = rootVisualElement.Q<VisualElement>("HelpOverlayAnchor");
+            Debug.Log($"helpOverlayAnchor: {helpOverlayAnchor != null}");
 
             topToolBar = rootVisualElement.Q<ToolBarMain>("ToolBar");
+            Debug.Log($"topToolBar: {topToolBar != null}");
             infoToolBar = rootVisualElement.Q<InfoToolbar>("InfoToolbar");
+            Debug.Log($"infoToolBar: {infoToolBar != null}");
 
             mainView = rootVisualElement.Q<MainView>("MainView");
+            Debug.Log($"mainView: {mainView != null}");
 
             noLayerSign = rootVisualElement.Q<VisualElement>("NoLayerSign");
+            Debug.Log($"noLayerSign: {noLayerSign != null}");
             selectedLabel = rootVisualElement.Q<Label>("SelectedLabel");
+            Debug.Log($"selectedLabel: {selectedLabel != null}");
             positionLabel = rootVisualElement.Q<Label>("PositionLabel");
+            Debug.Log($"positionLabel: {positionLabel != null}");
 
             notifier = rootVisualElement.Q<NotifierViewer>("NotifierViewer");
+            Debug.Log($"notifier: {notifier != null}");
 
             inspectorPanelContainer = rootVisualElement.Q<VisualElement>("Inspector");
+            Debug.Log($"inspectorPanelContainer: {inspectorPanelContainer != null}");
             inspectorManager = rootVisualElement.Q<LBSInspectorPanel>("InspectorPanel");
+            Debug.Log($"inspectorManager: {inspectorManager != null}");
             sideBarPanel = rootVisualElement.Q<LBSSideBarPanel>("LBSSideBarPanel");
+            Debug.Log($"sideBarPanel: {sideBarPanel != null}");
 
             subPanelScrollView = rootVisualElement.Q<ScrollView>("SubPanelScrollView");
+            Debug.Log($"subPanelScrollView: {subPanelScrollView != null}");
             clippy = rootVisualElement.Q<Lbesin>("Lbesin");
+            Debug.Log($"clippy: {clippy != null}");
 
             extraPanel = rootVisualElement.Q<VisualElement>("ExtraPanel");
+            Debug.Log($"extraPanel: {extraPanel != null}");
             bottomPanel = rootVisualElement.Q<VisualElement>("BottomPanel");
+            Debug.Log($"bottomPanel: {bottomPanel != null}");
             taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("TaskOverlay");
+            Debug.Log($"taskOverlay: {taskOverlay != null}");
         }
 
         private void OnDisable()
