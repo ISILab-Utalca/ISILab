@@ -46,8 +46,8 @@ namespace ISILab.LBS.VisualElements.Editor
         #region CONST
 
         private const string DEFAULT_NAME = "Root_name";
-        private static readonly Vector2 DEFAULT_SCALE = new Vector2(2, 2);
-        private static readonly Vector2 DEFAULT_RESIZE = Vector2.one;
+        //private static readonly Vector2 DEFAULT_SCALE = new Vector2(2, 2);
+        //private static readonly Vector2 DEFAULT_RESIZE = Vector2.one;
 
         #endregion
 
@@ -58,7 +58,7 @@ namespace ISILab.LBS.VisualElements.Editor
             set => LBSSettings.Instance.generator = value;
         }
 
-        private static VisualTreeAsset visualTree;
+        private VisualTreeAsset visualTree;
 
         private LBSLayer Layer
         {

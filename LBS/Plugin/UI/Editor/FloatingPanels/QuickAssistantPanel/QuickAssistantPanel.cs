@@ -54,7 +54,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region PROPERTIES
-        private static VisualTreeAsset visualTree;
+        private VisualTreeAsset visualTree;
         private const string UXML_NAME = "QuickAssistantPanel";
         public LBSButtonListFilter BundlePickerWindow { get; set; }
         private List<LayerTemplate> _templates;

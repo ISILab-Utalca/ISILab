@@ -13,9 +13,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
     [UxmlElement]
     public partial class ToolBarMain : VisualElement
     {
-
-        
-        public LBSMainWindow MainWindow;
         public string defaultLabel = "Unsaved File *";
         
         public event Action<LoadedLevel> OnLoadLevel;
@@ -26,15 +23,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
         
         //public event Action OnProgressCompleted;
         public event Action OnProgressCancelled;
-        
+
         #region  Visual Elements
-            private LBSCustomButton HelpToggle;
-            private VisualElement taskInfo;
-            private LBSCustomProgressBar taskProgressBar;
-            private LBSCustomButton taskStopButton;
-            private LBSCustomButton settingMenu;
+        private LBSCustomButton HelpToggle;
+        private VisualElement taskInfo;
+        private LBSCustomProgressBar taskProgressBar;
+        private LBSCustomButton taskStopButton;
+        private LBSCustomButton settingMenu;
         #endregion
-        
+
         public ToolBarMain()
         {
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("ToolBarMain");
@@ -85,8 +82,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
 
         public void EnableProcess(bool enable, string assistantName = "Assistant")
         {
-            var taskOverlay = MainWindow.rootVisualElement.Q<LBSWaitTaskOverlay>();
-            taskOverlay.ShowRect = enable;
+            LBSMainWindow.Instance.WaitTaskOverlay.ShowRect = enable;
             
             taskProgressBar.ProgressTextLabel = assistantName;
             var percent = enable ? 0 : 1;
@@ -101,7 +97,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
         
         public void Bind(LBSMainWindow _mainWindow)
         {
-            MainWindow = _mainWindow;
             HelpToggle.RegisterCallback<ClickEvent>(evt =>
             {
                 Debug.Log("[Display Help]: Redirecting to the web]");
@@ -111,7 +106,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
             OnNewLevel += (_loadedLevel) =>
             {
                 LBS.loadedLevel = _loadedLevel;
-                MainWindow.RebuildWindow();
+                _mainWindow.RebuildWindow();
             };
             
             settingMenu.RegisterCallback<ClickEvent>(OpenConfiguration);
@@ -120,7 +115,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
         
         public void UnBind(LBSMainWindow _mainWindow)
         {
-            
+            Debug.LogWarning("[ToolBarMain]: UnBind not implemented.");
         }
 
         public void NewLevel(DropdownMenuAction dma)
