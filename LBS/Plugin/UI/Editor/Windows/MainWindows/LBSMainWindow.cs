@@ -196,9 +196,20 @@ namespace ISILab.LBS.Editor.Windows
         {
             // UI can't be referenced here because inherit from a scriptable object!
             //Debug.Log("[Main Window] - Constructor");
-
-
         }
+
+        ~LBSMainWindow()
+        {
+            Debug.Log("[Main Window] - Destructor");
+            toolLabel = null;
+            warningNotification = null;
+            warningLabel = null;
+            notifier = null;
+            helpOverlay = null;
+            positionLabel = null;
+        }
+
+
 
         private void OnEnable()
         {
