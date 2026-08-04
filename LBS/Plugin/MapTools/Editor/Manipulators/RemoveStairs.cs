@@ -31,6 +31,8 @@ namespace ISILab.LBS.Manipulators
 
             Name = "Remove stairs";
             Description = "Click on a stair to remove it.";
+            groupWeight = 4;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)

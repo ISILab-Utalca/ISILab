@@ -15,6 +15,8 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Remove Assistant Connection";
             Description = "Click a connection between zones to remove it.";
+            groupWeight = 1;
+
         }
 
         protected override string IconGuid => "42830f36abd22544fb35c697171f8374";
@@ -22,7 +24,8 @@ namespace ISILab.LBS.Manipulators
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);
-            
+
+
             _hillclimbing = provider as HillClimbingAssistant;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
         }

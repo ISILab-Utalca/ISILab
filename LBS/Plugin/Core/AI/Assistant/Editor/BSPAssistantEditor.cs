@@ -211,6 +211,8 @@ public class NewAssistantManipulator : ManipulateTeselation
         Feedback.fixToTeselation = true;
         Name = "BSP Dungeon Generator";
         Description = "Select an area to generate a dungeon usign the Binary Space Partition algorithm.";
+        groupWeight = 5;
+
     }
 
     // Manipulator Methods

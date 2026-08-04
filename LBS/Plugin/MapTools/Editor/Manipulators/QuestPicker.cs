@@ -53,6 +53,7 @@ namespace ISILab.LBS.Manipulators
             Name = "Pick population element";
             Description = "Pick the foremost population element from any layer in the graph. " +
                           "The picked bundle is assigned to the selected behaviour node.";
+            groupWeight = 1;
         }
 
         public override void Init(LBSLayer layer, object owner = null)

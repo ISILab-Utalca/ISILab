@@ -23,12 +23,13 @@ namespace ISILab.LBS.Manipulators
 
             Name = "Add Assistant Connection";
             Description = "Select an start and end point between zones to create a connection.";
+            groupWeight = 1;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);
-            
             _assistant = provider as HillClimbingAssistant;
 
             Feedback.TeselationSize = layer.TileSize;

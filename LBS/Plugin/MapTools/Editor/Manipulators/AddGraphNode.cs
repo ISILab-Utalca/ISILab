@@ -23,6 +23,7 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Add Graph Node";
             Description = "Pick an action or branch from the inspector panel, then Click on the graph.";
+            groupWeight = 0;
         }
 
         public override void Init(LBSLayer layer, object provider = null)

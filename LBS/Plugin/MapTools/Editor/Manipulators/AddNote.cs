@@ -17,6 +17,8 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Add Note";
             Description = "Add a note to the map";
+            groupWeight = 99;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)

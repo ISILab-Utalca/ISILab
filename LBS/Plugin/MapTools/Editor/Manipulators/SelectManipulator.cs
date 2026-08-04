@@ -25,8 +25,10 @@ namespace ISILab.LBS.Manipulators
 
             Name = "Select";
             Description = "Selection";
+            groupWeight = 0;
+
         }
-        
+
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);

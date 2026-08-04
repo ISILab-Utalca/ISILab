@@ -17,7 +17,8 @@ namespace ISILab.LBS.Manipulators
             Feedback = new AreaFeedback();
             Feedback.fixToTeselation = true;
             _onSelection = action;
-            
+            groupWeight = 2;
+
             Name = "Assistant Area Selector";
             Description = "Select an area that will be used by Map Elites Assistant.";
         }

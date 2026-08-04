@@ -25,12 +25,14 @@ namespace ISILab.LBS.Manipulators
 
             Name = "Remove Tiles";
             Description = "Select an area to remove any tiles that belong to the selected zone.";
+            groupWeight = 0;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);
-            
+
             _schema = provider as SchemaBehaviour;
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;

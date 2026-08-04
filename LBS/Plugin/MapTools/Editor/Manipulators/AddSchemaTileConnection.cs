@@ -38,13 +38,15 @@ namespace ISILab.LBS.Manipulators
 
             Name = "Set Manual Connection";
             Description = "Draw across a zone's border to generate a connection.";
+            groupWeight = 3;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)
         {
             //Debug.Log("Tile connection Init");
             base.Init(layer, provider);
-            
+
             _schema = provider as SchemaBehaviour;
             if(_schema.MultiLayerConnections) 
                 MultiLayerSetup();
