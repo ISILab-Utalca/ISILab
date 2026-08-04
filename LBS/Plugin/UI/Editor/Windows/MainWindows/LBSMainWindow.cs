@@ -293,8 +293,9 @@ namespace ISILab.LBS.Editor.Windows
             if (_instance == this)
             {
                 // DESUSCRIBIRSE DE EVENTOS GLOBALES O DE DATOS
+                Debug.Log( OnLayerChange.GetInvocationList());
                 OnLayerChange -= topToolBar.LevelChange;
-                OnLayerChange -= () => blueprintPanel.UpdateCaptureEnable(); // Necesitar�s refactorizar la lambda a un m�todo
+                OnLayerChange -= () => blueprintPanel.UpdateCaptureEnable();
                 //LBSController.OnLoadLevel -= OnLoadLevelCallback; // Refactoriza la lambda
 
                 if (levelData != null)
