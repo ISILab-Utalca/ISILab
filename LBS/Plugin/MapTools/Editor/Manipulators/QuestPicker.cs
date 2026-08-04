@@ -67,7 +67,7 @@ namespace ISILab.LBS.Manipulators
             if (_behaviour.SelectedNodeData == null || ActiveData == null) 
                 return;
                 
-            Vector2Int location = LBSMainWindow._gridPosition;
+            Vector2Int location = LBSMainWindow.Instance.GridPosition;
 
             var level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
