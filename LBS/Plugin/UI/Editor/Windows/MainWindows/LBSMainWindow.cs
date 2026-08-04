@@ -197,14 +197,18 @@ namespace ISILab.LBS.Editor.Windows
             // UI can't be referenced here because inherit from a scriptable object!
             //Debug.Log("[Main Window] - Constructor");
         }
-        
+
+        ~LBSMainWindow()
+        {
+            Debug.Log("[Main Window] - Destructor");
+        }
+
+
 
         private void OnEnable()
         {
-            //Debug.Log("[Main Window] - OnEnable");
-
+            Debug.Log("[Main Window] - OnEnable");
             _instance = this;
-        
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
@@ -249,22 +253,25 @@ namespace ISILab.LBS.Editor.Windows
 
         private void OnDisable()
         {
-            
             if (_instance == this)
+            {
+                Debug.Log("[Main Window] - OnDisable");
                 _instance = null;
-            GC.Collect();
+                toolLabel = null;
+                warningNotification = null;
+                warningLabel = null;
+                notifier = null;
+                helpOverlay = null;
+                positionLabel = null;
+            }
+            
         }
 
 
         private void OnDestroy()
         {
-            Debug.Log("[Main Window] - Destructor");
-            toolLabel = null;
-            warningNotification = null;
-            warningLabel = null;
-            notifier = null;
-            helpOverlay = null;
-            positionLabel = null; 
+            this.instance = null;
+            GC.Collect();
         }
 
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
@@ -274,7 +281,6 @@ namespace ISILab.LBS.Editor.Windows
             Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
             window.titleContent = new GUIContent("Level Builder", icon);
             window.minSize = new Vector2(800, 400);
-            
         }
 
 
@@ -286,7 +292,6 @@ namespace ISILab.LBS.Editor.Windows
             rootVisualElement.focusable = true;
             rootVisualElement.Focus();
         }
-        
 
         private void OnInspectorUpdate()
         {
