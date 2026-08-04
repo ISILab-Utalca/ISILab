@@ -253,17 +253,11 @@ namespace ISILab.LBS.Editor.Windows
 
         private void OnDisable()
         {
+            Debug.Log("[Main Window] - OnDisable");
             if (_instance == this)
             {
-                Debug.Log("[Main Window] - OnDisable");
-                toolLabel = null;
-                warningNotification = null;
-                warningLabel = null;
-                notifier = null;
-                helpOverlay = null;
-                positionLabel = null;
+                //do nothing in here!
             }
-            
         }
 
 
@@ -273,7 +267,13 @@ namespace ISILab.LBS.Editor.Windows
             if (_instance == this)
             {
                 _instance = null;
-                GC.Collect();
+                toolLabel = null;
+                warningNotification = null;
+                warningLabel = null;
+                notifier = null;
+                helpOverlay = null;
+                positionLabel = null;
+                //GC.Collect();
             }
         }
 
