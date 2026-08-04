@@ -13,7 +13,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
     [UxmlElement]
     public partial class ToolBarMain : VisualElement
     {
-        //public new class UxmlFactory : UxmlFactory<ToolBarMain, VisualElement.UxmlTraits> { }
+
         
         public LBSMainWindow MainWindow;
         public string defaultLabel = "Unsaved File *";
