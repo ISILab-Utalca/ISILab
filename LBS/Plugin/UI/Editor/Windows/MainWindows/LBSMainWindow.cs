@@ -294,6 +294,7 @@ namespace ISILab.LBS.Editor.Windows
             Debug.Log("[Main Window] - OnDisable");
             if (_instance == this)
             {
+                /*
                 // DESUSCRIBIRSE DE EVENTOS GLOBALES O DE DATOS
                 onLayerChange -= topToolBar.LevelChange;
                 onLayerChange -= () => blueprintPanel.UpdateCaptureEnable(); // Necesitar�s refactorizar la lambda a un m�todo
@@ -304,6 +305,7 @@ namespace ISILab.LBS.Editor.Windows
                     levelData.OnChanged -= OnLevelDataChange;
                     levelData!.OnReload -= () => layerPanel.ResetSelection(); // Refactoriza la lambda
                 }
+                */
             }
         }
 
