@@ -1,4 +1,5 @@
 using ISILab.Commons.Utility;
+using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS;
 using ISILab.LBS.Assistants;
@@ -34,10 +35,14 @@ namespace LBS.Components
         [SerializeField, JsonRequired] private string name = "Layer name";
         [SerializeField] private Vector2Int tileSize = new Vector2Int(2, 2);
 
-        [SerializeField, SerializeReference] private LBSFloor[] floors = new LBSFloor[10];
+        private const int defaultFloorCount = 10;
+        [SerializeField, SerializeReference] private LBSFloor[] floors = new LBSFloor[defaultFloorCount];
         [SerializeField, SerializeReference] private List<LBSBehaviour> behaviours = new();
         [SerializeField, SerializeReference] private List<LBSAssistant> assistants = new();
         [SerializeField, SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
+
+        [JsonIgnore] private bool floorsSizeInitialized = false;
+        [JsonIgnore] private int floorsCount = -1;
 
         [JsonIgnore] private LBSLevelData _parent;
         [JsonIgnore] private int activeFloor = 0;
@@ -56,7 +61,7 @@ namespace LBS.Components
         [JsonIgnore] public string SubTypeID { get => subTypeId; }
         [JsonIgnore] public string Name { get => name; set => name = value; }
         [JsonIgnore] public int ActiveFloor { get => activeFloor; }
-        [JsonIgnore] public int FloorCount { get => floors.Length; }
+        [JsonIgnore] public int FloorCount { get => /*floorsCount;*/floors.Length; }
 
         // Return copies to protect internal lists
         [JsonIgnore] public List<LBSBehaviour> Behaviours => new(behaviours);
@@ -100,16 +105,18 @@ namespace LBS.Components
             behaviours ??= new List<LBSBehaviour>();
             assistants ??= new List<LBSAssistant>();
             generatorRules ??= new List<LBSGeneratorRule>();
-            floors = new LBSFloor[LBSSettings.Instance.general.defaultFloorCount];
-            for(int i = 0; i < floors.Length; i++)
+
+            floors = new LBSFloor[defaultFloorCount];
+            for (int i = 0; i < floors.Length; i++)
             {
-                floors[i] ??= new ();
+                floors[i] ??= new();//
             }
 
             IsVisible = true;
             id = GetType().Name;
         }
 
+        // Clone constructor
         public LBSLayer(
             LBSFloor[] modules,
             IEnumerable<LBSAssistant> assistant,
@@ -118,10 +125,11 @@ namespace LBS.Components
             LBSLevelData parent,
             string ID, string SubTypeID, bool visible, string name, string iconGuid, Vector2Int tileSize) : this()
         {
-            floors = new LBSFloor[modules.Length];
+            //FloorCount = modules.Length;
+            //floors = new LBSFloor[modules.Length];
             for (int i = 0; i < modules.Length; i++)
             {
-                floors[i] ??= new();
+                //floors[i] ??= new();
                 if (modules[i] != null) foreach (LBSModule m in modules[i].Modules) AddModule(m, i);
             }
             if (assistant != null) foreach (LBSAssistant a in assistant) AddAssistant(a);
@@ -141,9 +149,29 @@ namespace LBS.Components
         #endregion
 
         #region Floors
+
+        /*private LBSFloor[] GetFloors()
+        {
+            if(floorsCount == -1)
+            {
+                floorsSizeInitialized = false;
+                floorsCount = defaultFloorCount;
+            }
+
+            if (!floorsSizeInitialized)
+            {
+                floors = new LBSFloor[floorsCount];
+                for (int i = 0; i < floorsCount; i++)
+                    floors[i] = new();
+                floorsSizeInitialized = true;
+            }
+
+            return floors;
+        }//*/
+
         public void ChangeFloor(int newFloor)
         {
-            if (newFloor < 0 || newFloor >= floors.Length) return;
+            if (newFloor < 0 || newFloor >= FloorCount) return;
             //if (newFloor == activeFloor) return;
 
             var prevFloor = activeFloor;
@@ -163,7 +191,10 @@ namespace LBS.Components
         {
             if (floorIndex < 0) floorIndex = activeFloor;
             if (floors[floorIndex] == null)
-                ;
+            {
+                Debug.LogError($"[LBSLayer]: floor {floorIndex} is null in Layer {Name}.");
+            }
+
             return new(floors[floorIndex].Modules);
         }
  
@@ -184,7 +215,7 @@ namespace LBS.Components
             //if (module == null) return false;
 
             bool removed = false;
-            for (int i = 0; i < floors.Length; i++)
+            for (int i = 0; i < FloorCount; i++)
             {
                 removed = floors[i].Modules.Remove(module);
                 if (removed)
@@ -199,12 +230,12 @@ namespace LBS.Components
 
         public void RemoveModuleInAllFloors(LBSModule module)
         {
-            for (int i = 0; i < floors.Length; i++)
+            for (int i = 0; i < FloorCount; i++)
             {
                 // Null parameter removes all null references
                 if(module is null)
                 {
-                    for(int j = 0; j < floors[i].Modules.Count; j++)
+                    for(int j = 0; j < FloorCount; j++)
                     {
                         if(floors[i].Modules[j] is null)
                         {
@@ -234,14 +265,14 @@ namespace LBS.Components
         public T GetModule<T>(string moduleID = "", int index = -1) where T : LBSModule
         {
             if (index < 0) index = activeFloor;
-            if (floors is null)
-                ;
-            if (floors[index] is null)
-                ;
-            if (floors[index].Modules is null)
-                ;
-            if (floors[index].Modules.OfType<T>() is null)
-                ;
+            //if (floors is null)
+            //{ }
+            //if (floors[index] is null)
+            //{ }
+            //if (floors[index].Modules is null)
+            //{ }
+            //if (floors[index].Modules.OfType<T>() is null)
+            //{ }
             if (string.IsNullOrEmpty(moduleID))
                 return floors[index].Modules.OfType<T>().FirstOrDefault();
 
@@ -258,7 +289,7 @@ namespace LBS.Components
         {
             if (module == null) return;
 
-            var idx = string.IsNullOrEmpty(key) ? 
+            var idx = string.IsNullOrEmpty(key) ?
                 floors[activeFloor].Modules.FindIndex(m => m is T) : floors[activeFloor].Modules.FindIndex(m => m is T && m.ID == key);
 
             if (idx < 0 || idx >= floors[activeFloor].Modules.Count) throw new IndexOutOfRangeException("Module to replace not found.");
@@ -294,21 +325,6 @@ namespace LBS.Components
             }
 
             behaviours.Add(behaviour);
-
-            // ensure required modules exist
-            var req = behaviour.GetRequiredModules();
-            if (req != null)
-            {
-                foreach (Type rt in req)
-                {
-                    for (int i = 0; i < floors.Length; i++)
-                    {
-                        if (floors[i].Modules.All(m => m.GetType() != rt))
-                            AddModule(Activator.CreateInstance(rt) as LBSModule, i);
-                    }
-                }
-            }
-
             behaviour.OnAttachLayer(this);
         }
 
@@ -351,20 +367,6 @@ namespace LBS.Components
             }
 
             assistants.Add(assistant);
-
-            var req = assistant.GetRequiredModules();
-            if (req != null)
-            {
-                foreach (Type rt in req)
-                {
-                    for (int i = 0; i < floors.Length; i++)
-                    {
-                        if (floors.All(m => m.GetType() != rt))
-                            AddModule(Activator.CreateInstance(rt) as LBSModule, i);
-                    }
-                }
-            }
-
             assistant.OnAttachLayer(this);
         }
 
@@ -451,11 +453,12 @@ namespace LBS.Components
 
         public void ChangeFloorCount(uint newCount)
         {
-            var prevCount = floors.Length;
+            var prevCount = FloorCount;
             if (newCount < 1 || newCount == prevCount) return;
 
             floors = floors.Resize((int)newCount);
-            for (int i = 0; i < floors.Length; i++) 
+            //FloorCount = (int)newCount;
+            for (int i = 0; i < FloorCount; i++) 
             { 
                 if (floors[i] == null) floors[i] = new LBSFloor(FirstModules); 
             }
@@ -474,7 +477,7 @@ namespace LBS.Components
         public void RemoveAll()
         {
             // iterate safely from end to start
-            for(int i = floors.Length - 1; i >= 0; i--)
+            for(int i = FloorCount - 1; i >= 0; i--)
             {
                 for (int j = floors[i].Modules.Count - 1; j >= 0; j--) RemoveModule(floors[i].Modules[j]);
             }

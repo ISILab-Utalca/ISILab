@@ -97,7 +97,7 @@ Label {
 
 .lbs-3d-icon {
     -unity-background-image-tint-color: rgb(135, 215, 246);
-    background-image: resource('Icons/Vectorial/3D_Icon_Vector');
+    background-image: resource('Icons/Vectorial/SideToolBar/3D_Icon_Vector');
 }
 
 .lbs-tool-button-toggle {
@@ -2093,10 +2093,12 @@ Toggle > .lbs-default-icon {
 .lbs-custom-dropdown-marginless {
 }
 
+
+/* WARNING: Unkown pseudo class last-child
 .lbs-custom-dropdown-marginless > VisualElement:last-child {
     margin-left: 0;
     margin-right: 0;
-}
+}*/
 
 .lbs-button-only-tooltip-when-disabled {
 }

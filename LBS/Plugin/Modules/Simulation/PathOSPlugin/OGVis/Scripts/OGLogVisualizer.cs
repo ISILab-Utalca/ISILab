@@ -107,7 +107,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
             {
                 dataExtents[i] = Extents.InverseLimit;
             }
-            var breakpoint = 0;
+            //var breakpoint = 0;
 
             if (null == heatmapVisualizer)
             {

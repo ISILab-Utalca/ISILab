@@ -115,6 +115,7 @@ namespace ISILab.LBS.VisualElements
             RunWFC(newLayer, selectedBundle, generatedPositions);
 
             Debug.Log($"[QuickAssistant] Exterior generado.");
+            await Task.CompletedTask;
         }
 
         #endregion

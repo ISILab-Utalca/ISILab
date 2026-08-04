@@ -14,7 +14,7 @@ namespace LBS.Components
     {
         [SerializeField, SerializeReference] private List<LBSModule> modules = new List<LBSModule>();
 
-        public List<LBSModule> Modules { get { return modules; } }
+        public List<LBSModule> Modules => modules;
 
         public LBSFloor(IEnumerable<LBSModule> modules = null)
         {

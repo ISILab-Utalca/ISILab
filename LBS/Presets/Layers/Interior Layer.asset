@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Interior Layer
   m_EditorClassIdentifier: 
   _templateName: Interior Layer
-  Order: 20
+  Order: 10
   layer:
     visible: 1
     blocked: 0
@@ -23,16 +23,16 @@ MonoBehaviour:
     name: Interior_Layer
     tileSize: {x: 2, y: 2}
     floors:
-    - rid: 1508221576237548539
-    - rid: 6524972859793080408
-    - rid: 6524972859793080409
-    - rid: 6524972859793080410
-    - rid: 6524972859793080411
-    - rid: 6524972859793080412
-    - rid: 6524972859793080413
-    - rid: 6524972859793080414
-    - rid: 6524972859793080415
-    - rid: 6524972859793080416
+    - rid: 1004969105029333071
+    - rid: 1004969105029333072
+    - rid: 1004969105029333073
+    - rid: 1004969105029333074
+    - rid: 1004969105029333075
+    - rid: 1004969105029333076
+    - rid: 1004969105029333077
+    - rid: 1004969105029333078
+    - rid: 1004969105029333079
+    - rid: 1004969105029333080
     behaviours:
     - rid: 6524972785853792769
     - rid: 6524972785853792770
@@ -46,6 +46,116 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 1004969105029333071
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713645
+        - rid: 2836539975978713655
+        - rid: 2836539975978713665
+        - rid: 2836539975978713675
+        - rid: 2836539975978713685
+        - rid: 2836539975978713695
+        - rid: 2836539975978713705
+    - rid: 1004969105029333072
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713646
+        - rid: 2836539975978713656
+        - rid: 2836539975978713666
+        - rid: 2836539975978713676
+        - rid: 2836539975978713686
+        - rid: 2836539975978713696
+        - rid: 2836539975978713706
+    - rid: 1004969105029333073
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713647
+        - rid: 2836539975978713657
+        - rid: 2836539975978713667
+        - rid: 2836539975978713677
+        - rid: 2836539975978713687
+        - rid: 2836539975978713697
+        - rid: 2836539975978713707
+    - rid: 1004969105029333074
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713648
+        - rid: 2836539975978713658
+        - rid: 2836539975978713668
+        - rid: 2836539975978713678
+        - rid: 2836539975978713688
+        - rid: 2836539975978713698
+        - rid: 2836539975978713708
+    - rid: 1004969105029333075
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713649
+        - rid: 2836539975978713659
+        - rid: 2836539975978713669
+        - rid: 2836539975978713679
+        - rid: 2836539975978713689
+        - rid: 2836539975978713699
+        - rid: 2836539975978713709
+    - rid: 1004969105029333076
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713650
+        - rid: 2836539975978713660
+        - rid: 2836539975978713670
+        - rid: 2836539975978713680
+        - rid: 2836539975978713690
+        - rid: 2836539975978713700
+        - rid: 2836539975978713710
+    - rid: 1004969105029333077
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713651
+        - rid: 2836539975978713661
+        - rid: 2836539975978713671
+        - rid: 2836539975978713681
+        - rid: 2836539975978713691
+        - rid: 2836539975978713701
+        - rid: 2836539975978713711
+    - rid: 1004969105029333078
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713652
+        - rid: 2836539975978713662
+        - rid: 2836539975978713672
+        - rid: 2836539975978713682
+        - rid: 2836539975978713692
+        - rid: 2836539975978713702
+        - rid: 2836539975978713712
+    - rid: 1004969105029333079
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713653
+        - rid: 2836539975978713663
+        - rid: 2836539975978713673
+        - rid: 2836539975978713683
+        - rid: 2836539975978713693
+        - rid: 2836539975978713703
+        - rid: 2836539975978713713
+    - rid: 1004969105029333080
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713654
+        - rid: 2836539975978713664
+        - rid: 2836539975978713674
+        - rid: 2836539975978713684
+        - rid: 2836539975978713694
+        - rid: 2836539975978713704
+        - rid: 2836539975978713714
     - rid: 1508221576237548539
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
@@ -196,32 +306,28 @@ MonoBehaviour:
       type: {class: SchemaBehaviour, ns: ISILab.LBS.Plugin.Components.Behaviours, asm: LBS}
       data:
         visible: 1
-        ownerLayerLayer:
+        ownerLayer:
           visible: 1
           blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
+          iconGuid: 915dd173939598c43ab48bbec50425e8
+          id: LBSLayer
           subTypeId: None
-          name: Layer Interior
+          name: Layer name
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221576237548539
-          - rid: 1508221576237548540
-          - rid: 1508221576237548541
-          - rid: 1508221576237548542
-          - rid: 1508221576237548543
-          - rid: 1508221576461156352
-          - rid: 1508221576461156353
-          - rid: 1508221576461156354
-          - rid: 1508221576461156355
-          - rid: 1508221576461156356
-          behaviours:
-          - rid: 1508221576461156357
-          assistants:
-          - rid: 1508221576461156358
-          generatorRules:
-          - rid: 1508221576461156359
-          - rid: 1508221576461156360
+          - rid: 2836539975978713635
+          - rid: 2836539975978713636
+          - rid: 2836539975978713637
+          - rid: 2836539975978713638
+          - rid: 2836539975978713639
+          - rid: 2836539975978713640
+          - rid: 2836539975978713641
+          - rid: 2836539975978713642
+          - rid: 2836539975978713643
+          - rid: 2836539975978713644
+          behaviours: []
+          assistants: []
+          generatorRules: []
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
         name: Schema behaviour
@@ -2214,6 +2320,2526 @@ MonoBehaviour:
           - rid: 1508221576461156360
           index: 0
         pairs: []
+    - rid: 2836539975978713615
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713616
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713617
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713618
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713619
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713620
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713621
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713622
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713623
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713624
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713625
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713626
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713627
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713628
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713629
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713630
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713631
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713632
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713633
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713634
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713635
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713636
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713637
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713638
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713639
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713640
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713641
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713642
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713643
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713644
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713645
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        tiles: []
+    - rid: 2836539975978713646
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        tiles: []
+    - rid: 2836539975978713647
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        tiles: []
+    - rid: 2836539975978713648
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        tiles: []
+    - rid: 2836539975978713649
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        tiles: []
+    - rid: 2836539975978713650
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        tiles: []
+    - rid: 2836539975978713651
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        tiles: []
+    - rid: 2836539975978713652
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        tiles: []
+    - rid: 2836539975978713653
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        tiles: []
+    - rid: 2836539975978713654
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        tiles: []
+    - rid: 2836539975978713655
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713656
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713657
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713658
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713659
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713660
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713661
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713662
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713663
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713664
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713665
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 2836539975978713666
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 2836539975978713667
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 2836539975978713668
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 2836539975978713669
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 2836539975978713670
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 2836539975978713671
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 2836539975978713672
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 2836539975978713673
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 2836539975978713674
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 2836539975978713675
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        pairs: []
+    - rid: 2836539975978713676
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        pairs: []
+    - rid: 2836539975978713677
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        pairs: []
+    - rid: 2836539975978713678
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        pairs: []
+    - rid: 2836539975978713679
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        pairs: []
+    - rid: 2836539975978713680
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        pairs: []
+    - rid: 2836539975978713681
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        pairs: []
+    - rid: 2836539975978713682
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        pairs: []
+    - rid: 2836539975978713683
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        pairs: []
+    - rid: 2836539975978713684
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        pairs: []
+    - rid: 2836539975978713685
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        edges: []
+    - rid: 2836539975978713686
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        edges: []
+    - rid: 2836539975978713687
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        edges: []
+    - rid: 2836539975978713688
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        edges: []
+    - rid: 2836539975978713689
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        edges: []
+    - rid: 2836539975978713690
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        edges: []
+    - rid: 2836539975978713691
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        edges: []
+    - rid: 2836539975978713692
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        edges: []
+    - rid: 2836539975978713693
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        edges: []
+    - rid: 2836539975978713694
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        edges: []
+    - rid: 2836539975978713695
+      type: {class: StairsModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: StairsModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        _stairs: []
+    - rid: 2836539975978713696
+      type: {class: StairsModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: StairsModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        _stairs: []
+    - rid: 2836539975978713697
+      type: {class: StairsModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: StairsModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        _stairs: []
+    - rid: 2836539975978713698
+      type: {class: StairsModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: StairsModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        _stairs: []
+    - rid: 2836539975978713699
+      type: {class: StairsModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: StairsModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        _stairs: []
+    - rid: 2836539975978713700
+      type: {class: StairsModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: StairsModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        _stairs: []
+    - rid: 2836539975978713701
+      type: {class: StairsModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: StairsModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        _stairs: []
+    - rid: 2836539975978713702
+      type: {class: StairsModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: StairsModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        _stairs: []
+    - rid: 2836539975978713703
+      type: {class: StairsModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: StairsModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        _stairs: []
+    - rid: 2836539975978713704
+      type: {class: StairsModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: StairsModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        _stairs: []
+    - rid: 2836539975978713705
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        notes: []
+    - rid: 2836539975978713706
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        notes: []
+    - rid: 2836539975978713707
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        notes: []
+    - rid: 2836539975978713708
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        notes: []
+    - rid: 2836539975978713709
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        notes: []
+    - rid: 2836539975978713710
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        notes: []
+    - rid: 2836539975978713711
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        notes: []
+    - rid: 2836539975978713712
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        notes: []
+    - rid: 2836539975978713713
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        notes: []
+    - rid: 2836539975978713714
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          subTypeId: None
+          name: Interior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333071
+          - rid: 1004969105029333072
+          - rid: 1004969105029333073
+          - rid: 1004969105029333074
+          - rid: 1004969105029333075
+          - rid: 1004969105029333076
+          - rid: 1004969105029333077
+          - rid: 1004969105029333078
+          - rid: 1004969105029333079
+          - rid: 1004969105029333080
+          behaviours:
+          - rid: 6524972785853792769
+          - rid: 6524972785853792770
+          assistants:
+          - rid: 1508221576461156358
+          - rid: 3414068420413227008
+          generatorRules:
+          - rid: 1508221576461156359
+          - rid: 1508221576461156360
+          index: 0
+        notes: []
     - rid: 3414068420413227008
       type: {class: BSPAssistant, ns: , asm: LBS}
       data:
@@ -2258,33 +4884,28 @@ MonoBehaviour:
       type: {class: SchemaBehaviour, ns: ISILab.LBS.Plugin.Components.Behaviours, asm: LBS}
       data:
         visible: 1
-        ownerLayerLayer:
+        ownerLayer:
           visible: 1
           blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
+          iconGuid: 915dd173939598c43ab48bbec50425e8
+          id: LBSLayer
           subTypeId: None
-          name: Interior_Layer
+          name: Layer name
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221576237548539
-          - rid: 1508221576237548540
-          - rid: 1508221576237548541
-          - rid: 1508221576237548542
-          - rid: 1508221576237548543
-          - rid: 1508221576461156352
-          - rid: 1508221576461156353
-          - rid: 1508221576461156354
-          - rid: 1508221576461156355
-          - rid: 1508221576461156356
-          behaviours:
-          - rid: 6524972785853792769
-          - rid: 6524972785853792770
-          assistants:
-          - rid: 1508221576461156358
-          generatorRules:
-          - rid: 1508221576461156359
-          - rid: 1508221576461156360
+          - rid: 2836539975978713615
+          - rid: 2836539975978713616
+          - rid: 2836539975978713617
+          - rid: 2836539975978713618
+          - rid: 2836539975978713619
+          - rid: 2836539975978713620
+          - rid: 2836539975978713621
+          - rid: 2836539975978713622
+          - rid: 2836539975978713623
+          - rid: 2836539975978713624
+          behaviours: []
+          assistants: []
+          generatorRules: []
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
         name: SchemaBehaviour
@@ -2298,33 +4919,28 @@ MonoBehaviour:
       type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
         visible: 1
-        ownerLayerLayer:
+        ownerLayer:
           visible: 1
           blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
+          iconGuid: 915dd173939598c43ab48bbec50425e8
+          id: LBSLayer
           subTypeId: None
-          name: Interior_Layer
+          name: Layer name
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221576237548539
-          - rid: 1508221576237548540
-          - rid: 1508221576237548541
-          - rid: 1508221576237548542
-          - rid: 1508221576237548543
-          - rid: 1508221576461156352
-          - rid: 1508221576461156353
-          - rid: 1508221576461156354
-          - rid: 1508221576461156355
-          - rid: 1508221576461156356
-          behaviours:
-          - rid: 6524972785853792769
-          - rid: 6524972785853792770
-          assistants:
-          - rid: 1508221576461156358
-          generatorRules:
-          - rid: 1508221576461156359
-          - rid: 1508221576461156360
+          - rid: 2836539975978713625
+          - rid: 2836539975978713626
+          - rid: 2836539975978713627
+          - rid: 2836539975978713628
+          - rid: 2836539975978713629
+          - rid: 2836539975978713630
+          - rid: 2836539975978713631
+          - rid: 2836539975978713632
+          - rid: 2836539975978713633
+          - rid: 2836539975978713634
+          behaviours: []
+          assistants: []
+          generatorRules: []
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
         name: NoteBehaviour

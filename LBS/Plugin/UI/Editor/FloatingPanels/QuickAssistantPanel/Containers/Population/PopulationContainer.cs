@@ -198,6 +198,7 @@ namespace ISILab.LBS.VisualElements
                     newLayer = PopulationPlaceItem(newLayer, tag, avaliablePositions, itemPool);
                 }
             }
+            await Task.CompletedTask;
             return;
         }
 

@@ -21,7 +21,7 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
         static LBSCallbacks()
         {
             var onStart = SessionState.GetBool("start", true);
-            Debug.Log("[LBS Callbacks] - On Start:" + onStart);
+            //Debug.Log("[LBS Callbacks] - On Start:" + onStart);
             if (onStart)
             {
                 EditorApplication.update += OnStartEditor;
@@ -51,7 +51,7 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
         /// </summary>
         private static void OnBeforeReloadScript()
         {
-            Debug.Log("[LBS Callbacks] - Before Reload Script");
+            //Debug.Log("[LBS Callbacks] - Before Reload Script");
             SaveBackUp();
         }
 
@@ -60,7 +60,22 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
         /// </summary>
         private static void OnAfterReloadScript()
         {
-            Debug.Log("[LBS Callbacks] - After Reload Script");
+            //Debug.Log("[LBS Callbacks] - After Reload Script");
+            var p = EditorPrefs.GetBool("usingPackage" + Application.dataPath, false);
+            //LBSSettings.assetName = p ? "Settings/LBSUserSettings" : "LBSDefaultSettings";
+            //LBSAssetsStorage.assetName = p ? "Storage" : "StorageTemplate";
+            //LBSAssetsStorage.folderName = p ? "Cache" : "Storage";
+            Debug.Log((p ? "" : "NOT ") + "using as package");
+            if(p)
+            {
+                LBSSettings.assetName = "Settings/LBSUserSettings";
+                LBSSettings.ResetInstance();
+                LBSSettings.Instance.ReplacePaths();
+
+                LBSAssetsStorage.assetName = "Storage";
+                LBSAssetsStorage.folderName = "Cache";
+                LBSAssetsStorage.ResetInstance();
+            }
             LoadBackUp();
             ReloadCurrentLevel();
         }

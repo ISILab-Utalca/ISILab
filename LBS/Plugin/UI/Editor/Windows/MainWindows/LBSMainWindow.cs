@@ -196,14 +196,29 @@ namespace ISILab.LBS.Editor.Windows
         {
             // UI can't be referenced here because inherit from a scriptable object!
             //Debug.Log("[Main Window] - Constructor");
-
-
+            _instance = this;
         }
+        
+        [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
+        private static void ShowWindow()
+        {
+            LBSMainWindow window = GetWindow<LBSMainWindow>();
+            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
+            window.titleContent = new GUIContent("Level Builder", icon);
+            window.minSize = new Vector2(800, 400);
+        }
+
+        ~LBSMainWindow()
+        {
+            Debug.Log("[Main Window] - Destructor");
+        }
+
+
 
         private void OnEnable()
         {
             Debug.Log("[Main Window] - OnEnable");
-            _instance = this;
+
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
@@ -212,7 +227,10 @@ namespace ISILab.LBS.Editor.Windows
                 LBS_AssetsPostProcessor.InitializeLBSPackage();
                 packageInitialized = true;
             }
+        }
 
+        private void LoadUITree()
+        {
             #region LOAD UI TREE
             //MainWindows UXML 
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSMainWindow");
@@ -248,24 +266,38 @@ namespace ISILab.LBS.Editor.Windows
 
         private void OnDisable()
         {
+            Debug.Log("[Main Window] - OnDisable");
             if (_instance == this)
-                _instance = null;
+            {
+                //do nothing in here!
+            }
         }
 
-        [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
-        private static void ShowWindow()
+
+        private void OnDestroy()
         {
-            LBSMainWindow window = GetWindow<LBSMainWindow>();
-            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
-            window.titleContent = new GUIContent("Level Builder", icon);
-            window.minSize = new Vector2(800, 400);
+            Debug.Log("[Main Window] - OnDestroy");
+            if (_instance == this)
+            {
+                _instance = null;
+                toolLabel = null;
+                warningNotification = null;
+                warningLabel = null;
+                notifier = null;
+                helpOverlay = null;
+                positionLabel = null;
+                //GC.Collect();
+            }
         }
+
+
 
 
         #region METHODS
         protected override void CreateGUI()
         {
-            Debug.Log("[Main Window] - CreateGUI");
+            //Debug.Log("[Main Window] - CreateGUI");
+            LoadUITree();
             Init();
             rootVisualElement.focusable = true;
             rootVisualElement.Focus();
@@ -484,6 +516,8 @@ namespace ISILab.LBS.Editor.Windows
             #region THEME SET
             ChangeTheme(LBSSettings.Instance.view.LBSTheme);
             #endregion
+
+            //clippy.InitModes();
         }
 
 

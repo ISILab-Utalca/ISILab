@@ -22,7 +22,7 @@ namespace ISILab.LBS.AI.Clippy
 
             button.style.backgroundImage = new StyleBackground(Icon);
 
-            Debug.Log($"[LbesinMod]: Color: {Color}");
+            //Debug.Log($"[LbesinMod]: Color: {Color}");
             button.style.unityBackgroundImageTintColor = Color;
             button.style.backgroundColor = UnityEngine.Color.clear;
 

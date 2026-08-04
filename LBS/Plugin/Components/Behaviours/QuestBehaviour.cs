@@ -14,7 +14,7 @@ using Color = UnityEngine.Color;
 
 namespace ISILab.LBS.Behaviours
 {
-    [RequieredModule(typeof(Graph))]
+    [RequieredModule(typeof(Graph)), RequieredAssistant(typeof(GrammarAssistant))]
     public class QuestBehaviour : LBSBehaviour, IBlueprintable
     {
         #region CONSTANTS
@@ -32,6 +32,7 @@ namespace ISILab.LBS.Behaviours
 
         private NodeKind nodeKind;
         private string activeTerminal = string.Empty;
+
 
 
         #endregion
@@ -105,6 +106,11 @@ namespace ISILab.LBS.Behaviours
 
         public override void OnAttachLayer(LBSLayer layer)
         {
+            if(layer.GetModule<Graph>() == null)
+            {
+                Debug.LogError($"[QuestBehaviour]: Can't attach to layer {layer.Name} because it doesn't have a Graph module.");
+                return;
+            }
             OwnerLayer = layer;
 
             layer.OnChange += () =>
@@ -163,7 +169,6 @@ namespace ISILab.LBS.Behaviours
             };
 
             Graph.PostEdgesChange += ValidateGraph;
-
         }
 
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Exterior Layer Vertex
   m_EditorClassIdentifier: 
   _templateName: Exterior Layer Vertex
-  Order: 11
+  Order: 21
   layer:
     visible: 1
     blocked: 0
@@ -23,7 +23,16 @@ MonoBehaviour:
     name: V_Exterior_Layer
     tileSize: {x: 2, y: 2}
     floors:
-    - rid: 1508221297216716989
+    - rid: 1004969105029333061
+    - rid: 1004969105029333062
+    - rid: 1004969105029333063
+    - rid: 1004969105029333064
+    - rid: 1004969105029333065
+    - rid: 1004969105029333066
+    - rid: 1004969105029333067
+    - rid: 1004969105029333068
+    - rid: 1004969105029333069
+    - rid: 1004969105029333070
     behaviours:
     - rid: 1508221297216716999
     - rid: 2533804032580124809
@@ -35,6 +44,76 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 1004969105029333061
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713585
+        - rid: 2836539975978713595
+        - rid: 2836539975978713605
+    - rid: 1004969105029333062
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713586
+        - rid: 2836539975978713596
+        - rid: 2836539975978713606
+    - rid: 1004969105029333063
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713587
+        - rid: 2836539975978713597
+        - rid: 2836539975978713607
+    - rid: 1004969105029333064
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713588
+        - rid: 2836539975978713598
+        - rid: 2836539975978713608
+    - rid: 1004969105029333065
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713589
+        - rid: 2836539975978713599
+        - rid: 2836539975978713609
+    - rid: 1004969105029333066
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713590
+        - rid: 2836539975978713600
+        - rid: 2836539975978713610
+    - rid: 1004969105029333067
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713591
+        - rid: 2836539975978713601
+        - rid: 2836539975978713611
+    - rid: 1004969105029333068
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713592
+        - rid: 2836539975978713602
+        - rid: 2836539975978713612
+    - rid: 1004969105029333069
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713593
+        - rid: 2836539975978713603
+        - rid: 2836539975978713613
+    - rid: 1004969105029333070
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules:
+        - rid: 2836539975978713594
+        - rid: 2836539975978713604
+        - rid: 2836539975978713614
     - rid: 1508221297216716989
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
@@ -109,31 +188,28 @@ MonoBehaviour:
       type: {class: ExteriorBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
         visible: 1
-        ownerLayerLayer:
+        ownerLayer:
           visible: 1
           blocked: 0
-          iconGuid: 02a644759487ae249bc3a20d019c8745
-          id: Exterior
+          iconGuid: 915dd173939598c43ab48bbec50425e8
+          id: LBSLayer
           subTypeId: None
-          name: Layer Exterior
+          name: Layer name
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216716989
-          - rid: 1508221297216716990
-          - rid: 1508221297216716991
-          - rid: 1508221297216716992
-          - rid: 1508221297216716993
-          - rid: 1508221297216716994
-          - rid: 1508221297216716995
-          - rid: 1508221297216716996
-          - rid: 1508221297216716997
-          - rid: 1508221297216716998
-          behaviours:
-          - rid: 1508221297216716999
-          assistants:
-          - rid: 1508221297216717000
-          generatorRules:
-          - rid: 1508221297216717001
+          - rid: 2836539975978713565
+          - rid: 2836539975978713566
+          - rid: 2836539975978713567
+          - rid: 2836539975978713568
+          - rid: 2836539975978713569
+          - rid: 2836539975978713570
+          - rid: 2836539975978713571
+          - rid: 2836539975978713572
+          - rid: 2836539975978713573
+          - rid: 2836539975978713574
+          behaviours: []
+          assistants: []
+          generatorRules: []
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
         name: Exterior behaviour
@@ -814,32 +890,28 @@ MonoBehaviour:
       type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
         visible: 1
-        ownerLayerLayer:
+        ownerLayer:
           visible: 1
           blocked: 0
-          iconGuid: 02a644759487ae249bc3a20d019c8745
-          id: Exterior
+          iconGuid: 915dd173939598c43ab48bbec50425e8
+          id: LBSLayer
           subTypeId: None
-          name: Layer Exterior
+          name: Layer name
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216716989
-          - rid: 1508221297216716990
-          - rid: 1508221297216716991
-          - rid: 1508221297216716992
-          - rid: 1508221297216716993
-          - rid: 1508221297216716994
-          - rid: 1508221297216716995
-          - rid: 1508221297216716996
-          - rid: 1508221297216716997
-          - rid: 1508221297216716998
-          behaviours:
-          - rid: 1508221297216716999
-          - rid: 2533804032580124809
-          assistants:
-          - rid: 1508221297216717000
-          generatorRules:
-          - rid: 1508221297216717001
+          - rid: 2836539975978713575
+          - rid: 2836539975978713576
+          - rid: 2836539975978713577
+          - rid: 2836539975978713578
+          - rid: 2836539975978713579
+          - rid: 2836539975978713580
+          - rid: 2836539975978713581
+          - rid: 2836539975978713582
+          - rid: 2836539975978713583
+          - rid: 2836539975978713584
+          behaviours: []
+          assistants: []
+          generatorRules: []
           index: 0
         colorTint: {r: 0.5294118, g: 0.83921576, b: 0.9607844, a: 1}
         name: NoteBehaviour
@@ -1124,6 +1196,1056 @@ MonoBehaviour:
           - rid: 1508221297216716996
           - rid: 1508221297216716997
           - rid: 1508221297216716998
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        notes: []
+    - rid: 2836539975978713565
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713566
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713567
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713568
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713569
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713570
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713571
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713572
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713573
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713574
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713575
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713576
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713577
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713578
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713579
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713580
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713581
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713582
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713583
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713584
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 2836539975978713585
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        tiles: []
+    - rid: 2836539975978713586
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        tiles: []
+    - rid: 2836539975978713587
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        tiles: []
+    - rid: 2836539975978713588
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        tiles: []
+    - rid: 2836539975978713589
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        tiles: []
+    - rid: 2836539975978713590
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        tiles: []
+    - rid: 2836539975978713591
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        tiles: []
+    - rid: 2836539975978713592
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        tiles: []
+    - rid: 2836539975978713593
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        tiles: []
+    - rid: 2836539975978713594
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        tiles: []
+    - rid: 2836539975978713595
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713596
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713597
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713598
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713599
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713600
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713601
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713602
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713603
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713604
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        gridType: 0
+        pairs: []
+    - rid: 2836539975978713605
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        notes: []
+    - rid: 2836539975978713606
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        notes: []
+    - rid: 2836539975978713607
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        notes: []
+    - rid: 2836539975978713608
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        notes: []
+    - rid: 2836539975978713609
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        notes: []
+    - rid: 2836539975978713610
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        notes: []
+    - rid: 2836539975978713611
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        notes: []
+    - rid: 2836539975978713612
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        notes: []
+    - rid: 2836539975978713613
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
+          index: 0
+        notes: []
+    - rid: 2836539975978713614
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1004969105029333061
+          - rid: 1004969105029333062
+          - rid: 1004969105029333063
+          - rid: 1004969105029333064
+          - rid: 1004969105029333065
+          - rid: 1004969105029333066
+          - rid: 1004969105029333067
+          - rid: 1004969105029333068
+          - rid: 1004969105029333069
+          - rid: 1004969105029333070
           behaviours:
           - rid: 1508221297216716999
           - rid: 2533804032580124809
