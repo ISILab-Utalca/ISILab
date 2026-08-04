@@ -256,7 +256,6 @@ namespace ISILab.LBS.Editor.Windows
             if (_instance == this)
             {
                 Debug.Log("[Main Window] - OnDisable");
-                _instance = null;
                 toolLabel = null;
                 warningNotification = null;
                 warningLabel = null;
