@@ -329,7 +329,7 @@ namespace ISILab.LBS.Editor.Windows
         #region METHODS
         protected override void CreateGUI()
         {
-            //Debug.Log("[Main Window] - CreateGUI");
+            Debug.Log("[Main Window] - CreateGUI");
             LoadUITree();
             Init();
             rootVisualElement.focusable = true;
