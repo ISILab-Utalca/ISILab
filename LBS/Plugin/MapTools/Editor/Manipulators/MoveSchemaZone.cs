@@ -31,6 +31,7 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Move Zone";
             Description = "Drag a zone to move the entire room and its connections.";
+            groupWeight = 2;
 
             _dottedFeedback.preview = true;
             _dottedFeedback.fixToTeselation = true;
@@ -39,6 +40,7 @@ namespace ISILab.LBS.Manipulators
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);
+
             _schema = provider as SchemaBehaviour;
             _schema.OwnerLayer.OnChange += CleanUpVisuals;
         }

@@ -30,11 +30,14 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Rotate Tile";
             Description = "Left Click to rotate counter-clockwise, Right Click to clockwise.";// May use Mouse Wheel as well.";
+            groupWeight = 1;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);
+
             _population = provider as PopulationBehaviour; 
         }
 

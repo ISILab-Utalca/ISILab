@@ -37,12 +37,15 @@ namespace ISILab.LBS.Manipulators
 
             Name = "Place stairs";
             Description = "Hold ALT to place downwards stairs. Use Right click to remove stairs.";
+            groupWeight = 4;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);
             _schema = provider as SchemaBehaviour;
+
 
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;

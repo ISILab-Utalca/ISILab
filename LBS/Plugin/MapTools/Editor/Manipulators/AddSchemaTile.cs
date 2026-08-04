@@ -30,7 +30,8 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Paint Selected Zone";
             Description = "Add a new zone in the inspector and then paint in the graph. Hold CTRL and select an area to auto-generate a new zone.";
-            
+            groupWeight = 0;
+
             Feedback = new AreaFeedback();
             Feedback.fixToTeselation = true;
         }
@@ -38,7 +39,6 @@ namespace ISILab.LBS.Manipulators
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);
-            
             _schema = provider as SchemaBehaviour;
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;

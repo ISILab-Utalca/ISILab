@@ -30,12 +30,14 @@ namespace ISILab.LBS.Manipulators
             
             Name = "Remove Manual Connection";
             Description = "Click on a connection to remove it.";
+            groupWeight = 3;
+
         }
 
         public override void Init(LBSLayer layer, object behaviour = null)
         {
             base.Init(layer, behaviour);
-            
+
             _schema = behaviour as SchemaBehaviour;
             if (_schema.MultiLayerConnections)
                 _others = LBSController.CurrentLevel.data.Layers

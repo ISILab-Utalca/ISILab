@@ -23,8 +23,9 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Remove Quest Node";
             Description = "Click on a quest node to remove it.";
+            groupWeight = 0;
         }
-        
+
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);

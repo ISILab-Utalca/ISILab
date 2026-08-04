@@ -21,8 +21,6 @@ namespace LBS
         public string Description { get; }
 
         public LBSManipulator Manipulator { get; }
-
-        public int GroupWeight { get; }
         #endregion
 
         #region EVENTS

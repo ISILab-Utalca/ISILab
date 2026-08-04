@@ -22,8 +22,10 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Remove Quest Connection";
             Description = "Click a connection line between nodes to remove it.";
+            groupWeight = 1;
+
         }
-        
+
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);

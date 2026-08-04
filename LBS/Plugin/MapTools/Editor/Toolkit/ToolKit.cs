@@ -114,6 +114,7 @@ namespace LBS.VisualElements
             floorIndexField = this.Q<LBSCustomUnsignedIntegerField>("FloorIndex");
             floorIndexField.style.display = DisplayStyle.None;
 
+            OnToolKitChanged += ReorderTools;
             OnToolKitChanged += SetSeparators;
 
             if (!Equals(instance, this))
@@ -331,7 +332,7 @@ namespace LBS.VisualElements
             separators.Clear();
         }
 
-        public void ActivateTool(LBSTool tool, LBSLayer layer, object provider = null)
+        public void ActivateTool(LBSTool tool, LBSLayer layer, object provider = null, int group = 0)
         {
             if(tool == null) return;
             
@@ -428,12 +429,15 @@ namespace LBS.VisualElements
             {
                 father.Remove(toRemove[i]);
             }
-
+            tools.Clear();
             ClearSeparators();
         }
         
         #endregion
 
+        public void ReorderTools()
+        {
+        }
 
         public void SetSeparators()
         {
@@ -441,21 +445,26 @@ namespace LBS.VisualElements
             if (tools == null || tools.Count == 0)
                 return;
             
-            Dictionary<Type, List<ToolButton>> groupedButtons = new();
+            SortedDictionary<int, List<ToolButton>> groupedButtons = new();
 
+            string weights = "";
             foreach ((LBSTool tool, ToolButton button) in tools.Values)
             {
+                weights += " | " + tool.Manipulator.GroupWeight;
                 if (button == null || button.style.display == DisplayStyle.None)
                     continue;
 
-                Type type = tool?.Manipulator?.ObjectType;
-                if(type is null) continue;
+                //Type type = tool?.Manipulator?.ObjectType;
+                int weight = tool.Manipulator.GroupWeight;
+                if(weight < 0) continue;
                 
-                if (!groupedButtons.ContainsKey(type))
-                    groupedButtons[type] = new List<ToolButton>();
+                if (!groupedButtons.ContainsKey(weight))
+                    groupedButtons[weight] = new List<ToolButton>();
 
-                groupedButtons[type].Add(button);
+                groupedButtons[weight].Add(button);
             }
+            Debug.Log("Buttons = " + weights);
+
 
             // presets in desired order!
             List<Type> presentTypes = new()
@@ -466,18 +475,31 @@ namespace LBS.VisualElements
                 typeof(LBSAssistant)
             };
             
+            //We cleared the tools so now we add them back to the visual element
+            
+
             List<ToolButton> lastButtonPerType = new();
-            for (int i = 0; i < presentTypes.Count - 1; i++)
+            foreach(int weight in groupedButtons.Keys)
+            {
+                foreach (ToolButton button in groupedButtons[weight])
+                {
+                    content.Add(button);
+                }
+                lastButtonPerType.Add(groupedButtons[weight].Last());
+            }
+            /*for (int i = 0; i < presentTypes.Count - 1; i++)
             {
                 if (groupedButtons.TryGetValue(presentTypes[i], out List<ToolButton> buttons) && buttons.Count > 0)
                 {
                     lastButtonPerType.Add(buttons.Last());
                 }
-            }
+            }*/
             
             foreach (ToolButton button in lastButtonPerType)
             {
+                if(button != lastButtonPerType.Last()) { 
                 InsertSeparatorAfter(button);
+                }
             }
             
             MarkDirtyRepaint();

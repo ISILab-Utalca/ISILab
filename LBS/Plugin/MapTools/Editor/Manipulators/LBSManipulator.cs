@@ -32,6 +32,7 @@ namespace ISILab.LBS.Manipulators
         
         private VectorImage _icon;
 
+        protected int groupWeight;
         #endregion
         
         #region STATES
@@ -97,6 +98,9 @@ namespace ISILab.LBS.Manipulators
             get => _onToolUsage;
             set => _onToolUsage = value;
         }
+
+        public int GroupWeight => groupWeight;
+        
 
         public Vector2Int StartPosition
         {

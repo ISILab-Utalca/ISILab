@@ -15,17 +15,19 @@ namespace ISILab.LBS.Manipulators
         private ExteriorBehaviour _exterior;
         private bool keepRatio;
         protected override string IconGuid => "ce4ce3091e6cf864cbbdc1494feb6529";
+        
 
         public AddExteriorTile()
         {
             Name = "Add Tile";
             Description = "Add an Exterior Tile. Hold CTRL to keep neighbors intact.";
+            groupWeight = 0;
+
         }
-        
+
         public override void Init(LBSLayer layer, object provider)
         {
-            base.Init(layer, provider);
-
+            base.Init(layer, provider);            
             _exterior = provider as ExteriorBehaviour;
         }
 

@@ -32,12 +32,14 @@ namespace ISILab.LBS.Manipulators
             Feedback.fixToTeselation = true;
             Name = "Remove Tiles";
             Description = "Click on an item in the graph to remove it.";
+            groupWeight = 0;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);
-            
+
             _previewFeedback = new DottedAreaFeedback();
             _previewFeedback.preview = true;
             _previewFeedback.fixToTeselation = true;
