@@ -227,7 +227,10 @@ namespace ISILab.LBS.Editor.Windows
                 LBS_AssetsPostProcessor.InitializeLBSPackage();
                 packageInitialized = true;
             }
+        }
 
+        private void LoadUITree()
+        {
             #region LOAD UI TREE
             //MainWindows UXML 
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSMainWindow");
@@ -294,6 +297,7 @@ namespace ISILab.LBS.Editor.Windows
         protected override void CreateGUI()
         {
             //Debug.Log("[Main Window] - CreateGUI");
+            LoadUITree();
             Init();
             rootVisualElement.focusable = true;
             rootVisualElement.Focus();
