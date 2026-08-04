@@ -270,8 +270,11 @@ namespace ISILab.LBS.Editor.Windows
 
         private void OnDestroy()
         {
-            this.instance = null;
-            GC.Collect();
+            if (_instance == this)
+            {
+                _instance = null;
+                GC.Collect();
+            }
         }
 
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
