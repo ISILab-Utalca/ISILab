@@ -395,7 +395,6 @@ namespace ISILab.LBS.Editor.Windows
             infoToolBar.Bind(this, ref warningLabel, ref warningNotification);
             
             #endregion
-            
 
             #region MAIN VIEW
             
@@ -451,7 +450,6 @@ namespace ISILab.LBS.Editor.Windows
                 }
             }, TrickleDown.TrickleDown);
             #endregion
-
 
             #region PANELS - INSPECTOR, EXTRA, LAYERS, GENERATOR
 
@@ -571,7 +569,6 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         public void RebuildWindow()
         {
-            /*
             mainView.Clear();
             this.rootVisualElement.Clear();
 
@@ -579,7 +576,6 @@ namespace ISILab.LBS.Editor.Windows
             OnDisable();
             OnEnable();
             CreateGUI();
-            */
         }
 
         /// <summary>
