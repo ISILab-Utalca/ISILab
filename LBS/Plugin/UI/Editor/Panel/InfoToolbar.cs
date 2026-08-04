@@ -9,7 +9,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
     [UxmlElement]
     public partial class InfoToolbar: VisualElement
     {
-        private static VisualTreeAsset VisualTree;
+        private VisualTreeAsset VisualTree;
         
         private LBSCustomButton clearNotificationButton;
         private LBSCustomToggle disableNotificationButton;
@@ -26,8 +26,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
         private Label gridText;
         private Label positionLabel;
         
+
         private VisualElement warningNotification;
         private Label warningText;
+        public VisualElement WarningNotification => warningNotification;
+        public Label WarningLabel => warningText;
 
 
 
@@ -59,12 +62,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
         }
 
 
-        public void Bind(LBSMainWindow _mainWindow, ref Label WarningText, ref VisualElement Warning)
-        { 
-            LBSMainWindow.notifier.SetButtons(clearNotificationButton, disableNotificationButton, disableClippyButton);
+        public void Bind(LBSMainWindow _mainWindow)
+        {
+            _mainWindow.Notifier.SetButtons(clearNotificationButton, disableNotificationButton, disableClippyButton);
             warningNotification.visible = false;
-            Warning = warningNotification;
-            WarningText = warningText;
         }
 
         public void SetToolText(string description)

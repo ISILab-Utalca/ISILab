@@ -328,7 +328,7 @@ namespace ISILab.LBS.Manipulators
             if (LBSLayer != null)
             {
                 Vector2 pos = LBSLayer.ToFixedPosition(_moveClickPosition);
-                LBSMainWindow.GridPosition(pos);
+                LBSMainWindow.SetGridPosition(pos);
             }
 
             OnManipulationMove?.Invoke(_moveClickPosition);
