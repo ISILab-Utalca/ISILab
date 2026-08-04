@@ -254,18 +254,16 @@ namespace ISILab.LBS.Editor.Windows
             if (_instance == this)
                 _instance = null;
 
-            /*
             // DESUSCRIBIRSE DE EVENTOS GLOBALES O DE DATOS
             OnLayerChange -= topToolBar.LevelChange;
-            OnLayerChange -= blueprintPanel.UpdateCaptureEnable; // Necesitarás refactorizar la lambda a un método
-            LBSController.OnLoadLevel -= OnLoadLevelCallback; // Refactoriza la lambda
+            OnLayerChange -= () => blueprintPanel.UpdateCaptureEnable(); // Necesitarás refactorizar la lambda a un método
+            //LBSController.OnLoadLevel -= OnLoadLevelCallback; // Refactoriza la lambda
 
             if (levelData != null)
             {
                 levelData.OnChanged -= OnLevelDataChange;
-                levelData.OnReload -= OnLevelDataReload; // Refactoriza la lambda
+                levelData!.OnReload -= () => layerPanel.ResetSelection(); // Refactoriza la lambda
             }
-            */
         }
 
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
@@ -367,7 +365,7 @@ namespace ISILab.LBS.Editor.Windows
             topToolBar.OnLoadLevel += data =>
             {
                 LBS.loadedLevel = data;
-                RefreshWindow();
+                RebuildWindow();
                 //drawManager.RedrawLevel(levelData);
             };
             
@@ -520,7 +518,7 @@ namespace ISILab.LBS.Editor.Windows
         /// <summary>
         /// Refresh the window.
         /// </summary>
-        public void RefreshWindow()
+        public void RebuildWindow()
         {
             mainView.Clear();
             this.rootVisualElement.Clear();

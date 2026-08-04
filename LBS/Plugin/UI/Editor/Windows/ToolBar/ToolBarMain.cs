@@ -111,7 +111,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
             OnNewLevel += (_loadedLevel) =>
             {
                 LBS.loadedLevel = _loadedLevel;
-                MainWindow.RefreshWindow();
+                MainWindow.RebuildWindow();
             };
             
             settingMenu.RegisterCallback<ClickEvent>(OpenConfiguration);
