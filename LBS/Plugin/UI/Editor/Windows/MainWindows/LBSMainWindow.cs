@@ -201,19 +201,13 @@ namespace ISILab.LBS.Editor.Windows
         ~LBSMainWindow()
         {
             Debug.Log("[Main Window] - Destructor");
-            toolLabel = null;
-            warningNotification = null;
-            warningLabel = null;
-            notifier = null;
-            helpOverlay = null;
-            positionLabel = null;
         }
 
 
 
         private void OnEnable()
         {
-            //Debug.Log("[Main Window] - OnEnable");
+            Debug.Log("[Main Window] - OnEnable");
             _instance = this;
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
@@ -260,7 +254,16 @@ namespace ISILab.LBS.Editor.Windows
         private void OnDisable()
         {
             if (_instance == this)
+            {
+                Debug.Log("[Main Window] - OnDisable");
                 _instance = null;
+                toolLabel = null;
+                warningNotification = null;
+                warningLabel = null;
+                notifier = null;
+                helpOverlay = null;
+                positionLabel = null;
+            }
         }
 
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
