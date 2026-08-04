@@ -270,6 +270,7 @@ namespace ISILab.LBS.Editor.Windows
 
         private void OnDestroy()
         {
+            Debug.Log("[Main Window] - OnDestroy");
             if (_instance == this)
             {
                 _instance = null;
