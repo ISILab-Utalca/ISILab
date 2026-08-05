@@ -30,6 +30,42 @@ using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 
 namespace ISILab.LBS.Editor.Windows
 {
+    public sealed class LBSEditorWindow
+    {
+        private static LBSMainWindow _instance = null;
+        public static LBSMainWindow Instance
+        {
+            get
+            {
+                return _instance ??= LBSMainWindow.OpenWindow;
+            }
+            set
+            {
+                if(_instance != null)
+                {
+                    Debug.LogError("[LBSEditorWindow] - Instance is already set.");
+                    return;
+                }
+                _instance = value;
+            }
+        }
+
+        public static void SetNull()
+        {
+            _instance = null;
+        }
+
+
+        [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
+        private static void ShowWindow()
+        {
+            LBSMainWindow window = LBSMainWindow.OpenWindow;
+            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
+            window.titleContent = new GUIContent("Level Builder", icon);
+            window.minSize = new Vector2(800, 400);
+        }
+    }
+
 
     /// <summary>
     /// The General LBS Main Windows
@@ -208,7 +244,9 @@ namespace ISILab.LBS.Editor.Windows
         #endregion
 
         #region STATIC METHODS
-        
+        public static LBSMainWindow OpenWindow => GetWindow<LBSMainWindow>();
+        public static LBSMainWindow Instance => LBSEditorWindow.Instance;
+        /*
         private static LBSMainWindow _instance = null;
         public static LBSMainWindow Instance
         {
@@ -218,7 +256,7 @@ namespace ISILab.LBS.Editor.Windows
             }
 
             private set => _instance = value;
-        }
+        }//*/
         #endregion
 
 
@@ -230,7 +268,7 @@ namespace ISILab.LBS.Editor.Windows
             Debug.Log($"[LBSMainWindow] - Constructor - {RandomId}");
             //_instance = this;
         }
-        
+        /*
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
         private static void ShowWindow()
         {
@@ -238,7 +276,7 @@ namespace ISILab.LBS.Editor.Windows
             Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
             window.titleContent = new GUIContent("Level Builder", icon);
             window.minSize = new Vector2(800, 400);
-        }
+        }//*/
 
         ~LBSMainWindow()
         {
@@ -251,8 +289,8 @@ namespace ISILab.LBS.Editor.Windows
         {
             Debug.Log($"[LBSMainWindow] - OnEnable - {RandomId}");
 
-            if(Instance == null)
-                { Instance = this; }
+            if(LBSEditorWindow.Instance == null)
+                { LBSEditorWindow.Instance = this; }
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
@@ -303,9 +341,9 @@ namespace ISILab.LBS.Editor.Windows
         private void OnDisable()
         {
             Debug.Log($"[LBSMainWindow] - OnDisable - {RandomId}");
-            if (Instance == this)
+            if (LBSEditorWindow.Instance == this)
             {
-                Instance = null;
+                LBSEditorWindow.SetNull();
                 /*
                 // DESUSCRIBIRSE DE EVENTOS GLOBALES O DE DATOS
                 onLayerChange -= topToolBar.LevelChange;
@@ -325,7 +363,7 @@ namespace ISILab.LBS.Editor.Windows
         private void OnDestroy()
         {
             Debug.Log($"[LBSMainWindow] - OnDestroy - {RandomId}");
-            if (Instance == this)
+            if (LBSEditorWindow.Instance == this)
             {
                 //GC.Collect();
             }
@@ -627,9 +665,9 @@ namespace ISILab.LBS.Editor.Windows
 
         public static void WarningManipulator(string description = null)
         {
-            if (Instance.WarningLabel == null) return;
-            Instance.WarningLabel.text = description;
-            Instance.WarningNotification.visible = description != null && description != string.Empty;
+            if (LBSEditorWindow.Instance.WarningLabel == null) return;
+            LBSEditorWindow.Instance.WarningLabel.text = description;
+            LBSEditorWindow.Instance.WarningNotification.visible = description != null && description != string.Empty;
         }
 
         private void NotifyChange()
@@ -682,7 +720,7 @@ namespace ISILab.LBS.Editor.Windows
 
         public static void MessageNotify(LBSLog lbsMessage)
         {
-            Instance.Notifier?.SendNotification(
+            LBSEditorWindow.Instance.Notifier?.SendNotification(
                 lbsMessage.message, 
                 lbsMessage.type, 
                 lbsMessage.duration);
@@ -692,10 +730,10 @@ namespace ISILab.LBS.Editor.Windows
 
         public static void SetGridPosition(Vector2 pos)
         {
-            Instance.GridPosition = pos.ToInt();
-            if (Instance.PositionLabel == null) return;
+            LBSEditorWindow.Instance.GridPosition = pos.ToInt();
+            if (LBSEditorWindow.Instance.PositionLabel == null) return;
             string text = "Grid Position: " + pos.ToInt();
-            Instance.PositionLabel.text = text;
+            LBSEditorWindow.Instance.PositionLabel.text = text;
         }
 
         public void DisplayHelp()
