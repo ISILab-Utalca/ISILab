@@ -195,7 +195,6 @@ namespace ISILab.LBS.Editor.Windows
 
         #endregion
 
-        private bool packageInitialized = false;
         private bool isWarpingCursor;
 
         #region EVENTS
@@ -215,29 +214,29 @@ namespace ISILab.LBS.Editor.Windows
         private int? randomId;
         private int RandomId => randomId ??= new System.Random().Next(1000, 9999);
         
-        public LBSMainWindow() : base() { }
-        ~LBSMainWindow() { }
+        public LBSMainWindow() : base()
+        {
+            Debug.Log($"[LBSMainWindow] - Constructor - {RandomId}");
+        }
+        ~LBSMainWindow()
+        {
+            Debug.Log($"[LBSMainWindow] - Destructor - {RandomId}");
+        }
 
         private void OnEnable()
         {
-            if(Instance != null)
+            Debug.Log($"[LBSMainWindow] - OnEnable - {RandomId}");
+            if (Instance != null)
             {
                 return;
             }
             SingletonHelper.Instance = this;
-
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
-
-            if (!packageInitialized && packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
-            {
-                LBS_AssetsPostProcessor.InitializeLBSPackage();
-                packageInitialized = true;
-            }
+            SingletonHelper.InitializePackage();
         }
 
         private void LoadUITree()
         {
+            Debug.Log($"[LBSMainWindow] - LoadUITree - {RandomId}");
             #region LOAD UI TREE
             //MainWindows UXML 
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSMainWindow");
@@ -269,14 +268,14 @@ namespace ISILab.LBS.Editor.Windows
             extraPanel = rootVisualElement.Q<VisualElement>("ExtraPanel");
             bottomPanel = rootVisualElement.Q<VisualElement>("BottomPanel");
             taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("WaitOverlay");
-            Debug.Log($"taskOverlay: {taskOverlay != null}");
         }
 
         private void OnDisable()
         {
+            Debug.Log($"[LBSMainWindow] - OnDisable - {RandomId}");
             if (Instance == this)
             {
-                SingletonHelper.SetNull();
+                SingletonHelper.SetInstanceNull();
                 
                 //desuscribirse de eventos 
                 onLayerChange -= OnBlueprintCaptureEnable; 
@@ -759,6 +758,17 @@ namespace ISILab.LBS.Editor.Windows
 
         private sealed class SingletonHelper
         {
+
+            [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
+            private static void ShowWindow()
+            {
+                LBSMainWindow window = LBSMainWindow.OpenWindow;
+                Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
+                window.titleContent = new GUIContent("Level Builder", icon);
+                window.minSize = new Vector2(800, 400);
+            }
+
+            // MainWindow instance
             private static LBSMainWindow _instance = null;
             public static LBSMainWindow Instance
             {
@@ -776,21 +786,31 @@ namespace ISILab.LBS.Editor.Windows
                     _instance = value;
                 }
             }
-
-            public static void SetNull()
+            public static void SetInstanceNull()
             {
                 _instance = null;
             }
 
-
-            [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
-            private static void ShowWindow()
+            // LBS package initialization
+            private static bool packageInitialized = false;
+            public static void InitializePackage()
             {
-                LBSMainWindow window = LBSMainWindow.OpenWindow;
-                Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
-                window.titleContent = new GUIContent("Level Builder", icon);
-                window.minSize = new Vector2(800, 400);
+                if (packageInitialized) return;
+
+                var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+                var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+
+                if (packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
+                {
+                    LBS_AssetsPostProcessor.InitializeLBSPackage();
+                    packageInitialized = true;
+                }
+                else
+                {
+                    Debug.Log($"[LBSMainWindow - SingletonHelper]: packageInfo {packageInfo?.name ?? "null"} can't be initialized.");
+                }
             }
+
         }
     }
 
