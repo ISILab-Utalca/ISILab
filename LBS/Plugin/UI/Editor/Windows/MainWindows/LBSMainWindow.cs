@@ -344,18 +344,16 @@ namespace ISILab.LBS.Editor.Windows
             if (LBSEditorWindow.Instance == this)
             {
                 LBSEditorWindow.SetNull();
-                /*
-                // DESUSCRIBIRSE DE EVENTOS GLOBALES O DE DATOS
-                onLayerChange -= topToolBar.LevelChange;
-                onLayerChange -= () => blueprintPanel.UpdateCaptureEnable(); //  refactorizar la lambda a un m�todo
-                //LBSController.OnLoadLevel -= OnLoadLevelCallback; // Refactoriza la lambda
+                
+                //desuscribirse de eventos 
+                onLayerChange -= OnBlueprintCaptureEnable; 
+                levelData!.OnReload -= OnLayerResetSelection;
+                layerPanel.OnSelectLayer -= OnSelectedLayerChange;
 
                 if (levelData != null)
                 {
                     levelData.OnChanged -= OnLevelDataChange;
-                    levelData!.OnReload -= () => layerPanel.ResetSelection(); // Refactoriza la lambda
                 }
-                */
             }
         }
 
@@ -417,15 +415,7 @@ namespace ISILab.LBS.Editor.Windows
 
             mainView.RegisterCallback<MouseMoveEvent>(HandleInfiniteScrolling, TrickleDown.TrickleDown);
 
-            mainView.OnClearSelection += () =>
-            {
-                if (_selectedLayer != null)
-                {
-                    var il = Reflection.MakeGenericScriptable(_selectedLayer);
-                    Selection.SetActiveObjectWithContext(il, il);
-                    il.hideFlags = HideFlags.DontSave; // or HideFlags.HideAndDontSave
-                }
-            };
+            mainView.OnClearSelection += OnClearSelectionSub;
 
             #endregion
 
@@ -438,19 +428,6 @@ namespace ISILab.LBS.Editor.Windows
             #region NOTIFIER TOOLBAR
 
             infoToolBar.Bind(this);
-            
-            #endregion
-
-            #region MAIN VIEW
-            
-            mainView.OnClearSelection += () =>
-            {
-                if (_selectedLayer != null)
-                {
-                    var il = Reflection.MakeGenericScriptable(_selectedLayer);
-                    Selection.SetActiveObjectWithContext(il, il);
-                }
-            };
 
             #endregion
 
@@ -534,7 +511,7 @@ namespace ISILab.LBS.Editor.Windows
             blueprintPanel ??=  new BlueprintPanel();
             bottomPanel.Add(blueprintPanel);
             blueprintPanel.style.display = DisplayStyle.None;
-            onLayerChange += () => blueprintPanel.UpdateCaptureEnable();
+            onLayerChange += OnBlueprintCaptureEnable;
 
             #endregion
 
@@ -702,11 +679,11 @@ namespace ISILab.LBS.Editor.Windows
             }
 
             //if the undo added/eliminated a layer
-            {
+            //{
                 //layerPanel.ResetSelection();
                 //layerPanel.RefreshUI();
                 // The recovered layer must regain its non sereialized references (events, some stuff from its behaviours/assistants/... and its parent
-            }
+            //}
 
             //if (_selectedLayer is not null)
             //{
@@ -805,10 +782,7 @@ namespace ISILab.LBS.Editor.Windows
 #endif
 
             // 3. Defer flag reset to the end of the frame outside ProcessEvent stack
-            EditorApplication.delayCall += () =>
-            {
-                isWarpingCursor = false;
-            };
+            EditorApplication.delayCall += FalseWarpingCursor;
 
             // 4. Stop propagation to prevent sudden large delta updates on target views
             evt.StopImmediatePropagation();
@@ -817,6 +791,39 @@ namespace ISILab.LBS.Editor.Windows
         public void ToggleClippy(bool value)
         {
             clippy.SetDisplay(value ? DisplayStyle.Flex : DisplayStyle.None);
+        }
+        #endregion
+
+        #region SUBSCRIBABLE METHODS
+        private void OnBlueprintCaptureEnable()
+        {
+            if (blueprintPanel != null)
+            {
+                blueprintPanel.UpdateCaptureEnable();
+            }
+        }
+
+        private void OnLayerResetSelection()
+        {
+            if (layerPanel != null)
+            {
+                layerPanel.ResetSelection();
+            }
+        }
+
+        private void OnClearSelectionSub()
+        {
+            if (_selectedLayer != null)
+            {
+                var il = Reflection.MakeGenericScriptable(_selectedLayer);
+                Selection.SetActiveObjectWithContext(il, il);
+                il.hideFlags = HideFlags.DontSave; // or HideFlags.HideAndDontSave
+            }
+        }        
+
+        private void FalseWarpingCursor()
+        {
+            isWarpingCursor = false;
         }
         #endregion
     }
