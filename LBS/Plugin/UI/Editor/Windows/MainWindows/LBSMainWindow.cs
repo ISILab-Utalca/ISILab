@@ -103,8 +103,11 @@ namespace ISILab.LBS.Editor.Windows
 
         #region MANAGERS
 
+        [NonSerialized]
         private ToolKit toolkit;
+        [NonSerialized]
         private DrawManager drawManager;
+        [NonSerialized]
         private LBSInspectorPanel inspectorManager;
 
         #endregion
@@ -112,23 +115,29 @@ namespace ISILab.LBS.Editor.Windows
         #region NOTIFICATIONS
 
         // Tool notification
+        [NonSerialized]
         public Label toolLabel;
 
         // Warning notification
         public VisualElement WarningNotification => infoToolBar.WarningNotification;
         public Label WarningLabel => infoToolBar.WarningLabel;
 
+        [NonSerialized]
         public NotifierViewer Notifier;
         #endregion
 
         #region MAIN VIEW
 
         // Work canvas
+        [NonSerialized]
         private MainView mainView;
 
         // Help overlays
+        [NonSerialized]
         private VisualElement helpOverlay;
+        [NonSerialized]
         private VisualElement noLayerSign;
+        [NonSerialized]
         private LBSSideBarPanel sideBarPanel;
 
         // Grid position
@@ -138,32 +147,48 @@ namespace ISILab.LBS.Editor.Windows
 
         #region UI LABELS
 
+        [NonSerialized]
         private Label selectedLabel;
+        [NonSerialized]
         public Label PositionLabel;
 
         #endregion
 
         #region PANELS & UI SECTIONS VISUALELEMENTS
 
+        [NonSerialized]
         public LayersPanel layerPanel;
+        [NonSerialized]
         public Generator3DPanel gen3DPanel;
+        [NonSerialized]
         public QuickAssistantPanel quickAssistantPanel;
+        [NonSerialized]
         public BlueprintPanel blueprintPanel;
+        [NonSerialized]
         public VisualElement extraPanel;
+        [NonSerialized]
         public VisualElement bottomPanel;
+        [NonSerialized]
         public VisualElement inspectorPanelContainer;
 
+        [NonSerialized]
         private VisualElement helpOverlayAnchor;
+        [NonSerialized]
         private ToolBarMain topToolBar;
+        [NonSerialized]
         private InfoToolbar infoToolBar;
 
+        [NonSerialized]
         private LBSWaitTaskOverlay taskOverlay;
         public LBSWaitTaskOverlay WaitTaskOverlay => taskOverlay;
 
+        [NonSerialized]
         private ScrollView subPanelScrollView;
+        [NonSerialized]
         private Lbesin clippy;
 
         //[UxmlAttribute]
+        [NonSerialized]
         private SplitView splitView;
         //[UxmlAttribute]
         //private LayerInspector layerInspector;
@@ -176,12 +201,15 @@ namespace ISILab.LBS.Editor.Windows
 
         #region EVENTS
 
+        [NonSerialized]
         public Action onWindowRepaint;
+        [NonSerialized]
         public Action onLayerChange;
         #endregion
 
         #region STATIC METHODS
 
+        [NonSerialized]
         private static LBSMainWindow _instance;
         public static LBSMainWindow Instance
         {
