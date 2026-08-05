@@ -281,7 +281,9 @@ namespace ISILab.LBS.Editor.Windows
                 //desuscribirse de eventos 
                 onLayerChange -= OnBlueprintCaptureEnable; 
                 levelData!.OnReload -= OnLayerResetSelection;
-                layerPanel.OnSelectLayer -= OnSelectedLayerChange;
+
+                if (layerPanel != null)
+                    layerPanel.OnSelectLayer -= OnSelectedLayerChange;
 
                 if (levelData != null)
                 {
