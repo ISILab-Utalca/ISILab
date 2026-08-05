@@ -16,6 +16,7 @@ namespace LBS.VisualElements
 
         private Label label;
         //private Button button;
+        private VisualElement ve;
         private VisualElement frame;
         private VisualElement iconVisualElement;
         private ToolbarMenu _toolbar;
@@ -27,10 +28,12 @@ namespace LBS.VisualElements
         private VectorImage icon;
         private Color frameColor = Color.black;
         private string labelText = "Item: 0";
+        private bool selected = false;
 
         public object target;
 
         public Action<object> OnSelect;
+        public Action OnDelete;
         private Action<OptionView, object> OnSetView;
 
         #region PROPERTIES
@@ -81,7 +84,6 @@ namespace LBS.VisualElements
             }
         }
 
-
         [UxmlAttribute]
         public Color FrameColor
         {
@@ -97,6 +99,27 @@ namespace LBS.VisualElements
         }
         #endregion
 
+        public ToolbarMenu ToolBar
+        {
+            get => _toolbar;
+        }
+
+        public bool Selected
+        {
+            get => selected;
+            set
+            {
+                selected = value;
+                switch (value)
+                {
+                    case true: ve.AddToClassList("prop-state--checked");
+                        break;
+                    case false: ve.RemoveFromClassList("prop-state--checked"); break;
+
+                }
+            }
+        }
+
 
         public OptionView() : base()
         {
@@ -109,6 +132,7 @@ namespace LBS.VisualElements
             this.frame = this.Q<VisualElement>("Frame");
             this.label = this.Q<Label>("Label");
             this.iconVisualElement = this.Q<VisualElement>("Icon");
+            this.ve = this.Q<VisualElement>("VE");
             //border.SetBorder(border.style.backgroundColor.value, 2);
             //this.button = this.Q<Button>();
 
@@ -118,10 +142,10 @@ namespace LBS.VisualElements
             });
             this.AddManipulator(clickableManipulator);
             this.pickingMode = PickingMode.Position;
-            this.focusable = true;
+            //this.focusable = true;
             this.style.overflow = Overflow.Hidden;
             this.style.flexGrow = 0;
-
+            
         }
         public OptionView(object target, Action<object> onSelect, Action<object> onRemove, Action<OptionView, object> onSetView) : this()
         {
@@ -131,14 +155,7 @@ namespace LBS.VisualElements
             };
 
             _toolbar = this.Q<ToolbarMenu>("ToolBar");
-            if (_toolbar != null)
-            {
-                _toolbar.menu.AppendAction("Delete Zone", action =>
-                {
-                    DeleteZone(action, onRemove);
-                });
-                _toolbar.style.display = DisplayStyle.None;
-            }
+            
 
             // Init Fields
             this.target = target;
@@ -148,6 +165,7 @@ namespace LBS.VisualElements
 
             this.OnSetView = onSetView;
             OnSetView?.Invoke(this, target);
+            OnDelete += () => { Delete(onRemove); };
 
             RegisterCallback<MouseDownEvent>(OnMouseDown);
 
@@ -174,22 +192,14 @@ namespace LBS.VisualElements
 
         }
 
-        private void DeleteZone(DropdownMenuAction obj, Action<object> Remove)
+        private void Delete(Action<object> Remove)
         {
             Remove.Invoke(target);
         }
 
         public void SetSelected(bool value)
         {
-            if (value)
-            {
-
-                AddToClassList("prop-state--checked");
-            }
-            else
-            {
-                RemoveFromClassList("prop-state--checked");
-            }
+            Selected = value;
         }
     }
 

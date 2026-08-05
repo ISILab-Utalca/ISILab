@@ -18,6 +18,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEditor.UIElements;
 
 namespace ISILab.LBS.Behaviours.Editor
 {
@@ -223,6 +224,14 @@ namespace ISILab.LBS.Behaviours.Editor
                 optionView.Label = area.ID;
                 optionView.FrameColor = area.Color;
                 optionView.Icon = AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
+                if (optionView.ToolBar != null)
+                {
+                    optionView.ToolBar.menu.AppendAction("Delete Zone", action =>
+                        {
+                            optionView.OnDelete?.Invoke();
+                        });
+                    optionView.ToolBar.style.display = DisplayStyle.None;
+                }
             });
 
             areaPallete.OnRepaint -= RepaintAreaPallete;
@@ -331,7 +340,6 @@ namespace ISILab.LBS.Behaviours.Editor
 
         private void SelectOption(object selected)
         {
-            Debug.Log("Selected");
             behaviour.RoomToSet = selected as Zone;
             ToolKit.Instance.SetActive(typeof(AddSchemaTile));
         }
