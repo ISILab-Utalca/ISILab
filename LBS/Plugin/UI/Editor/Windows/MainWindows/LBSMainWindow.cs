@@ -214,33 +214,12 @@ namespace ISILab.LBS.Editor.Windows
 
         private int? randomId;
         private int RandomId => randomId ??= new System.Random().Next(1000, 9999);
-        public LBSMainWindow() : base()
-        {
-            // UI can't be referenced here because inherit from a scriptable object!
-            Debug.Log($"[LBSMainWindow] - Constructor - {RandomId}");
-            //_instance = this;
-        }
-        /*
-        [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
-        private static void ShowWindow()
-        {
-            LBSMainWindow window = GetWindow<LBSMainWindow>();
-            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
-            window.titleContent = new GUIContent("Level Builder", icon);
-            window.minSize = new Vector2(800, 400);
-        }//*/
-
-        ~LBSMainWindow()
-        {
-            Debug.Log($"[LBSMainWindow] - Destructor - {RandomId}");
-        }
-
-
+        
+        public LBSMainWindow() : base() { }
+        ~LBSMainWindow() { }
 
         private void OnEnable()
         {
-            Debug.Log($"[LBSMainWindow] - OnEnable - {RandomId}");
-
             if(Instance != null)
             {
                 return;
@@ -259,7 +238,6 @@ namespace ISILab.LBS.Editor.Windows
 
         private void LoadUITree()
         {
-            Debug.Log($"[LBSMainWindow] - LoadUITree - {RandomId}");
             #region LOAD UI TREE
             //MainWindows UXML 
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSMainWindow");
@@ -290,12 +268,12 @@ namespace ISILab.LBS.Editor.Windows
 
             extraPanel = rootVisualElement.Q<VisualElement>("ExtraPanel");
             bottomPanel = rootVisualElement.Q<VisualElement>("BottomPanel");
-            taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("TaskOverlay");
+            taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("WaitOverlay");
+            Debug.Log($"taskOverlay: {taskOverlay != null}");
         }
 
         private void OnDisable()
         {
-            Debug.Log($"[LBSMainWindow] - OnDisable - {RandomId}");
             if (Instance == this)
             {
                 SingletonHelper.SetNull();
@@ -316,7 +294,6 @@ namespace ISILab.LBS.Editor.Windows
 
         private void OnDestroy()
         {
-            Debug.Log($"[LBSMainWindow] - OnDestroy - {RandomId}");
             if (Instance == this)
             {
                 //GC.Collect();
@@ -326,7 +303,6 @@ namespace ISILab.LBS.Editor.Windows
         #region METHODS
         protected override void CreateGUI()
         {
-            Debug.Log($"[LBSMainWindow] - CreateGUI - {RandomId}");
             LoadUITree();
             Init();
             rootVisualElement.focusable = true;
@@ -343,8 +319,6 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         private void Init()
         {
-            Debug.Log($"[LBSMainWindow] - Init - {RandomId}");
-
             #region LOAD & BACKUP LEVEL DATA
             if (LBS.loadedLevel == null)
             {
@@ -538,7 +512,6 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         public new void Repaint()
         {
-            Debug.Log($"[LBSMainWindow] - Repaint - {RandomId}");
             base.Repaint();
             drawManager.RedrawLevel(levelData);
         }
@@ -548,7 +521,6 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         public void RebuildWindow()
         {
-            Debug.Log($"[LBSMainWindow] - Rebuild Window - {RandomId}");
             mainView.Clear();
             this.rootVisualElement.Clear();
 
