@@ -208,7 +208,9 @@ namespace LBS.VisualElements
         {
             foreach (var optV in optionViews)
             {
+                if(optV.Target != obj) { 
                 optV.SetSelected(false);
+                }
             }
             selected = obj;
             OnSelectOption?.Invoke(obj);
