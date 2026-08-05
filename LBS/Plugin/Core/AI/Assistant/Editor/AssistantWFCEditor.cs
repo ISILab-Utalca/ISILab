@@ -187,6 +187,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
             if(assistant.CaptureWeights(out string errMsg))
                 LBSMainWindow.MessageNotify( new LBSLog("Current map weights captured."));
             else LBSMainWindow.MessageNotify( new LBSLog(errMsg, LogType.Warning));
+
             //
             //if (assistant.CaptureRules())
             //    LBSMainWindow.MessageNotify("Current map weights captured.");
