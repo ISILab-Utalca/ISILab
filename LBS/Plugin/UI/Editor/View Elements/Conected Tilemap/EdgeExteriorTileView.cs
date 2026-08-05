@@ -180,6 +180,7 @@ namespace ISILab.LBS.VisualElements
             else
             {
                 center.FillColor = invalidColor;
+                centerCircle.FillColor = invalidColor;
                 centerCircle.style.display = DisplayStyle.None;
                 //center.style.display = DisplayStyle.None;
             }
