@@ -34,6 +34,8 @@ namespace ISILab.LBS.Manipulators
 
             Name = "Paint roads";
             Description = "Paint line across tiles to make connections. Hold CTRL to connect areas.";
+            groupWeight = 1;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)

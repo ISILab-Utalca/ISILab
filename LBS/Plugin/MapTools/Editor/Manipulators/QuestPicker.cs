@@ -53,6 +53,7 @@ namespace ISILab.LBS.Manipulators
             Name = "Pick population element";
             Description = "Pick the foremost population element from any layer in the graph. " +
                           "The picked bundle is assigned to the selected behaviour node.";
+            groupWeight = 1;
         }
 
         public override void Init(LBSLayer layer, object owner = null)
@@ -66,7 +67,7 @@ namespace ISILab.LBS.Manipulators
             if (_behaviour.SelectedNodeData == null || ActiveData == null) 
                 return;
                 
-            Vector2Int location = LBSMainWindow._gridPosition;
+            Vector2Int location = LBSMainWindow.Instance.GridPosition;
 
             var level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();

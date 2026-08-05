@@ -42,11 +42,14 @@ namespace ISILab.LBS.Manipulators
             Name = "Pick an interior connection";
             Description = "Binds an interior connection to population tile with the" +
                 "(Trigger) or (Key), to be opened";
+            groupWeight = 2;
+
         }
 
         public override void Init(LBSLayer layer, object owner = null)
         {
             base.Init(layer, owner);
+
             _behaviour = layer.GetBehaviour<TileGroupBehavior>();
         }
 

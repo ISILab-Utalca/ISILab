@@ -17,11 +17,14 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Rotate Zone";
             Description = "Click on a zone to rotate it around its center.";
+            groupWeight = 2;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);
+
             _schema = provider as SchemaBehaviour;
         }
 

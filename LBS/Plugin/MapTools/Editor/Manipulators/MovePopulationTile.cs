@@ -40,11 +40,14 @@ namespace ISILab.LBS.Manipulators
             Name = "Move Item Tile";
             Description =
                 "Click on the graph to and drag a population tile to move it.";
+            groupWeight = 1;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);
+
             _population = provider as PopulationBehaviour;
 
             _population.OwnerLayer.OnChange += () =>

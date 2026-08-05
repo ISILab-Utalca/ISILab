@@ -23,11 +23,14 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Add Tile";
             Description = "Add an Exterior Tile. Hold CTRL to keep neighbors intact.";
+            groupWeight = 0;
+
         }
 
         public override void Init(LBSLayer layer, object provider)
         {
             base.Init(layer, provider);
+
 
             _exterior = provider as ExteriorBehaviour;
         }

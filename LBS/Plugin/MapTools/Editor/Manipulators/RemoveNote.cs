@@ -17,6 +17,8 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Remove Note";
             Description = "Remove a note from the map";
+            groupWeight = 99;
+
         }
 
         public override void Init(LBSLayer layer, object provider = null)

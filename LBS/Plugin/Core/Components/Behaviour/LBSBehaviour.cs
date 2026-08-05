@@ -15,6 +15,8 @@ namespace ISILab.LBS.Behaviours
     [Serializable]
     public abstract class LBSBehaviour : ICloneable
     {
+        public static string DefaultBehaviorIcon = "e17eb0e02534666439fca8ea30b4d4e4";
+
         #region META-FIELDS
         [SerializeField, JsonRequired, HideInInspector]
         public bool visible = true;
@@ -22,7 +24,7 @@ namespace ISILab.LBS.Behaviours
 
         #region FIELDS
         [SerializeField, HideInInspector, JsonIgnore]
-        private LBSLayer ownerLayerLayer;
+        private LBSLayer ownerLayer;
 
         [SerializeField, JsonRequired]
         private Color colorTint;
@@ -48,8 +50,8 @@ namespace ISILab.LBS.Behaviours
         [JsonIgnore]
         public LBSLayer OwnerLayer
         {
-            get => ownerLayerLayer;
-            set => ownerLayerLayer = value;
+            get => ownerLayer;
+            set => ownerLayer = value;
         }
 
         [HideInInspector, SerializeField]
@@ -124,6 +126,23 @@ namespace ISILab.LBS.Behaviours
             foreach (object att in attributes)
             {
                 if (att is RequieredModuleAttribute attribute)
+                {
+                    toR.AddRange(attribute.types);
+                }
+            }
+            return toR;
+        }
+
+        public List<Type> GetRequiredAssistants()
+        {
+            List<Type> toR = new List<Type>();
+            Type type = GetType();
+
+            object[] attributes = type.GetCustomAttributes(true);
+
+            foreach (object att in attributes)
+            {
+                if (att is RequieredAssistantAttribute attribute)
                 {
                     toR.AddRange(attribute.types);
                 }

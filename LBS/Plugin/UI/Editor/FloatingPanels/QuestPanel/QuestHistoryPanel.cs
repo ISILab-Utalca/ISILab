@@ -128,7 +128,7 @@ namespace ISILab.LBS.VisualElements.Editor
             UpdateVeQuestEntries();
 
             DrawManager.Instance.RedrawLayer(QuestGraphs?.OwnerLayer);
-            LBSMainWindow.OnWindowRepaint?.Invoke();
+            LBSMainWindow.Instance.onWindowRepaint?.Invoke();
 
             MarkDirtyRepaint();
 

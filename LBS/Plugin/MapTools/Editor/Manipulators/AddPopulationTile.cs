@@ -36,6 +36,8 @@ namespace ISILab.LBS.Manipulators
             Name = "Paint Tile with Item";
             Description =
                 "Select an item in Behaviour panel and Click on the graph to add a population tile. Hold CTRL to drag it.";
+            groupWeight = 0;
+
         }
 
         protected override void OnKeyDown(KeyDownEvent e)

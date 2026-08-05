@@ -28,12 +28,13 @@ namespace ISILab.LBS.Manipulators
             Feedback.fixToTeselation = true;
             Name = "Wave Function Collapse";
             Description = "Select an area to generate new connections.";
+            groupWeight = 1;
+
         }
 
         public override void Init(LBSLayer layer, object provider)
         {
             base.Init(layer, provider);
-
             _assistant = provider as AssistantWFC;
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;

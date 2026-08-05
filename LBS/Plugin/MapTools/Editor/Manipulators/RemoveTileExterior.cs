@@ -16,12 +16,13 @@ namespace ISILab.LBS.Manipulators
         {
             Name = "Remove Tiles";
             Description = "Click on a Tile or select an area to remove multiple tiles.";
+            groupWeight = 0;
+
         }
-        
+
         public override void Init(LBSLayer layer, object provider)
         {
             base.Init(layer, provider);
-
             _exterior = provider as ExteriorBehaviour;
             LBSLayer = layer;
         }

@@ -33,8 +33,10 @@ namespace ISILab.LBS.Manipulators
             Feedback = new ConnectedLine();
             Name = "Connect Quest Node";
             Description = "Click on a starting node, then release on the follow up node.";
+            groupWeight = 1;
+
         }
-        
+
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);

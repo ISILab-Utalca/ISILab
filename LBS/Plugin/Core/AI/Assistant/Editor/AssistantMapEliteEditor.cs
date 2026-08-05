@@ -74,7 +74,7 @@ namespace ISILab.LBS.Editor
         {
             content.UpdateContent();
             if (assistant.Finished)
-                LBSMainWindow.OnWindowRepaint -= RepaintContent;
+                LBSMainWindow.Instance.onWindowRepaint -= RepaintContent;
         }
 
         public void ChangePresset()
