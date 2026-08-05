@@ -101,18 +101,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         #endregion
 
         #region PROPERTIES
-        public static BlueprintPanel Instance
-        {
-            get
-            {
-                return _instance;
-            }
-            set
-            {
-                if (_instance != null) return;
-                _instance = value;
-            }
-        }
 
         public CaptureInArea CaptureManipulator
         {
@@ -198,8 +186,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         #region CONSTRUCTORS
         public BlueprintPanel() : base()
         {
-
-            Instance = this;
             focusable = true;
 
             visualTreeAsset ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("BlueprintPanel");

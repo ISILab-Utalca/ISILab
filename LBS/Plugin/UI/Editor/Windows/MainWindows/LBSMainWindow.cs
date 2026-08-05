@@ -97,14 +97,17 @@ namespace ISILab.LBS.Editor.Windows
         #region DATA & STATE
 
         private LBSLayer _selectedLayer;
-        public List<LayerTemplate> layerTemplates;
+        public List<LayerTemplate> LayerTemplates;
         private LBSLevelData backUpData;
         #endregion
 
         #region MANAGERS
 
+        [NonSerialized]
         private ToolKit toolkit;
+        [NonSerialized]
         private DrawManager drawManager;
+        [NonSerialized]
         private LBSInspectorPanel inspectorManager;
 
         #endregion
@@ -112,55 +115,80 @@ namespace ISILab.LBS.Editor.Windows
         #region NOTIFICATIONS
 
         // Tool notification
-        private static Label toolLabel;
+        [NonSerialized]
+        public Label toolLabel;
 
         // Warning notification
-        private static VisualElement warningNotification;
-        private static Label warningLabel;
-        public static NotifierViewer notifier;
+        public VisualElement WarningNotification => infoToolBar.WarningNotification;
+        public Label WarningLabel => infoToolBar.WarningLabel;
+
+        [NonSerialized]
+        public NotifierViewer Notifier;
         #endregion
 
         #region MAIN VIEW
 
         // Work canvas
+        [NonSerialized]
         private MainView mainView;
 
         // Help overlays
-        private static VisualElement helpOverlay;
+        [NonSerialized]
+        private VisualElement helpOverlay;
+        [NonSerialized]
         private VisualElement noLayerSign;
+        [NonSerialized]
         private LBSSideBarPanel sideBarPanel;
 
         // Grid position
-        public static Vector2Int _gridPosition;
+        public Vector2Int GridPosition;
 
         #endregion
 
         #region UI LABELS
 
+        [NonSerialized]
         private Label selectedLabel;
-        private static Label positionLabel;
+        [NonSerialized]
+        public Label PositionLabel;
 
         #endregion
 
         #region PANELS & UI SECTIONS VISUALELEMENTS
 
+        [NonSerialized]
         public LayersPanel layerPanel;
+        [NonSerialized]
         public Generator3DPanel gen3DPanel;
+        [NonSerialized]
         public QuickAssistantPanel quickAssistantPanel;
+        [NonSerialized]
         public BlueprintPanel blueprintPanel;
+        [NonSerialized]
         public VisualElement extraPanel;
+        [NonSerialized]
         public VisualElement bottomPanel;
+        [NonSerialized]
         public VisualElement inspectorPanelContainer;
 
+        [NonSerialized]
         private VisualElement helpOverlayAnchor;
+        [NonSerialized]
         private ToolBarMain topToolBar;
+        [NonSerialized]
         private InfoToolbar infoToolBar;
-        private LBSWaitTaskOverlay taskOverlay;
 
+        [NonSerialized]
+        private LBSWaitTaskOverlay taskOverlay;
+        public LBSWaitTaskOverlay WaitTaskOverlay => taskOverlay;
+
+        [NonSerialized]
         private ScrollView subPanelScrollView;
+        [NonSerialized]
         private Lbesin clippy;
 
-        [UxmlAttribute]
+        //[UxmlAttribute]
+        [NonSerialized]
         private SplitView splitView;
         //[UxmlAttribute]
         //private LayerInspector layerInspector;
@@ -169,15 +197,19 @@ namespace ISILab.LBS.Editor.Windows
         #endregion
 
         private bool packageInitialized = false;
-        public static bool IsWarpingCursor { get; set; }
+        private bool isWarpingCursor;
 
         #region EVENTS
-        public static Action OnWindowRepaint;
-        public static Action OnLayerChange;
+
+        [NonSerialized]
+        public Action onWindowRepaint;
+        [NonSerialized]
+        public Action onLayerChange;
         #endregion
 
         #region STATIC METHODS
 
+        [NonSerialized]
         private static LBSMainWindow _instance;
         public static LBSMainWindow Instance
         {
@@ -192,11 +224,14 @@ namespace ISILab.LBS.Editor.Windows
         }
         #endregion
 
+
+        private int? randomId;
+        private int RandomId => randomId ??= new System.Random().Next(1000, 9999);
         public LBSMainWindow() : base()
         {
             // UI can't be referenced here because inherit from a scriptable object!
-            //Debug.Log("[Main Window] - Constructor");
-            _instance = this;
+            Debug.Log($"[LBSMainWindow] - Constructor - {RandomId}");
+            //_instance = this;
         }
         
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
@@ -210,18 +245,19 @@ namespace ISILab.LBS.Editor.Windows
 
         ~LBSMainWindow()
         {
-            Debug.Log("[Main Window] - Destructor");
+            Debug.Log($"[LBSMainWindow] - Destructor - {RandomId}");
         }
 
 
 
         private void OnEnable()
         {
-            Debug.Log("[Main Window] - OnEnable");
-
+            Debug.Log($"[LBSMainWindow] - OnEnable - {RandomId}");
+            _instance = this;
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+
             if (!packageInitialized && packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
             {
                 LBS_AssetsPostProcessor.InitializeLBSPackage();
@@ -231,6 +267,7 @@ namespace ISILab.LBS.Editor.Windows
 
         private void LoadUITree()
         {
+            Debug.Log($"[LBSMainWindow] - LoadUITree - {RandomId}");
             #region LOAD UI TREE
             //MainWindows UXML 
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSMainWindow");
@@ -248,9 +285,9 @@ namespace ISILab.LBS.Editor.Windows
 
             noLayerSign = rootVisualElement.Q<VisualElement>("NoLayerSign");
             selectedLabel = rootVisualElement.Q<Label>("SelectedLabel");
-            positionLabel = rootVisualElement.Q<Label>("PositionLabel");
+            PositionLabel = rootVisualElement.Q<Label>("PositionLabel");
 
-            notifier = rootVisualElement.Q<NotifierViewer>("NotifierViewer");
+            Notifier = rootVisualElement.Q<NotifierViewer>("NotifierViewer");
 
             inspectorPanelContainer = rootVisualElement.Q<VisualElement>("Inspector");
             inspectorManager = rootVisualElement.Q<LBSInspectorPanel>("InspectorPanel");
@@ -266,37 +303,39 @@ namespace ISILab.LBS.Editor.Windows
 
         private void OnDisable()
         {
-            Debug.Log("[Main Window] - OnDisable");
+            Debug.Log($"[LBSMainWindow] - OnDisable - {RandomId}");
             if (_instance == this)
             {
-                //do nothing in here!
+                /*
+                // DESUSCRIBIRSE DE EVENTOS GLOBALES O DE DATOS
+                onLayerChange -= topToolBar.LevelChange;
+                onLayerChange -= () => blueprintPanel.UpdateCaptureEnable(); //  refactorizar la lambda a un m�todo
+                //LBSController.OnLoadLevel -= OnLoadLevelCallback; // Refactoriza la lambda
+
+                if (levelData != null)
+                {
+                    levelData.OnChanged -= OnLevelDataChange;
+                    levelData!.OnReload -= () => layerPanel.ResetSelection(); // Refactoriza la lambda
+                }
+                */
             }
         }
 
 
         private void OnDestroy()
         {
-            Debug.Log("[Main Window] - OnDestroy");
+            Debug.Log($"[LBSMainWindow] - OnDestroy - {RandomId}");
             if (_instance == this)
             {
                 _instance = null;
-                toolLabel = null;
-                warningNotification = null;
-                warningLabel = null;
-                notifier = null;
-                helpOverlay = null;
-                positionLabel = null;
                 //GC.Collect();
             }
         }
 
-
-
-
         #region METHODS
         protected override void CreateGUI()
         {
-            //Debug.Log("[Main Window] - CreateGUI");
+            Debug.Log($"[LBSMainWindow] - CreateGUI - {RandomId}");
             LoadUITree();
             Init();
             rootVisualElement.focusable = true;
@@ -305,7 +344,7 @@ namespace ISILab.LBS.Editor.Windows
 
         private void OnInspectorUpdate()
         {
-            OnWindowRepaint?.Invoke();
+            onWindowRepaint?.Invoke();
         }
 
         /// <summary>
@@ -313,6 +352,8 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         private void Init()
         {
+            Debug.Log($"[LBSMainWindow] - Init - {RandomId}");
+
             #region LOAD & BACKUP LEVEL DATA
             if (LBS.loadedLevel == null)
             {
@@ -331,8 +372,8 @@ namespace ISILab.LBS.Editor.Windows
             #endregion
 
             #region LOAD SCRIPTABLES TEMPLATE
-            layerTemplates = DirectoryTools.GetScriptablesByType<LayerTemplate>();
-            layerTemplates.Sort((a, b) => a.Order.CompareTo(b.Order));
+            LayerTemplates = DirectoryTools.GetScriptablesByType<LayerTemplate>();
+            LayerTemplates.Sort((a, b) => a.Order.CompareTo(b.Order));
             #endregion
 
             #region MAIN VIEW
@@ -345,6 +386,7 @@ namespace ISILab.LBS.Editor.Windows
                 {
                     var il = Reflection.MakeGenericScriptable(_selectedLayer);
                     Selection.SetActiveObjectWithContext(il, il);
+                    il.hideFlags = HideFlags.DontSave; // or HideFlags.HideAndDontSave
                 }
             };
 
@@ -358,10 +400,9 @@ namespace ISILab.LBS.Editor.Windows
 
             #region NOTIFIER TOOLBAR
 
-            infoToolBar.Bind(this, ref warningLabel, ref warningNotification);
+            infoToolBar.Bind(this);
             
             #endregion
-            
 
             #region MAIN VIEW
             
@@ -382,12 +423,12 @@ namespace ISILab.LBS.Editor.Windows
             topToolBar.OnLoadLevel += data =>
             {
                 LBS.loadedLevel = data;
-                RefreshWindow();
+                RebuildWindow();
                 //drawManager.RedrawLevel(levelData);
             };
             
             topToolBar.OnThemeChanged += data => ChangeTheme(data);
-            OnLayerChange += topToolBar.LevelChange;
+            onLayerChange += topToolBar.LevelChange;
 
             //S = SAVE = Save level
             rootVisualElement.RegisterCallback<KeyDownEvent>(evt =>
@@ -418,18 +459,17 @@ namespace ISILab.LBS.Editor.Windows
             }, TrickleDown.TrickleDown);
             #endregion
 
-
             #region PANELS - INSPECTOR, EXTRA, LAYERS, GENERATOR
 
             // THE ORDER IN WHICH THIS PANELS ARE ADDED DECIDES THEIR VERTICAL ORDER
 
-            inspectorManager.InitTabs(ref layerTemplates);
+            inspectorManager.InitTabs(ref LayerTemplates);
             
             subPanelScrollView.Q<VisualElement>("unity-content-and-vertical-scroll-container").pickingMode = PickingMode.Ignore;
             subPanelScrollView.Q<VisualElement>("unity-content-viewport").pickingMode = PickingMode.Ignore;
             subPanelScrollView.Q<VisualElement>("unity-content-container").pickingMode = PickingMode.Ignore;
             
-            layerPanel = new LayersPanel(levelData, ref layerTemplates);
+            layerPanel = new LayersPanel(levelData, ref LayerTemplates);
             extraPanel.Add(layerPanel);
             layerPanel.style.display = DisplayStyle.Flex;
 
@@ -446,7 +486,7 @@ namespace ISILab.LBS.Editor.Windows
                 OnSelectedLayerChange(null);
             };
 
-            quickAssistantPanel = new QuickAssistantPanel(layerTemplates);
+            quickAssistantPanel = new QuickAssistantPanel(LayerTemplates);
             extraPanel.Add(quickAssistantPanel);
             quickAssistantPanel.style.display = DisplayStyle.None;
             
@@ -457,7 +497,7 @@ namespace ISILab.LBS.Editor.Windows
             blueprintPanel ??=  new BlueprintPanel();
             bottomPanel.Add(blueprintPanel);
             blueprintPanel.style.display = DisplayStyle.None;
-            OnLayerChange += () => blueprintPanel.UpdateCaptureEnable();
+            onLayerChange += () => blueprintPanel.UpdateCaptureEnable();
 
             #endregion
 
@@ -528,6 +568,7 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         public new void Repaint()
         {
+            Debug.Log($"[LBSMainWindow] - Repaint - {RandomId}");
             base.Repaint();
             drawManager.RedrawLevel(levelData);
         }
@@ -535,8 +576,9 @@ namespace ISILab.LBS.Editor.Windows
         /// <summary>
         /// Refresh the window.
         /// </summary>
-        public void RefreshWindow()
+        public void RebuildWindow()
         {
+            Debug.Log($"[LBSMainWindow] - Rebuild Window - {RandomId}");
             mainView.Clear();
             this.rootVisualElement.Clear();
 
@@ -586,14 +628,14 @@ namespace ISILab.LBS.Editor.Windows
 
         public static void WarningManipulator(string description = null)
         {
-            if (warningLabel == null) return;
-            warningLabel.text = description;
-            warningNotification.visible = description != null && description != string.Empty;
+            if (Instance.WarningLabel == null) return;
+            Instance.WarningLabel.text = description;
+            Instance.WarningNotification.visible = description != null && description != string.Empty;
         }
 
         private void NotifyChange()
         {
-            OnLayerChange?.Invoke();
+            onLayerChange?.Invoke();
         }
 
         public List<LBSLayer> GetLayers()
@@ -641,7 +683,7 @@ namespace ISILab.LBS.Editor.Windows
 
         public static void MessageNotify(LBSLog lbsMessage)
         {
-            notifier?.SendNotification(
+            Instance.Notifier?.SendNotification(
                 lbsMessage.message, 
                 lbsMessage.type, 
                 lbsMessage.duration);
@@ -649,12 +691,12 @@ namespace ISILab.LBS.Editor.Windows
 
         public void MessageManipulator(string description) => infoToolBar?.SetToolText(description);
 
-        public static void GridPosition(Vector2 pos)
+        public static void SetGridPosition(Vector2 pos)
         {
-            _gridPosition = pos.ToInt();
-            if (positionLabel == null) return;
+            Instance.GridPosition = pos.ToInt();
+            if (Instance.PositionLabel == null) return;
             string text = "Grid Position: " + pos.ToInt();
-            positionLabel.text = text;
+            Instance.PositionLabel.text = text;
         }
 
         public void DisplayHelp()
@@ -667,6 +709,7 @@ namespace ISILab.LBS.Editor.Windows
         }
         private void HandleInfiniteScrolling(MouseMoveEvent evt)
         {
+            // Check if middle mouse button is being held (Button 2 / Bitmask 4)
             bool isMiddlePressed = (evt.pressedButtons & 4) != 0;
             if (!isMiddlePressed) return;
 
@@ -694,9 +737,9 @@ namespace ISILab.LBS.Editor.Windows
                 screenRightLimit = Screen.currentResolution.width;
             }
 #else
-            currentScreenPos = new POINT { X = (int)evt.mousePosition.x, Y = (int)evt.mousePosition.y }; 
-            screenLeftLimit = 0;
-            screenRightLimit = Screen.currentResolution.width;
+    currentScreenPos = new POINT { X = (int)evt.mousePosition.x, Y = (int)evt.mousePosition.y }; 
+    screenLeftLimit = 0;
+    screenRightLimit = Screen.currentResolution.width;
 #endif
 
             int margin = 5;
@@ -705,55 +748,32 @@ namespace ISILab.LBS.Editor.Windows
 
             if (currentScreenPos.X <= screenLeftLimit + margin)
             {
-                newScreenX = screenRightLimit - margin - 5;
+                newScreenX = screenRightLimit - margin - 10;
                 needWarp = true;
             }
             else if (currentScreenPos.X >= screenRightLimit - margin)
             {
-                newScreenX = screenLeftLimit + margin + 5;
+                newScreenX = screenLeftLimit + margin + 10;
                 needWarp = true;
             }
 
             if (!needWarp) return;
 
-            IsWarpingCursor = true;
-            Event fakeUp = new Event();
-            fakeUp.type = EventType.MouseUp;
-            fakeUp.button = 2;
-            fakeUp.mousePosition = evt.mousePosition;
-            fakeUp.modifiers = evt.modifiers;
-
-            using (var upEvt = MouseUpEvent.GetPooled(fakeUp))
-            {
-                upEvt.target = targetElement;
-                targetElement.SendEvent(upEvt);
-            }
-            targetElement.ReleaseMouse();
+            // 1. Mark warping flag active
+            isWarpingCursor = true;
 
 #if UNITY_EDITOR_WIN
+            // 2. Warp OS cursor position directly
             SetCursorPos(newScreenX, currentScreenPos.Y);
 #endif
 
-            targetElement.CaptureMouse();
-            float deltaJump = (newScreenX - currentScreenPos.X);
-            float pixelsPerPoint = EditorGUIUtility.pixelsPerPoint;
-            float uiDelta = deltaJump / pixelsPerPoint;
-
-            Vector2 newWindowPos = evt.mousePosition + new Vector2(uiDelta, 0);
-
-            Event fakeDown = new Event();
-            fakeDown.type = EventType.MouseDown;
-            fakeDown.button = 2;
-            fakeDown.mousePosition = newWindowPos;
-            fakeDown.modifiers = evt.modifiers;
-
-            using (var downEvt = MouseDownEvent.GetPooled(fakeDown))
+            // 3. Defer flag reset to the end of the frame outside ProcessEvent stack
+            EditorApplication.delayCall += () =>
             {
-                downEvt.target = targetElement;
-                targetElement.SendEvent(downEvt);
-            }
+                isWarpingCursor = false;
+            };
 
-            IsWarpingCursor = false;
+            // 4. Stop propagation to prevent sudden large delta updates on target views
             evt.StopImmediatePropagation();
         }
 
