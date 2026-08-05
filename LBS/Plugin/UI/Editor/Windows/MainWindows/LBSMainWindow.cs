@@ -208,19 +208,16 @@ namespace ISILab.LBS.Editor.Windows
         #endregion
 
         #region STATIC METHODS
-
-        [NonSerialized]
-        private static LBSMainWindow _instance;
+        
+        private static LBSMainWindow _instance = null;
         public static LBSMainWindow Instance
         {
             get
             {
-                if (_instance == null)
-                {
-                    _instance = GetWindow<LBSMainWindow>();
-                }
-                return _instance;
+                return _instance ??= GetWindow<LBSMainWindow>();
             }
+
+            private set => _instance = value;
         }
         #endregion
 
@@ -253,7 +250,9 @@ namespace ISILab.LBS.Editor.Windows
         private void OnEnable()
         {
             Debug.Log($"[LBSMainWindow] - OnEnable - {RandomId}");
-            _instance = this;
+
+            if(Instance == null)
+                { Instance = this; }
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
@@ -304,8 +303,9 @@ namespace ISILab.LBS.Editor.Windows
         private void OnDisable()
         {
             Debug.Log($"[LBSMainWindow] - OnDisable - {RandomId}");
-            if (_instance == this)
+            if (Instance == this)
             {
+                Instance = null;
                 /*
                 // DESUSCRIBIRSE DE EVENTOS GLOBALES O DE DATOS
                 onLayerChange -= topToolBar.LevelChange;
@@ -325,9 +325,8 @@ namespace ISILab.LBS.Editor.Windows
         private void OnDestroy()
         {
             Debug.Log($"[LBSMainWindow] - OnDestroy - {RandomId}");
-            if (_instance == this)
+            if (Instance == this)
             {
-                _instance = null;
                 //GC.Collect();
             }
         }
