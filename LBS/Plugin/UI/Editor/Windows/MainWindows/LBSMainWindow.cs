@@ -796,7 +796,7 @@ namespace ISILab.LBS.Editor.Windows
             public static void InitializePackage()
             {
                 if (packageInitialized) return;
-
+                /*
                 var assembly = System.Reflection.Assembly.GetExecutingAssembly();
                 var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
 
@@ -808,7 +808,7 @@ namespace ISILab.LBS.Editor.Windows
                 else
                 {
                     Debug.Log($"[LBSMainWindow - SingletonHelper]: packageInfo {packageInfo?.name ?? "null"} can't be initialized.");
-                }
+                }//*/
             }
 
         }
