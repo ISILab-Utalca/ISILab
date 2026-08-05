@@ -23,13 +23,22 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         // For template construction
         public ExteriorRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
 
-        // TODO: AGREGAR CENTRO PARA EVITAR IMPRECISIONES!!!!
         private Tuple<LBSDirection, int> GetBundle(LBSDirectionedGroup group, List<string> connections, string center)
         {
-            //List<string> fullTile = new(connections);
-            
             // Get connections
             List<LBSDirection> extTiles = group.GetDirs();
+            return GetBundle(extTiles, connections, center);
+        }
+
+        private Tuple<LBSDirection, int> GetBundle(LBSDirectionedChance chance, List<string> connections, string center)
+        {
+            // Get connections
+            List<LBSDirection> extTiles = chance.GetDirs();
+            return GetBundle(extTiles, connections, center);
+        }
+
+        private Tuple<LBSDirection, int> GetBundle(List<LBSDirection> extTiles, List<string> connections, string center)
+        {
             List<Tuple<LBSDirection, int>> possibles = new();
 
             foreach (LBSDirection extTile in extTiles)
@@ -53,7 +62,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return possibles.FirstOrDefault();
         }
 
-
         public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
 
@@ -73,7 +81,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             List<string> navigableTags = exteriorBehaviour.NavigableTags;
             bool usingNavigableTags = navigableTags.Count > 0;// false;
-            var selected = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
+            var s = bundle.GetCharacteristics<LBSDirectionedGroup>();
+            var selected = s.Count > 0 ? s[0] : null;
+            var c = bundle.GetCharacteristics<LBSDirectionedChance>();
+            var chance = c.Count > 0 ? c[0] : null;
             
             // Create pivot
             var mainPivot = new GameObject("Exterior");
@@ -110,7 +121,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             foreach(LBSTile tile in chosenTiles) {
 
                 //Identify what bundle the tile is.
-                var pair = GetBundle(selected, connctMod.GetConnections(tile), connctMod.GetPairCenter(tile));
+                var pair = selected is not null ? GetBundle(selected, connctMod.GetConnections(tile), connctMod.GetPairCenter(tile)) :
+                    chance is not null ? GetBundle(chance, connctMod.GetConnections(tile), connctMod.GetPairCenter(tile)) : null;
                 //This should make things better!
                 //var toGen = new ToGenerateExterior(tile, pair?.Item1?.Owner, null, pair is not null ? pair.Item2 : -1);
                 if(pair is not null)
