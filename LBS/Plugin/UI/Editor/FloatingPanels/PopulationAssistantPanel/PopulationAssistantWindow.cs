@@ -378,10 +378,15 @@ namespace ISILab.LBS.VisualElements.Editor
         }
 
         #endregion
-        
+
+        private void OnEnable()
+        {
+            LBSMainWindow.BindHangingWindow(this);
+        }
+
         private void OnDestroy()
         {
-            _assistant.RequestOptimizerStop();
+            _assistant?.RequestOptimizerStop();
         }
         
         //Set assistant for window
