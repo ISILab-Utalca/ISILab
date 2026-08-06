@@ -109,7 +109,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void GotoWebButtonOnclicked()
         {
-            Application.OpenURL("https://isilab-utalca.github.io/isilab-website/documentation/tutorials/lbs/getting_started/");
+            Application.OpenURL("https://isilab-utalca.github.io/ISILab/en/overview/overview.en.html");
         }
 
         #endregion
