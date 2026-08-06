@@ -66,9 +66,9 @@ namespace ISILab.LBS.Macros
                 int width = Mathf.RoundToInt(panelRect.width * dpi);
                 int height = Mathf.RoundToInt(panelRect.height * dpi);
 
-                if (x < 0 || y < 0 || x + width > Screen.width || y + height > Screen.height)
+                if (x < 0 || y < 0 || x + width > Screen.width || y + height > Screen.height || width <= 0 || height <= 0)
                 {
-                    Debug.LogWarning("Capture area invalid.");
+                    Debug.LogWarning("[VisualElementHelper]: Capture area invalid.");
                     restore?.Invoke();
                     onCaptured?.Invoke(null);
                     return;
