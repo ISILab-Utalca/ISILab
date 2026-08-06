@@ -666,42 +666,42 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             foreach (LBSTile tile in toCalc)
             {
                 whitelist.Add(tile.Position);
-                //List<LBSTile> neighbours = map.GetTileNeighbors(tile, Dirs);
+                List<LBSTile> neighbours = map.GetTileNeighbors(tile, Dirs);
 
-                //for (int i = 0; i < neighbours.Count; i++)
-                //{
-                //    if (neighbours[i] == null) continue;
+                for (int i = 0; i < neighbours.Count; i++)
+                {
+                    if (neighbours[i] == null) continue;
 
-                //    bool isAreaNeighbour = !toCalc.Contains(neighbours[i]);
-                //    bool haveEmpties = connected.GetConnections(neighbours[i]).Contains("");
+                    bool isAreaNeighbour = !toCalc.Contains(neighbours[i]);
+                    bool haveEmpties = connected.GetConnections(neighbours[i]).Contains("");
 
-                //    if (isAreaNeighbour && haveEmpties)
-                //        continue;
+                    if (!(isAreaNeighbour && haveEmpties)) // In the previous version of WFC, to modify an area neighbour, it would need to be already completed.
+                        continue;                     // Now it's the opposite. As we can't determine the probabilities from a partial tile, we'll consider it as empty.
 
-                //    whitelist.Add(neighbours[i].Position);
+                    whitelist.Add(neighbours[i].Position);
 
-                //    if (isAreaNeighbour)
-                //    {
-                //        switch (GridType)
-                //        {
-                //            case ConnectedTileMapModule.ConnectedTileType.EdgeBased:
-                //                areaNeighbours.Add((neighbours[i], (i + 2) % 4));
-                //                break;
-                //            case ConnectedTileMapModule.ConnectedTileType.VertexBased:
-                //                implemented = false;
-                //                break;
-                //        }
-                //    }
-                //}
+                    if (isAreaNeighbour)
+                    {
+                        switch (GridType)
+                        {
+                            case ConnectedTileMapModule.ConnectedTileType.EdgeBased:
+                                areaNeighbours.Add((neighbours[i], (i + 2) % 4));
+                                break;
+                            case ConnectedTileMapModule.ConnectedTileType.VertexBased:
+                                implemented = false;
+                                break;
+                        }
+                    }
+                }
             }
-            //if (implemented)
-            //{
-            //    foreach ((LBSTile, int) areaNeighbour in areaNeighbours)
-            //    {
-            //        connected.SetConnection(areaNeighbour.Item1, areaNeighbour.Item2, "", false);
-            //        toCalc.Add(areaNeighbour.Item1);
-            //    }
-            //}
+            if (implemented)
+            {
+                foreach ((LBSTile, int) areaNeighbour in areaNeighbours)
+                {
+                    connected.SetConnection(areaNeighbour.Item1, areaNeighbour.Item2, "", false);
+                    //toCalc.Add(areaNeighbour.Item1); // Possibly not necessary anymore
+                }
+            }
             //else Debug.LogError("Unhandled case for Vertex-based grid. Could not build area neighbourhood.");
 
             var closed = new List<LBSTile>();
@@ -794,7 +794,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     }
                     LBSTile tile = reCalc.First();
 
-                    if (!whitelist.Contains(tile.Position))
+                    if (!whitelist.Contains(tile.Position)
+                        || !toCalc.Contains(tile)) // Added to this version. Area neighbour should not recalculate, as it could collapse a full tile that was not included in the first place.
+                                                   // Even so they are part of the whitelist just to change a single connection.
                     {
                         reCalc.Remove(tile);
                         continue;
