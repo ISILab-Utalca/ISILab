@@ -14,7 +14,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.StaticTemplateComponents.Start
     [UxmlElement]
     public partial class LBSStartedSign : VisualElement
     {
-        private const string URL = "https://isilab-utalca.github.io/isilab-website/documentation/tutorials/lbs/getting_started";
+        private const string URL = "https://isilab-utalca.github.io/ISILab/en/overview/overview.en.html";
 
         private VisualTreeAsset signPopup;
 

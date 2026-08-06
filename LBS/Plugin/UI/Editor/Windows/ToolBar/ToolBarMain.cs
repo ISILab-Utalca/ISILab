@@ -100,7 +100,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
             HelpToggle.RegisterCallback<ClickEvent>(evt =>
             {
                 Debug.Log("[Display Help]: Redirecting to the web]");
-                Application.OpenURL("https://isilab-utalca.github.io/isilab-website/documentation/tutorials/lbs/shortcuts/");
+                Application.OpenURL("https://isilab-utalca.github.io/ISILab/en/overview/overview.en.html");
             });
             
             OnNewLevel += (_loadedLevel) =>
