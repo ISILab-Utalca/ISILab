@@ -201,6 +201,14 @@ namespace ISILab.LBS.Behaviours.Editor
                 return;
             }
 
+            if (behaviour.Zones.Count == 0 && !behaviour.InitialSetup)
+            {
+                AddCustomZone(Color.red);
+                AddCustomZone(Color.blue);
+                AddCustomZone(Color.green);
+                behaviour.InitialSetup = true;
+            }
+
             // Clear old event handlers to avoid duplicates
             areaPallete.ClearBindings();
 
@@ -284,6 +292,16 @@ namespace ISILab.LBS.Behaviours.Editor
             var newZone = behaviour.AddZone();
 
             RepaintPostAddZone(newZone);
+        }
+
+        private Zone AddCustomZone(Color color, string id=null)
+        {
+            var newZone = behaviour.AddZone();
+            if (id != null) newZone.ID = id;
+            newZone.Color = color;
+
+            RepaintPostAddZone(newZone);
+            return newZone;
         }
 
         private void RepaintPostAddZone(Zone newZone)
