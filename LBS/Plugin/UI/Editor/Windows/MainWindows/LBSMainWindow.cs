@@ -98,6 +98,8 @@ namespace ISILab.LBS.Editor.Windows
         private LBSLayer _selectedLayer;
         public List<LayerTemplate> LayerTemplates;
         private LBSLevelData backUpData;
+
+        private List<EditorWindow> hangingWindows = new List<EditorWindow>();
         #endregion
 
         #region MANAGERS
@@ -289,15 +291,22 @@ namespace ISILab.LBS.Editor.Windows
                     levelData.OnChanged -= OnLevelDataChange;
                     levelData!.OnReload -= () => layerPanel.ResetSelection(); // Refactoriza la lambda
                 }
+
+                // Cerrar ventanas colgantes
+                foreach (var w in hangingWindows)
+                {
+                    if (w == null) continue;
+                    EditorApplication.delayCall += () => { w.Close(); };
+                }
             }
         }
 
 
         private void OnDestroy()
         {
-            if (Instance == this)
+            if(this != null)
             {
-                //GC.Collect();
+                Close();
             }
         }
 
@@ -720,6 +729,15 @@ namespace ISILab.LBS.Editor.Windows
         public void ToggleClippy(bool value)
         {
             clippy.SetDisplay(value ? DisplayStyle.Flex : DisplayStyle.None);
+        }
+
+        public static void BindHangingWindow(EditorWindow window)
+        {
+            if (Instance == null) return;
+            if (!Instance.hangingWindows.Contains(window))
+            {
+                Instance.hangingWindows.Add(window);
+            }
         }
         #endregion
 
