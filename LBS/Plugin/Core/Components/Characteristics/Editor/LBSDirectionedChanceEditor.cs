@@ -113,9 +113,9 @@ namespace ISILab.LBS.VisualElements
                         var chanceNodes = new List<TreeViewItemData<TreeNodeData>>();
 
                         //For each rotation that the tile might've gotten:
-                        for (int k = 0; k < 4; k++)
+                        //for (int k = 0; k < 4; k++)
                         {
-                            foreach (var chance in tileDir.chances[k])
+                            foreach (var chance in tileDir.chances[d])
                             {
                                 chanceNodes.Add(
                                     new TreeViewItemData<TreeNodeData>(counter++, new TreeNodeData

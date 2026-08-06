@@ -40,7 +40,17 @@ namespace ISILab.LBS.Plugin.Internal
                 if (instance == null)
                 {
                     //Debug.Log(folderName + "/" + assetName);
-                    instance = Resources.Load<LBSAssetsStorage>(folderName + "/" + assetName);
+                    var p = EditorPrefs.GetBool("usingPackage" + Application.dataPath, false);
+                    if (p)
+                    {
+                        // LBS as package
+                        instance = AssetDatabase.LoadAssetAtPath<LBSAssetsStorage>("Assets/LBSUserContent/Resources/Cache/Storage.asset");
+                    }
+                    else
+                    {
+                        // LBS in assets
+                        instance = Resources.Load<LBSAssetsStorage>(folderName + "/" + assetName);
+                    }
                     Debug.Log("[LBSAssetsStorage]: Instance loaded: " + (instance != null));
                 }
                 return instance;

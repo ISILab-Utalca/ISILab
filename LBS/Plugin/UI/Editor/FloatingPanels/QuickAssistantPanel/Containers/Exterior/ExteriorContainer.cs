@@ -178,9 +178,10 @@ namespace ISILab.LBS.VisualElements
             wfc.Positions = positions;
             wfc.OverrideValues = true;
             wfc.SafeMode = true;
-            bool hasChanceRules = bundle.GetCharacteristics<LBSDirectionedChance>().Count > 0;
-            bool success = hasChanceRules ? wfc.ExecuteChance() : wfc.TryExecute(out string log, out LogType type);
-            if (!success) Debug.LogWarning($"[QuickAssistant] WFC termin� con advertencias.");
+            //bool hasChanceRules = bundle.GetCharacteristics<LBSDirectionedChance>().Count > 0;
+            //bool success = hasChanceRules ? wfc.ExecuteChance() : wfc.TryExecute(out string log, out LogType type);
+            bool success = wfc.TryExecute(out string log, out LogType type);
+            if (!success) Debug.LogWarning($"[QuickAssistant] WFC termino con advertencias.");
         }
 
         #endregion

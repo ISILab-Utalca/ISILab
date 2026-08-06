@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.Commons.Extensions;
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
@@ -18,10 +16,13 @@ using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
 using ISILab.LBS.VisualElements;
 using LBS;
 using LBS.VisualElements;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
 {
@@ -151,7 +152,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
 
             //Save weights in a preset button
             var saveWeightsButton = this.Q<Button>("SaveWeights");
-            saveWeightsButton.clicked += SaveWeights;
+            //saveWeightsButton.clicked += SaveWeights;
             presetName = this.Q<TextField>("PresetName");
             presetsFolder = this.Q<TextField>("PresetsPath");
             //presetsFolder.focusable = false; 
@@ -159,7 +160,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
 
             // Load weights from a preset
             var loadWeightsButton = this.Q<Button>("LoadWeights");
-            loadWeightsButton.clicked += LoadWeights;
+            //loadWeightsButton.clicked += LoadWeights;
             currentPreset = this.Q<ObjectField>("CurrentPreset");
             //currentPreset.value = AssetMacro.LoadAssetByGuid<WFCPreset>(defaultWFCAssetGUID);
 
@@ -184,9 +185,16 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
 
         private void CaptureWeights()
         {
-            if(assistant.CaptureWeights(out string errMsg))
+            var g = assistant.Bundle.GetCharacteristics<LBSDirectionedGroup>();
+            var c = assistant.Bundle.GetCharacteristics<LBSDirectionedChance>();
+            string errMsg = "";
+            //if(assistant.CaptureWeights(out string errMsg))
+            if (c is not null ? 
+                assistant.CaptureRules(out errMsg) :
+                assistant.CaptureWeights(out errMsg))
                 LBSMainWindow.MessageNotify( new LBSLog("Current map weights captured."));
             else LBSMainWindow.MessageNotify( new LBSLog(errMsg, LogType.Warning));
+
             //
             //if (assistant.CaptureRules())
             //    LBSMainWindow.MessageNotify("Current map weights captured.");

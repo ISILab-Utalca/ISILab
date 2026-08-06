@@ -30,7 +30,6 @@ using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 
 namespace ISILab.LBS.Editor.Windows
 {
-
     /// <summary>
     /// The General LBS Main Windows
     /// </summary>
@@ -196,7 +195,6 @@ namespace ISILab.LBS.Editor.Windows
 
         #endregion
 
-        private bool packageInitialized = false;
         private bool isWarpingCursor;
 
         #region EVENTS
@@ -208,61 +206,32 @@ namespace ISILab.LBS.Editor.Windows
         #endregion
 
         #region STATIC METHODS
-
-        [NonSerialized]
-        private static LBSMainWindow _instance;
-        public static LBSMainWindow Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = GetWindow<LBSMainWindow>();
-                }
-                return _instance;
-            }
-        }
+        public static LBSMainWindow OpenWindow => GetWindow<LBSMainWindow>();
+        public static LBSMainWindow Instance => SingletonHelper.Instance;
         #endregion
 
 
         private int? randomId;
         private int RandomId => randomId ??= new System.Random().Next(1000, 9999);
+        
         public LBSMainWindow() : base()
         {
-            // UI can't be referenced here because inherit from a scriptable object!
             Debug.Log($"[LBSMainWindow] - Constructor - {RandomId}");
-            //_instance = this;
         }
-        
-        [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
-        private static void ShowWindow()
-        {
-            LBSMainWindow window = GetWindow<LBSMainWindow>();
-            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
-            window.titleContent = new GUIContent("Level Builder", icon);
-            window.minSize = new Vector2(800, 400);
-        }
-
         ~LBSMainWindow()
         {
             Debug.Log($"[LBSMainWindow] - Destructor - {RandomId}");
         }
 
-
-
         private void OnEnable()
         {
             Debug.Log($"[LBSMainWindow] - OnEnable - {RandomId}");
-            _instance = this;
-
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
-
-            if (!packageInitialized && packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
+            if (Instance != null)
             {
-                LBS_AssetsPostProcessor.InitializeLBSPackage();
-                packageInitialized = true;
+                return;
             }
+            SingletonHelper.Instance = this;
+            SingletonHelper.InitializePackage();
         }
 
         private void LoadUITree()
@@ -298,36 +267,36 @@ namespace ISILab.LBS.Editor.Windows
 
             extraPanel = rootVisualElement.Q<VisualElement>("ExtraPanel");
             bottomPanel = rootVisualElement.Q<VisualElement>("BottomPanel");
-            taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("TaskOverlay");
+            taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("WaitOverlay");
         }
 
         private void OnDisable()
         {
             Debug.Log($"[LBSMainWindow] - OnDisable - {RandomId}");
-            if (_instance == this)
+            if (Instance == this)
             {
-                /*
-                // DESUSCRIBIRSE DE EVENTOS GLOBALES O DE DATOS
-                onLayerChange -= topToolBar.LevelChange;
-                onLayerChange -= () => blueprintPanel.UpdateCaptureEnable(); //  refactorizar la lambda a un m�todo
-                //LBSController.OnLoadLevel -= OnLoadLevelCallback; // Refactoriza la lambda
+                SingletonHelper.SetInstanceNull();
+                
+                //desuscribirse de eventos 
+                onLayerChange -= OnBlueprintCaptureEnable; 
+                levelData!.OnReload -= OnLayerResetSelection;
+
+                if (layerPanel != null)
+                    layerPanel.OnSelectLayer -= OnSelectedLayerChange;
 
                 if (levelData != null)
                 {
                     levelData.OnChanged -= OnLevelDataChange;
                     levelData!.OnReload -= () => layerPanel.ResetSelection(); // Refactoriza la lambda
                 }
-                */
             }
         }
 
 
         private void OnDestroy()
         {
-            Debug.Log($"[LBSMainWindow] - OnDestroy - {RandomId}");
-            if (_instance == this)
+            if (Instance == this)
             {
-                _instance = null;
                 //GC.Collect();
             }
         }
@@ -335,7 +304,6 @@ namespace ISILab.LBS.Editor.Windows
         #region METHODS
         protected override void CreateGUI()
         {
-            Debug.Log($"[LBSMainWindow] - CreateGUI - {RandomId}");
             LoadUITree();
             Init();
             rootVisualElement.focusable = true;
@@ -352,8 +320,6 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         private void Init()
         {
-            Debug.Log($"[LBSMainWindow] - Init - {RandomId}");
-
             #region LOAD & BACKUP LEVEL DATA
             if (LBS.loadedLevel == null)
             {
@@ -380,15 +346,7 @@ namespace ISILab.LBS.Editor.Windows
 
             mainView.RegisterCallback<MouseMoveEvent>(HandleInfiniteScrolling, TrickleDown.TrickleDown);
 
-            mainView.OnClearSelection += () =>
-            {
-                if (_selectedLayer != null)
-                {
-                    var il = Reflection.MakeGenericScriptable(_selectedLayer);
-                    Selection.SetActiveObjectWithContext(il, il);
-                    il.hideFlags = HideFlags.DontSave; // or HideFlags.HideAndDontSave
-                }
-            };
+            mainView.OnClearSelection += OnClearSelectionSub;
 
             #endregion
 
@@ -401,19 +359,6 @@ namespace ISILab.LBS.Editor.Windows
             #region NOTIFIER TOOLBAR
 
             infoToolBar.Bind(this);
-            
-            #endregion
-
-            #region MAIN VIEW
-            
-            mainView.OnClearSelection += () =>
-            {
-                if (_selectedLayer != null)
-                {
-                    var il = Reflection.MakeGenericScriptable(_selectedLayer);
-                    Selection.SetActiveObjectWithContext(il, il);
-                }
-            };
 
             #endregion
 
@@ -497,7 +442,7 @@ namespace ISILab.LBS.Editor.Windows
             blueprintPanel ??=  new BlueprintPanel();
             bottomPanel.Add(blueprintPanel);
             blueprintPanel.style.display = DisplayStyle.None;
-            onLayerChange += () => blueprintPanel.UpdateCaptureEnable();
+            onLayerChange += OnBlueprintCaptureEnable;
 
             #endregion
 
@@ -568,7 +513,6 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         public new void Repaint()
         {
-            Debug.Log($"[LBSMainWindow] - Repaint - {RandomId}");
             base.Repaint();
             drawManager.RedrawLevel(levelData);
         }
@@ -578,7 +522,6 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         public void RebuildWindow()
         {
-            Debug.Log($"[LBSMainWindow] - Rebuild Window - {RandomId}");
             mainView.Clear();
             this.rootVisualElement.Clear();
 
@@ -665,11 +608,11 @@ namespace ISILab.LBS.Editor.Windows
             }
 
             //if the undo added/eliminated a layer
-            {
+            //{
                 //layerPanel.ResetSelection();
                 //layerPanel.RefreshUI();
                 // The recovered layer must regain its non sereialized references (events, some stuff from its behaviours/assistants/... and its parent
-            }
+            //}
 
             //if (_selectedLayer is not null)
             //{
@@ -768,10 +711,7 @@ namespace ISILab.LBS.Editor.Windows
 #endif
 
             // 3. Defer flag reset to the end of the frame outside ProcessEvent stack
-            EditorApplication.delayCall += () =>
-            {
-                isWarpingCursor = false;
-            };
+            EditorApplication.delayCall += FalseWarpingCursor;
 
             // 4. Stop propagation to prevent sudden large delta updates on target views
             evt.StopImmediatePropagation();
@@ -782,6 +722,96 @@ namespace ISILab.LBS.Editor.Windows
             clippy.SetDisplay(value ? DisplayStyle.Flex : DisplayStyle.None);
         }
         #endregion
+
+        #region SUBSCRIBABLE METHODS
+        private void OnBlueprintCaptureEnable()
+        {
+            if (blueprintPanel != null)
+            {
+                blueprintPanel.UpdateCaptureEnable();
+            }
+        }
+
+        private void OnLayerResetSelection()
+        {
+            if (layerPanel != null)
+            {
+                layerPanel.ResetSelection();
+            }
+        }
+
+        private void OnClearSelectionSub()
+        {
+            if (_selectedLayer != null)
+            {
+                var il = Reflection.MakeGenericScriptable(_selectedLayer);
+                Selection.SetActiveObjectWithContext(il, il);
+                il.hideFlags = HideFlags.DontSave; // or HideFlags.HideAndDontSave
+            }
+        }        
+
+        private void FalseWarpingCursor()
+        {
+            isWarpingCursor = false;
+        }
+        #endregion
+
+        private sealed class SingletonHelper
+        {
+
+            [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
+            private static void ShowWindow()
+            {
+                LBSMainWindow window = LBSMainWindow.OpenWindow;
+                Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
+                window.titleContent = new GUIContent("Level Builder", icon);
+                window.minSize = new Vector2(800, 400);
+            }
+
+            // MainWindow instance
+            private static LBSMainWindow _instance = null;
+            public static LBSMainWindow Instance
+            {
+                get
+                {
+                    return _instance;
+                }
+                set
+                {
+                    if (_instance != null)
+                    {
+                        Debug.LogError("[LBSEditorWindow] - Instance is already set.");
+                        return;
+                    }
+                    _instance = value;
+                }
+            }
+            public static void SetInstanceNull()
+            {
+                _instance = null;
+            }
+
+            // LBS package initialization
+            private static bool packageInitialized = false;
+            public static void InitializePackage()
+            {
+                if (packageInitialized) return;
+                /*
+                var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+                var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+
+                if (packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
+                {
+                    LBS_AssetsPostProcessor.InitializeLBSPackage();
+                    packageInitialized = true;
+                }
+                else
+                {
+                    Debug.Log($"[LBSMainWindow - SingletonHelper]: packageInfo {packageInfo?.name ?? "null"} can't be initialized.");
+                }//*/
+            }
+
+        }
     }
 
 }
