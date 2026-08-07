@@ -3,6 +3,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.Commons.VisualElements.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
+using ISILab.LBS.AI.Clippy.VisualElements;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal.Editor;
 using ISILab.LBS.Plugin.MapTools.Editor.Templates;
@@ -16,11 +17,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.AI.Clippy.VisualElements;
 using Debug = UnityEngine.Debug;
 using InfoToolbar = ISILab.LBS.Plugin.UI.Editor.Panel.InfoToolbar;
 using LBSSideBarPanel = ISILab.LBS.Plugin.UI.Editor.Panel.LBSSideBarPanel;
@@ -347,6 +348,7 @@ namespace ISILab.LBS.Editor.Windows
             #endregion
 
             #region LOAD SCRIPTABLES TEMPLATE
+
             LayerTemplates = DirectoryTools.GetScriptablesByType<LayerTemplate>();
             LayerTemplates.Sort((a, b) => a.Order.CompareTo(b.Order));
             #endregion
