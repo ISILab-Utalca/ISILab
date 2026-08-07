@@ -118,15 +118,15 @@ namespace ISILab.LBS.Plugin.Internal.Editor
             {
                 AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultStorageGUID), resourcesFolderPath + "/Cache/Storage.asset");
             }
-            if (AssetDatabase.FindAssets("t:" + typeof(LayerTemplate), new string[] { userFolderPath + "/Layers" }).Length == 0)
+            if (AssetDatabase.FindAssets("t:" + typeof(LayerTemplate), new string[] { userFolderFullPath + "/Layers" }).Length == 0)
             {
                 var guids = AssetDatabase.FindAssets("t:" + typeof(LayerTemplate));
 
                 foreach(var g in guids)
                 {
                     var path = AssetDatabase.GUIDToAssetPath(g);
-                    Debug.Log("Copying LayerTemplate from " + path + " to " + userFolderPath + $"/Layers/{path.Split('/').Last()}");
-                    AssetDatabase.CopyAsset(path, userFolderPath + $"/Layers/{path.Split('/').Last()}.asset");
+                    Debug.Log("Copying LayerTemplate from " + path + " to " + userFolderFullPath + $"/Layers/{path.Split('/').Last()}");
+                    AssetDatabase.CopyAsset(path, userFolderFullPath + $"/Layers/{path.Split('/').Last()}");
                 }
             }
 
