@@ -1,7 +1,10 @@
+using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.TestTools.TestRunner.Api;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.Internal.Editor
@@ -98,7 +101,7 @@ namespace ISILab.LBS.Plugin.Internal.Editor
             CreateFolderIfItDoesntExist(userFolderPath, userFolder);
             CreateFolderIfItDoesntExist(userFolderFullPath, "Resources");
 
-            foreach (string subfolder in new string[] { "Bundles", "Tags", "Meshes" })
+            foreach (string subfolder in new string[] { "Bundles", "Tags", "Meshes", "Layers" })
             {
                 CreateFolderIfItDoesntExist(userFolderFullPath, subfolder);
             }
@@ -114,6 +117,16 @@ namespace ISILab.LBS.Plugin.Internal.Editor
             if (AssetDatabase.FindAssets("Storage", new string[] { resourcesFolderPath + "/Cache" }).Length == 0)
             {
                 AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultStorageGUID), resourcesFolderPath + "/Cache/Storage.asset");
+            }
+            if (AssetDatabase.FindAssets("t:LayerTemplate", new string[] { userFolderPath + "/Layers" }).Length == 0)
+            {
+                var guids = AssetDatabase.FindAssets("t:LayerTemplate");
+
+                foreach(var g in guids)
+                {
+                    var path = AssetDatabase.GUIDToAssetPath(g);
+                    AssetDatabase.CopyAsset(path, userFolderPath + $"/Layers/{path.Split('/').Last()}.asset");
+                }
             }
 
             AssetDatabase.SaveAssets();
