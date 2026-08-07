@@ -383,6 +383,9 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
                 lists.Add(connection, new List<LBSTile>());
 
             var connectedTM = OwnerLayer.GetModule<ConnectedTileMapModule>("", floor);
+            if (connectedTM == null)
+                return lists;
+
             IEnumerable<LBSTile> tiles = ZonesWithTiles.SelectMany(zwt => GetTiles(zwt));
             foreach(LBSTile tile in tiles)
             {

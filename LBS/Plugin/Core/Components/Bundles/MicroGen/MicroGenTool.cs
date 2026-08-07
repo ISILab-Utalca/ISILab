@@ -121,7 +121,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles.Tools
                 case SpreadType.Scatter:
                     if (mesh == null || material == null)
                     {
-                        Debug.LogError("MicroGenTool: Mesh or Material is missing");
+                        Debug.LogWarning("[MicroGenTool] Mesh or Material is missing");
                         break;
                     }
                     

@@ -73,11 +73,23 @@ namespace ISILab.Commons.Utility.Editor
 
         public static List<T> GetScriptablesByType<T>() where T : ScriptableObject
         {
+            var p = EditorPrefs.GetBool("usingPackage" + Application.dataPath, false);
+
             List<T> toReturn = new List<T>();
             var guids = AssetDatabase.FindAssets("t:" + typeof(T));
             for (int i = 0; i < guids.Length; i++)
             {
                 string path = AssetDatabase.GUIDToAssetPath(guids[i]);
+                if (p)
+                {
+                    // LBS as package
+                    if (!path.Contains("LBSUserContent")) continue;
+                }
+                else
+                {
+                    // LBS in assets
+                    if (path.Contains("LBSUserContent")) continue;
+                }
                 toReturn.Add(AssetDatabase.LoadAssetAtPath<T>(path));
             }
             return toReturn;

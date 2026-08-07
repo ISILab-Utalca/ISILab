@@ -99,7 +99,7 @@ namespace ISILab.LBS.Editor.Windows
         public List<LayerTemplate> LayerTemplates;
         private LBSLevelData backUpData;
 
-        private List<EditorWindow> hangingWindows = new List<EditorWindow>();
+        private List<EditorWindow> hangingWindows;
         #endregion
 
         #region MANAGERS
@@ -218,6 +218,7 @@ namespace ISILab.LBS.Editor.Windows
         
         public LBSMainWindow() : base()
         {
+            hangingWindows = new List<EditorWindow>();
             //Debug.Log($"[LBSMainWindow] - Constructor - {RandomId}");
         }
         ~LBSMainWindow()
@@ -305,7 +306,7 @@ namespace ISILab.LBS.Editor.Windows
         {
             if(this != null)
             {
-                Close();
+                //Close();
             }
         }
 
