@@ -1,12 +1,11 @@
-using PathOS;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.LightTransport;
+using UnityEditor;
+using System;
+using System.IO;
 using UnityEngine.SceneManagement;
+using PathOS;
 
 /*
 PathOSEvaluationWindow.cs 
@@ -64,11 +63,7 @@ namespace PathOS
             this.category = category;
             this.selection = selection;
             this.selectionName = selectionName;
-#if UNITY_6000_5_OR_NEWER
-            selectionID = selection.GetEntityId();
-#else
             selectionID = selection.GetInstanceID();
-#endif
             this.entityType = entityType;
         }
     }
@@ -535,11 +530,7 @@ namespace PathOS
 
                 if (EditorGUI.EndChangeCheck())
                 {
-#if UNITY_6000_5_OR_NEWER
-                    if (userComments[i].selection != null) userComments[i].selectionID = userComments[i].selection.GetEntityId();
-#else
                     if (userComments[i].selection != null) userComments[i].selectionID = userComments[i].selection.GetInstanceID();
-#endif
                     SaveData();
                 }
 
@@ -872,18 +863,10 @@ namespace PathOS
             {
                 if (managerReference != null)
                 {
-#if UNITY_6000_5_OR_NEWER
-                    managerID = managerReference.GetEntityId();
-#else
                     managerID = managerReference.GetInstanceID();
-#endif
                 }
                 else
-#if UNITY_6000_5_OR_NEWER
-                    managerReference = EditorUtility.EntityIdToObject(managerID) as PathOSManager;
-#else
                     managerReference = EditorUtility.InstanceIDToObject(managerID) as PathOSManager;
-#endif
             }
 
             hasManager = managerReference != null;
@@ -1127,11 +1110,7 @@ namespace PathOS
         private void GrabManagerReference()
         {
             if (hasManager && null == managerReference)
-#if UNITY_6000_5_OR_NEWER
-                managerReference = EditorUtility.EntityIdToObject(managerID) as PathOSManager;
-#else
                 managerReference = EditorUtility.InstanceIDToObject(managerID) as PathOSManager;
-#endif
         }
     }
 

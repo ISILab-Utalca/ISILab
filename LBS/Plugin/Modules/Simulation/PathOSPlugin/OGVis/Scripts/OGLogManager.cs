@@ -1,5 +1,4 @@
 ﻿using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
-using NUnit.Framework.Internal;
 using PathOS;
 using System.Collections;
 using System.Collections.Generic;
@@ -121,11 +120,8 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
                 logger.WriteHeader("FLOOR_COUNT," + floorCount);
                 logger.WriteHeader("SAMPLE," + sampleRate);
 
-#if UNITY_6000_5_OR_NEWER
-                loggers.Add(logObjects[i].GetEntityId(), logger);
-#else
                 loggers.Add(logObjects[i].GetInstanceID(), logger);
-#endif
+
                 ++fileIndex;
             }
 
@@ -167,11 +163,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
         {
             if (enableLogging)
             {
-#if UNITY_6000_5_OR_NEWER
-                int instanceID = caller.GetEntityId();
-#else
                 int instanceID = caller.GetInstanceID();
-#endif
 
                 if (loggers.ContainsKey(instanceID))
                     loggers[instanceID].WriteHeader(header);
@@ -183,11 +175,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
         {
             if (enableLogging)
             {
-#if UNITY_6000_5_OR_NEWER
-                int instanceID = caller.GetEntityId();
-#else
                 int instanceID = caller.GetInstanceID();
-#endif
 
                 if (loggers.ContainsKey(instanceID))
                     loggers[instanceID].LogInteraction(interacted.name, interacted.transform);
