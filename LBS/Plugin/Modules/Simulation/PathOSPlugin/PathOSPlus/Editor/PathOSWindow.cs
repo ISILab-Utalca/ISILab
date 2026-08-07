@@ -99,9 +99,17 @@ namespace PathOS
             if (hasScreenshot)
             {
                 if (screenshotReference != null)
+#if UNITY_6000_5_OR_NEWER
+                    screenshotID = screenshotReference.GetEntityId();
+#else
                     screenshotID = screenshotReference.GetInstanceID();
+#endif
                 else
+#if UNITY_6000_5_OR_NEWER
+                    screenshotReference = EditorUtility.EntityIdToObject(screenshotID) as ScreenshotManager;
+#else
                     screenshotReference = EditorUtility.InstanceIDToObject(screenshotID) as ScreenshotManager;
+#endif
             }
 
             hasScreenshot = screenshotReference != null;
@@ -111,10 +119,18 @@ namespace PathOS
             {
                 if (managerReference != null)
                 {
+#if UNITY_6000_5_OR_NEWER
+                    managerID = managerReference.GetEntityId();
+#else
                     managerID = managerReference.GetInstanceID();
+#endif
                 }
                 else
+#if UNITY_6000_5_OR_NEWER
+                    managerReference = EditorUtility.EntityIdToObject(managerID) as PathOSManager;
+#else
                     managerReference = EditorUtility.InstanceIDToObject(managerID) as PathOSManager;
+#endif
             }
 
             hasManager = managerReference != null;
@@ -123,9 +139,17 @@ namespace PathOS
             if (hasAgent)
             {
                 if (agentReference != null)
+#if UNITY_6000_5_OR_NEWER
+                    agentID = agentReference.GetEntityId();
+#else
                     agentID = agentReference.GetInstanceID();
+#endif
                 else
+#if UNITY_6000_5_OR_NEWER
+                    agentReference = EditorUtility.EntityIdToObject(agentID) as PathOSAgent;
+#else
                     agentReference = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
+#endif
             }
 
             hasAgent = agentReference != null;
@@ -261,7 +285,11 @@ namespace PathOS
 
                 if (hasAgent)
                 {
+#if UNITY_6000_5_OR_NEWER
+                    agentID = agentReference.GetEntityId();
+#else
                     agentID = agentReference.GetInstanceID();
+#endif
                 }
             }
 
@@ -310,7 +338,11 @@ namespace PathOS
 
                 if (hasManager)
                 {
+#if UNITY_6000_5_OR_NEWER
+                    managerID = managerReference.GetEntityId();
+#else
                     managerID = managerReference.GetInstanceID();
+#endif
                 }
             }
 
@@ -358,7 +390,11 @@ namespace PathOS
 
                 if (hasScreenshot)
                 {
+#if UNITY_6000_5_OR_NEWER
+                    screenshotID = screenshotReference.GetEntityId();
+#else
                     screenshotID = screenshotReference.GetInstanceID();
+#endif
                 }
             }
 
@@ -407,17 +443,29 @@ namespace PathOS
         private void GrabScreenshotReference()
         {
             if (hasScreenshot && null == screenshotReference)
+#if UNITY_6000_5_OR_NEWER
+                screenshotReference = EditorUtility.EntityIdToObject(screenshotID) as ScreenshotManager;
+#else
                 screenshotReference = EditorUtility.InstanceIDToObject(screenshotID) as ScreenshotManager;
+#endif
         }
         private void GrabManagerReference()
         {
             if (hasManager && null == managerReference)
+#if UNITY_6000_5_OR_NEWER
+                managerReference = EditorUtility.EntityIdToObject(managerID) as PathOSManager;
+#else
                 managerReference = EditorUtility.InstanceIDToObject(managerID) as PathOSManager;
+#endif
         }
         private void GrabAgentReference()
         {
             if (hasAgent && null == agentReference)
+#if UNITY_6000_5_OR_NEWER
+                agentReference = EditorUtility.EntityIdToObject(agentID) as PathOSAgent;
+#else
                 agentReference = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
+#endif
         }
     }
 

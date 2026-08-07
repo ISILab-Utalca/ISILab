@@ -70,12 +70,20 @@ namespace PathOS
 
             public RuntimeAgentReference(PathOSAgent agent)
             {
+#if UNITY_6000_5_OR_NEWER
+                instanceID = agent.GetEntityId();
+#else
                 instanceID = agent.GetInstanceID();
+#endif
             }
 
             public void UpdateReference()
             {
+#if UNITY_6000_5_OR_NEWER
+                agent = EditorUtility.EntityIdToObject(instanceID) as PathOSAgent;
+#else
                 agent = EditorUtility.InstanceIDToObject(instanceID) as PathOSAgent;
+#endif
             }
         }
 
@@ -197,9 +205,17 @@ namespace PathOS
             if (hasAgent)
             {
                 if (agent != null)
+#if UNITY_6000_5_OR_NEWER
+                    agentID = agent.GetEntityId();
+#else
                     agentID = agent.GetInstanceID();
+#endif
                 else
+#if UNITY_6000_5_OR_NEWER
+                    agent = EditorUtility.EntityIdToObject(agentID) as PathOSAgent;
+#else
                     agent = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
+#endif
             }
 
             hasAgent = agent != null;
@@ -858,7 +874,11 @@ namespace PathOS
         {
             if (hasAgent && null == agent)
             {
+#if UNITY_6000_5_OR_NEWER
+                agent = EditorUtility.EntityIdToObject(agentID) as PathOSAgent;
+#else
                 agent = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
+#endif
             }
         }
 

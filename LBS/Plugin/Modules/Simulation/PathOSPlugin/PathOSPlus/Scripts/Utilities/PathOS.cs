@@ -2,7 +2,9 @@
 using Malee.Editor;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.LightTransport;
 
 /*
 PathOS.cs 
@@ -471,7 +473,11 @@ namespace PathOS
         public PerceivedEntity(LevelEntity entityRef)
         {
             this.entityRef = entityRef;
+#if UNITY_6000_5_OR_NEWER
+            this.instanceID = entityRef.objectRef.GetEntityId();
+#else
             this.instanceID = entityRef.objectRef.GetInstanceID();
+#endif
             this.perceivedPos = entityRef.objectRef.transform.position;
         }
 
