@@ -125,7 +125,7 @@ namespace ISILab.LBS.Plugin.Internal.Editor
                 foreach(var g in guids)
                 {
                     var path = AssetDatabase.GUIDToAssetPath(g);
-                    Debug.Log("Copying LayerTemplate from " + path + " to " + userFolderPath + $"/Layers/{path.Split('/').Last()}.asset");
+                    Debug.Log("Copying LayerTemplate from " + path + " to " + userFolderPath + $"/Layers/{path.Split('/').Last()}");
                     AssetDatabase.CopyAsset(path, userFolderPath + $"/Layers/{path.Split('/').Last()}.asset");
                 }
             }
