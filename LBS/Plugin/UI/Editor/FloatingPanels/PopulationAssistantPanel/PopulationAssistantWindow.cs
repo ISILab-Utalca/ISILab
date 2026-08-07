@@ -245,7 +245,8 @@ namespace ISILab.LBS.VisualElements.Editor
             param2Field.SetEnabled(false);
 
 
-
+            presetField.value = presetField.choices.First();
+            Debug.Log("choosing default: " + presetField.value);
         }
 
         private void SetUpPresets()
