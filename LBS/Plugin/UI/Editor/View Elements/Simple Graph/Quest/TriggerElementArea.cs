@@ -330,7 +330,7 @@ namespace ISILab.LBS.VisualElements
             {
                 if (_prevManipulatorType is null)
                 {
-                    Debug.Log("Stored");
+                    //Debug.Log("Stored");
                     _prevManipulatorType = activeManipulator;
                 }
                 
@@ -386,7 +386,7 @@ namespace ISILab.LBS.VisualElements
         {
             if (_prevManipulatorType is not null)
             {
-                Debug.Log("Restored");
+                //Debug.Log("Restored");
                 ToolKit.Instance.SetActive(_prevManipulatorType);
                 _prevManipulatorType = null;
             }

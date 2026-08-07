@@ -52,7 +52,7 @@ namespace ISILab.LBS.Drawers.Editor
 
             foreach (var expiredKey in bh.RetrieveExpiredTiles())
             {
-                Debug.Log($"Removing {expiredKey}");
+                //Debug.Log($"Removing {expiredKey}");
 
                 view.ClearElementFromComponent(expiredKey, bh.OwnerLayer);
             }
@@ -66,8 +66,7 @@ namespace ISILab.LBS.Drawers.Editor
 
             foreach (object newKey in bh.RetrieveNewTiles())
             {
-
-                Debug.Log($"Adding {newKey}");
+                //Debug.Log($"Adding {newKey}");
 
                 var existing = view.GetElementsFromLayer(bh.OwnerLayer, newKey);
                 if (existing != null && existing.Count > 0) 

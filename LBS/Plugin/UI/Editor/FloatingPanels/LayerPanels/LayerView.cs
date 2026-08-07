@@ -115,7 +115,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void ShowModulesIcons()
         {
-            _iconsModules.Clear();
+            _iconsModules?.Clear();
             foreach (var module in _target.Modules(_target.ActiveFloor))
             {
                 var icon = new VisualElement();

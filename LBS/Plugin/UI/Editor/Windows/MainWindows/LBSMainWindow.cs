@@ -197,7 +197,7 @@ namespace ISILab.LBS.Editor.Windows
 
         #endregion
 
-        private bool isWarpingCursor;
+        //private bool isWarpingCursor;
 
         #region EVENTS
 
@@ -218,27 +218,26 @@ namespace ISILab.LBS.Editor.Windows
         
         public LBSMainWindow() : base()
         {
-            Debug.Log($"[LBSMainWindow] - Constructor - {RandomId}");
+            //Debug.Log($"[LBSMainWindow] - Constructor - {RandomId}");
         }
         ~LBSMainWindow()
         {
-            Debug.Log($"[LBSMainWindow] - Destructor - {RandomId}");
+            //Debug.Log($"[LBSMainWindow] - Destructor - {RandomId}");
         }
 
         private void OnEnable()
         {
-            Debug.Log($"[LBSMainWindow] - OnEnable - {RandomId}");
+            //Debug.Log($"[LBSMainWindow] - OnEnable - {RandomId}");
             if (Instance != null)
             {
                 return;
             }
             SingletonHelper.Instance = this;
-            SingletonHelper.InitializePackage();
         }
 
         private void LoadUITree()
         {
-            Debug.Log($"[LBSMainWindow] - LoadUITree - {RandomId}");
+            //Debug.Log($"[LBSMainWindow] - LoadUITree - {RandomId}");
             #region LOAD UI TREE
             //MainWindows UXML 
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSMainWindow");
@@ -274,7 +273,7 @@ namespace ISILab.LBS.Editor.Windows
 
         private void OnDisable()
         {
-            Debug.Log($"[LBSMainWindow] - OnDisable - {RandomId}");
+            //Debug.Log($"[LBSMainWindow] - OnDisable - {RandomId}");
             if (Instance == this)
             {
                 SingletonHelper.SetInstanceNull();
@@ -712,7 +711,7 @@ namespace ISILab.LBS.Editor.Windows
             if (!needWarp) return;
 
             // 1. Mark warping flag active
-            isWarpingCursor = true;
+            //isWarpingCursor = true;
 
 #if UNITY_EDITOR_WIN
             // 2. Warp OS cursor position directly
@@ -770,7 +769,7 @@ namespace ISILab.LBS.Editor.Windows
 
         private void FalseWarpingCursor()
         {
-            isWarpingCursor = false;
+            //isWarpingCursor = false;
         }
         #endregion
 
@@ -808,27 +807,6 @@ namespace ISILab.LBS.Editor.Windows
             {
                 _instance = null;
             }
-
-            // LBS package initialization
-            private static bool packageInitialized = false;
-            public static void InitializePackage()
-            {
-                if (packageInitialized) return;
-                /*
-                var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-                var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
-
-                if (packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
-                {
-                    LBS_AssetsPostProcessor.InitializeLBSPackage();
-                    packageInitialized = true;
-                }
-                else
-                {
-                    Debug.Log($"[LBSMainWindow - SingletonHelper]: packageInfo {packageInfo?.name ?? "null"} can't be initialized.");
-                }//*/
-            }
-
         }
     }
 
