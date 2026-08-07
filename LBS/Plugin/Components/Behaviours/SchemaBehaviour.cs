@@ -69,7 +69,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         [SerializeField, HideInInspector]
         private bool multiLayerConnections = true;
-
+        [SerializeField, HideInInspector]
+        private bool initialSetup = false;
         #endregion
 
         #region META-FIELDS
@@ -122,6 +123,12 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public ConnectedTileMapModule TileConnections => tileConnections;
 
         public static List<string> Connections => connections;
+
+        public bool InitialSetup
+        {
+            get => initialSetup;
+            set => initialSetup = value;
+        }
 
         [JsonIgnore]
         public List<Vector2Int> Directions => ISILab.Commons.Directions.Bidimencional.Edges;
