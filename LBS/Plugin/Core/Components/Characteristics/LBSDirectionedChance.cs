@@ -16,11 +16,9 @@ namespace ISILab.LBS.Characteristics
 
     public class LBSDirectionedChance : LBSCharacteristic, ICloneable
     {
-
+        [System.Serializable]
         public class TileDirectionChance
         {
-            public TileDirection origin;
-
             [SerializeField]
             public Bundle target;
 
@@ -44,7 +42,7 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
-
+        [System.Serializable]
         public class TileDirection
         {
             [SerializeField]
@@ -54,7 +52,7 @@ namespace ISILab.LBS.Characteristics
             public int rotation;
 
             [SerializeField]
-            public List<List<TileDirectionChance>> chances = new List<List<TileDirectionChance>>(4);
+            public List<NestedList<TileDirectionChance>> chances = new List<NestedList<TileDirectionChance>>(4);
 
             public List<string> Connections => mainTarget.GetCharacteristics<LBSDirection>()[0].GetConnection().ToList();
         }

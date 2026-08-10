@@ -1040,6 +1040,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             Dictionary<TileDirectionChance, float> optionsChance = new();
 
+            bool emptyNeighs = true;
+
             for(int j = 0; j < 4; j++)
             {
                 if (neighbors[j] is null)
@@ -1050,12 +1052,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 if (opp.Equals("Empty") || opp.Equals(""))
                     continue;
 
+                emptyNeighs = false;
+
                 int neighRot = 0;
                 TileDirection neighTD = chanceGroup.tileDirections.Find(td => td.Connections.Rotate(td.rotation).SequenceEqual(neighConns)/*.IsSameRotated(neighConns, out neighRot)*/); // neighTD es el vecino en el mapa, rotado "rotation" veces
                 if(neighTD is null)                                                                                                    // neighRot es cuantas veces se rota neightTD para obtener al vecino en el mapa
                     continue;
 
-                List<TileDirectionChance> tileOptions = neighTD.chances[(j + 2/* + neighRot*/) % 4];
+                List<TileDirectionChance> tileOptions = neighTD.chances[(j + 2/* + neighRot*/) % 4].list;
                 if(optionsChance.Count == 0)
                 {
                     foreach (TileDirectionChance newTileOption in tileOptions)
@@ -1091,20 +1095,19 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             HashSet<TileDirectionChance> options = new(optionsChance.Keys.Select(tdc => new TileDirectionChance()
             {
-                origin = tdc.origin,
                 target = tdc.target,
                 rotation = tdc.rotation,
                 chance = optionsChance[tdc] // Aca actualiza realmente la probabilidad combinada
             }));
 
-            if (options.Count == 0 && connections.ContainsOnly("Empty", ""))
+            if (options.Count == 0 && emptyNeighs && connections.ContainsOnly("Empty", ""))
                 candidates = chanceGroup.tileDirections
-                    .Select(td => new Candidate() 
-                { 
-                    bundle = td.mainTarget.GetCharacteristics<LBSDirection>()[0], 
-                    rotation = td.rotation, 
-                    weigth = 1f / chanceGroup.tileDirections.Count 
-                }).ToList();
+                    .Select(td => new Candidate()
+                    {
+                        bundle = td.mainTarget.GetCharacteristics<LBSDirection>()[0],
+                        rotation = td.rotation,
+                        weigth = 1f / chanceGroup.tileDirections.Count
+                    }).ToList();
             else
                 candidates = options
                     .Where(tdc => Compare(connections.ToArray(), tdc.Connections.Rotate(tdc.rotation).ToArray())/* connections.SequenceEqual(tdc.Connections.Rotate(-tdc.rotation))*/)
@@ -1269,7 +1272,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     // If no rotated bundle match the tile, mainTarget will be null
                     mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections, out int mainRot),
                     rotation = mainRot, // Cuantas veces rotas el bundle 'mainTarget' para obtener el tile en el mapa
-                    chances = new List<List<TileDirectionChance>>()
+                    chances = new List<NestedList<TileDirectionChance>>()
                     {
                         new(),
                         new(),
@@ -1285,7 +1288,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 {
                     TileDirectionChance tileDirectionChance = new()
                     {
-                        origin = td,
                         target = FindEqualConnection(currentBundles, pair.tile.Connections, out int rot),
                         rotation = rot, // Cuantas veces rotas el bundle 'target' para obtener el tile en el mapa
                         chance = (float)pair.count / rule.Value.Where(t => t != null && t.direction == pair.direction).Sum(t => t.count)
