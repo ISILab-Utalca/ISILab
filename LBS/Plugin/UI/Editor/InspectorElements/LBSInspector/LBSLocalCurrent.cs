@@ -147,7 +147,7 @@ namespace ISILab.LBS.VisualElements
                 var container = new DataContent(instance, Ve.Item2.First().name);
                 contentPanel.Add(container);
                 
-                editorInstances.TryAdd(type, instance);
+                editorInstances.TryAdd(new(type, ""), instance);
             }
         }
         #endregion

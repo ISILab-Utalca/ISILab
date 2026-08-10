@@ -315,6 +315,14 @@ namespace ISILab.LBS.Editor.Windows
             onWindowRepaint?.Invoke();
         }
 
+        private void PrintSelectedLayer()
+        {
+            string s = _selectedLayer is null ?
+                "NULL" :
+                _selectedLayer.ID;
+            Debug.Log(s);
+        }
+
         /// <summary>
         /// Initialize the window.
         /// </summary>

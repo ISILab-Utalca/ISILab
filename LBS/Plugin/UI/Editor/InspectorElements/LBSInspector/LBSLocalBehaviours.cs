@@ -35,7 +35,6 @@ namespace ISILab.LBS.VisualElements
         }
         #endregion
 
-
         #region METHODS
         public override void InitCustomEditors(ref List<LBSLayer> layers)
         {
@@ -104,8 +103,9 @@ namespace ISILab.LBS.VisualElements
                 if(editorType == null) continue;
 
                 LBSCustomEditor instance = null;
-              //  Log("pre setinfo instance EDITOR");
-                if (editorInstances.TryGetValue(behaviour.GetType(), out var editor) && editor is LBSCustomEditor existingEditor)
+                //Log("pre setinfo instance EDITOR");
+                EditorKey key = new(behaviour.GetType(), layer.TempEditorKey);
+                if (editorInstances.TryGetValue(key, out var editor) && editor is LBSCustomEditor existingEditor)
                 {
                     instance = existingEditor;
                 }
@@ -125,7 +125,7 @@ namespace ISILab.LBS.VisualElements
                 var content = new InspectorContentPanel(instance, behaviour.Name, behaviour.Icon, behaviour.ColorTint);
                 contentPanel.Add(content);
 
-                editorInstances.TryAdd(behaviour.GetType(), instance);
+                editorInstances.TryAdd(key, instance);
             }
         }
 

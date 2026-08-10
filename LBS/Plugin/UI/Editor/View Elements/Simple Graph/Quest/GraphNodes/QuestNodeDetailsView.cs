@@ -55,7 +55,7 @@ namespace ISILab.LBS.VisualElements
 
             LBSInspectorPanel.ActivateAssistantTab();
             VisualElement grammarAssistant = LBSInspectorPanel.Instance.ActiveInspector.GetInspector(
-                typeof(GrammarAssistant));
+                typeof(GrammarAssistant), Node.Graph.OwnerLayer.TempEditorKey);
             
             LBSFocusHighlight.Highlight(grammarAssistant);
         }
@@ -66,7 +66,7 @@ namespace ISILab.LBS.VisualElements
 
             LBSInspectorPanel.ActivateBehaviourTab();
             VisualElement nodeBehaviour = LBSInspectorPanel.Instance.ActiveInspector.GetInspector(
-                typeof(NodeDataBehaviour));
+                typeof(NodeDataBehaviour), Node.Graph.OwnerLayer.TempEditorKey);
             
             LBSFocusHighlight.Highlight(nodeBehaviour);
         }
