@@ -1040,6 +1040,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             Dictionary<TileDirectionChance, float> optionsChance = new();
 
+            bool emptyNeighs = true;
+
             for(int j = 0; j < 4; j++)
             {
                 if (neighbors[j] is null)
@@ -1049,6 +1051,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 string opp = neighConns[(j + 2) % 4];
                 if (opp.Equals("Empty") || opp.Equals(""))
                     continue;
+
+                emptyNeighs = false;
 
                 int neighRot = 0;
                 TileDirection neighTD = chanceGroup.tileDirections.Find(td => td.Connections.Rotate(td.rotation).SequenceEqual(neighConns)/*.IsSameRotated(neighConns, out neighRot)*/); // neighTD es el vecino en el mapa, rotado "rotation" veces
@@ -1096,14 +1100,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 chance = optionsChance[tdc] // Aca actualiza realmente la probabilidad combinada
             }));
 
-            if (options.Count == 0 && connections.ContainsOnly("Empty", ""))
+            if (options.Count == 0 && emptyNeighs && connections.ContainsOnly("Empty", ""))
                 candidates = chanceGroup.tileDirections
-                    .Select(td => new Candidate() 
-                { 
-                    bundle = td.mainTarget.GetCharacteristics<LBSDirection>()[0], 
-                    rotation = td.rotation, 
-                    weigth = 1f / chanceGroup.tileDirections.Count 
-                }).ToList();
+                    .Select(td => new Candidate()
+                    {
+                        bundle = td.mainTarget.GetCharacteristics<LBSDirection>()[0],
+                        rotation = td.rotation,
+                        weigth = 1f / chanceGroup.tileDirections.Count
+                    }).ToList();
             else
                 candidates = options
                     .Where(tdc => Compare(connections.ToArray(), tdc.Connections.Rotate(tdc.rotation).ToArray())/* connections.SequenceEqual(tdc.Connections.Rotate(-tdc.rotation))*/)
