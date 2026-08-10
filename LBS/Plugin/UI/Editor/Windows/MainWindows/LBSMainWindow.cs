@@ -37,7 +37,7 @@ namespace ISILab.LBS.Editor.Windows
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public sealed class LBSMainWindow : ThemeableWindow
     {
-#if UNITY_EDITOR_WIN
+#if UNITY_EDITOR
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SetCursorPos(int X, int Y);
