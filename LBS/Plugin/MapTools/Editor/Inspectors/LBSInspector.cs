@@ -10,12 +10,24 @@ namespace ISILab.LBS.VisualElements
     
     public abstract class LBSInspector : VisualElement
     {
+        protected struct EditorKey
+        {
+            Type type;
+            string key;
+
+            public EditorKey(Type type, string key)
+            {
+                this.type = type;
+                this.key = key;
+            }
+        }
+
         /// <summary>
         /// Dictionary for behaviour, assistants, it assumes each one only has 1 editor!
         /// </summary>
         protected Dictionary<Type, Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>> customEditor = new();
 
-        protected Dictionary<Type, LBSCustomEditor> editorInstances = new();
+        protected Dictionary<EditorKey, LBSCustomEditor> editorInstances = new();
         
         protected VisualElement noContentPanel;
         protected VisualElement contentPanel;
@@ -45,9 +57,9 @@ namespace ISILab.LBS.VisualElements
             Debug.LogWarning("[ISILab]: The inspector (" + ToString() + ") does not implement repainting.");
         }
         
-        public VisualElement GetInspector(Type ObjectType)
+        public VisualElement GetInspector(Type objectType, string key)
         {
-            editorInstances.TryGetValue(ObjectType, out var editor);            
+            editorInstances.TryGetValue(new EditorKey(objectType, key), out var editor);            
             return editor;
         }
     }

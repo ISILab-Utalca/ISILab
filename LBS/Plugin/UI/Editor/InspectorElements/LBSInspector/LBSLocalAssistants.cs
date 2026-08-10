@@ -87,7 +87,8 @@ namespace ISILab.LBS.VisualElements
                 if(editorType == null) continue;
 
                 LBSCustomEditor instance = null;
-                if (editorInstances.TryGetValue(assistant.GetType(), out var editor) && editor is LBSCustomEditor existingEditor)
+                EditorKey key = new(assistant.GetType(), layer.TempEditorKey);
+                if (editorInstances.TryGetValue(key, out var editor) && editor is LBSCustomEditor existingEditor)
                 {
                     instance = existingEditor;
                 }
@@ -106,7 +107,7 @@ namespace ISILab.LBS.VisualElements
                 var content = new InspectorContentPanel(instance, assistant.Name, assistant.Icon, assistant.ColorTint);
                 contentPanel.Add(content);
 
-                editorInstances.TryAdd(assistant.GetType(), instance);
+                editorInstances.TryAdd(key, instance);
             }
 
             return; /// END OF METHOD

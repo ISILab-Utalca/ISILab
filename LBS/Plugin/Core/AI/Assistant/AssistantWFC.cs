@@ -181,19 +181,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 logType = LogType.Warning;
                 return false;
             }
-
-            /*
-            if(targetBundleRef.GetCharacteristics<LBSDirectionedGroup>().Count == 0)
-            {
-                log = "Cannot generate. Invalid bundle.";
-                logType = LogType.Warning;
-                return false;
-            }
-            */
             
             Bundle bundle = targetBundleRef;
 
-            // TODO: Usar tambien para chance
             // get values for generation: 
             var g = bundle.GetCharacteristics<LBSDirectionedGroup>();
             group = g.Count > 0 ? g[0] : null;
@@ -249,7 +239,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     }
                 }
                 
-                int totalSectors = /*limit * */sectors.Count;
+                int totalSectors = sectors.Count;
                 
                 for (int i = 0; i < limit; i++)
                 {
@@ -495,7 +485,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     if (Backtrack(states, ref retryCount, connected, originalTM, ref step, maxStep, out _, ref toCalc, ref closed, ref currentCalcs))
                     {
                         stepSuccess = true;
-                        Debug.Log($"TRY: {tryCount}\tSTEP {step}\tMAX STEP {maxStep}\tRETRY COUNT {retryCount}");
+                        //Debug.Log($"TRY: {tryCount}\tSTEP {step}\tMAX STEP {maxStep}\tRETRY COUNT {retryCount}");
                         continue;
                     }
 
@@ -754,7 +744,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     if (Backtrack(states, ref retryCount, connected, originalTM, ref step, maxStep, out int revertedSteps, ref toCalc, ref closed, ref currentCalcs))
                     {
                         stepSuccess = true;
-                        Debug.Log($"TRY: {tryCount}\tSTEP {step}\tMAX STEP {maxStep}\tRETRY COUNT {retryCount}");
+                        //Debug.Log($"TRY: {tryCount}\tSTEP {step}\tMAX STEP {maxStep}\tRETRY COUNT {retryCount}");
                         genOrder.RemoveRange(genOrder.Count - revertedSteps, revertedSteps);
                         continue;
                     }

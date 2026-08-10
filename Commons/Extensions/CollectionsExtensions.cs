@@ -118,6 +118,25 @@ namespace ISILab.Commons.Extensions
             return list[new Random().Next(0, list.Count - 1)];
         }
 
+        public static bool IsSameRotated<T>(this List<T> list, List<T> rotated, out int rot)
+        {
+            rot = -1;
+
+            if (list.Count != rotated.Count)
+                return false;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (rotated.SequenceEqual(list.Rotate(i)))
+                {
+                    rot = i;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         /// <summary>
         /// Shifts the elements of a list in a new one.
         /// </summary>
@@ -127,10 +146,10 @@ namespace ISILab.Commons.Extensions
         /// <returns>A new list with the shifted elements.</returns>
         public static List<T> Rotate<T>(this List<T> list, int count)
         {
-            if (count <= 0)
-                return list;
+            if (count == 0)
+                return new List<T>(list);
 
-            var c = count % list.Count;
+            var c = ((count % list.Count) + list.Count) % list.Count;
             int rotationIndex = list.Count - c;
             List<T> rotatedList = new List<T>();
 

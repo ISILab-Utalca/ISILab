@@ -48,6 +48,8 @@ namespace LBS.Components
         [JsonIgnore] private int activeFloor = 0;
         [HideInInspector, SerializeField, JsonRequired] public int index;
 
+        [JsonIgnore] private readonly string tempEditorKey;
+
         #endregion
 
         #region Properties
@@ -62,6 +64,8 @@ namespace LBS.Components
         [JsonIgnore] public string Name { get => name; set => name = value; }
         [JsonIgnore] public int ActiveFloor { get => activeFloor; }
         [JsonIgnore] public int FloorCount { get => /*floorsCount;*/floors.Length; }
+
+        [JsonIgnore] public string TempEditorKey => tempEditorKey;
 
         // Return copies to protect internal lists
         [JsonIgnore] public List<LBSBehaviour> Behaviours => new(behaviours);
@@ -114,6 +118,15 @@ namespace LBS.Components
 
             IsVisible = true;
             id = GetType().Name;
+
+            System.Random r = new();
+            string key = "";
+            for(int i = 0; i < 16; i++)
+            {
+                char c = Convert.ToChar(r.Next(0, 26) + 65);
+                key += c;
+            }
+            tempEditorKey = key;
         }
 
         // Clone constructor
