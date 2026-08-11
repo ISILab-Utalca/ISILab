@@ -256,7 +256,7 @@ namespace AssetStoreTools.Exporter
             if (!File.Exists(tarPath))
             {
                 // Fallback to the universal export method
-                ASDebug.LogWarning("'/usr/bin/tar' executable not found. Falling back to 7za");
+                //ASDebug.LogWarning("'/usr/bin/tar' executable not found. Falling back to 7za");
                 CreateUnityPackageUniversal(pathToArchive, outputPath);
                 return;
             }

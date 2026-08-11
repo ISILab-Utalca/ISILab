@@ -37,7 +37,7 @@ namespace ISILab.LBS.Editor.Windows
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public sealed class LBSMainWindow : ThemeableWindow
     {
-#if UNITY_EDITOR_WIN
+#if UNITY_EDITOR
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SetCursorPos(int X, int Y);
@@ -682,7 +682,7 @@ namespace ISILab.LBS.Editor.Windows
             int screenLeftLimit = 0;
             int screenRightLimit = 0;
 
-#if UNITY_EDITOR_WIN
+#if UNITY_EDITOR
             GetCursorPos(out currentScreenPos);
             IntPtr hMonitor = MonitorFromPoint(currentScreenPos, MONITOR_DEFAULTTONEAREST);
             MONITORINFO mi = new MONITORINFO();
@@ -724,7 +724,7 @@ namespace ISILab.LBS.Editor.Windows
             // 1. Mark warping flag active
             //isWarpingCursor = true;
 
-#if UNITY_EDITOR_WIN
+#if UNITY_EDITOR
             // 2. Warp OS cursor position directly
             SetCursorPos(newScreenX, currentScreenPos.Y);
 #endif

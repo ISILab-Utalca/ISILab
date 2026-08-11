@@ -62,7 +62,6 @@ namespace ISILab.LBS.VisualElements
 
             var weights = target.tileDirections;
 
-            /*
             // Show warning if there are no child bundles to add weights
             if (weights.Count <= 0)
             {
@@ -72,7 +71,6 @@ namespace ISILab.LBS.VisualElements
                 content.Add(wp);
                 return;
             }
-            */
 
             //An LBSCustomTreeView is used to show the information.
             //The counter is for the ID that TreeNodeData asks for.
@@ -115,7 +113,7 @@ namespace ISILab.LBS.VisualElements
                         //For each rotation that the tile might've gotten:
                         //for (int k = 0; k < 4; k++)
                         {
-                            foreach (var chance in tileDir.chances[d])
+                            foreach (var chance in tileDir.chances[d].list)
                             {
                                 chanceNodes.Add(
                                     new TreeViewItemData<TreeNodeData>(counter++, new TreeNodeData
