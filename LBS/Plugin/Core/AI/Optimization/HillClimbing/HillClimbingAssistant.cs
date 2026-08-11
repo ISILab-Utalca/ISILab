@@ -53,6 +53,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         private List<Zone> _prevZones;
         private Dictionary<Zone, ConstraintPair> _pairRefs = new();
+        public bool running = false;
         
         #endregion
 
@@ -115,7 +116,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             clock.Start();
             hillClimbing.Start(onProgress, token);
             clock.Stop();
-
             
             List<LBSModule> modules = (hillClimbing.BestCandidate as OptimizableModules)?.Modules;
            // var zones = modules.GetModule<SectorizedTileMapModule>();
