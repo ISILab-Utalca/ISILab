@@ -65,6 +65,9 @@ namespace ISILab.LBS.Characteristics
         [SerializeField]
         public ConnectedTileType currentType = ConnectedTileType.EdgeBased;
 
+        [SerializeField, Range(0f, 1f)]
+        public float maxLimit = 1f;
+
         public override void OnEnable()
         {
             //Owner.ClearEvents();
@@ -106,6 +109,7 @@ namespace ISILab.LBS.Characteristics
                 }
             }
 
+            tileDirections.OrderBy(td => td.mainTarget.BundleName).ThenBy(td => td.rotation);
         }
 
         public override object Clone()
