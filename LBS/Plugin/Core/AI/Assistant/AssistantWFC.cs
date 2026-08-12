@@ -96,7 +96,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
 
         [JsonIgnore]
-        private ConnectedTileMapModule.ConnectedTileType GridType
+        public ConnectedTileMapModule.ConnectedTileType GridType
         {
             get
             {
@@ -1012,7 +1012,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     string[] array = sBundle.GetConnection(j); //(!)
 
                     // Check if is valid rotated connection
-                    if (Compare(connections.ToArray(), array))
+                    if (Compare(connections.ToArray(), array/*, !group.UsesEmpties*/))
                     {
                         var candidate = new Candidate()
                         {
@@ -1110,7 +1110,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     }).ToList();
             else
                 candidates = options
-                    .Where(tdc => Compare(connections.ToArray(), tdc.Connections.Rotate(tdc.rotation).ToArray())/* connections.SequenceEqual(tdc.Connections.Rotate(-tdc.rotation))*/)
+                    .Where(tdc => Compare(connections.ToArray(), tdc.Connections.Rotate(tdc.rotation).ToArray()/*, !chance.UsesEmpties*/))
                     .Select(tdc => new Candidate() 
                 { 
                     bundle = tdc.target.GetCharacteristics<LBSDirection>()[0], 

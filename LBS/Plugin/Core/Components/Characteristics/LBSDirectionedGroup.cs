@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using ISILab.LBS.Plugin.Components.Bundles;
 
 using Newtonsoft.Json;
@@ -32,6 +32,17 @@ namespace ISILab.LBS.Characteristics
 
         [SerializeField]
         public ConnectedTileType currentType = ConnectedTileType.EdgeBased;
+
+        [JsonIgnore]
+        public bool UsesEmpties
+        {
+            get => null != Weights.Find(w =>
+            {
+                var dir = w.target.GetCharacteristics<LBSDirection>();
+                if(dir.Count == 0) return false;
+                return dir[0].Connections.Contains("Empty");
+            });
+        }
 
         [JsonIgnore]
         public Action OnAddOwnerChild;

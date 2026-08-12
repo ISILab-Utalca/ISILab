@@ -9,6 +9,7 @@ using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Utilities;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
@@ -81,7 +82,24 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
             bundleField.UseCustomFilter = true;
             bundleField.CustomFilter = pick =>
             {
-                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true);
+                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true)
+                    .Where(b =>
+                    {
+                        ConnectedTileMapModule.ConnectedTileType type;
+                        var chance = b.GetCharacteristics<LBSDirectionedChance>();
+                        if(chance.Count > 0)
+                        {
+                            type = chance[0].currentType;
+                        }
+                        else
+                        {
+                            var group = b.GetCharacteristics<LBSDirectionedGroup>();
+                            if (group.Count == 0) return false;
+                            type = group[0].currentType;
+                        }
+
+                        return type == assistant.GridType;
+                    }).ToList();
                 (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
             };
 
