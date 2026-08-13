@@ -23,6 +23,7 @@ MonoBehaviour:
   characteristics:
   - rid: 1936740499492700970
   - rid: 8832571964957394838
+  - rid: 469532432958489585
   elementFlag: 0
   tileSize: {x: 1, y: 1}
   childsBundles:
@@ -45,6 +46,14 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 469532432958489585
+      type: {class: LBSNavigableTags, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 11400000}
+        tags:
+        - {fileID: 11400000, guid: 7f4f15def595c724f91b2b6305e43a0c, type: 2}
+        - {fileID: 11400000, guid: 6250d4dc1497e2f4bb088157a4da725f, type: 2}
+        navigable: 0100
     - rid: 1936740499492700970
       type: {class: LBSDirectionedGroup, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
@@ -58,7 +67,7 @@ MonoBehaviour:
           weight: 1
         - target: {fileID: 11400000, guid: d66992e7e50718248b551beee6230739, type: 2}
           weight: 0.5
-        currentType: 0
+        currentType: 1
     - rid: 8832571964957394838
       type: {class: LBSMainExteriorBundle, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:

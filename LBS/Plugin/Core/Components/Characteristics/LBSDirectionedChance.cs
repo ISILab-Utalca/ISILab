@@ -1,7 +1,9 @@
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;
 
@@ -65,6 +67,20 @@ namespace ISILab.LBS.Characteristics
         [SerializeField]
         public ConnectedTileType currentType = ConnectedTileType.EdgeBased;
 
+        [SerializeField, Range(0f, 1f)]
+        public float maxLimit = 1f;
+
+        [JsonIgnore]
+        public bool UsesEmpties
+        {
+            get => null != tileDirections.Find(td =>
+            {
+                var dir = td.mainTarget.GetCharacteristics<LBSDirection>();
+                if (dir.Count == 0) return false;
+                return dir[0].Connections.Contains("Empty");
+            });
+        }
+
         public override void OnEnable()
         {
             //Owner.ClearEvents();
@@ -106,6 +122,7 @@ namespace ISILab.LBS.Characteristics
                 }
             }
 
+            tileDirections.OrderBy(td => td.mainTarget.BundleName).ThenBy(td => td.rotation);
         }
 
         public override object Clone()

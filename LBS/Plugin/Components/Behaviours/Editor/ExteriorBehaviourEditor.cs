@@ -159,7 +159,24 @@ namespace ISILab.LBS.VisualElements
 
             bundleField.CustomFilter = pick =>
             {
-                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true);
+                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true)
+                    .Where(b =>
+                    {
+                        ConnectedTileMapModule.ConnectedTileType type;
+                        var chance = b.GetCharacteristics<LBSDirectionedChance>();
+                        if (chance.Count > 0)
+                        {
+                            type = chance[0].currentType;
+                        }
+                        else
+                        {
+                            var group = b.GetCharacteristics<LBSDirectionedGroup>();
+                            if (group.Count == 0) return false;
+                            type = group[0].currentType;
+                        }
+
+                        return type == exterior.GridType;
+                    }).ToList();
                 (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
             };
 

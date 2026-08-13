@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UIElements;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;
+using static ISILab.LBS.Characteristics.LBSDirectionedChance;
+using UnityEngine;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -58,9 +60,9 @@ namespace ISILab.LBS.VisualElements
 
             content.Add(tiletype);
 
-            content.Add(new VisualElement() { style = { height = 20 } });
+            content.Add(new VisualElement() { style = { height = 10 } });
 
-            var weights = target.tileDirections;
+            List<TileDirection> weights = target.tileDirections;
 
             // Show warning if there are no child bundles to add weights
             if (weights.Count <= 0)
@@ -75,19 +77,21 @@ namespace ISILab.LBS.VisualElements
             //An LBSCustomTreeView is used to show the information.
             //The counter is for the ID that TreeNodeData asks for.
 
-            int counter = 0;
+            int counter = target.tileDirections.Count;
             var list = new LBSCustomTreeView();
             var finaldata = new List<TreeViewItemData<TreeNodeData>>();
+
+            Dictionary<int, TileDirectionChance> chancePool = new();
 
             //For each tile direction captured..
             for (int i = 0; i < target.tileDirections.Count; i++)
             {
                 //Register the main bundles
-                var tileDir = target.tileDirections[i];
+                TileDirection tileDir = target.tileDirections[i];
                 var parentNode = new TreeNodeData
                 {
-                    Id = counter++,
-                    Label = tileDir.mainTarget.BundleName,
+                    Id = ++counter,
+                    Label = $"{tileDir.mainTarget.BundleName} (Rotation = {tileDir.rotation})" ,
                     Type = NodeType.Label
                 };
 
@@ -102,8 +106,8 @@ namespace ISILab.LBS.VisualElements
                         int dirValue = d;
                         var dirNode = new TreeNodeData
                         {
-                            Id = counter++,
-                            Label = $"Direction: {dirValue}",
+                            Id = ++counter,
+                            Label = LBSDirection.Directions[dirValue],
                             Type = NodeType.Label
                         };
 
@@ -113,10 +117,10 @@ namespace ISILab.LBS.VisualElements
                         //For each rotation that the tile might've gotten:
                         //for (int k = 0; k < 4; k++)
                         {
-                            foreach (var chance in tileDir.chances[d].list)
+                            foreach (TileDirectionChance chance in tileDir.chances[d].list)
                             {
                                 chanceNodes.Add(
-                                    new TreeViewItemData<TreeNodeData>(counter++, new TreeNodeData
+                                    new TreeViewItemData<TreeNodeData>(++counter, new TreeNodeData
                                     {
                                         Id = counter,
                                         Label = chance.target.name + $" (Rotation = {chance.rotation})",
@@ -124,7 +128,7 @@ namespace ISILab.LBS.VisualElements
                                     })
                                 );
                                 chanceNodes.Add(
-                                    new TreeViewItemData<TreeNodeData>(counter++, new TreeNodeData
+                                    new TreeViewItemData<TreeNodeData>(++counter, new TreeNodeData
                                     {
                                         Id = counter,
                                         Label = "Chance",
@@ -132,11 +136,12 @@ namespace ISILab.LBS.VisualElements
                                         Type = NodeType.Slider
                                     })
                                 );
+                                chancePool.Add(counter, chance);
                             }
                         }
                         
 
-                        directionNodes.Add(new TreeViewItemData<TreeNodeData>(counter++, dirNode, chanceNodes));
+                        directionNodes.Add(new TreeViewItemData<TreeNodeData>(++counter, dirNode, chanceNodes));
                     }
                 }
 
@@ -158,6 +163,29 @@ namespace ISILab.LBS.VisualElements
             };
             */
 
+            HashSet<(TreeNodeData, Slider) > weightNodes = new();
+
+            var maxLimit = new Slider("Max weight", 0f, 1f) { value = target.maxLimit, showInputField = true };
+            maxLimit.RegisterValueChangedCallback(evt =>
+            {
+                target.maxLimit = evt.newValue;
+                bool first = true;
+                foreach((TreeNodeData, Slider) node in weightNodes)
+                {
+                    if (first)
+                    {
+                        first = false;
+                        //Debug.Log($"Slider value = {node.Item1.SliderValue}. evt.newValue = {evt.newValue}.");
+                    }
+                    float realValue = Mathf.Min(node.Item1.SliderValue ?? evt.newValue, evt.newValue);
+                    chancePool[node.Item1.Id].chance = realValue;
+                    node.Item2.SetValueWithoutNotify(realValue);
+                }
+            });
+
+            content.Add(maxLimit);
+
+            content.Add(new VisualElement() { style = { height = 20 } });
 
             list.SetRootItems(finaldata);
             list.makeItem = () => {
@@ -183,14 +211,31 @@ namespace ISILab.LBS.VisualElements
                         element.Add(label);
                         break;
                     case NodeType.Slider:
-                        var slider = new Slider(0, 1) { value = nodeData.SliderValue ?? 0, showInputField = true };
-                        slider.RegisterValueChangedCallback(evt => nodeData.SliderValue = evt.newValue);
+                        float sliderValue = nodeData.SliderValue ?? 0f;
+                        var slider = new Slider(label.text, 0, 1) { value = Mathf.Min(sliderValue, maxLimit.value), showInputField = true };
+                        slider.RegisterValueChangedCallback(evt =>
+                        {
+                            nodeData.SliderValue = evt.newValue;
+                            if(evt.newValue > maxLimit.value)
+                            {
+                                chancePool[nodeData.Id].chance = maxLimit.value;
+                                nodeData.SliderValue = maxLimit.value;
+                                slider.SetValueWithoutNotify(maxLimit.value);
+                            }
+                            else 
+                            {
+                                chancePool[nodeData.Id].chance = evt.newValue;
+                                nodeData.SliderValue = evt.newValue;
+                            }
+                        });
                         slider.AddToClassList("lbs-tree-view-item");
-                        element.Add(label);
+                        slider.labelElement.style.minWidth = 40;
+                        slider.style.marginRight = 10;
                         element.Add(slider);
+                        weightNodes.Add((nodeData, slider));
                         break;
                     case NodeType.ObjectField:
-                        var objField = new LBSCustomObjectField { objectType = typeof(UnityEngine.Object), value = nodeData.ObjectFieldValue };
+                        var objField = new LBSCustomObjectField { objectType = typeof(Object), value = nodeData.ObjectFieldValue };
                         objField.RegisterValueChangedCallback(evt => nodeData.ObjectFieldValue = evt.newValue);
                         objField.AddToClassList("lbs-tree-view-item");
                         element.Add(label);
@@ -200,7 +245,18 @@ namespace ISILab.LBS.VisualElements
 
                 element.AddToClassList("lbs-tree-view-item");
             };
+
+            list.unbindItem = (element, index) =>
+            {
+                var slider = element.Q<Slider>();
+                if (slider == null) return;
+                var nodeData = list.GetItemDataForIndex<TreeNodeData>(index);
+                if(nodeData == null) return;
+                weightNodes.Remove((nodeData, slider));
+            };
+
             content.Add(list);
+
 
 
             /*

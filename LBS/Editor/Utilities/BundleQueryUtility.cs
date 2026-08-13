@@ -49,6 +49,7 @@ namespace ISILab.LBS.Editor.Utilities
             foreach (var guid in bundleGuids)
             {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
+                if(path.Contains("deprecated", StringComparison.OrdinalIgnoreCase)) continue;
                 var bundle = AssetDatabase.LoadAssetAtPath<Bundle>(path);
                 if (bundle == null) continue;
 

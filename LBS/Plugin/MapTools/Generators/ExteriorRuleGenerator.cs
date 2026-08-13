@@ -48,7 +48,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     List<string> curDir = extTile.Connections.Rotate(i);
                     if (curDir.SequenceEqual(connections))
                     {
-                        if (center is null)
+                        if (string.IsNullOrEmpty(center) || string.IsNullOrEmpty(extTile.Center))
                         {
                             possibles.Add(new Tuple<LBSDirection, int>(extTile, i));
                         }
@@ -566,7 +566,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             Debug.Log("Chosen object: " + chosenObj);
             return assetGridList.Count > 0
                 ? assetGridList[chosenObj].AssetReference.obj
-                : gridSelector.GridList[gridSelector.DefaultAsset].AssetReference.obj;
+                : gridSelector.GridList[gridSelector.DefaultAsset].AssetReference.obj; // ArgumentOutOfRangeException (Simple_Exterior_Proto_Simple)
         }
 
         public override object Clone()

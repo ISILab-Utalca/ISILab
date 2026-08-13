@@ -96,7 +96,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
 
         [JsonIgnore]
-        private ConnectedTileMapModule.ConnectedTileType GridType
+        public ConnectedTileMapModule.ConnectedTileType GridType
         {
             get
             {
@@ -1012,7 +1012,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     string[] array = sBundle.GetConnection(j); //(!)
 
                     // Check if is valid rotated connection
-                    if (Compare(connections.ToArray(), array))
+                    if (Compare(connections.ToArray(), array/*, !group.UsesEmpties*/))
                     {
                         var candidate = new Candidate()
                         {
@@ -1110,7 +1110,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     }).ToList();
             else
                 candidates = options
-                    .Where(tdc => Compare(connections.ToArray(), tdc.Connections.Rotate(tdc.rotation).ToArray())/* connections.SequenceEqual(tdc.Connections.Rotate(-tdc.rotation))*/)
+                    .Where(tdc => Compare(connections.ToArray(), tdc.Connections.Rotate(tdc.rotation).ToArray()/*, !chance.UsesEmpties*/))
                     .Select(tdc => new Candidate() 
                 { 
                     bundle = tdc.target.GetCharacteristics<LBSDirection>()[0], 
@@ -1266,11 +1266,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             // For each kvp
             foreach (KeyValuePair<TileConnectionsPair, List<TileChance>> rule in tileChances)
             {
+                Bundle mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections, rule.Key.Center, out int mainRot);
+                if (mainTarget == null)
+                    continue;
+
                 // Create a TileDirection. Search amongst exiTileChancestent bundles
                 TileDirection td = new()
                 {
                     // If no rotated bundle match the tile, mainTarget will be null
-                    mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections, out int mainRot),
+                    mainTarget = mainTarget,
                     rotation = mainRot, // Cuantas veces rotas el bundle 'mainTarget' para obtener el tile en el mapa
                     chances = new List<NestedList<TileDirectionChance>>()
                     {
@@ -1281,14 +1285,16 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     }
                 };
 
-                //int total = rule.Value.Where(t => t != null).Sum(t => t.count);//TODO: Por que suma las cantidades de todos si son tiles y direcciones distintas?
-
                 //For every neighbour tile registered for this tile
                 foreach (TileChance pair in rule.Value)
                 {
+                    Bundle target = FindEqualConnection(currentBundles, pair.tile.Connections, rule.Key.Center, out int rot);
+                    if (target == null)
+                        continue;
+
                     TileDirectionChance tileDirectionChance = new()
                     {
-                        target = FindEqualConnection(currentBundles, pair.tile.Connections, out int rot),
+                        target = target,
                         rotation = rot, // Cuantas veces rotas el bundle 'target' para obtener el tile en el mapa
                         chance = (float)pair.count / rule.Value.Where(t => t != null && t.direction == pair.direction).Sum(t => t.count)
                     };
@@ -1324,13 +1330,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             return true;
         }
 
-        private Bundle FindEqualConnection(List<Bundle> bundle, List<string> tileConnection, out int rot)
+        private Bundle FindEqualConnection(List<Bundle> bundle, List<string> tileConnection, string center, out int rot)
         {
             int count = 0;
 
             // For each bundle
             for (int i = 0; i < bundle.Count; i++)
             {
+                LBSDirection dirChar = bundle[i].GetCharacteristics<LBSDirection>()[0];
                 // For each rotation
                 for (int j = 0; j < 4; j++)
                 {
@@ -1338,7 +1345,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     // Compare all 4 connections
                     for (int k = 0; k < 4; k++)
                     {
-                        if (bundle[i].GetCharacteristics<LBSDirection>()[0].GetConnection(j)[k] == tileConnection[k])
+                        if (dirChar.GetConnection(j)[k] == tileConnection[k])
                         {
                             count++;
                         }
@@ -1346,8 +1353,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
                         if (count == 4)
                         {
-                            rot = j;
-                            return bundle[i];
+                            //if(dirChar.Center == "" || center == dirChar.Center)
+                            //{
+                                rot = j;
+                                return bundle[i];
+                            //}
                         }
                     }
                 }
