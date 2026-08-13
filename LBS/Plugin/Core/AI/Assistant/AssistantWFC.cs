@@ -1508,6 +1508,94 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             //EditorApplication.delayCall += () => Selection.activeObject = targetBundleRef;
         }
 
+        public bool SaveRules(string rulesetName, out string endName, out WFCRuleset newRuleset, out string errMsg)
+        {
+            endName = null;
+            newRuleset = null;
+            errMsg = null;
+
+            var ruleSetCharArr = targetBundleRef.GetCharacteristics<WFCRulesetsCharacteristic>();
+            WFCRulesetsCharacteristic rulesetChar;
+            if(ruleSetCharArr is null || ruleSetCharArr.Count == 0)
+            {
+                rulesetChar = new WFCRulesetsCharacteristic();
+                targetBundleRef.AddCharacteristic(rulesetChar);
+            }
+            else rulesetChar = ruleSetCharArr[0];
+
+            endName = rulesetName;
+            if(endName.Length == 0)
+            {
+                endName = "New WFC Ruleset";
+            }
+            if(endName == "New WFC Preset")
+            {
+                int count = rulesetChar.Rulesets.Where(r => r.Name.Equals(rulesetName)).Count();
+                if(count > 0)
+                {
+                    endName += $" ({count})";
+                }
+            }
+
+            string n = endName;
+            bool overwrite = rulesetChar.Rulesets.Find(r => r.Name.Equals(n)) is not null;
+            if (overwrite)
+            {
+                bool confirmOverwrite = EditorUtility.DisplayDialog("Overwrite?", $"You are about to overwrite the WFC ruleset from Bundle {targetBundleRef.BundleName}. Continue?", "Yes", "No");
+                if (!confirmOverwrite) return false;
+                rulesetChar.Rulesets.RemoveAll(r =>
+                {
+                    if (r.Name.Equals(n))
+                    {
+                        AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(r));
+                        return true;
+                    }
+                    return false;
+                });
+            }
+
+            var chance = targetBundleRef.GetCharacteristics<LBSDirectionedChance>()[0];
+            newRuleset = ScriptableObject.CreateInstance<WFCRuleset>();
+            newRuleset.Name = endName;
+            newRuleset.SetRules(chance.tileDirections);
+
+            rulesetChar.Rulesets.Add(newRuleset);
+
+            RefreshInspector(targetBundleRef);
+
+            string path = LBSSettings.Instance.paths.WFCpresetsFolderPath + $"/{endName}.asset";
+            AssetDatabase.CreateAsset(newRuleset, path);
+            AssetDatabase.SaveAssets();
+            //newRuleset.SetAssetGUID(AssetDatabase.AssetPathToGUID(path));
+
+            return true;
+        }
+
+        public void LoadRules(WFCRuleset ruleset)
+        {
+            var chance = targetBundleRef.GetCharacteristics<LBSDirectionedChance>()[0];
+            chance.maxLimit = 1f;
+            for(int i = 0; i < chance.tileDirections.Count; i++)
+            {
+                bool found = false;
+                foreach(TileDirection rulesetTD in ruleset.GetRules())
+                {
+                    if (chance.tileDirections[i].mainTarget.Equals(rulesetTD.mainTarget))
+                    {
+                        chance.tileDirections[i].rotation = rulesetTD.rotation;
+                        chance.tileDirections[i].chances = new List<NestedList<TileDirectionChance>>(rulesetTD.chances);
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                    Debug.LogWarning($"Bundle '{chance.tileDirections[i].mainTarget}' was not in ruleset '{ruleset.Name}'");
+            }
+
+            RefreshInspector(targetBundleRef);
+        }
+
         private void RefreshInspector(UnityEngine.Object target)
         {
             Action makeNull = () => Selection.activeObject = null;
