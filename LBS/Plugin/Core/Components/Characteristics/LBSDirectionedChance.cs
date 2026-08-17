@@ -121,8 +121,6 @@ namespace ISILab.LBS.Characteristics
                     tileDirections[i].mainTarget = bundles[i];
                 }
             }
-
-            tileDirections.OrderBy(td => td.mainTarget.BundleName).ThenBy(td => td.rotation);
         }
 
         public override object Clone()
