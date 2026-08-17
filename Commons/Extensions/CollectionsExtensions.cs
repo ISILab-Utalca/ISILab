@@ -292,6 +292,27 @@ namespace ISILab.Commons.Extensions
 
         #endregion
 
+        #region HASHSET
+        /// <summary>
+        /// Creates a deep copy of a set.
+        /// </summary>
+        /// <typeparam name="T">A class type that implements ICloneable.</typeparam>
+        /// <param name="list"></param>
+        /// <returns>A deep copy of the set.</returns>
+        public static HashSet<T> Clone<T>(this HashSet<T> list) where T : class, ICloneable
+        {
+            var clone = new HashSet<T>();
+
+            foreach (var item in list)
+            {
+                var c = item.Clone() as T;
+                clone.Add(c);
+            }
+            return clone;
+        }
+
+        #endregion
+
         #region DICTIONARY
 
         //public static Dictionary<K, V> Clone<K, V>(this Dictionary<K, V> dict) 
