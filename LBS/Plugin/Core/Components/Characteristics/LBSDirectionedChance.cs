@@ -131,6 +131,29 @@ namespace ISILab.LBS.Characteristics
             return new LBSDirectionedChance();
         }
 
+        public static List<TileDirection> DeepCopy(List<TileDirection> original)
+        {
+            List<TileDirection> copy = new(original.Select(td =>
+            {
+                return new TileDirection()
+                {
+                    mainTarget = td.mainTarget,
+                    rotation = td.rotation,
+                    chances = new(td.chances.Select(nested => new NestedList<TileDirectionChance>()
+                    {
+                        list = new(nested.list.Select(tdc => new TileDirectionChance()
+                        {
+                            target = tdc.target,
+                            rotation = tdc.rotation,
+                            chance = tdc.chance
+                        }))
+                    }))
+                };
+            }));
+
+            return copy;
+        }
+
         public List<LBSDirection> GetDirs()
         {
             var r = new List<LBSDirection>();

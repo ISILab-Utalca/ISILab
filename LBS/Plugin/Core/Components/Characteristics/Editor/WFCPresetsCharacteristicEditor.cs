@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    [LBSCustomEditor("Navigable Tags", typeof(WFCPresetsCharacteristic))]
+    [LBSCustomEditor("WFC Presets", typeof(WFCPresetsCharacteristic))]
     public class WFCPresetsCharacteristicEditor : LBSCustomEditor
     {
         public VisualElement content;

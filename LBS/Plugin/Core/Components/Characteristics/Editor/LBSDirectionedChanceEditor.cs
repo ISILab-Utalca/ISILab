@@ -163,7 +163,7 @@ namespace ISILab.LBS.VisualElements
             };
             */
 
-            HashSet<(TreeNodeData, Slider) > weightNodes = new();
+            HashSet<(TreeNodeData, Slider)> weightNodes = new();
 
             var maxLimit = new Slider("Max weight", 0f, 1f) { value = target.maxLimit, showInputField = true };
             maxLimit.RegisterValueChangedCallback(evt =>
