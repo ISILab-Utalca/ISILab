@@ -167,6 +167,7 @@ namespace ISILab.LBS.VisualElements
                         
             TaskBar.EnableProcess(false);
             _assistant.OnTermination = null;
+            _assistant.running = false;
         }
         #endregion}
         
@@ -206,6 +207,12 @@ namespace ISILab.LBS.VisualElements
 
         private void ExecuteOneStep()
         {
+            if (_assistant.running)
+            {
+                return;
+            }
+            _assistant.running = true;
+            
             // Save history version to revert if necessary
             LoadedLevel x = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
@@ -228,6 +235,12 @@ namespace ISILab.LBS.VisualElements
 
         private void Execute()
         {
+            if (_assistant.running)
+            {
+                return;
+            }
+            _assistant.running = true;
+            
             // Save history version to revert if necessary
             LoadedLevel x = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
