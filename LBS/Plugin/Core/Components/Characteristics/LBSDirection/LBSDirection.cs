@@ -32,7 +32,7 @@ namespace ISILab.LBS.Characteristics
         #endregion
 
         #region FIELDS
-        [Tooltip("4-Connected: 0: Right, 1: Up, 2: Left, 3: Down\n4 represents Center, but it can be ignored.")]
+        [Tooltip("4-Connected: 0: Right, 1: Up, 2: Left, 3: Down")]
         [SerializeField, JsonRequired]
         private List<string> connections = new List<string>();
 
@@ -45,6 +45,7 @@ namespace ISILab.LBS.Characteristics
         public const string Up = "Up";
         public const string Down = "Down";
         //public const string Center = "Center";
+        public static readonly List<string> Directions = new() { Right, Up, Left, Down };
 
         #endregion
 

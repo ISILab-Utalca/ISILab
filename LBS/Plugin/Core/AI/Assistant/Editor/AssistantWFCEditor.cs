@@ -9,6 +9,7 @@ using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Utilities;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
@@ -33,12 +34,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
 
         private AssistantWFC assistant;
 
-        private TextField presetName;
-        private TextField presetsFolder;
+        private TextField rulesetName;
+        private TextField rulesetsFolder;
 
-        private ObjectField currentPreset;
+        private ObjectField currentRuleset;
         
-        private ListView presetsList;
+        private ListView rulesetsList;
 
         //private string defaultWFCAssetGUID = "aa906d6d48e992141b714743bb35ff3a";
 
@@ -48,7 +49,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
         {
             assistant = target as AssistantWFC;
             assistant.Bundle = GetExteriorBehaviour().Bundle;
-            assistant.Bundle.OnRemoveCharacteristic += _ => EditorApplication.delayCall += UpdatePresetsList;
+            assistant.Bundle.OnRemoveCharacteristic += _ => EditorApplication.delayCall += UpdateRulesetsList;// UpdatePresetsList;
             assistant.OnRefreshInspector = null;
             assistant.OnRefreshInspector = assistant.Bundle.Refresh;
             CreateVisualElement();
@@ -81,7 +82,24 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
             bundleField.UseCustomFilter = true;
             bundleField.CustomFilter = pick =>
             {
-                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true);
+                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true)
+                    .Where(b =>
+                    {
+                        ConnectedTileMapModule.ConnectedTileType type;
+                        var chance = b.GetCharacteristics<LBSDirectionedChance>();
+                        if(chance.Count > 0)
+                        {
+                            type = chance[0].currentType;
+                        }
+                        else
+                        {
+                            var group = b.GetCharacteristics<LBSDirectionedGroup>();
+                            if (group.Count == 0) return false;
+                            type = group[0].currentType;
+                        }
+
+                        return type == assistant.GridType;
+                    }).ToList();
                 (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
             };
 
@@ -135,7 +153,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
                 ToolKit.Instance.SetActive(typeof(WFCManipulator));
                 MarkDirtyRepaint();
 
-                UpdatePresetsList();
+                UpdateRulesetsList();
+                //UpdatePresetsList();
             });
             
             exterior.OwnerLayer.OnChange += () =>
@@ -152,16 +171,16 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
 
             //Save weights in a preset button
             var saveWeightsButton = this.Q<Button>("SaveWeights");
-            //saveWeightsButton.clicked += SaveWeights;
-            presetName = this.Q<TextField>("PresetName");
-            presetsFolder = this.Q<TextField>("PresetsPath");
+            if(assistant.GridType == ConnectedTileMapModule.ConnectedTileType.EdgeBased) saveWeightsButton.clicked += SaveRules;
+            rulesetName = this.Q<TextField>("RulesetName");
+            rulesetsFolder = this.Q<TextField>("RulesetsPath");
             //presetsFolder.focusable = false; 
-            presetsFolder.style.display = DisplayStyle.None;// This field needs to be reworked. Meanwhile it'll remain disabled.
+            rulesetsFolder.style.display = DisplayStyle.None;// This field needs to be reworked. Meanwhile it'll remain disabled.
 
             // Load weights from a preset
             var loadWeightsButton = this.Q<Button>("LoadWeights");
-            //loadWeightsButton.clicked += LoadWeights;
-            currentPreset = this.Q<ObjectField>("CurrentPreset");
+            if (assistant.GridType == ConnectedTileMapModule.ConnectedTileType.EdgeBased) loadWeightsButton.clicked += LoadRules;
+            currentRuleset = this.Q<ObjectField>("CurrentRuleset");
             //currentPreset.value = AssetMacro.LoadAssetByGuid<WFCPreset>(defaultWFCAssetGUID);
 
             // Safe Generation Mode
@@ -177,8 +196,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
             });
             safeModeToggle.SetValueWithoutNotify(assistant.SafeMode);
 
-            presetsList = this.Q<ListView>("PresetsList");
-            UpdatePresetsList();
+            rulesetsList = this.Q<ListView>("RulesetsList");
+            UpdateRulesetsList();
+            //UpdatePresetsList();
             
             return this;
         }
@@ -200,59 +220,103 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
             //    LBSMainWindow.MessageNotify("Current map weights captured.");
         }
 
-        private void SaveWeights()
+        //private void SaveWeights()
+        //{
+        //    bool saved = assistant.SaveWeights(rulesetName.value, rulesetsFolder.value, out string endName, out WFCPreset newPreset, out string errMsg);
+        //    if(saved)
+        //    {
+        //        UpdatePresetsList();
+        //        currentRuleset.value = newPreset;
+        //        rulesetsList.SetSelection(rulesetsList.itemsSource.IndexOf(newPreset));
+        //        LBSMainWindow.MessageNotify(new LBSLog($"Weights saved as preset: {endName}."));
+        //    }
+        //    else if(!string.IsNullOrEmpty(errMsg))
+        //        LBSMainWindow.MessageNotify(new LBSLog(errMsg, LogType.Warning));
+        //}
+
+        //private void LoadWeights()
+        //{
+        //    WFCPreset loaded = rulesetsList.GetRootElementForIndex(rulesetsList.selectedIndex)?.Q<ObjectField>("Element")?.value as WFCPreset;//currentPreset.value as WFCPreset;
+        //    if (loaded)
+        //    {
+        //        assistant.LoadWeights(loaded);
+        //        currentRuleset.value = loaded;
+        //        LBSMainWindow.MessageNotify(
+        //            new LBSLog($"Weights loaded from preset: {loaded.name}."));
+        //    }
+        //    else LBSMainWindow.MessageNotify(
+        //        new LBSLog("Failed to load: you must select a non-null preset from the list or create a new one.", LogType.Warning, 5));
+        //}
+
+        private void SaveRules()
         {
-            bool saved = assistant.SaveWeights(presetName.value, presetsFolder.value, out string endName, out WFCPreset newPreset, out string errMsg);
+            bool saved = assistant.SaveRules(rulesetName.value, out string endName, out WFCRuleset newRuleset, out string errMsg);
             if(saved)
             {
-                UpdatePresetsList();
-                currentPreset.value = newPreset;
-                presetsList.SetSelection(presetsList.itemsSource.IndexOf(newPreset));
+                UpdateRulesetsList();
+                currentRuleset.value = newRuleset;
+                rulesetsList.SetSelection(rulesetsList.itemsSource.IndexOf(newRuleset));
                 LBSMainWindow.MessageNotify(new LBSLog($"Weights saved as preset: {endName}."));
             }
             else if(!string.IsNullOrEmpty(errMsg))
                 LBSMainWindow.MessageNotify(new LBSLog(errMsg, LogType.Warning));
         }
 
-        private void LoadWeights()
+        private void LoadRules()
         {
-            WFCPreset loaded = presetsList.GetRootElementForIndex(presetsList.selectedIndex)?.Q<ObjectField>("Element")?.value as WFCPreset;//currentPreset.value as WFCPreset;
+            WFCRuleset loaded = rulesetsList.GetRootElementForIndex(rulesetsList.selectedIndex)?.Q<ObjectField>("Element")?.value as WFCRuleset;
             if (loaded)
             {
-                assistant.LoadWeights(loaded);
-                currentPreset.value = loaded;
+                assistant.LoadRules(loaded);
+                currentRuleset.value = loaded;
                 LBSMainWindow.MessageNotify(
-                    new LBSLog($"Weights loaded from preset: {loaded.name}."));
+                    new LBSLog($"Weights loaded from ruleset: {loaded.name}"));
             }
             else LBSMainWindow.MessageNotify(
-                new LBSLog("Failed to load: you must select a non-null preset from the list or create a new one.", LogType.Warning, 5));
+                new LBSLog("Failed to load: you must select a non-null ruleset from the list or create a new one.", LogType.Warning, 5));
         }
 
-        private void UpdatePresetsList()
-        {
-            //Debug.Log("Update Presets List");
-            //var WFCPresets = AssetDatabase.FindAssets("", new[] { presetsFolder.value });
-            //var a = WFCPresets.Select(guid => AssetDatabase.LoadAssetAtPath<Object>(AssetDatabase.GUIDToAssetPath(guid)));
-            //var b = a.Where(asset => asset != null && asset is WFCPreset)
-            //               .ToList();
+        //private void UpdatePresetsList()
+        //{
+        //    //Debug.Log("Update Presets List");
+        //    //var WFCPresets = AssetDatabase.FindAssets("", new[] { presetsFolder.value });
+        //    //var a = WFCPresets.Select(guid => AssetDatabase.LoadAssetAtPath<Object>(AssetDatabase.GUIDToAssetPath(guid)));
+        //    //var b = a.Where(asset => asset != null && asset is WFCPreset)
+        //    //               .ToList();
 
-            var presetsChars = assistant.Bundle.GetCharacteristics<WFCPresetsCharacteristic>();
+        //    var presetsChars = assistant.Bundle.GetCharacteristics<WFCPresetsCharacteristic>();
             
-            presetsList.itemsSource = presetsChars is not null && presetsChars.Count > 0 ? new List<WFCPreset>(presetsChars[0].Presets) : new WFCPreset[0];
-            presetsList.bindItem = (element, i) =>
+        //    rulesetsList.itemsSource = presetsChars is not null && presetsChars.Count > 0 ? new List<WFCPreset>(presetsChars[0].Presets) : new WFCPreset[0];
+        //    rulesetsList.bindItem = (element, i) =>
+        //    {
+        //        var obj = element.Q<ObjectField>("Element");
+
+        //        var asset = rulesetsList.itemsSource[i];
+        //        obj.value = asset as WFCPreset;
+        //    };
+        //    rulesetsList.Rebuild();
+        //}
+
+        private void UpdateRulesetsList()
+        {
+            var rulesetsChars = assistant.Bundle.GetCharacteristics<WFCRulesetsCharacteristic>();
+
+            rulesetsList.itemsSource = rulesetsChars is not null && rulesetsChars.Count > 0 ? new List<WFCRuleset>(rulesetsChars[0].Rulesets) : new WFCRuleset[0];
+            rulesetsList.bindItem = (element, i) =>
             {
                 var obj = element.Q<ObjectField>("Element");
 
-                var asset = presetsList.itemsSource[i];
-                obj.value = asset as WFCPreset;
+                var asset = rulesetsList.itemsSource[i];
+                obj.value = asset as WFCRuleset;
             };
-            presetsList.Rebuild();
+            rulesetsList.Rebuild();
         }
 
         public override void OnFocus()
         {
             base.OnFocus();
-            UpdatePresetsList();
+            UpdateRulesetsList();
+            //UpdatePresetsList();
         }
 
         public override void OnUnfocus()

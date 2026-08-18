@@ -96,7 +96,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
 
         [JsonIgnore]
-        private ConnectedTileMapModule.ConnectedTileType GridType
+        public ConnectedTileMapModule.ConnectedTileType GridType
         {
             get
             {
@@ -290,7 +290,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                         if (sectorSuccessCount >= sectors.Count)
                         {
                             onProgress?.Invoke(1f);
-                            log = $"Safely generated after {i + 1} attempts.";
+                            log = $"Safely generated after {i + 1} attempts. ({getSeconds()} s)";
                             Thread.Sleep(1);
                             return true;
                         }
@@ -381,7 +381,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             // Paso 1
             // Get tiles to change
-            List<LBSTile> toCalc = GetTileToCalc(map, connected);
+            HashSet<LBSTile> toCalc = GetTileToCalc(map, connected);
 
             // Build whitelist (positions + direct neighbors)
             // and selection area neighbourhood
@@ -430,7 +430,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             else Debug.LogWarning("Unhandled case for Vertex-based grid. Could not build area neighbourhood.");
 
             //Lista que guarda los tiles ya generados
-            var closed = new List<LBSTile>();
+            var closed = new HashSet<LBSTile>();
 
             //Tiles que tienen que recalcular los candidatos despu�s de generar un tile
             //generalmente van los tiles vecinos del que se gener�
@@ -646,7 +646,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             //var originalTM = og.Clone()[0] as ConnectedTileMapModule;
 
             // Get tiles to change
-            List<LBSTile> toCalc = GetTileToCalc(map, connected);
+            HashSet<LBSTile> toCalc = GetTileToCalc(map, connected);
 
             // Build whitelist (positions + direct neighbors)
             // and selection area neighbourhood
@@ -694,7 +694,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             }
             //else Debug.LogError("Unhandled case for Vertex-based grid. Could not build area neighbourhood.");
 
-            var closed = new List<LBSTile>();
+            var closed = new HashSet<LBSTile>();
             var reCalc = new List<LBSTile>();
             var currentCalcs = new Dictionary<LBSTile, List<Candidate>>();
 
@@ -761,7 +761,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 currentCalcs[current.Key] = new List<Candidate>() { selected };
                 closed.Add(current.Key);
 
-                var _closed = new List<LBSTile>(closed);
+                var _closed = new HashSet<LBSTile>(closed);
 
                 genOrder.Add(current.Key.Position.ToString());
 
@@ -883,7 +883,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             List<WFCState> states, ref (int, int) retryCount, 
             ConnectedTileMapModule currentTM, ConnectedTileMapModule originalTM, 
             ref int currentStep, int maxStep, out int stepsToRevert,
-            ref List<LBSTile> toCalc, ref List<LBSTile> closed, ref Dictionary<LBSTile, List<Candidate>> currentCalcs)
+            ref HashSet<LBSTile> toCalc, ref HashSet<LBSTile> closed, ref Dictionary<LBSTile, List<Candidate>> currentCalcs)
         {
             stepsToRevert = 0;
 
@@ -914,21 +914,22 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             int statesToRevert = stepsToRevert / SAVE_STATE_INTERVAL;
 
-            states.Reverse();
+            //states.Reverse();
             for (int i = 0; i < statesToRevert; i++)
-                states.RemoveAt(0);
-            WFCState prevState = states[0];
+                //states.RemoveAt(0);
+                states.RemoveAt(states.Count - 1);
+            WFCState prevState = states[^1];
             currentTM.Rewrite(prevState.tileMap);
             toCalc = prevState.toCalc.Clone();
             closed = prevState.closed.Clone();
             //currentCalcs = prevState.currentCalcs.Clone(); //revisar clonacion
             currentCalcs = new Dictionary<LBSTile, List<Candidate>>(prevState.currentCalcs);
-            states.Reverse();
+            //states.Reverse();
 
             return true;
         }
 
-        public void SetConnectionNei(LBSTile origin, LBSTile[] neis, List<LBSTile> closed, HashSet<Vector2Int> whitelist)
+        public void SetConnectionNei(LBSTile origin, LBSTile[] neis, HashSet<LBSTile> closed, HashSet<Vector2Int> whitelist)
         {
             var connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
             List<string> originConnections = connected.GetConnections(origin);
@@ -964,9 +965,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             }
         }
 
-        private List<LBSTile> GetTileToCalc(TileMapModule map, ConnectedTileMapModule connected)
+        private HashSet<LBSTile> GetTileToCalc(TileMapModule map, ConnectedTileMapModule connected)
         {
-            var toR = new List<LBSTile>();
+            var toR = new HashSet<LBSTile>();
             foreach (var position in Positions)
             {
                 // Get tile information
@@ -1012,7 +1013,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     string[] array = sBundle.GetConnection(j); //(!)
 
                     // Check if is valid rotated connection
-                    if (Compare(connections.ToArray(), array))
+                    if (Compare(connections.ToArray(), array/*, !group.UsesEmpties*/))
                     {
                         var candidate = new Candidate()
                         {
@@ -1031,10 +1032,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         private List<Candidate> CalcCandidates(LBSTile tile, LBSDirectionedChance chanceGroup)
         {
             List<Candidate> candidates = new();
-            ConnectedTileMapModule connectedMod = OwnerLayer.GetModule<ConnectedTileMapModule>();
+            //ConnectedTileMapModule connectedMod = OwnerLayer.GetModule<ConnectedTileMapModule>();
             List<LBSTile> neighbors = map.GetTileNeighbors(tile, Dirs);
 
-            List<string> connections = connectedMod.GetConnections(tile);
+            List<string> connections = connected.GetConnections(tile);
 
             //List<string>[] neighsConns = new List<string>[4];
 
@@ -1047,7 +1048,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 if (neighbors[j] is null)
                     continue;
 
-                List<string> neighConns = connectedMod.GetConnections(neighbors[j]);
+                List<string> neighConns = connected.GetConnections(neighbors[j]);
                 string opp = neighConns[(j + 2) % 4];
                 if (opp.Equals("Empty") || opp.Equals(""))
                     continue;
@@ -1077,7 +1078,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                             // Se conserva. Se debe actualizar el peso.
                             float chance1 = optionsChance[newTileOption];
                             float chance2 = newTileOption.chance;
-                            float newChance = chance1 * chance2; // Probar si funciona sin necesidad de normalizar
+                            float newChance = chance1 * chance2; // Se normaliza al llamar a RandomRullete
                             optionsChance[newTileOption] = newChance;
 
                             safeTiles.Add(newTileOption);
@@ -1110,13 +1111,13 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     }).ToList();
             else
                 candidates = options
-                    .Where(tdc => Compare(connections.ToArray(), tdc.Connections.Rotate(tdc.rotation).ToArray())/* connections.SequenceEqual(tdc.Connections.Rotate(-tdc.rotation))*/)
+                    .Where(tdc => Compare(connections.ToArray(), tdc.Connections.Rotate(tdc.rotation).ToArray()/*, !chance.UsesEmpties*/))
                     .Select(tdc => new Candidate() 
-                { 
-                    bundle = tdc.target.GetCharacteristics<LBSDirection>()[0], 
-                    rotation = tdc.rotation, 
-                    weigth = tdc.chance 
-                }).ToList();
+                    { 
+                        bundle = tdc.target.GetCharacteristics<LBSDirection>()[0], 
+                        rotation = tdc.rotation, 
+                        weigth = tdc.chance 
+                    }).ToList();
 
             return candidates;
         }
@@ -1266,11 +1267,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             // For each kvp
             foreach (KeyValuePair<TileConnectionsPair, List<TileChance>> rule in tileChances)
             {
+                Bundle mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections, rule.Key.Center, out int mainRot);
+                if (mainTarget == null)
+                    continue;
+
                 // Create a TileDirection. Search amongst exiTileChancestent bundles
                 TileDirection td = new()
                 {
                     // If no rotated bundle match the tile, mainTarget will be null
-                    mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections, out int mainRot),
+                    mainTarget = mainTarget,
                     rotation = mainRot, // Cuantas veces rotas el bundle 'mainTarget' para obtener el tile en el mapa
                     chances = new List<NestedList<TileDirectionChance>>()
                     {
@@ -1281,14 +1286,16 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     }
                 };
 
-                //int total = rule.Value.Where(t => t != null).Sum(t => t.count);//TODO: Por que suma las cantidades de todos si son tiles y direcciones distintas?
-
                 //For every neighbour tile registered for this tile
                 foreach (TileChance pair in rule.Value)
                 {
+                    Bundle target = FindEqualConnection(currentBundles, pair.tile.Connections, rule.Key.Center, out int rot);
+                    if (target == null)
+                        continue;
+
                     TileDirectionChance tileDirectionChance = new()
                     {
-                        target = FindEqualConnection(currentBundles, pair.tile.Connections, out int rot),
+                        target = target,
                         rotation = rot, // Cuantas veces rotas el bundle 'target' para obtener el tile en el mapa
                         chance = (float)pair.count / rule.Value.Where(t => t != null && t.direction == pair.direction).Sum(t => t.count)
                     };
@@ -1299,7 +1306,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             }
             
             group.tileDirections.RemoveAll(td => !td.chances.Any());
-            
+
+            group.tileDirections = group.tileDirections.OrderBy(td => td.mainTarget.BundleName).ThenBy(td => td.rotation).ToList();
+
             /*
             foreach (var item in group.tileDirections)
             {
@@ -1324,13 +1333,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             return true;
         }
 
-        private Bundle FindEqualConnection(List<Bundle> bundle, List<string> tileConnection, out int rot)
+        private Bundle FindEqualConnection(List<Bundle> bundle, List<string> tileConnection, string center, out int rot)
         {
             int count = 0;
 
             // For each bundle
             for (int i = 0; i < bundle.Count; i++)
             {
+                LBSDirection dirChar = bundle[i].GetCharacteristics<LBSDirection>()[0];
                 // For each rotation
                 for (int j = 0; j < 4; j++)
                 {
@@ -1338,7 +1348,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     // Compare all 4 connections
                     for (int k = 0; k < 4; k++)
                     {
-                        if (bundle[i].GetCharacteristics<LBSDirection>()[0].GetConnection(j)[k] == tileConnection[k])
+                        if (dirChar.GetConnection(j)[k] == tileConnection[k])
                         {
                             count++;
                         }
@@ -1346,8 +1356,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
                         if (count == 4)
                         {
-                            rot = j;
-                            return bundle[i];
+                            //if(dirChar.Center == "" || center == dirChar.Center)
+                            //{
+                                rot = j;
+                                return bundle[i];
+                            //}
                         }
                     }
                 }
@@ -1496,6 +1509,94 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             RefreshInspector(targetBundleRef);
             //Selection.activeObject = null;
             //EditorApplication.delayCall += () => Selection.activeObject = targetBundleRef;
+        }
+
+        public bool SaveRules(string rulesetName, out string endName, out WFCRuleset newRuleset, out string errMsg)
+        {
+            endName = null;
+            newRuleset = null;
+            errMsg = null;
+
+            var ruleSetCharArr = targetBundleRef.GetCharacteristics<WFCRulesetsCharacteristic>();
+            WFCRulesetsCharacteristic rulesetChar;
+            if(ruleSetCharArr is null || ruleSetCharArr.Count == 0)
+            {
+                rulesetChar = new WFCRulesetsCharacteristic();
+                targetBundleRef.AddCharacteristic(rulesetChar);
+            }
+            else rulesetChar = ruleSetCharArr[0];
+
+            endName = rulesetName;
+            if(endName.Length == 0)
+            {
+                endName = "New WFC Ruleset";
+            }
+            if(endName == "New WFC Preset")
+            {
+                int count = rulesetChar.Rulesets.Where(r => r.Name.Equals(rulesetName)).Count();
+                if(count > 0)
+                {
+                    endName += $" ({count})";
+                }
+            }
+
+            string n = endName;
+            bool overwrite = rulesetChar.Rulesets.Find(r => r.Name.Equals(n)) is not null;
+            if (overwrite)
+            {
+                bool confirmOverwrite = EditorUtility.DisplayDialog("Overwrite?", $"You are about to overwrite the WFC ruleset from Bundle {targetBundleRef.BundleName}. Continue?", "Yes", "No");
+                if (!confirmOverwrite) return false;
+                rulesetChar.Rulesets.RemoveAll(r =>
+                {
+                    if (r.Name.Equals(n))
+                    {
+                        AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(r));
+                        return true;
+                    }
+                    return false;
+                });
+            }
+
+            var chance = targetBundleRef.GetCharacteristics<LBSDirectionedChance>()[0];
+            newRuleset = ScriptableObject.CreateInstance<WFCRuleset>();
+            newRuleset.Name = endName;
+            newRuleset.SetRules(chance.tileDirections);
+
+            rulesetChar.Rulesets.Add(newRuleset);
+
+            RefreshInspector(targetBundleRef);
+
+            string path = LBSSettings.Instance.paths.WFCpresetsFolderPath + $"/{endName}.asset";
+            AssetDatabase.CreateAsset(newRuleset, path);
+            AssetDatabase.SaveAssets();
+            //newRuleset.SetAssetGUID(AssetDatabase.AssetPathToGUID(path));
+
+            return true;
+        }
+
+        public void LoadRules(WFCRuleset ruleset)
+        {
+            var chance = targetBundleRef.GetCharacteristics<LBSDirectionedChance>()[0];
+            chance.maxLimit = 1f;
+            for(int i = 0; i < chance.tileDirections.Count; i++)
+            {
+                bool found = false;
+                foreach(TileDirection rulesetTD in ruleset.GetRules())
+                {
+                    if (chance.tileDirections[i].mainTarget.Equals(rulesetTD.mainTarget))
+                    {
+                        chance.tileDirections[i].rotation = rulesetTD.rotation;
+                        chance.tileDirections[i].chances = new List<NestedList<TileDirectionChance>>(rulesetTD.chances);
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                    Debug.LogWarning($"Bundle '{chance.tileDirections[i].mainTarget}' was not in ruleset '{ruleset.Name}'");
+            }
+
+            RefreshInspector(targetBundleRef);
         }
 
         private void RefreshInspector(UnityEngine.Object target)
@@ -1907,15 +2008,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
     }
 
-    class WFCState
+    struct WFCState
     {
         public int step;
         public ConnectedTileMapModule tileMap;
-        public List<LBSTile> toCalc;
-        public List<LBSTile> closed = new List<LBSTile>();
-        public Dictionary<LBSTile, List<Candidate>> currentCalcs = new Dictionary<LBSTile, List<Candidate>>();
+        public HashSet<LBSTile> toCalc;
+        public HashSet<LBSTile> closed;
+        public Dictionary<LBSTile, List<Candidate>> currentCalcs;
 
-        public WFCState(int step, ConnectedTileMapModule tileMap, List<LBSTile> toCalc, List<LBSTile> closed, Dictionary<LBSTile, List<Candidate>> currentCalcs)
+        public WFCState(int step, ConnectedTileMapModule tileMap, HashSet<LBSTile> toCalc, HashSet<LBSTile> closed, Dictionary<LBSTile, List<Candidate>> currentCalcs)
         {
             this.step = step;
             var tm = new List<LBSModule>() { tileMap };

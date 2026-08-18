@@ -1,6 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// A list container that can be serialized by Unity 
+/// </summary>
+/// <typeparam name="T"></typeparam>
 [System.Serializable]
 public class NestedList<T>
 {
