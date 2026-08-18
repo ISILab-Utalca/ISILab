@@ -1042,6 +1042,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             Dictionary<TileDirectionChance, float> optionsChance = new();
 
             bool emptyNeighs = true;
+            int empties = 4;
 
             for(int j = 0; j < 4; j++)
             {
@@ -1053,7 +1054,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 if (opp.Equals("Empty") || opp.Equals(""))
                     continue;
 
-                emptyNeighs = false;
+                //emptyNeighs = false;
+                empties--;
 
                 int neighRot = 0;
                 TileDirection neighTD = chanceGroup.tileDirections.Find(td => td.Connections.Rotate(td.rotation).SequenceEqual(neighConns)/*.IsSameRotated(neighConns, out neighRot)*/); // neighTD es el vecino en el mapa, rotado "rotation" veces
@@ -1101,8 +1103,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 chance = optionsChance[tdc] // Aca actualiza realmente la probabilidad combinada
             }));
 
-            if (options.Count == 0 && emptyNeighs && connections.ContainsOnly("Empty", ""))
+            emptyNeighs = empties == 4;
+
+            if (options.Count == 0 /*&& connections.ContainsOnly("Empty", "")*/ && emptyNeighs)
                 candidates = chanceGroup.tileDirections
+                    .Where(td => Compare(connections.ToArray(), td.Connections.Rotate(td.rotation).ToArray()/*, !chance.UsesEmpties*/))
                     .Select(td => new Candidate()
                     {
                         bundle = td.mainTarget.GetCharacteristics<LBSDirection>()[0],
@@ -1300,6 +1305,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                         chance = (float)pair.count / rule.Value.Where(t => t != null && t.direction == pair.direction).Sum(t => t.count)
                     };
                     td.chances[pair.direction].Add(tileDirectionChance);
+                }
+
+                for(int i = 0; i < 4; i++)
+                {
+                    td.chances[i].list = td.chances[i].list.OrderBy(tdc => tdc.target.BundleName).ThenBy(tdc => tdc.rotation).ToList();
                 }
 
                 group.tileDirections.Add(td);
