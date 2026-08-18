@@ -45,7 +45,6 @@ namespace ISILab.LBS
             get => image;
             set => image = value;
         }
-        
         #endregion
 
         #region CONSTRUCTOR
@@ -56,18 +55,15 @@ namespace ISILab.LBS
             this.savedScore = score;
             this.image = image;
         }
+        #endregion
 
+        #region METHODS
         public object Clone()
         {
             var clonedMap = this.map.Clone() as BundleTilemapChromosome;
             var savedMapClone = new SavedMap(clonedMap, mapName, savedScore, image);
             return savedMapClone;
         }
-
-        #endregion
-
-        #region METHODS
-
         #endregion
     }
 }

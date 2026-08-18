@@ -36,7 +36,7 @@ namespace ISILab.LBS.VisualElements
 
         private AddExteriorTile addExteriorTile;
         private AddVertexExteriorTile addVertexExteriorTile;
-        private RemoveTileExterior removeTile;
+        private RemoveExteriorTile removeTile;
         private SetExteriorTileConnection setConnection;
         private SetVertexExteriorTileConnection setVertexConnection;
         //private RemoveConnectionInArea removeConnectionInArea;
@@ -84,7 +84,7 @@ namespace ISILab.LBS.VisualElements
         {
             this.RegisterCallback<KeyDownEvent>(OnKeyDown);
             // We set the remover tool first as we want to avoid using switch statement twice when setting the add tool's remover.
-            removeTile = new RemoveTileExterior();
+            removeTile = new RemoveExteriorTile();
             LBSTool t2 = new LBSTool(removeTile);
 
             addExteriorTile = new AddExteriorTile();

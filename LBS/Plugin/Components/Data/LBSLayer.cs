@@ -41,8 +41,8 @@ namespace LBS.Components
         [SerializeField, SerializeReference] private List<LBSAssistant> assistants = new();
         [SerializeField, SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
 
-        [JsonIgnore] private bool floorsSizeInitialized = false;
-        [JsonIgnore] private int floorsCount = -1;
+        //[JsonIgnore] private bool floorsSizeInitialized = false;
+        //[JsonIgnore] private int floorsCount = -1;
 
         [JsonIgnore] private LBSLevelData _parent;
         [JsonIgnore] private int activeFloor = 0;

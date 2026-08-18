@@ -7,11 +7,11 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Manipulators
 {
-    public class RemoveZoneConnection : LBSManipulator
+    public class RemoveSchemaZoneConnection : LBSManipulator
     {
         private HillClimbingAssistant _hillclimbing;
 
-        public RemoveZoneConnection()
+        public RemoveSchemaZoneConnection()
         {
             Name = "Remove Assistant Connection";
             Description = "Click a connection between zones to remove it.";

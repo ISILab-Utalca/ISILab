@@ -134,6 +134,22 @@ namespace ISILab.LBS
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public LBSLayer RemoveAt(int index)
+        {
+            if (index + 1 > layers.Count) return null;
+            var layer = layers[index];
+            layers.RemoveAt(index);
+            RemoveLayerFromContext(layer);
+            layer.OnAddModule -= (layer, module) => OnChanged(this);
+            OnChanged?.Invoke(this);
+            return layer;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="oldLayer"></param>
         /// <param name="newLayer"></param>
         public void ReplaceLayer(LBSLayer oldLayer, LBSLayer newLayer)
@@ -144,21 +160,6 @@ namespace ISILab.LBS
             OnChanged?.Invoke(this);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        public LBSLayer RemoveAt(int index)
-        {
-            if (index+1 > layers.Count) return null;
-            var layer = layers[index];
-            layers.RemoveAt(index);
-            RemoveLayerFromContext(layer);
-            layer.OnAddModule -= (layer, module) => OnChanged(this);
-            OnChanged?.Invoke(this);
-            return layer;
-        }
         
         public void AddLayerToContext(LBSLayer layer)
         {
@@ -307,37 +308,3 @@ namespace ISILab.LBS
         }
     }
 }
-
-
-/*
-     public LBSLayer AddQuest(string name)
-     {
-         var quest = new LBSLayer();
-
-         quest.ID = name;
-         quest.Name = name;
-         quest.iconGuid = "Assets/ISI Lab/Commons/Assets2D/Resources/Icons/Quest_Icon/IconQuestTitle2.png";
-         quest.TileSize = new Vector2Int(2, 2);
-         quest.AddGeneratorRule(new QuestRuleGenerator());
-
-         string questBehaviorGuidIcon = "49b9448c876b36c4ba26740d7deae035";
-         var behaviour = new QuestBehaviour(questBehaviorGuidIcon, "Quest", LBSSettings.Instance.view.behavioursColor);
-         var assistant = new GrammarAssistant(questBehaviorGuidIcon, "Grammar", LBSSettings.Instance.view.assistantColor);
-         quest.AddAssistant(assistant);
-         quest.AddBehaviour(behaviour);
-         quests.Add(quest);
-
-         OnChanged?.Invoke(this);
-         return quest;
-     }
-
-     public QuestGraph RemoveQuestAt(int index)
-     {
-         var q = quests[index];
-         quests.RemoveAt(index);
-
-         var qg = q.GetModule<QuestGraph>();
-
-         OnChanged?.Invoke(this);
-         return qg;
-     }*/

@@ -45,8 +45,8 @@ namespace ISILab.LBS.VisualElements
         private LBSLayer tempLayer;
 
         // Manipulators
-        private SetZoneConnection setZoneConnection;
-        private RemoveZoneConnection removeZoneConnection;
+        private AddSchemaZoneConnection setZoneConnection;
+        private RemoveSchemaZoneConnection removeZoneConnection;
 
         #endregion
         
@@ -82,12 +82,12 @@ namespace ISILab.LBS.VisualElements
 
         public void SetTools(ToolKit toolKit)
         {
-            setZoneConnection = new SetZoneConnection();
+            setZoneConnection = new AddSchemaZoneConnection();
             var t1 = new LBSTool(setZoneConnection);
             t1.OnSelect += LBSInspectorPanel.ActivateAssistantTab;
             t1.Init(_assistant.OwnerLayer, _assistant);
             
-            removeZoneConnection = new RemoveZoneConnection();
+            removeZoneConnection = new RemoveSchemaZoneConnection();
             var t2 = new LBSTool(removeZoneConnection);
             t2.OnSelect += LBSInspectorPanel.ActivateAssistantTab;
             

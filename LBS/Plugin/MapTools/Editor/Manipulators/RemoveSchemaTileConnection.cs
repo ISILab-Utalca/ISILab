@@ -13,7 +13,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Manipulators
 {
-    public class RemoveTileConnection : LBSManipulator
+    public class RemoveSchemaTileConnection : LBSManipulator
     {
         private static List<Vector2Int> Directions => Commons.Directions.Bidimencional.Edges;
 
@@ -23,7 +23,7 @@ namespace ISILab.LBS.Manipulators
 
         protected override string IconGuid => "0ce694377e9e05a478862c63a2ca952d";
         
-        public RemoveTileConnection()
+        public RemoveSchemaTileConnection()
         {
             Feedback = new ConnectedLine();
             Feedback.fixToTeselation = true;

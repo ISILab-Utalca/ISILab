@@ -14,7 +14,7 @@ using UnityEditor;
 
 namespace ISILab.LBS.Manipulators
 {
-    public class RemoveConnection : LBSManipulator
+    public class RemoveExteriorTileConnection : LBSManipulator
     {
         private List<Vector2Int> Directions => Commons.Directions.Bidimencional.Edges;
 
@@ -24,7 +24,7 @@ namespace ISILab.LBS.Manipulators
         private ConnectedCornerLine lineFeedback = new ConnectedCornerLine();
         private Feedback areaFeedback = new AreaFeedback();
 
-        public RemoveConnection() : base()
+        public RemoveExteriorTileConnection() : base()
         {
             lineFeedback.fixToTeselation = true;
             areaFeedback.fixToTeselation = true;

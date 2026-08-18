@@ -135,6 +135,8 @@ namespace ISILab.LBS
         {
             var path = "";
             var fileInfo = CurrentLevel.FileInfo;
+
+            // If file doesn't exists, use default path
             if (CurrentLevel.FileInfo != null)
             {
                 
@@ -144,6 +146,7 @@ namespace ISILab.LBS
                     (fileInfo.Exists) ? fileInfo.Name : defaultName + ".lbs",
                     "lbs");
             }
+            // If file already exists, use existing path
             else
             {
                 path = EditorUtility.SaveFilePanel(
@@ -154,17 +157,21 @@ namespace ISILab.LBS
                 CurrentLevel.fullName = path;
             }
 
-            if (path != "")
-            {
-                var parts = path.Split("/");
-                var filename = parts[^1];
-                var directory = path.Substring(0,path.Length - filename.Length);
-                Debug.Log("Save file on: '" + directory + filename + "'.");
-                JSONDataManager.SaveData(directory, filename, CurrentLevel.data);
-                LBS.loadedLevel.fullName = path;
-                LBSMainWindow.MessageNotify(new LBSLog("The file has been saved."));
-            }
-            return (path != "");
+            // Cancel operation
+            if (path == "") return false;
+
+            var parts = path.Split("/");
+            var filename = parts[^1];   //^1 points to the last element
+            var directory = path.Substring(0, path.Length - filename.Length);
+
+            // Save data on chosen path
+            JSONDataManager.SaveData(directory, filename, CurrentLevel.data);
+            CurrentLevel.fullName = path;
+
+            // Notifications
+            Debug.Log("Save file on: '" + directory + filename + "'.");
+            LBSMainWindow.MessageNotify(new LBSLog("The file has been saved."));
+            return true;
         }
 
         /// <summary>

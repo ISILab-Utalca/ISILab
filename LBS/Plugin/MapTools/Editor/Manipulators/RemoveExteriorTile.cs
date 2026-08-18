@@ -7,12 +7,12 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Manipulators
 {
-    public class RemoveTileExterior : ManipulateTeselation
+    public class RemoveExteriorTile : ManipulateTeselation
     {
         private ExteriorBehaviour _exterior;
         protected override string IconGuid => "ce08b36a396edbf4394f7a4e641f253d";
         
-        public RemoveTileExterior()
+        public RemoveExteriorTile()
         {
             Name = "Remove Tiles";
             Description = "Click on a Tile or select an area to remove multiple tiles.";

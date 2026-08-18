@@ -29,7 +29,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
     [LBSCustomEditor("Wave Function Collapse", typeof(AssistantWFC))]
     public class AssistantWFCEditor : LBSCustomEditor, IToolProvider, IBundleFilter
     {
-        private WaveFunctionCollapseManipulator collapseManipulator;
+        private WFCManipulator collapseManipulator;
 
         private AssistantWFC assistant;
 
@@ -61,7 +61,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
 
         public void SetTools(ToolKit toolKit)
         {
-            collapseManipulator = new WaveFunctionCollapseManipulator();
+            collapseManipulator = new WFCManipulator();
             var t1 = new LBSTool(collapseManipulator);
             t1.OnSelect += LBSInspectorPanel.ActivateAssistantTab;
             toolKit.ActivateTool(t1,assistant.OwnerLayer, assistant);
@@ -132,7 +132,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
                 }
 
                 assistant.Bundle = exterior.Bundle;
-                ToolKit.Instance.SetActive(typeof(WaveFunctionCollapseManipulator));
+                ToolKit.Instance.SetActive(typeof(WFCManipulator));
                 MarkDirtyRepaint();
 
                 UpdatePresetsList();

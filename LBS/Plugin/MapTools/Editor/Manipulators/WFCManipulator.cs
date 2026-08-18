@@ -15,7 +15,7 @@ using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Manipulators
 {
-    public class WaveFunctionCollapseManipulator : ManipulateTeselation, IAssistantThreadedEditor
+    public class WFCManipulator : ManipulateTeselation, IAssistantThreadedEditor
     {
         private Vector2Int _cornerStart;
 
@@ -23,7 +23,7 @@ namespace ISILab.LBS.Manipulators
         
         protected override string IconGuid => "08c60bd0a76e4bb4dad11ebf18bca46e";
 
-        public WaveFunctionCollapseManipulator()
+        public WFCManipulator()
         {
             Feedback.fixToTeselation = true;
             Name = "Wave Function Collapse";

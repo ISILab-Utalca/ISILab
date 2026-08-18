@@ -34,7 +34,7 @@ namespace ISILab.LBS.Behaviours.Editor
         private RemoveSchemaTile removeSchemaTile;
 
         private AddSchemaTileConnection addTileConnection;
-        private RemoveTileConnection removeTileConnection;
+        private RemoveSchemaTileConnection removeTileConnection;
         private MoveSchemaZone moveSchemaZone;
         private RotateSchemaZone rotateSchemaZone;
         private PlaceStairs placeStairs;
@@ -86,7 +86,7 @@ namespace ISILab.LBS.Behaviours.Editor
             var t3 = new LBSTool(addTileConnection);
             t3.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
             
-            removeTileConnection = new RemoveTileConnection();
+            removeTileConnection = new RemoveSchemaTileConnection();
             var t4 = new LBSTool(removeTileConnection);
             t4.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
 

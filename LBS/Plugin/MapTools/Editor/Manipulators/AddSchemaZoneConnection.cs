@@ -9,14 +9,14 @@ using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Manipulators
 {
-    public class SetZoneConnection : LBSManipulator
+    public class AddSchemaZoneConnection : LBSManipulator
     {
         private HillClimbingAssistant _assistant;
         private Vector2Int _first;
 
         protected override string IconGuid => "9205ce0b509ff9442963e8161b25d8a2";
 
-        public SetZoneConnection()
+        public AddSchemaZoneConnection()
         {
             Feedback = new ConnectedLine();
             Feedback.fixToTeselation = false;
