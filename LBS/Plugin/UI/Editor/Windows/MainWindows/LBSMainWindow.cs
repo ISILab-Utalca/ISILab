@@ -86,8 +86,8 @@ namespace ISILab.LBS.Editor.Windows
 
         private LBSLevelData levelData
         {
-            get => LBS.loadedLevel.data;
-            set => LBS.loadedLevel.data = value;
+            get => LBSController.CurrentLevel.data;
+            set => LBSController.CurrentLevel.data = value;
         }
 
         public LBSLayer SelectedLayer => _selectedLayer;
@@ -105,8 +105,6 @@ namespace ISILab.LBS.Editor.Windows
 
         #region MANAGERS
 
-        [NonSerialized]
-        private ToolKit toolkit;
         [NonSerialized]
         private DrawManager drawManager;
         [NonSerialized]
@@ -208,7 +206,7 @@ namespace ISILab.LBS.Editor.Windows
         public Action onLayerChange;
         #endregion
 
-        #region STATIC METHODS
+        #region STATIC PROPERTIES
         public static LBSMainWindow OpenWindow => GetWindow<LBSMainWindow>();
         public static LBSMainWindow Instance => SingletonHelper.Instance;
         #endregion
@@ -237,6 +235,62 @@ namespace ISILab.LBS.Editor.Windows
             SingletonHelper.Instance = this;
         }
 
+        private void OnDisable()
+        {
+            //Debug.Log($"[LBSMainWindow] - OnDisable - {RandomId}");
+            if (Instance == this)
+            {
+                SingletonHelper.SetInstanceNull();
+                
+                //desuscribirse de eventos 
+                onLayerChange -= OnBlueprintCaptureEnable; 
+                levelData!.OnReload -= OnLayerResetSelection;
+
+                if (layerPanel != null)
+                    layerPanel.OnSelectLayer -= OnSelectedLayerChange;
+
+                if (levelData != null)
+                {
+                    levelData.OnChanged -= OnLevelDataChange;
+                    levelData!.OnReload -= () => layerPanel.ResetSelection(); // Refactoriza la lambda
+                }
+
+                // Cerrar ventanas colgantes
+                foreach (var w in hangingWindows)
+                {
+                    EditorApplication.delayCall += () =>
+                    {
+                        if (w == null) return;
+                        w.Close(); 
+                    };
+                }
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if(this != null)
+            {
+                //Close();
+            }
+        }
+
+        private void OnFocus() => Undo.undoRedoPerformed += UNDO;
+        private void OnLostFocus() => Undo.undoRedoPerformed -= UNDO;
+
+        #region METHODS
+        protected override void CreateGUI()
+        {
+            LoadUITree();
+            Init();
+            rootVisualElement.focusable = true;
+            rootVisualElement.Focus();
+        }
+
+        private void OnInspectorUpdate()
+        {
+            onWindowRepaint?.Invoke();
+        }
         private void LoadUITree()
         {
             //Debug.Log($"[LBSMainWindow] - LoadUITree - {RandomId}");
@@ -273,82 +327,22 @@ namespace ISILab.LBS.Editor.Windows
             taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("WaitOverlay");
         }
 
-        private void OnDisable()
-        {
-            //Debug.Log($"[LBSMainWindow] - OnDisable - {RandomId}");
-            if (Instance == this)
-            {
-                SingletonHelper.SetInstanceNull();
-                
-                //desuscribirse de eventos 
-                onLayerChange -= OnBlueprintCaptureEnable; 
-                levelData!.OnReload -= OnLayerResetSelection;
-
-                if (layerPanel != null)
-                    layerPanel.OnSelectLayer -= OnSelectedLayerChange;
-
-                if (levelData != null)
-                {
-                    levelData.OnChanged -= OnLevelDataChange;
-                    levelData!.OnReload -= () => layerPanel.ResetSelection(); // Refactoriza la lambda
-                }
-
-                // Cerrar ventanas colgantes
-                foreach (var w in hangingWindows)
-                {
-                    if (w == null) continue;
-                    EditorApplication.delayCall += () => { w.Close(); };
-                }
-            }
-        }
-
-
-        private void OnDestroy()
-        {
-            if(this != null)
-            {
-                //Close();
-            }
-        }
-
-        #region METHODS
-        protected override void CreateGUI()
-        {
-            LoadUITree();
-            Init();
-            rootVisualElement.focusable = true;
-            rootVisualElement.Focus();
-        }
-
-        private void OnInspectorUpdate()
-        {
-            onWindowRepaint?.Invoke();
-        }
-
-        private void PrintSelectedLayer()
-        {
-            string s = _selectedLayer is null ?
-                "NULL" :
-                _selectedLayer.ID;
-            Debug.Log(s);
-        }
-
         /// <summary>
         /// Initialize the window.
         /// </summary>
         private void Init()
         {
             #region LOAD & BACKUP LEVEL DATA
-            if (LBS.loadedLevel == null)
+            if (LBSController.CurrentLevel == null)
             {
                 if (levelData == null)
                 {
-                    LBS.loadedLevel = LBSController.CreateNewLevel();
+                    LBSController.CurrentLevel = LBSController.CreateNewLevel();
                 }
                 else
                 {
                     backUpData = levelData;
-                    LBS.loadedLevel = LBSController.CreateNewLevel();
+                    LBSController.CurrentLevel = LBSController.CreateNewLevel();
                     levelData = backUpData;
                 }
             }
@@ -386,7 +380,7 @@ namespace ISILab.LBS.Editor.Windows
             
             topToolBar.OnLoadLevel += data =>
             {
-                LBS.loadedLevel = data;
+                LBSController.CurrentLevel = data;
                 RebuildWindow();
                 //drawManager.RedrawLevel(levelData);
             };
@@ -490,12 +484,6 @@ namespace ISILab.LBS.Editor.Windows
 
             #endregion
 
-            #region TOOLKIT
-
-            toolkit = rootVisualElement.Q<ToolKit>("Toolkit");
-
-            #endregion
-
             #region MAIN INIT & EVENTS
 
             LBSController.OnLoadLevel += _ => _selectedLayer = null;
@@ -521,11 +509,8 @@ namespace ISILab.LBS.Editor.Windows
             ChangeTheme(LBSSettings.Instance.view.LBSTheme);
             #endregion
 
-            //clippy.InitModes();
+            clippy.InitModes();
         }
-
-
-
 
         /// <summary>
         /// Repaint the window.
@@ -588,12 +573,6 @@ namespace ISILab.LBS.Editor.Windows
 
         }
 
-        public static void WarningManipulator(string description = null)
-        {
-            if (Instance.WarningLabel == null) return;
-            Instance.WarningLabel.text = description;
-            Instance.WarningNotification.visible = description != null && description != string.Empty;
-        }
 
         private void NotifyChange()
         {
@@ -605,16 +584,6 @@ namespace ISILab.LBS.Editor.Windows
             List<LBSLayer> layers = new List<LBSLayer>();
             if (layerPanel == null || layerPanel.Data == null) return layers;
             return layerPanel.Data.Layers;
-        }
-
-        private void OnFocus()
-        {
-            Undo.undoRedoPerformed += UNDO;
-        }
-
-        private void OnLostFocus()
-        {
-            Undo.undoRedoPerformed -= UNDO;
         }
 
         private void UNDO()
@@ -643,23 +612,9 @@ namespace ISILab.LBS.Editor.Windows
             LBSInspectorPanel.ReDraw();
         }
 
-        public static void MessageNotify(LBSLog lbsMessage)
-        {
-            Instance.Notifier?.SendNotification(
-                lbsMessage.message, 
-                lbsMessage.type, 
-                lbsMessage.duration);
-        }
 
         public void MessageManipulator(string description) => infoToolBar?.SetToolText(description);
 
-        public static void SetGridPosition(Vector2 pos)
-        {
-            Instance.GridPosition = pos.ToInt();
-            if (Instance.PositionLabel == null) return;
-            string text = "Grid Position: " + pos.ToInt();
-            Instance.PositionLabel.text = text;
-        }
 
         public void DisplayHelp()
         {
@@ -740,6 +695,29 @@ namespace ISILab.LBS.Editor.Windows
         {
             clippy.SetDisplay(value ? DisplayStyle.Flex : DisplayStyle.None);
         }
+        #endregion
+
+        #region STATIC METHODS
+        public static void MessageNotify(LBSLog lbsMessage)
+        {
+            Instance.Notifier?.SendNotification(
+                lbsMessage.message,
+                lbsMessage.type,
+                lbsMessage.duration);
+        }
+        public static void WarningManipulator(string description = null)
+        {
+            if (Instance.WarningLabel == null) return;
+            Instance.WarningLabel.text = description;
+            Instance.WarningNotification.visible = description != null && description != string.Empty;
+        }
+        public static void SetGridPosition(Vector2 pos)
+        {
+            Instance.GridPosition = pos.ToInt();
+            if (Instance.PositionLabel == null) return;
+            string text = "Grid Position: " + pos.ToInt();
+            Instance.PositionLabel.text = text;
+        }
 
         public static void BindHangingWindow(EditorWindow window)
         {
@@ -786,16 +764,6 @@ namespace ISILab.LBS.Editor.Windows
 
         private sealed class SingletonHelper
         {
-
-            [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
-            private static void ShowWindow()
-            {
-                LBSMainWindow window = LBSMainWindow.OpenWindow;
-                Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
-                window.titleContent = new GUIContent("Level Builder", icon);
-                window.minSize = new Vector2(800, 400);
-            }
-
             // MainWindow instance
             private static LBSMainWindow _instance = null;
             public static LBSMainWindow Instance
@@ -814,6 +782,16 @@ namespace ISILab.LBS.Editor.Windows
                     _instance = value;
                 }
             }
+
+            [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
+            private static void ShowWindow()
+            {
+                LBSMainWindow window = LBSMainWindow.OpenWindow;
+                Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
+                window.titleContent = new GUIContent("Level Builder", icon);
+                window.minSize = new Vector2(800, 400);
+            }
+
             public static void SetInstanceNull()
             {
                 _instance = null;
