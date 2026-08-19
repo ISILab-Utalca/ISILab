@@ -1,12 +1,14 @@
-﻿using NinePenguins;
+﻿using Malee.List;
+using NinePenguins;
+using PathOS;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEngine;
 using UnityEditor.SceneManagement;
+using UnityEditorInternal;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using PathOS;
-using Malee.Editor;
+using ReorderableList = Malee.List.ReorderableList;
 
 /*
 PathOSMainInspector.cs 
