@@ -4,15 +4,6 @@ using UnityEngine;
 
 namespace ISILab.LBS
 {
-    public class BackUp : ScriptableObject
-    {
-        public LoadedLevel level;
-    }
-
-    public static class LBS
-    {
-        public static LoadedLevel loadedLevel;
-    }
 
     [System.Serializable]
     public class LoadedLevel : ScriptableObject

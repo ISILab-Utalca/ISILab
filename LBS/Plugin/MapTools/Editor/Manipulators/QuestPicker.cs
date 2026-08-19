@@ -79,7 +79,7 @@ namespace ISILab.LBS.Manipulators
                     OnPositionPicked?.Invoke(location);
                     break;
                 case QuestPickType.Bundle:
-                    Tuple<LBSLayer, TileBundleGroup> foundTile = LBSLayerHelper.GetBundleTileByMouse(endPosition, LBS.loadedLevel.data.Layers);
+                    Tuple<LBSLayer, TileBundleGroup> foundTile = LBSLayerHelper.GetBundleTileByMouse(endPosition, LBSController.CurrentLevel.data.Layers);
                     if (foundTile is not null)
                     {
                         OnBundlePicked?.Invoke(foundTile.Item1, foundTile.Item2);

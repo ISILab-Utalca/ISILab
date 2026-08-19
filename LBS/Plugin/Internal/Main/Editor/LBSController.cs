@@ -15,10 +15,12 @@ namespace ISILab.LBS
         public static Action<LBSLevelData> OnLoadLevel;
         public static Action<LBSLevelData> OnSaveLevel;
 
+        private static LoadedLevel _currentLevel;
         public static LoadedLevel CurrentLevel
         {
             get
             {
+                /*
                 var level = LBS.loadedLevel;
                 if (level == null)
                 {
@@ -26,11 +28,20 @@ namespace ISILab.LBS
                     level.data = new LBSLevelData();
                     level.fullName = "";
                 }
-                return level;
+                return level;//*/
+
+                if (_currentLevel == null)
+                {
+                    _currentLevel = ScriptableObject.CreateInstance<LoadedLevel>();
+                    _currentLevel.data = new LBSLevelData();
+                    _currentLevel.fullName = "";
+                }
+                return _currentLevel;
             }
             set
             {
-                LBS.loadedLevel = value;
+                //LBS.loadedLevel = value;
+                _currentLevel = value;
             }
         }
 
