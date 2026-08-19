@@ -6,8 +6,8 @@ namespace PathOS
 {
     public class HeuristicOS : MonoBehaviour
     {
-        [HideInInspector] public List<HeuristicScale> heuristicScales;
-        [HideInInspector] internal List<HeuristicScale> modifiableHeuristicScales;
+        [HideInInspector] public readonly List<HeuristicScale> heuristicScales = new();
+        [HideInInspector] internal readonly List<HeuristicScale> modifiableHeuristicScales = new();
 
         internal Dictionary<Heuristic, float> _heuristicScaleLookup;
         internal Dictionary<(Heuristic, EntityType), float> _entityScoringLookup;
