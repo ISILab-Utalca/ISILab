@@ -171,7 +171,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
 
             //Save weights in a preset button
             var saveWeightsButton = this.Q<Button>("SaveWeights");
-            if(assistant.GridType == ConnectedTileMapModule.ConnectedTileType.EdgeBased) saveWeightsButton.clicked += SaveRules;
+            saveWeightsButton.clicked += SaveRules;
             rulesetName = this.Q<TextField>("RulesetName");
             rulesetsFolder = this.Q<TextField>("RulesetsPath");
             //presetsFolder.focusable = false; 
@@ -179,7 +179,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
 
             // Load weights from a preset
             var loadWeightsButton = this.Q<Button>("LoadWeights");
-            if (assistant.GridType == ConnectedTileMapModule.ConnectedTileType.EdgeBased) loadWeightsButton.clicked += LoadRules;
+            loadWeightsButton.clicked += LoadRules;
             currentRuleset = this.Q<ObjectField>("CurrentRuleset");
             //currentPreset.value = AssetMacro.LoadAssetByGuid<WFCPreset>(defaultWFCAssetGUID);
 

@@ -631,251 +631,265 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             bool success = false;
 
-            int initialRetryBonus = 10;
-            (int, int) retryCount = (MAX_MEMORY, MAX_RETRIES + initialRetryBonus);
-            int step = 0, maxStep = 0;
-
-            Bundle bundle = targetBundleRef;
-
-            //var group = bundle.GetCharacteristics<LBSDirectionedChance>()[0];
-            //var map = OwnerLayer.GetModule<TileMapModule>();
-            //var connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
-
-            ////guarda el mapa original para restaurarlo en caso de fallo
-            //var og = new List<LBSModule>() { OwnerLayer.GetModule<ConnectedTileMapModule>() };
-            //var originalTM = og.Clone()[0] as ConnectedTileMapModule;
-
-            // Get tiles to change
-            HashSet<LBSTile> toCalc = GetTileToCalc(map, connected);
-
-            // Build whitelist (positions + direct neighbors)
-            // and selection area neighbourhood
-            var whitelist = new HashSet<Vector2Int>();
-            var areaNeighbours = new List<(LBSTile, int)>();
-            bool implemented = true;
-            foreach (LBSTile tile in toCalc)
+            try
             {
-                whitelist.Add(tile.Position);
-                List<LBSTile> neighbours = map.GetTileNeighbors(tile, Dirs);
+                int initialRetryBonus = 10;
+                (int, int) retryCount = (MAX_MEMORY, MAX_RETRIES + initialRetryBonus);
+                int step = 0, maxStep = 0;
 
-                for (int i = 0; i < neighbours.Count; i++)
+                Bundle bundle = targetBundleRef;
+
+                //var group = bundle.GetCharacteristics<LBSDirectionedChance>()[0];
+                //var map = OwnerLayer.GetModule<TileMapModule>();
+                //var connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
+
+                ////guarda el mapa original para restaurarlo en caso de fallo
+                //var og = new List<LBSModule>() { OwnerLayer.GetModule<ConnectedTileMapModule>() };
+                //var originalTM = og.Clone()[0] as ConnectedTileMapModule;
+                
+                // Get tiles to change
+                HashSet<LBSTile> toCalc = GetTileToCalc(map, connected);
+
+                // Build whitelist (positions + direct neighbors)
+                // and selection area neighbourhood
+                var whitelist = new HashSet<Vector2Int>();
+                var areaNeighbours = new List<(LBSTile, List<int>)>();
+                bool implemented = true;
+                foreach (LBSTile tile in toCalc)
                 {
-                    if (neighbours[i] == null) continue;
+                    whitelist.Add(tile.Position);
+                    List<LBSTile> neighbours = map.GetTileNeighbors(tile, Dirs);
 
-                    bool isAreaNeighbour = !toCalc.Contains(neighbours[i]);
-                    bool haveEmpties = connected.GetConnections(neighbours[i]).Contains("");
-
-                    if (!(isAreaNeighbour && haveEmpties)) // In the previous version of WFC, to modify an area neighbour, it would need to be already completed.
-                        continue;                     // Now it's the opposite. As we can't determine the probabilities from a partial tile, we'll consider it as empty.
-
-                    whitelist.Add(neighbours[i].Position);
-
-                    if (isAreaNeighbour)
+                    for (int i = 0; i < neighbours.Count; i++)
                     {
-                        switch (GridType)
+                        if (neighbours[i] == null) continue;
+
+                        bool isAreaNeighbour = !toCalc.Contains(neighbours[i]);
+                        List<string> neighConns = connected.GetConnections(neighbours[i]);
+                        bool haveEmpties = neighConns.Contains("") || neighConns.Contains("Empty");
+
+                        if (!(isAreaNeighbour && haveEmpties)) // In the previous version of WFC, to modify an area neighbour, it would need to be already completed.
+                            continue;                     // Now it's the opposite. As we can't determine the probabilities from a partial tile, we'll consider it as empty.
+
+                        whitelist.Add(neighbours[i].Position);
+
+                        if (isAreaNeighbour)
                         {
-                            case ConnectedTileMapModule.ConnectedTileType.EdgeBased:
-                                areaNeighbours.Add((neighbours[i], (i + 2) % 4));
-                                break;
-                            case ConnectedTileMapModule.ConnectedTileType.VertexBased:
-                                implemented = false;
-                                break;
+                            switch (GridType)
+                            {
+                                case ConnectedTileMapModule.ConnectedTileType.EdgeBased:
+                                    areaNeighbours.Add((neighbours[i], new() { (i + 2) % 4 }));
+                                    break;
+                                case ConnectedTileMapModule.ConnectedTileType.VertexBased:
+                                    areaNeighbours.Add((neighbours[i], i % 2 == 0 ?
+                                        new() { (i / 2 + 1) % 4, (i / 2 + 2) % 4 } :
+                                        new() { (i / 2 + 2) % 4 }));
+                                    break;
+                            }
                         }
                     }
                 }
-            }
-            if (implemented)
-            {
-                foreach ((LBSTile, int) areaNeighbour in areaNeighbours)
+                if (implemented)
                 {
-                    connected.SetConnection(areaNeighbour.Item1, areaNeighbour.Item2, "", false);
-                    //toCalc.Add(areaNeighbour.Item1); // Possibly not necessary anymore
-                }
-            }
-            //else Debug.LogError("Unhandled case for Vertex-based grid. Could not build area neighbourhood.");
-
-            var closed = new HashSet<LBSTile>();
-            var reCalc = new List<LBSTile>();
-            var currentCalcs = new Dictionary<LBSTile, List<Candidate>>();
-
-            foreach (LBSTile tile in toCalc)
-            {
-                List<Candidate> candidates = CalcCandidates(tile, chance);
-                currentCalcs.Add(tile, candidates);
-            }
-
-            List<WFCState> states = new List<WFCState>();
-            if (safeMode)
-            {
-                states.Add(new WFCState(0, connected, toCalc, closed, currentCalcs));
-            }
-            bool stepSuccess = true;
-            int tryCount = 0;
-            int toCalcSize = toCalc.Count;
-
-            List<string> genOrder = new();
-
-            /// MAIN LOOP
-            while (toCalc.Count > 0)
-            {
-                if (((IAssistantThreaded)this).CheckPendingCancel(this, token))
-                {
-                    log = "Generation cancelled.";
-                    return false;
-                }
-
-                tryCount++;
-
-                List<KeyValuePair<LBSTile, List<Candidate>>> xx = safeMode ?
-                    currentCalcs.Where(e => !closed.Contains(e.Key)).ToList() :
-                    currentCalcs.Where(e => e.Value.Count > 1).ToList();
-
-                if (xx.Count <= 0)
-                    break;
-
-                int minEntropy = xx.Min(e => e.Value.Count);
-                var collapseOptions = xx.Where(e => e.Value.Count == minEntropy).ToList();
-                KeyValuePair<LBSTile, List<Candidate>> current = collapseOptions.Random();
-                //KeyValuePair<LBSTile, List<Candidate>> current = xx.OrderBy(e => e.Value.Count).First();
-
-                // If cannot generate next tile
-                if (safeMode && (!stepSuccess || current.Value.Count <= 0))
-                {
-                    if (Backtrack(states, ref retryCount, connected, originalTM, ref step, maxStep, out int revertedSteps, ref toCalc, ref closed, ref currentCalcs))
+                    foreach ((LBSTile, List<int>) areaNeighbour in areaNeighbours)
                     {
-                        stepSuccess = true;
-                        //Debug.Log($"TRY: {tryCount}\tSTEP {step}\tMAX STEP {maxStep}\tRETRY COUNT {retryCount}");
-                        genOrder.RemoveRange(genOrder.Count - revertedSteps, revertedSteps);
-                        continue;
+                        foreach (int dir in areaNeighbour.Item2)
+                        {
+                            connected.SetConnection(areaNeighbour.Item1, dir, "", false);
+                        }
+                        //toCalc.Add(areaNeighbour.Item1); // Possibly not necessary anymore
                     }
-                    else return false;
+                }
+                //else Debug.LogError("Unhandled case for Vertex-based grid. Could not build area neighbourhood.");
+
+                var closed = new HashSet<LBSTile>();
+                var reCalc = new List<LBSTile>();
+                var currentCalcs = new Dictionary<LBSTile, List<Candidate>>();
+
+                foreach (LBSTile tile in toCalc)
+                {
+                    List<Candidate> candidates = CalcCandidates(tile, chance);
+                    currentCalcs.Add(tile, candidates);
                 }
 
-                stepSuccess = true;
+                List<WFCState> states = new List<WFCState>();
+                if (safeMode)
+                {
+                    states.Add(new WFCState(0, connected, toCalc, closed, currentCalcs));
+                }
+                bool stepSuccess = true;
+                int tryCount = 0;
+                int toCalcSize = toCalc.Count;
 
-                Candidate selected = current.Value.RandomRullete(c => c.weigth);
-                List<string> connections = selected.bundle.GetConnection(selected.rotation).ToList();
-                string center = selected.bundle.Center;
-                connected.SetConnections(current.Key, connections, new List<bool>() { false, false, false, false });
-                connected.SetCenter(current.Key, center);
-                currentCalcs[current.Key] = new List<Candidate>() { selected };
-                closed.Add(current.Key);
+                List<string> genOrder = new();
 
-                var _closed = new HashSet<LBSTile>(closed);
-
-                genOrder.Add(current.Key.Position.ToString());
-
-                List<LBSTile> neigth = map.GetTileNeighbors(current.Key, Dirs);
-                SetConnectionNei(current.Key, neigth.ToArray(), closed, whitelist);
-
-                List<LBSTile> neigthCalcs = neigth.RemoveEmpties()
-                                         .Where(n => currentCalcs.ContainsKey(n) && whitelist.Contains(n.Position))
-                                         .ToList();
-                reCalc.AddRange(neigthCalcs);
-
-                //bool noCandidatesFlag = false;
-
-                while (reCalc.Count > 0)
+                /// MAIN LOOP
+                while (toCalc.Count > 0)
                 {
                     if (((IAssistantThreaded)this).CheckPendingCancel(this, token))
                     {
                         log = "Generation cancelled.";
                         return false;
                     }
-                    LBSTile tile = reCalc.First();
 
-                    if (!whitelist.Contains(tile.Position)
-                        || !toCalc.Contains(tile)) // Added to this version. Area neighbour should not recalculate, as it could collapse a full tile that was not included in the first place.
-                                                   // Even so they are part of the whitelist just to change a single connection.
-                    {
-                        reCalc.Remove(tile);
-                        continue;
-                    }
+                    tryCount++;
 
-                    currentCalcs.TryGetValue(tile, out List<Candidate> lastCandidates);
-                    List<Candidate> newCandidates = CalcCandidates(tile, chance);
+                    List<KeyValuePair<LBSTile, List<Candidate>>> xx = safeMode ?
+                        currentCalcs.Where(e => !closed.Contains(e.Key)).ToList() :
+                        currentCalcs.Where(e => e.Value.Count > 1).ToList();
 
-                    if (safeMode && newCandidates.Count == 0)
-                    {
-                        // No possible candidates: must revert step in next iteration
-                        stepSuccess = false;
-                        reCalc.Clear();
+                    if (xx.Count <= 0)
                         break;
+
+                    int minEntropy = xx.Min(e => e.Value.Count);
+                    var collapseOptions = xx.Where(e => e.Value.Count == minEntropy).ToList();
+                    KeyValuePair<LBSTile, List<Candidate>> current = collapseOptions.Random();
+                    //KeyValuePair<LBSTile, List<Candidate>> current = xx.OrderBy(e => e.Value.Count).First();
+
+                    // If cannot generate next tile
+                    if (safeMode && (!stepSuccess || current.Value.Count <= 0))
+                    {
+                        if (Backtrack(states, ref retryCount, connected, originalTM, ref step, maxStep, out int revertedSteps, ref toCalc, ref closed, ref currentCalcs))
+                        {
+                            stepSuccess = true;
+                            //Debug.Log($"TRY: {tryCount}\tSTEP {step}\tMAX STEP {maxStep}\tRETRY COUNT {retryCount}");
+                            genOrder.RemoveRange(genOrder.Count - revertedSteps, revertedSteps);
+                            continue;
+                        }
+                        else return false;
                     }
 
-                    if (lastCandidates == null || newCandidates.Count < lastCandidates.Count)
+                    stepSuccess = true;
+
+                    Candidate selected = current.Value.RandomRullete(c => c.weigth);
+                    List<string> connections = selected.bundle.GetConnection(selected.rotation).ToList();
+                    string center = selected.bundle.Center;
+                    connected.SetConnections(current.Key, connections, new List<bool>() { false, false, false, false });
+                    connected.SetCenter(current.Key, center);
+                    currentCalcs[current.Key] = new List<Candidate>() { selected };
+                    closed.Add(current.Key);
+
+                    var _closed = new HashSet<LBSTile>(closed);
+
+                    genOrder.Add(current.Key.Position.ToString());
+
+                    List<LBSTile> neigth = map.GetTileNeighbors(current.Key, Dirs);
+                    SetConnectionNei(current.Key, neigth.ToArray(), closed, whitelist);
+
+                    List<LBSTile> neigthCalcs = neigth.RemoveEmpties()
+                                             .Where(n => currentCalcs.ContainsKey(n) && whitelist.Contains(n.Position))
+                                             .ToList();
+                    reCalc.AddRange(neigthCalcs);
+
+                    //bool noCandidatesFlag = false;
+
+                    while (reCalc.Count > 0)
                     {
-                        currentCalcs[tile] = newCandidates;
-
-                        List<LBSTile> neighs = map.GetTileNeighbors(tile, Dirs).RemoveEmpties();
-                        //foreach (LBSTile nei in neighs)
-                        for (int i = 0; i < neighs.Count; i++)
+                        if (((IAssistantThreaded)this).CheckPendingCancel(this, token))
                         {
-                            if (_closed.Contains(neighs[i]) || reCalc.Contains(neighs[i]))
-                                continue;
+                            log = "Generation cancelled.";
+                            return false;
+                        }
+                        LBSTile tile = reCalc.First();
 
-                            if (whitelist.Contains(neighs[i].Position))
-                                reCalc.Add(neighs[i]);
+                        if (!whitelist.Contains(tile.Position)
+                            || !toCalc.Contains(tile)) // Added to this version. Area neighbour should not recalculate, as it could collapse a full tile that was not included in the first place.
+                                                       // Even so they are part of the whitelist just to change a single connection.
+                        {
+                            reCalc.Remove(tile);
+                            continue;
+                        }
+
+                        currentCalcs.TryGetValue(tile, out List<Candidate> lastCandidates);
+                        List<Candidate> newCandidates = CalcCandidates(tile, chance);
+
+                        if (safeMode && newCandidates.Count == 0)
+                        {
+                            // No possible candidates: must revert step in next iteration
+                            stepSuccess = false;
+                            reCalc.Clear();
+                            break;
+                        }
+
+                        if (lastCandidates == null || newCandidates.Count < lastCandidates.Count)
+                        {
+                            currentCalcs[tile] = newCandidates;
+
+                            List<LBSTile> neighs = map.GetTileNeighbors(tile, Dirs).RemoveEmpties();
+                            //foreach (LBSTile nei in neighs)
+                            for (int i = 0; i < neighs.Count; i++)
+                            {
+                                if (_closed.Contains(neighs[i]) || reCalc.Contains(neighs[i]))
+                                    continue;
+
+                                if (whitelist.Contains(neighs[i].Position))
+                                    reCalc.Add(neighs[i]);
+                            }
+                        }
+
+                        reCalc.Remove(tile);
+                        _closed.Add(tile);
+                    }
+
+                    toCalc.Remove(current.Key);
+
+                    step++;
+                    // Restore retry limit if further progress
+                    if (step > maxStep)
+                    {
+                        maxStep = step;
+                        if (maxStep > SAVE_STATE_INTERVAL)
+                            initialRetryBonus = 0;
+                        retryCount = (MAX_MEMORY, MAX_RETRIES + initialRetryBonus);
+                    }
+
+                    if (((IAssistantThreaded)this).CheckPendingCancel(this, token))
+                    {
+                        log = "Generation cancelled.";
+                        return false;
+                    }
+
+                    onProgress?.Invoke(1f - (float)toCalc.Count / toCalcSize);
+                    Thread.Sleep(1);
+
+                    if (safeMode)
+                    {
+                        //Debug.Log($"TRY: {tryCount}\tSTEP {step}\tMAX STEP {maxStep}\tRETRY COUNT {retryCount}");
+                        if (step % SAVE_STATE_INTERVAL == 0)
+                        {
+                            // Save state
+                            states.Add(new WFCState(step, connected, toCalc, closed, currentCalcs));
+                            if (states.Count > MAX_MEMORY + 1)
+                            {
+                                states.RemoveAt(0);
+                            }
                         }
                     }
-
-                    reCalc.Remove(tile);
-                    _closed.Add(tile);
                 }
 
-                toCalc.Remove(current.Key);
-
-                step++;
-                // Restore retry limit if further progress
-                if (step > maxStep)
+                string s = "";
+                foreach (string gen in genOrder)
                 {
-                    maxStep = step;
-                    if (maxStep > SAVE_STATE_INTERVAL)
-                        initialRetryBonus = 0;
-                    retryCount = (MAX_MEMORY, MAX_RETRIES + initialRetryBonus);
+                    s += gen + " -> ";
                 }
+                s += "END";
+                //Debug.Log(s);
 
-                if (((IAssistantThreaded)this).CheckPendingCancel(this, token))
+                success = toCalc.Count == 0;
+                if (safeMode && !success)
                 {
-                    log = "Generation cancelled.";
-                    return false;
+                    OnTaskCancelled();
+                    log = "Could not generate.";
                 }
 
-                onProgress?.Invoke(1f - (float)toCalc.Count / toCalcSize);
+                onProgress?.Invoke(1f);
                 Thread.Sleep(1);
-
-                if (safeMode)
-                {
-                    //Debug.Log($"TRY: {tryCount}\tSTEP {step}\tMAX STEP {maxStep}\tRETRY COUNT {retryCount}");
-                    if (step % SAVE_STATE_INTERVAL == 0)
-                    {
-                        // Save state
-                        states.Add(new WFCState(step, connected, toCalc, closed, currentCalcs));
-                        if (states.Count > MAX_MEMORY + 1)
-                        {
-                            states.RemoveAt(0);
-                        }
-                    }
-                }
             }
-
-            string s = "";
-            foreach(string gen in genOrder)
+            catch(Exception e)
             {
-                s += gen + " -> ";
-            }
-            s += "END";
-            //Debug.Log(s);
-
-            success = toCalc.Count == 0;
-            if (safeMode && !success)
-            {
+                Debug.LogException(e);
                 OnTaskCancelled();
-                log = "Could not generate.";
             }
-
-            onProgress?.Invoke(1f);
-            Thread.Sleep(1);
             return success;
         }
 
@@ -1033,7 +1047,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             List<Candidate> candidates = new();
             //ConnectedTileMapModule connectedMod = OwnerLayer.GetModule<ConnectedTileMapModule>();
-            List<LBSTile> neighbors = map.GetTileNeighbors(tile, Dirs);
+            List<LBSTile> neighbors = map.GetTileNeighbors(tile, Directions.Bidimencional.Edges);
 
             List<string> connections = connected.GetConnections(tile);
 
@@ -1042,6 +1056,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             Dictionary<TileDirectionChance, float> optionsChance = new();
 
             bool emptyNeighs = true;
+            int empties = 4;
 
             for(int j = 0; j < 4; j++)
             {
@@ -1049,18 +1064,37 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     continue;
 
                 List<string> neighConns = connected.GetConnections(neighbors[j]);
-                string opp = neighConns[(j + 2) % 4];
-                if (opp.Equals("Empty") || opp.Equals(""))
-                    continue;
+                switch (GridType)
+                {
+                    case ConnectedTileMapModule.ConnectedTileType.EdgeBased:
+                        string opp = neighConns[(j + 2) % 4];
+                        if (opp.Equals("Empty") || opp.Equals(""))
+                            continue;
+                        break;
 
-                emptyNeighs = false;
+                    case ConnectedTileMapModule.ConnectedTileType.VertexBased:
+                        LBSTile diag = map.GetTileNeighbor(tile, Directions.Bidimencional.Diagonals[j]);
+                        if (diag is not null)
+                        {
+                            string corn = connected.GetConnections(diag)[(j + 2) % 4];
+                            if (!(corn.Equals("Empty") || corn.Equals("")))
+                                connections[j] = corn;
+                        }
+                        string opp1 = neighConns[(j + 1) % 4];
+                        string opp2 = neighConns[(j + 2) % 4];
+                        if (opp1.Equals("Empty") || opp1.Equals("") || opp2.Equals("Empty") || opp2.Equals(""))
+                            continue;
+                        break;
+                }
 
-                int neighRot = 0;
+                //emptyNeighs = false;
+                empties--;
+
                 TileDirection neighTD = chanceGroup.tileDirections.Find(td => td.Connections.Rotate(td.rotation).SequenceEqual(neighConns)/*.IsSameRotated(neighConns, out neighRot)*/); // neighTD es el vecino en el mapa, rotado "rotation" veces
                 if(neighTD is null)                                                                                                    // neighRot es cuantas veces se rota neightTD para obtener al vecino en el mapa
                     continue;
 
-                List<TileDirectionChance> tileOptions = neighTD.chances[(j + 2/* + neighRot*/) % 4].list;
+                List<TileDirectionChance> tileOptions = neighTD.chances[(j + 2) % 4].list;
                 if(optionsChance.Count == 0)
                 {
                     foreach (TileDirectionChance newTileOption in tileOptions)
@@ -1101,8 +1135,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 chance = optionsChance[tdc] // Aca actualiza realmente la probabilidad combinada
             }));
 
-            if (options.Count == 0 && emptyNeighs && connections.ContainsOnly("Empty", ""))
+            emptyNeighs = empties == 4;
+
+            if (options.Count == 0 /*&& connections.ContainsOnly("Empty", "")*/ && emptyNeighs)
                 candidates = chanceGroup.tileDirections
+                    .Where(td => Compare(connections.ToArray(), td.Connections.Rotate(td.rotation).ToArray()/*, !chance.UsesEmpties*/))
                     .Select(td => new Candidate()
                     {
                         bundle = td.mainTarget.GetCharacteristics<LBSDirection>()[0],
@@ -1300,6 +1337,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                         chance = (float)pair.count / rule.Value.Where(t => t != null && t.direction == pair.direction).Sum(t => t.count)
                     };
                     td.chances[pair.direction].Add(tileDirectionChance);
+                }
+
+                for(int i = 0; i < 4; i++)
+                {
+                    td.chances[i].list = td.chances[i].list.OrderBy(tdc => tdc.target.BundleName).ThenBy(tdc => tdc.rotation).ToList();
                 }
 
                 group.tileDirections.Add(td);
