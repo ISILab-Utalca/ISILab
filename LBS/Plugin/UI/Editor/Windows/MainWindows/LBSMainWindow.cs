@@ -217,7 +217,6 @@ namespace ISILab.LBS.Editor.Windows
         
         public LBSMainWindow() : base()
         {
-            hangingWindows = new List<EditorWindow>();
             //Debug.Log($"[LBSMainWindow] - Constructor - {RandomId}");
         }
         ~LBSMainWindow()
@@ -228,43 +227,40 @@ namespace ISILab.LBS.Editor.Windows
         private void OnEnable()
         {
             //Debug.Log($"[LBSMainWindow] - OnEnable - {RandomId}");
-            if (Instance != null)
-            {
-                return;
-            }
+            if (Instance != null) return;
             SingletonHelper.Instance = this;
+            hangingWindows = new List<EditorWindow>();
         }
 
         private void OnDisable()
         {
             //Debug.Log($"[LBSMainWindow] - OnDisable - {RandomId}");
-            if (Instance == this)
+            if (Instance != this) return;
+            SingletonHelper.SetInstanceNull();
+
+            //desuscribirse de eventos 
+            onLayerChange -= OnBlueprintCaptureEnable;
+            levelData!.OnReload -= OnLayerResetSelection;
+
+            if (layerPanel != null)
+                layerPanel.OnSelectLayer -= OnSelectedLayerChange;
+
+            if (levelData != null)
             {
-                SingletonHelper.SetInstanceNull();
-                
-                //desuscribirse de eventos 
-                onLayerChange -= OnBlueprintCaptureEnable; 
-                levelData!.OnReload -= OnLayerResetSelection;
+                levelData.OnChanged -= OnLevelDataChange;
+                levelData!.OnReload -= () => layerPanel.ResetSelection(); // Refactoriza la lambda
+            }
 
-                if (layerPanel != null)
-                    layerPanel.OnSelectLayer -= OnSelectedLayerChange;
-
-                if (levelData != null)
-                {
-                    levelData.OnChanged -= OnLevelDataChange;
-                    levelData!.OnReload -= () => layerPanel.ResetSelection(); // Refactoriza la lambda
-                }
-
-                // Cerrar ventanas colgantes
+            // Cerrar ventanas colgantes
+            EditorApplication.delayCall += () =>
+            {
+                if (hangingWindows == null) return;
                 foreach (var w in hangingWindows)
                 {
-                    EditorApplication.delayCall += () =>
-                    {
-                        if (w == null) return;
-                        w.Close(); 
-                    };
+                    if (w == null) return;
+                    w.Close();
                 }
-            }
+            };//*/
         }
 
         private void OnDestroy()
@@ -281,10 +277,13 @@ namespace ISILab.LBS.Editor.Windows
         #region METHODS
         protected override void CreateGUI()
         {
+            var sw = Stopwatch.StartNew();
             LoadUITree();
             Init();
             rootVisualElement.focusable = true;
             rootVisualElement.Focus();
+            sw.Stop();
+            //Debug.Log($"[LBSMainWindow] - CreateGUI - {sw.ElapsedMilliseconds} ms");
         }
 
         private void OnInspectorUpdate()
@@ -332,6 +331,8 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         private void Init()
         {
+
+            var sw = Stopwatch.StartNew();
             #region LOAD & BACKUP LEVEL DATA
             if (LBSController.CurrentLevel == null)
             {
@@ -421,12 +422,12 @@ namespace ISILab.LBS.Editor.Windows
 
             // THE ORDER IN WHICH THIS PANELS ARE ADDED DECIDES THEIR VERTICAL ORDER
 
-            inspectorManager.InitTabs(ref LayerTemplates);
-            
+            inspectorManager.InitTabs(ref LayerTemplates);  // <- LO QUE MÁS TIEMPO CONSUME, HAY QUE OPTIMIZARLO
+
             subPanelScrollView.Q<VisualElement>("unity-content-and-vertical-scroll-container").pickingMode = PickingMode.Ignore;
             subPanelScrollView.Q<VisualElement>("unity-content-viewport").pickingMode = PickingMode.Ignore;
             subPanelScrollView.Q<VisualElement>("unity-content-container").pickingMode = PickingMode.Ignore;
-            
+
             layerPanel = new LayersPanel(levelData, ref LayerTemplates);
             extraPanel.Add(layerPanel);
             layerPanel.style.display = DisplayStyle.Flex;
@@ -447,7 +448,7 @@ namespace ISILab.LBS.Editor.Windows
             quickAssistantPanel = new QuickAssistantPanel(LayerTemplates);
             extraPanel.Add(quickAssistantPanel);
             quickAssistantPanel.style.display = DisplayStyle.None;
-            
+
             gen3DPanel ??= new Generator3DPanel();
             extraPanel.Add(gen3DPanel);
             gen3DPanel.style.display = DisplayStyle.None;
@@ -721,7 +722,7 @@ namespace ISILab.LBS.Editor.Windows
 
         public static void BindHangingWindow(EditorWindow window)
         {
-            if (Instance == null) return;
+            if (Instance == null || window == null) return;
             if (!Instance.hangingWindows.Contains(window))
             {
                 Instance.hangingWindows.Add(window);

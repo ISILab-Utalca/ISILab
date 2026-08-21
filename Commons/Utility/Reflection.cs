@@ -42,7 +42,6 @@ namespace ISILab.Commons.Utility
                 let attributes = type.GetCustomAttributes(typeof(T), true)
                 where attributes != null && attributes.Length > 0
                 select new Tuple<Type, IEnumerable<T>>(type, attributes.Cast<T>());
-
             return toR.ToList();
         }
 

@@ -39,7 +39,8 @@ namespace ISILab.LBS.VisualElements
         /// Gets the classes of editors per component, no avoid using reflection on each instance creation
         /// Must be overridden in a derived class to implement custom repainting behavior.
         /// </summary>
-        public abstract void InitCustomEditors(ref List<LBSLayer> layers);
+        public abstract void InitCustomEditors(ref List<LBSLayer> layers,
+            List<Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>> customEditors);
 
         /// <summary>
         /// Sets the active layer into the panel to update the different components of a layer, such as modules,

@@ -9,8 +9,8 @@ using System.Linq;
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
 using UnityEngine.UIElements;
-using System.Diagnostics;
 using LBS.Components.TileMap;
+using UnityEngine;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -37,26 +37,27 @@ namespace ISILab.LBS.VisualElements
         #endregion
         
         #region METHODS
-        public override void InitCustomEditors(ref List<LBSLayer> layers)
+        public override void InitCustomEditors(ref List<LBSLayer> layers,
+            List<Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>> customEditors)
         {
             foreach (LBSLayer _refLayer in layers)
             {
                 LBSLayer layer = _refLayer.Clone() as LBSLayer;
                 if (layer == null) continue;
-                var modList = layer.Modules(layer.ActiveFloor);
-                foreach (LBSModule module in modList)
+
+                foreach (LBSModule module in layer.Modules(layer.ActiveFloor))
                 {
                     if (module is null) continue;
-                    Type type = module.GetType();
 
+                    Type type = module.GetType();
                     if (type == typeof(BundleData)) continue;
 
                     var ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()
                         .Where(t => t.Item2.Any(v => v.type == type)).ToList();
 
-                    if (!ves.Any())
+                    if (!ves.Any()) // /!\ it never gets past this point
                     {
-                     //   Debug.LogWarning("[ISI Lab] No class marked as LBSCustomEditor found for type: " + type);
+                        //Debug.LogWarning("[ISI Lab] No class marked as LBSCustomEditor found for type: " + type);
                         continue;
                     }
 
