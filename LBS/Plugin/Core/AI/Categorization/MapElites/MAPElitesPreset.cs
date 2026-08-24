@@ -45,6 +45,11 @@ namespace ISILab.LBS.AI.Categorization
             set => presetName = value;
         }
 
+        public MapElites.ThresholdType TypeThreshold
+        {
+            get => mapElites.typeThreshold;
+            set => mapElites.typeThreshold = value;
+        }
         public Vector2Int SampleCount
         {
             get => new Vector2Int(mapElites.XSampleCount, mapElites.YSampleCount);

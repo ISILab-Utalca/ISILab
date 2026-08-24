@@ -315,44 +315,71 @@ namespace ISILab.LBS.VisualElements.Editor
             columns = rootVisualElement.Q<SliderInt>("ColumnsSlideInt");
             columns.RegisterValueChangedCallback(_ => UpdateGrid());
 
-            //Grid thresholds
-            thresholdType = rootVisualElement.Q<ClassDropDown>("ThresholdType");
+            SetUpGridValues();
+            
+            gridContent = rootVisualElement.Q<VisualElement>("GridContent");
+            UpdateGrid();
+        }
 
+        private void SetUpGridValues()
+        {
             minXValue = rootVisualElement.Q<LBSCustomLabel>("MinXValue");
             maxXValue = rootVisualElement.Q<LBSCustomLabel>("MaxXValue");
             minYValue = rootVisualElement.Q<Label>("MinYValue");
             maxYValue = rootVisualElement.Q<Label>("MaxYValue");
 
             xMinThreshold = rootVisualElement.Q<LBSCustomFloatField>("XMinThreshold");
+            xMaxThreshold = rootVisualElement.Q<LBSCustomFloatField>("XMaxThreshold");
+            yMinThreshold = rootVisualElement.Q<LBSCustomFloatField>("YMinThreshold");
+            yMaxThreshold = rootVisualElement.Q<LBSCustomFloatField>("YMaxThreshold");
+
+            if(mapEliteBundle!=null)
+            {
+                Debug.Log("bundle isn't null yay so let's set up thresholds");
+                xMinThreshold.value = mapEliteBundle.XThreshold.x;
+                xMaxThreshold.value = mapEliteBundle.XThreshold.y;
+                yMinThreshold.value = mapEliteBundle.YThreshold.x;
+                yMaxThreshold.value = mapEliteBundle.YThreshold.y;
+            }
+
             xMinThreshold.RegisterValueChangedCallback(evt => {
                 if (mapEliteBundle != null)
                 {
                     mapEliteBundle.XThreshold = new Vector2(evt.newValue, mapEliteBundle.XThreshold.y);
                 }
                 xMinThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, 1), 0));
-                minXValue.text = xMinThreshold.value.ToString(); 
+                minXValue.text = xMinThreshold.value.ToString();
             });
 
-            xMaxThreshold = rootVisualElement.Q<LBSCustomFloatField>("XMaxThreshold");
             xMaxThreshold.RegisterValueChangedCallback(evt => {
+                if (mapEliteBundle != null)
+                {
+                    mapEliteBundle.XThreshold = new Vector2(mapEliteBundle.XThreshold.x, evt.newValue);
+                }
                 xMaxThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, 1), 0));
-                maxXValue.text = xMaxThreshold.value.ToString(); 
+                maxXValue.text = xMaxThreshold.value.ToString();
             });
 
-            yMinThreshold = rootVisualElement.Q<LBSCustomFloatField>("YMinThreshold");
             yMinThreshold.RegisterValueChangedCallback(evt => {
+                if (mapEliteBundle != null)
+                {
+                    mapEliteBundle.YThreshold = new Vector2(evt.newValue, mapEliteBundle.YThreshold.y);
+                }
                 yMinThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, 1), 0));
-                minYValue.text = yMinThreshold.value.ToString(); 
+                minYValue.text = yMinThreshold.value.ToString();
             });
-            
-            yMaxThreshold = rootVisualElement.Q<LBSCustomFloatField>("YMaxThreshold");
+
             yMaxThreshold.RegisterValueChangedCallback(evt => {
+                if (mapEliteBundle != null)
+                {
+                    mapEliteBundle.YThreshold = new Vector2(mapEliteBundle.YThreshold.x, evt.newValue);
+                }
                 yMaxThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, 1), 0));
                 maxYValue.text = yMaxThreshold.value.ToString();
             });
-            
-            thresholds = new List<LBSCustomFloatField> { xMinThreshold, xMaxThreshold, yMinThreshold, yMaxThreshold };
 
+            thresholdType = rootVisualElement.Q<ClassDropDown>("ThresholdType");
+            thresholds = new List<LBSCustomFloatField> { xMinThreshold, xMaxThreshold, yMinThreshold, yMaxThreshold };
             thresholdType.RegisterValueChangedCallback(evt =>
             {
                 switch (thresholdType.index)
@@ -360,7 +387,7 @@ namespace ISILab.LBS.VisualElements.Editor
                     //Default
                     case 0:
                         int[] newThresholdValues = { 0, 1, 0, 1 };
-                        for(int i=0; i<thresholds.Count();i++)
+                        for (int i = 0; i < thresholds.Count(); i++)
                         {
                             thresholds[i].SetEnabled(false);
                             thresholds[i].value = newThresholdValues[i];
@@ -382,9 +409,6 @@ namespace ISILab.LBS.VisualElements.Editor
                         break;
                 }
             });
-
-            gridContent = rootVisualElement.Q<VisualElement>("GridContent");
-            UpdateGrid();
         }
 
         private void SetUpGraph()
