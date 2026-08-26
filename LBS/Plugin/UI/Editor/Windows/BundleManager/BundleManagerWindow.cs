@@ -289,8 +289,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
                         break;
                 }
             }
-
-            Debug.Log("BundleManagerWindow updated");
         }
 
         /// <summary>

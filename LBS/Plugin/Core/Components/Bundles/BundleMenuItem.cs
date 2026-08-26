@@ -113,7 +113,6 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
 
         public static Bundle CreateBundleWithInstance(Bundle instance, string baseName = "New_Bundle")
         {
-            Debug.Log(instance.Name);
             return CreateBundleWithInstance(instance, out _, baseName);
         }
 
