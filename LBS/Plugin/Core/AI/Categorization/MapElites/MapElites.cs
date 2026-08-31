@@ -41,7 +41,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Categorization
         private Thread thread;
 
         public enum ThresholdType { Manual, Automatic }
-        public ThresholdType typeThreshold;
+        public ThresholdType typeThreshold = ThresholdType.Manual;
         #endregion
 
         #region FIELDS
