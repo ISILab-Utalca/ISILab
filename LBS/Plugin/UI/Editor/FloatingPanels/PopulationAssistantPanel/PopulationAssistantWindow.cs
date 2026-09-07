@@ -9,6 +9,7 @@ using ISILab.LBS.Drawers;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.Core.AI.Categorization;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.UI.Editor.Windows;
@@ -178,6 +179,8 @@ namespace ISILab.LBS.VisualElements.Editor
 
             SetUpLayerContext();
 
+            presetField.value = presetField.choices.First();
+
             ChangeTheme(LBSSettings.Instance.view.LBSTheme);
         }
 
@@ -219,11 +222,9 @@ namespace ISILab.LBS.VisualElements.Editor
             yProgressBar = rootVisualElement.Q<LabeledProgressBar>("Y");
             zProgressBar = rootVisualElement.Q<LabeledProgressBar>("Z");
 
-
             if (xProgressBar != null)  xProgressBar.Bar.value = 0; 
             if (yProgressBar != null)  yProgressBar.Bar.value = 0; 
             if (zProgressBar != null)  zProgressBar.Bar.value = 0;
-
 
             //Set parameters. Make everyone a ranged evaluator, make the value a default, add the listener to change the chosen elite bundle and then disable it.
             //I set everything false so they can't be manipulated if there's no preset present.
@@ -267,10 +268,6 @@ namespace ISILab.LBS.VisualElements.Editor
                 yProgressBar.Bar.ProgressTextLabel = param2Field.Value;
             });
             param2Field.SetEnabled(false);
-
-
-            presetField.value = presetField.choices.First();
-            Debug.Log("choosing default: " + presetField.value);
         }
 
         private void SetUpPresets()
@@ -323,6 +320,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void SetUpGridValues()
         {
+            //Set visual elements
             minXValue = rootVisualElement.Q<LBSCustomLabel>("MinXValue");
             maxXValue = rootVisualElement.Q<LBSCustomLabel>("MaxXValue");
             minYValue = rootVisualElement.Q<Label>("MinYValue");
@@ -333,65 +331,49 @@ namespace ISILab.LBS.VisualElements.Editor
             yMinThreshold = rootVisualElement.Q<LBSCustomFloatField>("YMinThreshold");
             yMaxThreshold = rootVisualElement.Q<LBSCustomFloatField>("YMaxThreshold");
 
-            if(mapEliteBundle!=null)
-            {
-                Debug.Log("bundle isn't null yay so let's set up thresholds");
-                xMinThreshold.value = mapEliteBundle.XThreshold.x;
-                xMaxThreshold.value = mapEliteBundle.XThreshold.y;
-                yMinThreshold.value = mapEliteBundle.YThreshold.x;
-                yMaxThreshold.value = mapEliteBundle.YThreshold.y;
-            }
+            thresholdType = rootVisualElement.Q<ClassDropDown>("ThresholdType");
+            thresholds = new List<LBSCustomFloatField> { xMinThreshold, xMaxThreshold, yMinThreshold, yMaxThreshold };
+            
+            //Sets up the actual values in them for initialization!
+            SetUpThresholds();
 
+            //Set callbacks for float fields
             xMinThreshold.RegisterValueChangedCallback(evt => {
-                if (mapEliteBundle != null)
-                {
-                    mapEliteBundle.XThreshold = new Vector2(evt.newValue, mapEliteBundle.XThreshold.y);
-                }
-                xMinThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, 1), 0));
+                xMinThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, xMaxThreshold.value, 1), 0));
+                if (mapEliteBundle != null) mapEliteBundle.XThreshold = new Vector2(evt.newValue, mapEliteBundle.XThreshold.y);
                 minXValue.text = xMinThreshold.value.ToString();
             });
-
             xMaxThreshold.RegisterValueChangedCallback(evt => {
-                if (mapEliteBundle != null)
-                {
-                    mapEliteBundle.XThreshold = new Vector2(mapEliteBundle.XThreshold.x, evt.newValue);
-                }
-                xMaxThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, 1), 0));
+                xMaxThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, 1), 0, xMinThreshold.value));
+                if (mapEliteBundle != null) mapEliteBundle.XThreshold = new Vector2(mapEliteBundle.XThreshold.x, evt.newValue);
                 maxXValue.text = xMaxThreshold.value.ToString();
             });
-
             yMinThreshold.RegisterValueChangedCallback(evt => {
-                if (mapEliteBundle != null)
-                {
-                    mapEliteBundle.YThreshold = new Vector2(evt.newValue, mapEliteBundle.YThreshold.y);
-                }
-                yMinThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, 1), 0));
+                yMinThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, yMaxThreshold.value, 1), 0));
+                if (mapEliteBundle != null) mapEliteBundle.YThreshold = new Vector2(evt.newValue, mapEliteBundle.YThreshold.y);
                 minYValue.text = yMinThreshold.value.ToString();
             });
-
             yMaxThreshold.RegisterValueChangedCallback(evt => {
-                if (mapEliteBundle != null)
-                {
-                    mapEliteBundle.YThreshold = new Vector2(mapEliteBundle.YThreshold.x, evt.newValue);
-                }
-                yMaxThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, 1), 0));
+                yMaxThreshold.SetValueWithoutNotify(Mathf.Max(Mathf.Min(evt.newValue, 1), 0, xMinThreshold.value));
+                if (mapEliteBundle != null) mapEliteBundle.YThreshold = new Vector2(mapEliteBundle.YThreshold.x, evt.newValue);
                 maxYValue.text = yMaxThreshold.value.ToString();
             });
 
-            thresholdType = rootVisualElement.Q<ClassDropDown>("ThresholdType");
-            thresholds = new List<LBSCustomFloatField> { xMinThreshold, xMaxThreshold, yMinThreshold, yMaxThreshold };
+            //Set threshold types
             thresholdType.RegisterValueChangedCallback(evt =>
             {
                 switch (thresholdType.index)
                 {
                     //Default
+                    //Makes all values 0.2-0.8 and disables modification
                     case 0:
-                        int[] newThresholdValues = { 0, 1, 0, 1 };
+                        float[] newThresholdValues = { 0.2f, 0.8f, 0.2f, 0.8f };
                         for (int i = 0; i < thresholds.Count(); i++)
                         {
                             thresholds[i].SetEnabled(false);
                             thresholds[i].value = newThresholdValues[i];
                         }
+                        mapEliteBundle.ThreshType = MapElites.ThresholdType.Default;
                         break;
                     //Manual
                     case 1:
@@ -399,6 +381,7 @@ namespace ISILab.LBS.VisualElements.Editor
                         {
                             thresholds[i].SetEnabled(true);
                         }
+                        mapEliteBundle.ThreshType = MapElites.ThresholdType.Manual;
                         break;
                     //SetByGenerator
                     case 2:
@@ -406,9 +389,42 @@ namespace ISILab.LBS.VisualElements.Editor
                         {
                             thresholds[i].SetEnabled(false);
                         }
+                        mapEliteBundle.ThreshType = MapElites.ThresholdType.SetByGenerator;
                         break;
                 }
             });
+        }
+
+        private void SetUpThresholds()
+        {
+
+            if(mapEliteBundle!=null) {
+                xMinThreshold.SetEnabled(true);
+                xMaxThreshold.SetEnabled(true);
+                yMinThreshold.SetEnabled(true);
+                yMaxThreshold.SetEnabled(true);
+
+            xMinThreshold.value = mapEliteBundle.XThreshold.x;
+            minXValue.text = xMinThreshold.value.ToString();
+
+            xMaxThreshold.value = mapEliteBundle.XThreshold.y;
+            maxXValue.text = xMaxThreshold.value.ToString();
+            
+            yMinThreshold.value = mapEliteBundle.YThreshold.x;
+            minYValue.text = yMinThreshold.value.ToString();
+            
+            yMaxThreshold.value = mapEliteBundle.YThreshold.y;
+            maxYValue.text = yMaxThreshold.value.ToString();
+            //fix tmrw
+            thresholdType.value = mapEliteBundle.ThreshType.ToString();
+            }
+            else
+            {
+                xMinThreshold.SetEnabled(false);
+                xMaxThreshold.SetEnabled(false);
+                yMinThreshold.SetEnabled(false);
+                yMaxThreshold.SetEnabled(false);
+            }
         }
 
         private void SetUpGraph()
@@ -505,7 +521,7 @@ namespace ISILab.LBS.VisualElements.Editor
         private void OnDestroy()
         {
             _assistant?.RequestOptimizerStop();
-        }
+         }
         
         //Set assistant for window
         public void SetAssistant(AssistantMapElite target)
@@ -594,7 +610,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
             //InitializeAllCurrentEvaluators();
             originalMapCalcs();
-
+            SetUpThresholds();
             //param1Field.tooltip = currentXField.Tooltip;
             //param2Field.tooltip = currentYField.Tooltip;
             //optimizerField.tooltip = currentOptimizer?.Evaluator.Tooltip;

@@ -112,8 +112,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         private void AddCurrentBundles()
         {
-            Debug.Log(Builder.newSubBundles.Count.ToString());
-
             foreach (Bundle b in Builder.newSubBundles)
             {
                 bundleContainersCurrent.Add(new BundleManagerWindow.BundleContainer(b));
@@ -129,9 +127,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             {
                 AddBundleToCorrectList(b);
             }
-            Debug.Log("BundleManagerWindow updated");
         }
-
         void CleanAllLists()
         {
             _allBundles.Clear();
@@ -244,7 +240,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         public void Revert()
         {
-            Debug.Log("Builder data:\n\n" + Builder.ToString());
             CleanAllLists();
             OnDisable();
         }

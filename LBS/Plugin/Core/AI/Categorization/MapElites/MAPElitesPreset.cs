@@ -89,6 +89,11 @@ namespace ISILab.LBS.AI.Categorization
             get => mapElites.YThreshold;
             set => mapElites.YThreshold = value;
         }
+        public MapElites.ThresholdType ThreshType
+        {
+            get => mapElites.typeThreshold;
+            set => mapElites.typeThreshold = value;
+        }
 
         public BaseOptimizer Optimizer
         {

@@ -6,6 +6,8 @@ using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using NUnit.Framework;
 using UnityEditor;
+using UnityEditor.Compilation;
+using UnityEditor.Scripting;
 using UnityEngine;
 
 namespace ISILab.LBS.Tests
@@ -112,6 +114,23 @@ namespace ISILab.LBS.Tests
                 return adamProp.GetValue(mapElitesObj) as BundleTilemapChromosome;
             }
             return null;
+        }
+
+        protected void ValidateDebuggerNotAttached()
+        {
+            if (ManagedDebugger.isEnabled)
+                throw new System.Exception("You should not execute a benchmark while a debugger is attached. Switch to Release Mode first.");
+        }
+
+        protected bool SwitchToReleaseMode()
+        {
+            //bool wasEnabled = ManagedDebugger.isEnabled;
+            //ManagedDebugger.Disconnect();
+            //return wasEnabled;
+            bool wasEnabled = CompilationPipeline.codeOptimization == CodeOptimization.Debug;
+            if(wasEnabled)
+                CompilationPipeline.codeOptimization = CodeOptimization.Release;
+            return wasEnabled;
         }
 
         #endregion
