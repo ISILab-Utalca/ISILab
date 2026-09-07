@@ -215,6 +215,22 @@ namespace ISILab.LBS.VisualElements
             Node.Area = rect;
         }
 
+        protected void OnMouseDownCapsule(MouseDownEvent evt)
+        {
+            if (ToolKit.Instance.GetActiveManipulatorInstance() is null)
+                return;
+
+            var activeManipulator = ToolKit.Instance.GetActiveManipulatorInstance();
+            if (activeManipulator is null)
+                return;
+
+            var rgn = activeManipulator as RemoveGraphNode;
+            if (rgn is null)
+                return;
+
+            rgn.Delete(Node);
+        }
+
         #region Selection
 
         public abstract VisualElement GetSelectVisualElement();

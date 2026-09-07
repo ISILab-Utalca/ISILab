@@ -45,7 +45,7 @@ namespace ISILab.LBS.Drawers
             _dotArea.SetPosition(Rect.zero);
             _dotArea.UpdatePositions(start.ToInt(), end.ToInt());
             _dotArea.SetColor(LBSSettings.Instance.view.errorColor);
-            _dotArea.layer = assistant.OwnerLayer.index;
+            _dotArea.layer = assistant.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
 
             _dotArea.style.display = (DisplayStyle)(assistant.OwnerLayer.IsVisible ? 0 : 1);
 

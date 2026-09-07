@@ -57,7 +57,8 @@ namespace ISILab.LBS.VisualElements
             RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
             RegisterCallback<MouseEnterEvent>(OnMouseEnter);
             RegisterCallback<MouseUpEvent>(OnMouseUp);
-            
+
+            _root.RegisterCallback<MouseDownEvent>(OnMouseDownCapsule);
             RegisterCallback<GeometryChangedEvent>(_ => Refresh());
         }
         #endregion
