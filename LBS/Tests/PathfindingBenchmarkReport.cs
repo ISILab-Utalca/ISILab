@@ -55,26 +55,39 @@ namespace ISILab.LBS.Tests.Pathfinding
         const string level11 = "9e52fa05cc04b5a4cbb0752588af5a27";
         const string level12 = "a49e34122d48f53438e7dd8051abd8e5";
 
-        //const string ultraLabyrinth =
-        //    //"995a3afcb9fc6e64c90596fd7328d761" // Micro (100) // Sobreescribi Half (90) sin querer xdn't pero se puede rehacer a partir del 150
-        //    "a2389a54af9bb5b49899b56d1551992a" // Micro (77)
-        //    //"be4a28232962e824fa38cea4a871fb04" // Half (150)
-        //    //"50a1ad21d6d768e4eac31c15c86d695a" // Half (200)
-        //    //"f061d26c69f5ae74db19d2671f0776b9" // 150
-        //    //"9418ed86a5efcf34983d879ebf43f084" // 200
-        //    ;
+        //static readonly string[] ultraLabyrinth = new string[]
+        //{
+        //    "9418ed86a5efcf34983d879ebf43f084", // Full 200
+        //    "f061d26c69f5ae74db19d2671f0776b9", // Full 150
+
+        //    "50a1ad21d6d768e4eac31c15c86d695a", // Half 200
+        //    "be4a28232962e824fa38cea4a871fb04", // Half 150
+        //    "0eb7c0fb0e460e04f989052018275241", // Half 90
+
+        //    "995a3afcb9fc6e64c90596fd7328d761", // Micro 100
+        //    "a2389a54af9bb5b49899b56d1551992a" // Micro 77
+        //};
 
         static readonly string[] ultraLabyrinth = new string[]
         {
-            "9418ed86a5efcf34983d879ebf43f084", // Full 200
-            "f061d26c69f5ae74db19d2671f0776b9", // Full 150
+            "30373f35be4341548938088cebba57a4", // Full 200
+            "5d441da68e1c8a64b963ef3e72c46f19", // Full 150
 
-            "50a1ad21d6d768e4eac31c15c86d695a", // Half 200
-            "be4a28232962e824fa38cea4a871fb04", // Half 150
-            "0eb7c0fb0e460e04f989052018275241", // Half 90
+            "6f916df4799f63349b22ef9171b243e9", // Half 200
+            "cdba35eefbacde34f93222986d12cab6", // Half 150
+            "c8f5ea5ea27599a4fa1ec54d8348c422", // Half 90
 
-            "995a3afcb9fc6e64c90596fd7328d761", // Micro 100
-            "a2389a54af9bb5b49899b56d1551992a" // Micro 77
+            "6bd0890c82e3c4f49933d807b2566f9b", // Micro 100
+            "748309145b94cd5488306d5dffc4e31e" // Micro 77
+        };
+
+        static readonly string[] enemies = new string[]
+        {
+            "87c59dbcc46dd1146959084251ab19b2", // 24 enemies
+            "e2bbc73d2466ef644869843fef56e87f", // 36 enemies
+            "159086e1acde76e46a49d90add1ccd8c", // 48 enemies
+            "9c6ed3516ba77544589442aef259b135", // 60 enemies
+            "d97ca003442910444af138f39c719f0f", // 72 enemies
         };
 
         const string BG_AR0205SR            = "83cdf5f3500dda040a19cd9c6744770e";
@@ -134,6 +147,10 @@ namespace ISILab.LBS.Tests.Pathfinding
         }
         protected void UltraLabyrinthPathfind(int level, PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
         {
+            if (SwitchToReleaseMode())
+                Debug.LogWarning("Debugger has been disconnected.");
+            //ValidateDebuggerNotAttached();
+
             var evaluator = Activator.CreateInstance(typeof(Colonies)) as ITestingEvaluator;
             BundleTilemapChromosome chromosome = null;
             SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
@@ -205,6 +222,52 @@ namespace ISILab.LBS.Tests.Pathfinding
                 GetLevel(realMaps[level-1]);
                 IRangedEvaluator eval = evaluator as IRangedEvaluator;
                 SetUpMAPElitesTest(realMaps[level - 1], dungeonPresetPath, eval, eval, eval, "", new Rect(Vector2.zero, new Vector2(size, size)));
+                chromosome = GetChromosomeFromAssistant();
+                (eval as Colonies).searchType = searchType;
+                (eval as Colonies).searchHeuristic = heuristic;
+            })
+            .CleanUp(() =>
+            {
+                (evaluator as Colonies).searchHeuristic = PathfindingHeuristic.Chebyshev;
+                CleanUpMAPElitesTest();
+            })
+            .Run();
+        }
+        protected void EnemiesPathfind(int level, PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
+        {
+            if (SwitchToReleaseMode())
+                Debug.LogWarning("Debugger has been disconnected.");
+            //ValidateDebuggerNotAttached();
+
+            var evaluator = Activator.CreateInstance(typeof(Colonies)) as ITestingEvaluator;
+            BundleTilemapChromosome chromosome = null;
+            SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
+            SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);
+            SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time", SampleUnit.Microsecond);
+            //SampleGroup measures = new SampleGroup("Measures", SampleUnit.Undefined);
+
+            //int mapSize = Mathf.CeilToInt(level / 3f);
+
+            int c = 0;
+            Measure.Method(() =>
+            {
+                UnityEngine.Assertions.Assert.IsTrue((evaluator as Colonies).searchType == searchType);
+                UnityEngine.Assertions.Assert.IsTrue((evaluator as Colonies).searchHeuristic == heuristic);
+                double fitness = evaluator.EvaluateWithInfo(chromosome, out EvaluationInfo info);
+                c++;
+                if (c <= WARM_UP_COUNT) return;
+                Measure.Custom(visitedNodesGroup, info.visitedNodes);
+                Measure.Custom(meanExecutionTime, info.Average() * 1000);
+                //Measure.Custom(measures, info.MeasureCount());
+            })
+            .WarmupCount(WARM_UP_COUNT)
+            .MeasurementCount(MEASUREMENT_COUNT)
+            .IterationsPerMeasurement(1)
+            .SetUp(() =>
+            {
+                GetLevel(enemies[level - 1]);
+                IRangedEvaluator eval = evaluator as IRangedEvaluator;
+                SetUpMAPElitesTest(enemies[level - 1], dungeonPresetPath, eval, eval, eval, "", GetArea(4));
                 chromosome = GetChromosomeFromAssistant();
                 (eval as Colonies).searchType = searchType;
                 (eval as Colonies).searchHeuristic = heuristic;
@@ -663,6 +726,28 @@ namespace ISILab.LBS.Tests.Pathfinding
         [Test, Performance, Timeout(timeout)] public void           SC_Labyrinth_Manhattan_FloodFill()  => RealMapsPathfind(5, 75, FF, Manhattan);
         [Test, Performance, Timeout(timeout)] public void        WC_plainsofsnow_Manhattan_FloodFill()  => RealMapsPathfind(6, 75, FF, Manhattan);
 
+    }
+
+    [TestFixture]
+    public class EnemyDensity : PathfindingBenchmarkReport
+    {
+        [Test, Performance, Timeout(timeout)] public void Level_F_24_Chebyshev_AStar()      => EnemiesPathfind(1, AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_36_Chebyshev_AStar()      => EnemiesPathfind(2, AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_48_Chebyshev_AStar()      => EnemiesPathfind(3, AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_60_Chebyshev_AStar()      => EnemiesPathfind(4, AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_72_Chebyshev_AStar()      => EnemiesPathfind(5, AStar, Chebyshev);
+
+        [Test, Performance, Timeout(timeout)] public void Level_F_24_Chebyshev_FloodFill()  => EnemiesPathfind(1, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_36_Chebyshev_FloodFill()  => EnemiesPathfind(2, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_48_Chebyshev_FloodFill()  => EnemiesPathfind(3, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_60_Chebyshev_FloodFill()  => EnemiesPathfind(4, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_72_Chebyshev_FloodFill()  => EnemiesPathfind(5, FF, Chebyshev);
+
+        [Test, Performance, Timeout(timeout)] public void Level_F_24_Chebyshev_JPS()        => EnemiesPathfind(1, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_36_Chebyshev_JPS()        => EnemiesPathfind(2, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_48_Chebyshev_JPS()        => EnemiesPathfind(3, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_60_Chebyshev_JPS()        => EnemiesPathfind(4, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_72_Chebyshev_JPS()        => EnemiesPathfind(5, JPS, Chebyshev);
     }
 }
 
