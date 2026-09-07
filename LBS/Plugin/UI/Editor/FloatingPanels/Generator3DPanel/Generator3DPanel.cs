@@ -13,8 +13,6 @@ using LBS.Components;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
-
-
     [UxmlElement]
     public partial class Generator3DPanel : VisualElement
     {

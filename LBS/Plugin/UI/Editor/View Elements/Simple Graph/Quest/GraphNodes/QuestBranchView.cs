@@ -1,10 +1,12 @@
-using System;
 using ISILab.Commons.Utility.Editor;
-using UnityEngine;
-using UnityEngine.UIElements;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
+using ISILab.LBS.Manipulators;
+using LBS.VisualElements;
+using System;
 using UnityEditor;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -29,7 +31,6 @@ namespace ISILab.LBS.VisualElements
 
             _root = this.Q<VisualElement>("Capsule");
             InvalidConnectionIcon = this.Q<VisualElement>("InvalidConnectionIcon");
-
             InvalidConnectionIcon.style.unityBackgroundImageTintColor = InvalidGrammarColor;
 
             VisualElement coloredVe = this.Q<VisualElement>("Capsule");
@@ -57,7 +58,7 @@ namespace ISILab.LBS.VisualElements
             RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
             RegisterCallback<MouseEnterEvent>(OnMouseEnter);
             RegisterCallback<MouseUpEvent>(OnMouseUp);
-            
+
             RegisterCallback<GeometryChangedEvent>(_ => Refresh());
         }
         #endregion
@@ -86,6 +87,20 @@ namespace ISILab.LBS.VisualElements
             {
                 MakeMenu(evt);
             }
+
+            // Remove element
+            if (ToolKit.Instance.GetActiveManipulatorInstance() is null)
+                return;
+
+            var activeManipulator = ToolKit.Instance.GetActiveManipulatorInstance();
+            if (activeManipulator is null)
+                return;
+
+            var rgn = activeManipulator as RemoveGraphNode;
+            if (rgn is null)
+                return;
+
+            rgn.Delete(Node);
         }
 
         private void MakeMenu(MouseDownEvent evt)

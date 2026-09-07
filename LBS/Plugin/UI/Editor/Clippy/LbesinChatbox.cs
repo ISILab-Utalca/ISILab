@@ -87,14 +87,14 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
 
         private IEnumerator CloseChatbox()
         {
-            Debug.Log(Display);
+            //Debug.Log(Display);
             if (!Display) yield break;
             yield return this.FadeOpacity(Chatbox, 0);
             Display = false;
         }
         public IEnumerator OpenChatbox()
         {
-            Debug.Log(Display);
+            //Debug.Log(Display);
             if (Display) yield break;
             Display = true;
             yield return this.FadeOpacity(Chatbox, 1);
