@@ -100,7 +100,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             backButton.clicked += Back;
             backButton.clicked += () => OnAnyButtonClicked(backButton);
 
-            cancelButton = this.Q<LBSCustomButton>("Cancel");
+            cancelButton = this.Q<LBSCustomButton>("Close");
             cancelButton.clicked += Cancel;
             cancelButton.clicked += () => OnAnyButtonClicked(cancelButton);
 

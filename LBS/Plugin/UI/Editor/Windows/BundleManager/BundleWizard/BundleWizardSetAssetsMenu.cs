@@ -61,7 +61,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
             string s = "";
             prefabs.ForEach(o => s += AssetDatabase.GetAssetPath(o) + "\n");
-            Debug.Log(s);
         }
 
         /// <summary>
@@ -194,7 +193,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             Builder.newSubBundles.Clear();
 
             Builder.objects.Clear();
-            Debug.Log("Builder data:\n\n" + Builder.ToString());
         }
     }
 }

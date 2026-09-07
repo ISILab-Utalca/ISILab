@@ -96,8 +96,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         public void Init()
         {
             //Debug.Log("Init: " + GetType().Name);
-            Debug.Log("Builder data:\n\n" + Builder.ToString());
-
             //return;
 
             List<Type> mainInteriorChars = new() { typeof(LBSMainInteriorBundle) };
