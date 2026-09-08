@@ -36,31 +36,31 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region METHODS
-        public override void InitCustomEditors(ref List<LBSLayer> layers)
+        public override void InitCustomEditors(ref List<LBSLayer> layers, 
+            List<Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>> customEditors)
         {
             foreach (LBSLayer _refLayer in layers)
             {
                 var layer = _refLayer.Clone() as LBSLayer;
                 if (layer == null) continue;
+
                 foreach (LBSBehaviour behaviour in layer.Behaviours)
                 {
-                    if (behaviour is NoteBehaviour)
-                        continue;
+                    if (behaviour is NoteBehaviour) continue;
 
                     Assert.IsNotNull(behaviour,  "Behaviour is null");
                     Type type = behaviour.GetType();
 
                     if (customEditor.ContainsKey(type)) continue;
 
-                    var ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()
-                        .Where(t => t.Item2.Any(v => v.type == type)).ToList();
+                    var ves = customEditors.Where(t => t.Item2.Any(v => v.type == type)).ToList();
 
                     if (!ves.Any())
                     {
                         Debug.LogWarning("[ISI Lab] No class marked as LBSCustomEditor found for type: " + type);
                         continue;
                     }
-
+                    
                     Type behaviourEditorType = ves.First().Item1;
                     if (behaviourEditorType == null) continue;
                     customEditor.Add(type, ves.First());

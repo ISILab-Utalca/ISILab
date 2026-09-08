@@ -367,15 +367,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             GameObject[] allObjects = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
 
-            List<GameObject> toDestroy = allObjects
-                .Where(obj => obj != null && obj.name == layerName)
-                .ToList();   // materialize first
-
+            var toDestroy = allObjects.Where(obj => obj != null && obj.name == layerName);
             foreach (GameObject obj in toDestroy)
             {
+                obj.GetComponent<LBSGeneratedPopulation>()?.GenEventHooker.BroadcastEvent(Components.Data.LBSEventType.Destroy);
                 Object.DestroyImmediate(obj);
             }
-
         }
 
         private bool HasErrors(GeneratedEntry entry)

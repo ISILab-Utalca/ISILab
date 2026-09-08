@@ -67,7 +67,7 @@ namespace ISILab.LBS.Editor.Utilities
 
         private static void GenerateMap(char[,] map, int size)
         {
-            var lvlData = LBS.loadedLevel.data;
+            var lvlData = LBSController.CurrentLevel.data;
             if (lvlData.LayerCount > 0)
             {
                 Debug.LogWarning("Use only empty levels when generating a map from a texture.");
@@ -101,7 +101,7 @@ namespace ISILab.LBS.Editor.Utilities
 
             if (layer is null) return;
 
-            if (LBS.loadedLevel != null) EditorUtility.SetDirty(LBS.loadedLevel);
+            if (LBSController.CurrentLevel != null) EditorUtility.SetDirty(LBSController.CurrentLevel);
             layer.OnChangeUpdate();
             if (DrawManager.Instance != null) DrawManager.Instance.RedrawLayer(layer);
 

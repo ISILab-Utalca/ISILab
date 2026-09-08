@@ -144,11 +144,6 @@ namespace Samples.Editor.General
 
                 RetrieveObjectsAction?.Invoke(droppedObjects);
 
-                foreach (var dObject in assetPaths)
-                {
-                    Debug.Log(dObject);
-                }
-
                 string draggedName;
                 if (assetPath != string.Empty)
                 {

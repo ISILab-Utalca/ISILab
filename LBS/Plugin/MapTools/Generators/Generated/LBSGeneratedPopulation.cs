@@ -232,11 +232,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
         }
 
-        private void OnDestroy()
-        {
-            //Destroy(gameObject);
-            if (GenEventHooker != null) GenEventHooker.BroadcastEvent(Components.Data.LBSEventType.Destroy);
-        }
         public void Interact()
         {
             if (GenEventHooker != null) GenEventHooker.BroadcastEvent(Components.Data.LBSEventType.Interact);

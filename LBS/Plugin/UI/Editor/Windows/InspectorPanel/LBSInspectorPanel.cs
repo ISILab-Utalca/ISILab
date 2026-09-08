@@ -1,3 +1,4 @@
+using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Editor.Windows;
@@ -92,29 +93,42 @@ namespace ISILab.LBS.VisualElements
         /// <param name="layers"></param>
         public void InitTabs(ref List<LayerTemplate> layers)
         {
+            var sw = Stopwatch.StartNew();
+            string s0 = string.Empty;
+            string s1 = string.Empty;
+            string s2 = string.Empty;
+            string s3 = string.Empty;
+            string s4 = string.Empty;
             try
             {
+                var customEditors = Reflection.GetClassesWith<LBSCustomEditorAttribute>();
                 List<LBSLayer> layersList = layers.Select(t => t.layer).ToList();
+                s0 = ($"[LBSInspectorPanel] - InitTabs - LayersList - {sw.ElapsedMilliseconds} ms");
 
                 data = new LBSLocalCurrent();
-                data.InitCustomEditors(ref layersList);
+                //data.InitCustomEditors(ref layersList); //<- currently not doing anything
                 AddTab(DataTab, data);
+                s1 = ($"[LBSInspectorPanel] - InitTabs - Data - {sw.ElapsedMilliseconds} ms");
 
                 behaviours = new LBSLocalBehaviours();
-                behaviours.InitCustomEditors(ref layersList);
+                behaviours.InitCustomEditors(ref layersList, customEditors);
                 AddTab(BehavioursTab, behaviours);
+                s2 = ($"[LBSInspectorPanel] - InitTabs - Behaviours - {sw.ElapsedMilliseconds} ms");
 
                 assistants = new LBSLocalAssistants();
-                assistants.InitCustomEditors(ref layersList);
+                assistants.InitCustomEditors(ref layersList, customEditors);
                 AddTab(AssistantsTab, assistants);
+                s3 = ($"[LBSInspectorPanel] - InitTabs - Assistants - {sw.ElapsedMilliseconds} ms");
 
                 tabsGroup.OnChangeTab += SetSelectedTab;
                 ActivateDataTab();
+                s4 = ($"[LBSInspectorPanel] - InitTabs - ActivateDataTab - {sw.ElapsedMilliseconds} ms");
             }
             catch (InvalidOperationException ex)
             {
                 UnityEngine.Debug.LogError("[LBSInspectorPanel]: " + ex.Message + " Remove all Null references in the Layer Template.");
             }
+            //UnityEngine.Debug.Log(s0+'\n'+s1+'\n'+s2+'\n'+s3+'\n'+s4);
         }
 
         private void AddTab(string tab, LBSInspector element)

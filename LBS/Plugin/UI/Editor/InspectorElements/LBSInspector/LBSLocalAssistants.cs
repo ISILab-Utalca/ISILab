@@ -35,7 +35,8 @@ namespace ISILab.LBS.VisualElements
         #endregion
         
         #region METHODS
-        public override void InitCustomEditors(ref List<LBSLayer> layers)
+        public override void InitCustomEditors(ref List<LBSLayer> layers, 
+            List<Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>> customEditors)
         {
             foreach (LBSLayer _reflayer in layers)
             {
@@ -45,8 +46,7 @@ namespace ISILab.LBS.VisualElements
                 {
                     var type = assistant.GetType();
                     if (customEditor.ContainsKey(type)) continue;
-                    var ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()
-                        .Where(t => t.Item2.Any(v => v.type == type)).ToList();
+                    var ves = customEditors.Where(t => t.Item2.Any(v => v.type == type)).ToList();
 
                     if (!ves.Any())
                     {
@@ -57,7 +57,6 @@ namespace ISILab.LBS.VisualElements
                     Type assistantEditorType = ves.First().Item1;
                     if (assistantEditorType == null) continue;
                     customEditor.Add(type, ves.First());
-                
                 }
             }
         }

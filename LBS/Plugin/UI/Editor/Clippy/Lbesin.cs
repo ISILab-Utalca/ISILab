@@ -78,9 +78,11 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
             set
             {
                 Icon.style.unityBackgroundImageTintColor = value;
-                Reset.style.unityBackgroundImageTintColor = value;
                 ModBackground.style.unityBackgroundImageTintColor = value;
                 LbesinChatbox.Tint = value;
+
+                var ra = Reset.style.unityBackgroundImageTintColor.value.a;
+                Reset.style.unityBackgroundImageTintColor = new Color(value.r, value.g, value.b, ra);
             }
         }
 

@@ -14,9 +14,16 @@ using Debug = UnityEngine.Debug;
 namespace ISILab.LBS.Plugin.Core.Settings.Editor
 {
     [InitializeOnLoad]
-    public class LBSCallbacks
+    public static class LBSCallbacks
     {
-        private static BackUp localBackUp;
+        // Wrapper class used to easily find the backup file with 
+        // DirectoryTools.GetScriptable()
+        public class BackUpWrapper : ScriptableObject
+        {
+            public LoadedLevel level;
+        }
+
+        private static BackUpWrapper localBackUp;
         private static Stopwatch stopwatch;
         static LBSCallbacks()
         {
@@ -85,13 +92,13 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
         /// </summary>
         private static void SaveBackUp()
         {
-            LoadedLevel level = LBS.loadedLevel;
+            LoadedLevel level = LBSController.CurrentLevel;
             LBSLevelData data = level?.data;
 
             if (data != null)
             {
                 //Instance
-                localBackUp = ScriptableObject.CreateInstance<BackUp>();
+                localBackUp = ScriptableObject.CreateInstance<BackUpWrapper>();
 
                 //Backup file setup
                 var settings = LBSSettings.Instance;
@@ -135,16 +142,16 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
             // search and set the instance of "LBS Settings" in its singleton
             var settings = LBSSettings.Instance;
             var path = settings.paths.backUpPath;
-            var backUp = AssetDatabase.LoadAssetAtPath<BackUp>(path);
+            var backUp = AssetDatabase.LoadAssetAtPath<LoadedLevel>(path);
             
-            if (backUp?.level != null)
+            if (backUp != null)
             {
                 // load the level from the backup
-                LBS.loadedLevel = backUp.level;
+                LBSController.CurrentLevel = backUp;
             } 
             else
             {
-                LBS.loadedLevel = LoadedLevel.CreateInstance(new LBSLevelData(), "New level");
+                LBSController.CurrentLevel = LoadedLevel.CreateInstance(new LBSLevelData(), "New level");
             }
         }
 
@@ -156,7 +163,7 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
 
         public static void ReloadCurrentLevel()
         {
-            var data = LBS.loadedLevel.data;
+            var data = LBSController.CurrentLevel.data;
             data?.Reload();
             
         }

@@ -24,7 +24,7 @@ namespace ISILab.LBS.VisualElements
 {
     public class PopulationContainer : QuickAssistantContainer
     {
-        private LBSLevelData Data => LBS.loadedLevel.data;
+        private LBSLevelData Data => LBSController.CurrentLevel.data;
         public override string PrimaryKeyword { get => _primaryKeyword; }
         private const string _primaryKeyword = "Population";
         public override string SecondaryKeyword { get => _secondaryKeyword; }

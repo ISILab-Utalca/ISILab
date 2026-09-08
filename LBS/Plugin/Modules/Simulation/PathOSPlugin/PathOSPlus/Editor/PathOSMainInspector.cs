@@ -1,4 +1,4 @@
-﻿using Malee.List;
+﻿using Malee.LBSUtilities.Editor;
 using NinePenguins;
 using PathOS;
 using System.Collections;
@@ -8,7 +8,7 @@ using UnityEditor.SceneManagement;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using ReorderableList = Malee.List.ReorderableList;
+using ReorderableList = Malee.LBSUtilities.Editor.ReorderableList;
 
 /*
 PathOSMainInspector.cs 

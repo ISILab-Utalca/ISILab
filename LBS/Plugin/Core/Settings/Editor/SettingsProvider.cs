@@ -120,7 +120,7 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
                     settings.paths.backUpPath = EditorGUILayout.TextField("Backup path", settings.paths.backUpPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
                     if (GUILayout.Button("Find", GUILayout.MaxWidth(60)))
                     {
-                        var so = DirectoryTools.GetScriptable<BackUp>();
+                        var so = DirectoryTools.GetScriptable<LBSCallbacks.BackUpWrapper>();
                         var path = AssetDatabase.GetAssetPath(so);
                         settings.paths.backUpPath = path;
                         EditorUtility.SetDirty(settings);

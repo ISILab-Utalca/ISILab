@@ -192,7 +192,7 @@ namespace ISILab.LBS.VisualElements
         {
             if (layer is null) return;
 
-            if (LBS.loadedLevel != null) EditorUtility.SetDirty(LBS.loadedLevel);
+            if (LBSController.CurrentLevel != null) EditorUtility.SetDirty(LBSController.CurrentLevel);
             layer.OnChangeUpdate();
             if (DrawManager.Instance != null) DrawManager.Instance.RedrawLayer(layer);
 
