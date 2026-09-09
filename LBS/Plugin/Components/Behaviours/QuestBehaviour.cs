@@ -99,7 +99,7 @@ namespace ISILab.LBS.Behaviours
         
         public override object Clone()
         {
-            var clone = new QuestBehaviour(IconGuid, Name, ColorTint);
+            var clone = new QuestBehaviour(IconGuid, Name, ColorTint); // No clona OwnerLayer (deberia?)
             clone.grammarGuid = grammarGuid;
             return clone;
         }
@@ -137,14 +137,20 @@ namespace ISILab.LBS.Behaviours
                 bool branches = Graph.GetBranches(edge.To).Count > 0;
                 bool roots = Graph.GetRoots(edge.To).Count > 0;
 
-                if(edge.To is QuestNode n)
-                {
-                    if (branches && roots) 
-                        n.NodeType = GraphNodeType.Middle;
+                if(edge.To is not QuestNode toNode)
+                    return;
 
-                    if (!branches && roots)
-                        n.NodeType = GraphNodeType.Goal;
-                }
+                if (branches && roots) 
+                    toNode.NodeType = GraphNodeType.Middle;
+
+                if (!branches && roots)
+                    toNode.NodeType = GraphNodeType.Goal;
+
+                if (edge.From is not QuestNode fromNode)
+                    return;
+
+                if (fromNode.NodeType == GraphNodeType.Goal)
+                    fromNode.NodeType = GraphNodeType.Middle;
             };
 
             Graph.OnRemoveNode += (node) =>
@@ -162,10 +168,17 @@ namespace ISILab.LBS.Behaviours
                 bool branches = Graph.GetBranches(edge.To).Count > 0;
                 bool roots = Graph.GetRoots(edge.To).Count > 0;
 
-                if (edge.To is QuestNode n)
-                {
-                    n.NodeType = GraphNodeType.Middle;
-                }
+                if (edge.To is not QuestNode toNode)
+                    return;
+
+                // Check if Goal needs to an can be replaced
+                if (toNode.NodeType == GraphNodeType.Goal       // Edge leads to Goal
+                    && edge.From is QuestNode fromNode          // Edge origin is valid Quest Node
+                    && fromNode.NodeType != GraphNodeType.Start // Edge origin is not start
+                    && Graph.GetRoots(fromNode).Count > 0)      // Edge origin is not a disconnected node
+                    fromNode.NodeType = GraphNodeType.Goal; // Set new Goal
+                
+                toNode.NodeType = GraphNodeType.Middle;
             };
 
             Graph.PostEdgesChange += ValidateGraph;

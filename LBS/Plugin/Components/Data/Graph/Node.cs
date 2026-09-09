@@ -126,6 +126,7 @@ namespace ISILab.LBS.Components
             var clone = new Node();
             clone.Area = Area;
             clone.Position = Position;
+            clone.id = ID;
             return clone;
         }
 
