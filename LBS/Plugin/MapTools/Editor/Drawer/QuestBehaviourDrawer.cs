@@ -64,7 +64,8 @@ namespace ISILab.LBS.Drawers.Editor
             if (graph == null) 
                 return;
 
-            foreach (object newKey in bh.RetrieveNewTiles())
+            var keys = bh.RetrieveNewTiles();
+            foreach (object newKey in keys)
             {
                 //Debug.Log($"Adding {newKey}");
 
