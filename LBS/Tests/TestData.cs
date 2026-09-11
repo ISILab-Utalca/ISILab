@@ -7,7 +7,7 @@ using System.Linq;
 using ISILab.LBS.Plugin.Components.Data;
 using LBS.Components.TileMap;
 using ISILab.Commons;
-using ISILab.Commons.JsonNet;
+using ISILab.Commons.JsonNet.Editor;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Behaviours;
