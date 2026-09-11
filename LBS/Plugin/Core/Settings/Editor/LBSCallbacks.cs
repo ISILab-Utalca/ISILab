@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
@@ -142,12 +143,14 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
             // search and set the instance of "LBS Settings" in its singleton
             var settings = LBSSettings.Instance;
             var path = settings.paths.backUpPath;
-            var backUp = AssetDatabase.LoadAssetAtPath<LoadedLevel>(path);
+
+            var backUp = AssetDatabase.LoadAssetAtPath<BackUpWrapper>(path);
             
             if (backUp != null)
             {
                 // load the level from the backup
-                LBSController.CurrentLevel = backUp;
+                LBSController.CurrentLevel = backUp.level;
+                Debug.Log("level loaded: " + backUp.level.data.Layers.First().Name);
             } 
             else
             {
