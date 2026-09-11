@@ -217,15 +217,7 @@ namespace ISILab.LBS.VisualElements
 
         protected void OnMouseDownCapsule(MouseDownEvent evt)
         {
-            if (ToolKit.Instance.GetActiveManipulatorInstance() is null)
-                return;
-
-            var activeManipulator = ToolKit.Instance.GetActiveManipulatorInstance();
-            if (activeManipulator is null)
-                return;
-
-            var rgn = activeManipulator as RemoveGraphNode;
-            if (rgn is null)
+            if (ToolKit.Instance.GetActiveManipulatorInstance() is not RemoveGraphNode rgn)
                 return;
 
             rgn.Delete(Node);
