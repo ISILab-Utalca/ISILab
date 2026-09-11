@@ -137,14 +137,14 @@ namespace ISILab.LBS.Behaviours
                 bool branches = Graph.GetBranches(edge.To).Count > 0;
                 bool roots = Graph.GetRoots(edge.To).Count > 0;
 
-                if(edge.To is not QuestNode toNode)
-                    return;
+                if(edge.To is QuestNode toNode)
+                {
+                    if (branches && roots)
+                        toNode.NodeType = GraphNodeType.Middle;
 
-                if (branches && roots) 
-                    toNode.NodeType = GraphNodeType.Middle;
-
-                if (!branches && roots)
-                    toNode.NodeType = GraphNodeType.Goal;
+                    if (!branches && roots)
+                        toNode.NodeType = GraphNodeType.Goal;
+                }
 
                 if (edge.From is not QuestNode fromNode)
                     return;
