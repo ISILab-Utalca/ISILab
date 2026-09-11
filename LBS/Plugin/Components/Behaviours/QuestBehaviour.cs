@@ -175,8 +175,8 @@ namespace ISILab.LBS.Behaviours
                 if (toNode.NodeType == GraphNodeType.Goal       // Edge leads to Goal
                     && edge.From is QuestNode fromNode          // Edge origin is valid Quest Node
                     && fromNode.NodeType != GraphNodeType.Start // Edge origin is not start
-                    && Graph.GetRoots(fromNode).Count > 0       // Edge origin has its own roots
-                    && Graph.GetBranches(fromNode).Count == 0)  // Edge origin has not any branches already
+                    && fromNode.HasRoots()                      // Edge origin has its own roots
+                    && !fromNode.HasBranches())                 // Edge origin has not any branches already
                     fromNode.NodeType = GraphNodeType.Goal; // Set new Goal
                 
                 toNode.NodeType = GraphNodeType.Middle;

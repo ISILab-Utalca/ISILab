@@ -121,6 +121,9 @@ namespace ISILab.LBS.Components
 
         }
 
+        public bool HasRoots() => graph.GetRoots(this).Count > 0;
+        public bool HasBranches() => graph.GetBranches(this).Count > 0;
+
         public virtual object Clone()
         {
             var clone = new Node();
