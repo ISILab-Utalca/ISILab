@@ -66,7 +66,7 @@ namespace ISILab.LBS.Drawers
             Vector2 pos = new Vector2(selected.GetBounds().x, -selected.GetBounds().y);
 
             groupView.SetPosition(new Rect(pos * tileSize, tileSize));
-            groupView.layer = _tgb.OwnerLayer.index;
+            groupView.layer = _tgb.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
             view.AddElementToLayerContainer(_tgb.OwnerLayer, this, groupView);
 
             groupView.style.display = (DisplayStyle)(_tgb.OwnerLayer.IsVisible ? 0 : 1);

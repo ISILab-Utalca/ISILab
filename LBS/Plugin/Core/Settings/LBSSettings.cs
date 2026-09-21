@@ -143,6 +143,8 @@ namespace ISILab.LBS.Plugin.Core.Settings
             [SerializeField]
             Vector2 tileSize = new Vector2(50, 50);
 
+            public int layerScale = 100;
+
             public Vector2 TileSize
             {
                 get => tileSize;

@@ -1,4 +1,4 @@
-using ISILab.Commons.JsonNet;
+using ISILab.Commons.JsonNet.Editor;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using LBS.Components;
 using NUnit.Framework;

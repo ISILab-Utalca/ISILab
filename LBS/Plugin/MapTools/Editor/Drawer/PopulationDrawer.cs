@@ -148,7 +148,7 @@ namespace ISILab.LBS.Drawers
                         lastHighlight = tView;
                         lastHighlight?.Highlight(true);
                     }
-                    graphElement.layer = population.OwnerLayer.index;
+                    graphElement.layer = population.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
                 }
             }
         }
@@ -175,7 +175,7 @@ namespace ISILab.LBS.Drawers
             Vector2 position = new Vector2(nTile.GetBounds().x, -nTile.GetBounds().y);
             tileView.SetPosition(new Rect(position * size, size));
 
-            tileView.layer = population.OwnerLayer.index;
+            tileView.layer = population.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
         }
 
         private void LoadAllTiles(PopulationBehaviour population, MainView view)

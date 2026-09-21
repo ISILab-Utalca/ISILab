@@ -353,12 +353,12 @@ namespace ISILab.LBS.Plugin.UI.Editor
         /// <param name="layer">Layer where the graph element will be put. An LBSLayer does not hold graphElements, but it will create or get a LayerContainer object.</param>
         /// <param name="obj">The drawer from where the graphElement is created.</param>
         /// <param name="element">The graphElement to draw in screen.</param>
-        public void AddElementToLayerContainer(LBSLayer layer, object obj, GraphElement element)
+        public void AddElementToLayerContainer(LBSLayer layer, object obj, GraphElement element, int layerOffset = 0)
         {
             var container = GetLayerContainer(layer);
             if(container == null) return;
             if(element == null) return;
-            element.layer = layer.index;
+            element.layer = layer.index * LBSSettings.Instance.general.layerScale + layerOffset;
 
             container.AddElement(obj, element);
             AddElement(element);

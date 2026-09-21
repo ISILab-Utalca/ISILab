@@ -58,7 +58,8 @@ namespace ISILab.LBS.Drawers.Editor
                 if (questNodeView == null || questNodeView.Count == 0) 
                     continue;
 
-                foreach (var field in node.Data.GetFields<GrammarField>())
+                var fields = node.Data.GetFields<GrammarField>();
+                foreach (var field in fields)
                 {
                     if (field == null) 
                         return;
@@ -76,7 +77,7 @@ namespace ISILab.LBS.Drawers.Editor
                     if (visual == null) 
                         continue;
 
-                    view.AddElementToLayerContainer(bh.OwnerLayer, field, visual);
+                    view.AddElementToLayerContainer(bh.OwnerLayer, field, visual, -1);
                     visual.style.display = displayMode;
                 }
             }
@@ -84,8 +85,8 @@ namespace ISILab.LBS.Drawers.Editor
 
         private static void PaintNewTiles(MainView view, NodeDataBehaviour bh)
         {
-            
-            foreach (var tile in bh.RetrieveNewTiles())
+            var tiles = bh.RetrieveNewTiles();
+            foreach (var tile in tiles)
             {
                 var field = tile as GrammarField;
                 if (field == null) 
@@ -108,7 +109,7 @@ namespace ISILab.LBS.Drawers.Editor
                 if (visual == null) 
                     continue;
 
-                view.AddElementToLayerContainer(bh.OwnerLayer, field, visual);
+                view.AddElementToLayerContainer(bh.OwnerLayer, field, visual, -1);
                 visual.style.display = displayMode;
             }
         }

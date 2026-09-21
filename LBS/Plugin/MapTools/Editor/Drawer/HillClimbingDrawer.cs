@@ -245,7 +245,7 @@ namespace ISILab.LBS.Drawers
                             Debug.LogWarning("HillClimbingDrawer error: _keyRefs contains unsupported element type " + key);
                             break;
                     }
-                    element.layer = assistant.OwnerLayer.index;
+                    element.layer = assistant.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
                 }
             }
         }
