@@ -88,17 +88,21 @@ namespace ISILab.LBS.VisualElements
 
             direction.Normalize();
 
-            float tx = direction.x > 0
+            float tx = direction.x == 0 ? (rect.xMax - center.x) / 0.0000001f :
+                direction.x > 0
                 ? (rect.xMax - center.x) / direction.x
                 : (rect.xMin - center.x) / direction.x;
 
-            float ty = direction.y > 0
+            float ty = direction.y == 0 ? (rect.yMax - center.y) / 0.0000001f :
+                direction.y > 0
                 ? (rect.yMax - center.y) / direction.y
                 : (rect.yMin - center.y) / direction.y;
 
             float t = Mathf.Min(tx, ty);
 
-            return center + direction * (t + extraOffset);
+            var result = center + direction * (t + extraOffset);
+
+            return result;
         }
 
         private void DrawLine(MeshGenerationContext mgc)
