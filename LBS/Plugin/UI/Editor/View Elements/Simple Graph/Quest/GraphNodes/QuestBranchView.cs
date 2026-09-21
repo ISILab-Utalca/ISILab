@@ -59,7 +59,6 @@ namespace ISILab.LBS.VisualElements
             RegisterCallback<MouseEnterEvent>(OnMouseEnter);
             RegisterCallback<MouseUpEvent>(OnMouseUp);
 
-            _root.RegisterCallback<MouseDownEvent>(OnMouseDownCapsule);
             RegisterCallback<GeometryChangedEvent>(_ => Refresh());
         }
         #endregion
@@ -88,6 +87,20 @@ namespace ISILab.LBS.VisualElements
             {
                 MakeMenu(evt);
             }
+
+            // Remove element
+            if (ToolKit.Instance.GetActiveManipulatorInstance() is null)
+                return;
+
+            var activeManipulator = ToolKit.Instance.GetActiveManipulatorInstance();
+            if (activeManipulator is null)
+                return;
+
+            var rgn = activeManipulator as RemoveGraphNode;
+            if (rgn is null)
+                return;
+
+            rgn.Delete(Node);
         }
 
         private void MakeMenu(MouseDownEvent evt)
@@ -114,9 +127,6 @@ namespace ISILab.LBS.VisualElements
             menu.AddItem(new GUIContent("Delete node"), false, () =>
             {
                 Debug.Log("Delete node");
-                RemoveGraphNode removeTool = ToolKit.Instance.GetTool(typeof(RemoveGraphNode)).Value.Item1.Manipulator as RemoveGraphNode;
-                removeTool.Delete(Node);
-                Node.Graph.OnForceUpdate?.Invoke();
             });
             
             menu.ShowAsContext();
