@@ -23,92 +23,80 @@ MonoBehaviour:
     name: Quest_Layer
     tileSize: {x: 2, y: 2}
     floors:
-    - rid: 2836539972371350295
-    - rid: 2836539972371350296
-    - rid: 2836539972371350297
-    - rid: 2836539972371350298
-    - rid: 2836539972371350299
-    - rid: 2836539972371350300
-    - rid: 2836539972371350301
-    - rid: 2836539972371350302
-    - rid: 2836539972371350303
-    - rid: 2836539972371350304
+    - rid: 7451303950148174195
     behaviours:
-    - rid: 2836539972371350305
-    - rid: 2836539972371350317
-    - rid: 2836539975978713715
+    - rid: 7451303950148174225
+    - rid: 7451303950148174227
+    - rid: 7451303950148174228
     assistants:
-    - rid: 2836539972371350306
+    - rid: 7451303950148174226
     generatorRules:
-    - rid: 2836539972371350318
+    - rid: 7451303950148174229
     index: 0
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 2836539972371350295
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+    - rid: 7451303950148174195
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS.Editor}
       data:
         modules:
-        - rid: 2836539972371350307
-        - rid: 2836539975978713716
-    - rid: 2836539972371350296
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+        - rid: 7451303950148174205
+        - rid: 7451303950148174215
+    - rid: 7451303950148174205
+      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS.Editor}
       data:
-        modules:
-        - rid: 2836539972371350308
-        - rid: 2836539975978713717
-    - rid: 2836539972371350297
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+        id: Graph
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
+          id: Quest
+          subTypeId: None
+          name: Quest_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 7451303950148174195
+          behaviours:
+          - rid: 7451303950148174225
+          - rid: 7451303950148174227
+          - rid: 7451303950148174228
+          assistants:
+          - rid: 7451303950148174226
+          generatorRules:
+          - rid: 7451303950148174229
+          index: 0
+        _nodes: []
+        _edges: []
+        root:
+          rid: -2
+    - rid: 7451303950148174215
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS.Editor}
       data:
-        modules:
-        - rid: 2836539972371350309
-        - rid: 2836539975978713718
-    - rid: 2836539972371350298
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules:
-        - rid: 2836539972371350310
-        - rid: 2836539975978713719
-    - rid: 2836539972371350299
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules:
-        - rid: 2836539972371350311
-        - rid: 2836539975978713720
-    - rid: 2836539972371350300
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules:
-        - rid: 2836539972371350312
-        - rid: 2836539975978713721
-    - rid: 2836539972371350301
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules:
-        - rid: 2836539972371350313
-        - rid: 2836539975978713722
-    - rid: 2836539972371350302
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules:
-        - rid: 2836539972371350314
-        - rid: 2836539975978713723
-    - rid: 2836539972371350303
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules:
-        - rid: 2836539972371350315
-        - rid: 2836539975978713724
-    - rid: 2836539972371350304
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules:
-        - rid: 2836539972371350316
-        - rid: 2836539975978713725
-    - rid: 2836539972371350305
-      type: {class: QuestBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
+          id: Quest
+          subTypeId: None
+          name: Quest_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 7451303950148174195
+          behaviours:
+          - rid: 7451303950148174225
+          - rid: 7451303950148174227
+          - rid: 7451303950148174228
+          assistants:
+          - rid: 7451303950148174226
+          generatorRules:
+          - rid: 7451303950148174229
+          index: 0
+        notes: []
+    - rid: 7451303950148174225
+      type: {class: QuestBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS.Editor}
       data:
         visible: 1
         ownerLayer:
@@ -120,31 +108,23 @@ MonoBehaviour:
           name: Quest_Layer
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
+          - rid: 7451303950148174195
           behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
+          - rid: 7451303950148174225
+          - rid: 7451303950148174227
+          - rid: 7451303950148174228
           assistants:
-          - rid: 2836539972371350306
+          - rid: 7451303950148174226
           generatorRules:
-          - rid: 2836539972371350318
+          - rid: 7451303950148174229
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
         name: QuestBehaviour
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
         grammarGuid: 14cb4d99b22a94a45bac4216aca3f57e
-    - rid: 2836539972371350306
-      type: {class: GrammarAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
+    - rid: 7451303950148174226
+      type: {class: GrammarAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS.Editor}
       data:
         visible: 1
         ownerLayer:
@@ -156,380 +136,22 @@ MonoBehaviour:
           name: Quest_Layer
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
+          - rid: 7451303950148174195
           behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
+          - rid: 7451303950148174225
+          - rid: 7451303950148174227
+          - rid: 7451303950148174228
           assistants:
-          - rid: 2836539972371350306
+          - rid: 7451303950148174226
           generatorRules:
-          - rid: 2836539972371350318
+          - rid: 7451303950148174229
           index: 0
         colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
         name: GrammarAssistant
         iconGuid: ad8feef201665454ca79e31b7d798ac3
         icon: {fileID: 0}
-    - rid: 2836539972371350307
-      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: Graph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        _nodes: []
-        _edges: []
-        root:
-          rid: -2
-    - rid: 2836539972371350308
-      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: Graph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        _nodes: []
-        _edges: []
-        root:
-          rid: -2
-    - rid: 2836539972371350309
-      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: Graph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        _nodes: []
-        _edges: []
-        root:
-          rid: -2
-    - rid: 2836539972371350310
-      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: Graph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        _nodes: []
-        _edges: []
-        root:
-          rid: -2
-    - rid: 2836539972371350311
-      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: Graph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        _nodes: []
-        _edges: []
-        root:
-          rid: -2
-    - rid: 2836539972371350312
-      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: Graph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        _nodes: []
-        _edges: []
-        root:
-          rid: -2
-    - rid: 2836539972371350313
-      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: Graph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        _nodes: []
-        _edges: []
-        root:
-          rid: -2
-    - rid: 2836539972371350314
-      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: Graph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        _nodes: []
-        _edges: []
-        root:
-          rid: -2
-    - rid: 2836539972371350315
-      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: Graph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        _nodes: []
-        _edges: []
-        root:
-          rid: -2
-    - rid: 2836539972371350316
-      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: Graph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        _nodes: []
-        _edges: []
-        root:
-          rid: -2
-    - rid: 2836539972371350317
-      type: {class: NodeDataBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
+    - rid: 7451303950148174227
+      type: {class: NodeDataBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS.Editor}
       data:
         visible: 1
         ownerLayer:
@@ -541,33 +163,22 @@ MonoBehaviour:
           name: Quest_Layer
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
+          - rid: 7451303950148174195
           behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
+          - rid: 7451303950148174225
+          - rid: 7451303950148174227
+          - rid: 7451303950148174228
           assistants:
-          - rid: 2836539972371350306
+          - rid: 7451303950148174226
           generatorRules:
-          - rid: 2836539972371350318
+          - rid: 7451303950148174229
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
         name: NodeDataBehaviour
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
-    - rid: 2836539972371350318
-      type: {class: QuestRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
-      data: 
-    - rid: 2836539975978713715
-      type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
+    - rid: 7451303950148174228
+      type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS.Editor}
       data:
         visible: 1
         ownerLayer:
@@ -579,356 +190,20 @@ MonoBehaviour:
           name: Quest_Layer
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
+          - rid: 7451303950148174195
           behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          - rid: 2836539975978713715
+          - rid: 7451303950148174225
+          - rid: 7451303950148174227
+          - rid: 7451303950148174228
           assistants:
-          - rid: 2836539972371350306
+          - rid: 7451303950148174226
           generatorRules:
-          - rid: 2836539972371350318
+          - rid: 7451303950148174229
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
         name: NoteBehaviour
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
-    - rid: 2836539975978713716
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          - rid: 2836539975978713715
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        notes: []
-    - rid: 2836539975978713717
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          - rid: 2836539975978713715
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        notes: []
-    - rid: 2836539975978713718
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          - rid: 2836539975978713715
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        notes: []
-    - rid: 2836539975978713719
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          - rid: 2836539975978713715
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        notes: []
-    - rid: 2836539975978713720
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          - rid: 2836539975978713715
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        notes: []
-    - rid: 2836539975978713721
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          - rid: 2836539975978713715
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        notes: []
-    - rid: 2836539975978713722
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          - rid: 2836539975978713715
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        notes: []
-    - rid: 2836539975978713723
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          - rid: 2836539975978713715
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        notes: []
-    - rid: 2836539975978713724
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          - rid: 2836539975978713715
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        notes: []
-    - rid: 2836539975978713725
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          subTypeId: None
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 2836539972371350295
-          - rid: 2836539972371350296
-          - rid: 2836539972371350297
-          - rid: 2836539972371350298
-          - rid: 2836539972371350299
-          - rid: 2836539972371350300
-          - rid: 2836539972371350301
-          - rid: 2836539972371350302
-          - rid: 2836539972371350303
-          - rid: 2836539972371350304
-          behaviours:
-          - rid: 2836539972371350305
-          - rid: 2836539972371350317
-          - rid: 2836539975978713715
-          assistants:
-          - rid: 2836539972371350306
-          generatorRules:
-          - rid: 2836539972371350318
-          index: 0
-        notes: []
+    - rid: 7451303950148174229
+      type: {class: QuestRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS.Editor}
+      data: 

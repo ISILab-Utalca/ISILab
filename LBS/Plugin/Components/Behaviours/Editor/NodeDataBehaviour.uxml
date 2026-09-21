@@ -15,12 +15,11 @@
                 <ISILab.LBS.CustomComponents.LBSCustomLabel name="ParamID" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ISILab.LBS.CustomComponents.LBSCustomObjectField name="Terminal" focusable="false" enabled="false" picking-mode="Ignore" type="ISILab.AI.Grammar.GrammarTerminal, LBS" label="Node Terminal" style="justify-content: space-around;" />
+        <ISILab.LBS.CustomComponents.LBSCustomObjectField name="Terminal" focusable="false" enabled="false" picking-mode="Ignore" type="ISILab.AI.Grammar.GrammarTerminal, LBS.Editor" label="Node Terminal" style="justify-content: space-around;" />
         <ui:VisualElement name="NoNodeSelectedPanel" style="flex-grow: 1; flex-direction: row; max-height: 48px;">
             <ui:VisualElement style="flex-grow: 1; background-image: resource(&apos;Icons/Vectorial/Population/Icon=Important&apos;); -unity-background-scale-mode: scale-and-crop; background-size: 100% 100%; min-height: 36px; max-height: 36px; min-width: 36px; max-width: 36px; align-self: center; margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px;" />
             <ui:Label text="No node is currently selected." style="align-self: center; padding-left: 12px; justify-content: space-between; align-content: stretch; align-items: stretch; flex-grow: 1;" />
         </ui:VisualElement>
         <ui:VisualElement name="InstancedContent" style="flex-grow: 1;" />
     </ui:VisualElement>
-    <ISILab.LBS.CustomComponents.LBSToolbarToggle hide-toggle="true" style="max-height: none; flex-grow: 1; min-height: auto; display: none;" />
 </ui:UXML>

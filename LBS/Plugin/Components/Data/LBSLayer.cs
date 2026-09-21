@@ -74,7 +74,20 @@ namespace LBS.Components
 
         // "First" lists are less safe, but are meant to be used in editor
         // as a quick way to make design changes.
-        [JsonIgnore] public List<LBSModule> FirstModules => floors[0].Modules;
+        [JsonIgnore] public List<LBSModule> FirstModules
+        {
+            get
+            {
+                if (floors[0] != null) return floors[0].Modules;
+
+                floors = new LBSFloor[defaultFloorCount];
+                for (int i = 0; i < floors.Length; i++)
+                {
+                    floors[i] ??= new();//
+                }
+                return floors[0].Modules;
+            }
+        }
         [JsonIgnore] public List<LBSBehaviour> FirstBehaviours => behaviours;
         [JsonIgnore] public List<LBSAssistant> FirstAssistants => assistants;
         [JsonIgnore] public List<LBSGeneratorRule> FirstGeneratorRules => generatorRules;

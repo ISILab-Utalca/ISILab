@@ -610,8 +610,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             throw new NotImplementedException();
         }
-
-        
     }
 
     public class ToGenerateExterior : ToGenerate
