@@ -8,7 +8,7 @@ using System;
 using ISILab.Extensions;
 using UnityEditor;
 
-namespace ISILab.Commons.JsonNet
+namespace ISILab.Commons.JsonNet.Editor
 {
     public static class JSONDataManager
     {

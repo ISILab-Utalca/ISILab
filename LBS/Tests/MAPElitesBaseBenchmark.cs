@@ -1,5 +1,5 @@
 using ISILab.AI.Categorization;
-using ISILab.Commons.JsonNet;
+using ISILab.Commons.JsonNet.Editor;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
