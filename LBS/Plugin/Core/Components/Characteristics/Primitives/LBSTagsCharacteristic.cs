@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace ISILab.LBS.Characteristics
 {
+    /// <summary>
+    /// Container for a single <see cref="LBSTag"/>.
+    /// </summary>
     [Serializable]
     public class TagCharacteristicEntry
     {
@@ -14,12 +17,14 @@ namespace ISILab.LBS.Characteristics
         string tagName = "";
 
         [SerializeField, SerializeReference, JsonRequired/*, JsonIgnore*/]
-        protected LBSTag value;
+        LBSTag value;
 
         [SerializeField, JsonRequired]
-        protected string tagGUID = "";
+        string tagGUID = "";
 
-
+        /// <summary>
+        /// The tag contained in this entry. If for some reason it is not assigned, an attempt will be made to load it using its stored GUID.
+        /// </summary>
         [JsonIgnore]
         public LBSTag Value
         {
@@ -37,6 +42,9 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
+        /// <summary>
+        /// The GUID of the <see cref="LBSTag"/> contained. If not assigned, it will be consulted from the tag asset.
+        /// </summary>
         [JsonIgnore]
         public string TagGUID
         {
@@ -54,25 +62,36 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
-
+        /// <summary>
+        /// The name of the contained tag.
+        /// </summary>
         [JsonIgnore]
         public string TagName => tagName;
 
-        public TagCharacteristicEntry()
-        {
-        }
+        /// <summary>
+        /// Empty constructor.
+        /// </summary>
+        public TagCharacteristicEntry() { }
 
+        /// <summary>
+        /// Creates an entry containing the specified <see cref="LBSTag"/>.
+        /// </summary>
+        /// <param name="value"></param>
         public TagCharacteristicEntry(LBSTag value)
         {
             this.value = value;
             UpdateInfo();
         }
 
+        /// <summary>
+        /// Updates fields values using the current tag data.
+        /// </summary>
         public void UpdateInfo()
         {
             tagName = value.Label;
             //tagGUID = AssetMacro.GetGuidFromAsset(value);
         }
+
         public void OnBeforeSerialize()
         {
             if (value != null)
@@ -83,20 +102,32 @@ namespace ISILab.LBS.Characteristics
         }
     }
 
+    /// <summary>
+    /// Characteristic that holds a list of <see cref="LBSTag"/>.
+    /// </summary>
     [System.Serializable]
     //[LBSCharacteristic("Tags", "")]
     public class LBSTagsCharacteristic : LBSCharacteristic, ISerializationCallbackReceiver
     {
+        /// <summary>
+        /// Overwritten to allow duplicates of this characteristic in the same <see cref="Plugin.Components.Bundles.Bundle"/>.
+        /// </summary>
         public new static readonly bool unique = false;
 
         [SerializeField]
         List<TagCharacteristicEntry> tagEntries = new();
 
+        /// <summary>
+        /// List of <see cref="LBSTag"/> entries contained in this characteristic.
+        /// </summary>
         public List<TagCharacteristicEntry> TagEntries
         {
             get => tagEntries;
         }
 
+        /// <summary>
+        /// Direct access to contained <see cref="LBSTag"/>.
+        /// </summary>
         public List<LBSTag> Tags
         {
             get
@@ -112,8 +143,9 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
-        [System.Obsolete]
-        public List<TagCharacteristicEntry> Value { get; internal set; }
+        //[System.Obsolete]
+        //public List<TagCharacteristicEntry> Value { get; internal set; }
+
 
         public LBSTagsCharacteristic(List<LBSTag> tags)
         {
@@ -131,11 +163,20 @@ namespace ISILab.LBS.Characteristics
           
         }
 
+        /// <summary>
+        /// Creates a tag characteristic with a single <see cref="LBSTag"/> entry.
+        /// </summary>
+        /// <param name="tag"><see cref="LBSTag"/> to assign to this characteristic.</param>
         public LBSTagsCharacteristic(LBSTag tag)
         {
             tagEntries.Add(new TagCharacteristicEntry(tag));
         }
 
+        /// <summary>
+        /// Indexer for accessing <see cref="LBSTag"/> elements directly.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns>A <see cref="LBSTag"/> from the <see cref="TagCharacteristicEntry"/> list, specified by an index.</returns>
         public LBSTag this[int index]
         {
             get => tagEntries[index].Value;
@@ -168,17 +209,29 @@ namespace ISILab.LBS.Characteristics
             return true;
         }
 
-
+        /// <summary>
+        /// Creates a new entry with the specified <see cref="LBSTag"/>.
+        /// </summary>
+        /// <param name="tag">The <see cref="LBSTag"/> to add to this characteristic.</param>
         public void AddTag(LBSTag tag)
         {
             tagEntries.Add(new TagCharacteristicEntry(tag));
         }
 
+        /// <summary>
+        /// Removes an existing entry of a <see cref="LBSTag"/>.
+        /// </summary>
+        /// <param name="tag">The <see cref="LBSTag"/> to remove from this characteristic.</param>
         public void RemoveTag(LBSTag tag)
         {
             tagEntries.RemoveAll(t => t.Value == tag);
         }
 
+        /// <summary>
+        /// Checks if a specified <see cref="LBSTag"/> has an existing entry in this characteristic.
+        /// </summary>
+        /// <param name="tag">The <see cref="LBSTag"/> whose existence is being consulted.</param>
+        /// <returns>True if an entry with the specified <see cref="LBSTag"/> exists in this characteristic. False otherwise.</returns>
         public bool HasTag(LBSTag tag)
         {
             return tagEntries.Exists(t => t.Value == tag);
@@ -187,7 +240,7 @@ namespace ISILab.LBS.Characteristics
         public override string ToString()
         {
             string s = "[";
-            for(int i = 0; i <  tagEntries.Count; i++)
+            for(int i = 0; i < tagEntries.Count; i++)
             {
                 s += tagEntries[i].TagName + ", ";
             }

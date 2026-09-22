@@ -1,22 +1,27 @@
+using ISILab.LBS.Plugin.Components.Bundles;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
-using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.LBS.Characteristics
 {
     /// <summary>
-    /// Requiere que las cosas que hereden de el tengan un contructor por defecto sin parametros
+    /// Base class for <see cref="Bundle"/> characteristics. A LBSCharacteristic provides information and functionality to bundles, allowing customized behavior.
     /// </summary>
     [System.Serializable]
     public abstract class LBSCharacteristic : ICloneable
     {
         #region FIELDS
+        /// <summary>
+        /// Prevents this characteristic from being duplicated in the same <see cref="Bundle"/>. Overwrite using 'new' keyword if usage of multiple instances of the same characteristic is intended.
+        /// </summary>
         public static readonly bool unique = true;
 
+        /// <summary>
+        /// Defines groups of characteristics that should not coexist in the same <see cref="Bundle"/>.
+        /// </summary>
         public static List<List<Type>> exclusives = new List<List<Type>>()
         {
             new List<Type>(){typeof(LBSMainInteriorBundle), typeof(LBSMainExteriorBundle), typeof(LBSMainPopulationBundle)}
@@ -25,10 +30,16 @@ namespace ISILab.LBS.Characteristics
         [SerializeReference, SerializeField]
         private Bundle owner;
 
+        /// <summary>
+        /// Flag indicating whether this characteristic needs to be initialized or not.
+        /// </summary>
         protected bool initialized = false;
         #endregion
 
         #region PROPERTIES
+        /// <summary>
+        /// A reference to its corresponding <see cref="Bundle"/>.
+        /// </summary>
         [JsonIgnore, HideInInspector]
         public Bundle Owner
         {
@@ -43,9 +54,10 @@ namespace ISILab.LBS.Characteristics
 
         #region METHODS
         /// <summary>
-        /// this function allow the characteristic known what bundle its is owner
-        /// asi podemos tener acciones o itenracciones dentro characteristics
+        /// If not already initialized, this method performs all needed initialization operations.<br />
+        /// To extend this, <see cref="OnEnable"/> should be overridden.
         /// </summary>
+        /// <param name="owner">Owner <see cref="Bundle"/> of this characteristic.</param>
         public void Init(Bundle owner)
         {
             if (initialized) return;
@@ -55,6 +67,11 @@ namespace ISILab.LBS.Characteristics
             initialized = true;
         }
 
+        /// <summary>
+        /// Indicates whether a <see cref="LBSCharacteristic"/> is marked as unique.
+        /// </summary>
+        /// <param name="t">The type of the <see cref="LBSCharacteristic"/> to consult.</param>
+        /// <returns>True if the consulted <see cref="LBSCharacteristic"/> is marked as unique. False otherwise.</returns>
         public static bool IsUnique(Type t)
         {
             var field = t.GetField(nameof(unique),
@@ -63,6 +80,12 @@ namespace ISILab.LBS.Characteristics
             return (bool)(field?.GetValue(null) ?? false);
         }
 
+        /// <summary>
+        /// Indicates whether a <see cref="LBSCharacteristic"/> is exclusive with other existent characteristics.
+        /// </summary>
+        /// <param name="t">The type of the <see cref="LBSCharacteristic"/> to consult.</param>
+        /// <param name="exclusivenessGroups">All known groups of exclusive <see cref="LBSCharacteristic"/>.</param>
+        /// <returns>True if the consulted <see cref="LBSCharacteristic"/> is listed as exclusive with any other characteristic. False otherwise.</returns>
         public static bool IsExclusive(Type t, out List<List<Type>> exclusivenessGroups)
         {
             bool isExclusive = false;
@@ -78,10 +101,20 @@ namespace ISILab.LBS.Characteristics
             return isExclusive;
         }
 
-        public virtual void OnEnable() {  }
+        /// <summary>
+        /// Called only when this characteristic is initialized.
+        /// </summary>
+        public virtual void OnEnable() { }
 
+        /// <summary>
+        /// Called when inspector refresh is requested.
+        /// </summary>
         public virtual void OnRefresh() { }
 
+        /// <summary>
+        /// <see cref="ICloneable"/> implementation.
+        /// </summary>
+        /// <returns></returns>
         public abstract object Clone();
 
 
@@ -94,9 +127,13 @@ namespace ISILab.LBS.Characteristics
             return base.GetHashCode();
         }
 
+        /// <summary>
+        /// Checks for any anomaly in the configuration of this characteristic.
+        /// </summary>
+        /// <returns>A list of warnings indicating what needs to be fixed.</returns>
         public virtual List<string> Validate()
         {
-            return  new List<string>();
+            return new List<string>();
         }
         #endregion
 
