@@ -1583,7 +1583,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             }
 
             string n = endName;
-            bool overwrite = rulesetChar.Rulesets.Find(r => r.Name.Equals(n)) is not null;
+            bool overwrite = rulesetChar.Rulesets.Find(r => r.Name.Equals(n)) is not null; // Aun puede sobreescribir sin pedir confirmacion si se ingresa el nombre de un ruleset que existe fuera de el bundle actual.
             if (overwrite)
             {
                 bool confirmOverwrite = EditorUtility.DisplayDialog("Overwrite?", $"You are about to overwrite the WFC ruleset from Bundle {targetBundleRef.BundleName}. Continue?", "Yes", "No");

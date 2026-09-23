@@ -11,7 +11,7 @@
             <ISILab.LBS.CustomComponents.LBSCustomButton text="Save Weights" name="SaveWeights" tooltip="Saves the captured weights to a new WFC ruleset, or overrides an existent ruleset with the same name." style="flex-grow: 1; align-self: stretch; height: 32px;" />
             <ISILab.LBS.CustomComponents.LBSCustomButton name="LoadWeights" text="Load Weights" tooltip="Loads saved weights from the selected WFC ruleset from the list below." style="height: 32px; flex-grow: 1;" />
         </ui:VisualElement>
-        <ISILab.LBS.CustomComponents.LBSCustomObjectField name="CurrentRuleset" label="Current Ruleset" type="ISILab.LBS.Plugin.Core.AI.Assistant.WFCRuleset, LBS" />
+        <ISILab.LBS.CustomComponents.LBSCustomObjectField name="CurrentRuleset" label="Current Ruleset" type="ISILab.LBS.Plugin.Core.AI.Assistant.WFCRuleset, LBS.Editor" />
         <ISILab.LBS.CustomComponents.LBSCustomListView name="RulesetsList" header-title="Rulesets" show-border="true" show-foldout-header="true" show-bound-collection-size="false" item-template="project://database/Assets/ISILab/LBS/Plugin/Core/AI/Assistant/Editor/WFCRulesetElement.uxml?fileID=9197481963319205126&amp;guid=ade6143bd2f85b5458b4e896f6510e74&amp;type=3#WFCRulesetElement" style="flex-grow: 0; align-self: stretch;" />
     </ISILab.LBS.CustomComponents.LBSCustomFoldout>
     <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Wave Function Collapse Settings">

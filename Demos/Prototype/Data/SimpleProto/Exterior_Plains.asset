@@ -21,10 +21,10 @@ MonoBehaviour:
   icon: {fileID: 0}
   assets: []
   characteristics:
-  - rid: 3537477515337269842
-  - rid: 5583321337985237386
-  - rid: 469532431996682243
-  - rid: 469532548052549677
+  - rid: 7203808285582163992
+  - rid: 7203808285582163993
+  - rid: 7203808285582163994
+  - rid: 7203808286123230095
   elementFlag: 0
   tileSize: {x: 1, y: 1}
   childsBundles:
@@ -58,18 +58,12 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 469532431996682243
-      type: {class: LBSMainExteriorBundle, ns: ISILab.LBS.Characteristics, asm: LBS}
+    - rid: 7203808285582163992
+      type: {class: LBSMainExteriorBundle, ns: ISILab.LBS.Characteristics, asm: LBS.Editor}
       data:
         owner: {fileID: 11400000}
-    - rid: 469532548052549677
-      type: {class: WFCRulesetsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 11400000}
-        rulesets:
-        - {fileID: 11400000, guid: 80449c3209ff7cf48ad809941f214d04, type: 2}
-    - rid: 3537477515337269842
-      type: {class: LBSDirectionedChance, ns: ISILab.LBS.Characteristics, asm: LBS}
+    - rid: 7203808285582163993
+      type: {class: LBSDirectionedChance, ns: ISILab.LBS.Characteristics, asm: LBS.Editor}
       data:
         owner: {fileID: 11400000}
         tileDirections:
@@ -1111,8 +1105,8 @@ MonoBehaviour:
               chance: 0.10810811
         currentType: 0
         maxLimit: 1
-    - rid: 5583321337985237386
-      type: {class: LBSNavigableTags, ns: ISILab.LBS.Characteristics, asm: LBS}
+    - rid: 7203808285582163994
+      type: {class: LBSNavigableTags, ns: ISILab.LBS.Characteristics, asm: LBS.Editor}
       data:
         owner: {fileID: 11400000}
         tags:
@@ -1121,3 +1115,9 @@ MonoBehaviour:
         - {fileID: 11400000, guid: 1d5bb63e17b60b24fbcc07529b297294, type: 2}
         - {fileID: 11400000, guid: 82c988506a4389042b3f7c2c94f04ea5, type: 2}
         navigable: 00010000
+    - rid: 7203808286123230095
+      type: {class: WFCRulesetsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS.Editor}
+      data:
+        owner: {fileID: 11400000}
+        rulesets:
+        - {fileID: 11400000, guid: 80449c3209ff7cf48ad809941f214d04, type: 2}
