@@ -36,6 +36,7 @@ MonoBehaviour:
     behaviours:
     - rid: 7451303950148174191
     - rid: 7451303950148174192
+    - rid: 7451303975686504527
     assistants:
     - rid: 7451303950148174193
     generatorRules:
@@ -1197,3 +1198,39 @@ MonoBehaviour:
     - rid: 7451303950148174194
       type: {class: PopulationRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS.Editor}
       data: 
+    - rid: 7451303975686504527
+      type: {class: TileGroupBehavior, ns: ISILab.LBS.Behaviours, asm: LBS.Editor}
+      data:
+        visible: 1
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 48f2011efc0f7b2449db9f824c895d9d
+          id: Population
+          subTypeId: None
+          name: Population_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 7451303950148174151
+          - rid: 7451303950148174152
+          - rid: 7451303950148174153
+          - rid: 7451303950148174154
+          - rid: 7451303950148174155
+          - rid: 7451303950148174156
+          - rid: 7451303950148174157
+          - rid: 7451303950148174158
+          - rid: 7451303950148174159
+          - rid: 7451303950148174160
+          behaviours:
+          - rid: 7451303950148174191
+          - rid: 7451303950148174192
+          - rid: 7451303975686504527
+          assistants:
+          - rid: 7451303950148174193
+          generatorRules:
+          - rid: 7451303950148174194
+          index: 0
+        colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
+        name: TileGroupBehavior
+        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
+        icon: {fileID: 0}
