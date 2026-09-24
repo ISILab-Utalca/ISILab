@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.AI.Clippy
 {
-    [CreateAssetMenu(fileName = "LbesinMod", menuName = "Scriptable Objects/LbesinMod")]
+    [CreateAssetMenu(fileName = "LbesinMod", menuName = "ISILab/LBS/LbesinMod")]
     public class LbesinMod : ScriptableObject
     {
         public string Id;
