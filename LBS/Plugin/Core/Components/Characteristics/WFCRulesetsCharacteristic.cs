@@ -7,12 +7,18 @@ using UnityEngine;
 
 namespace ISILab.LBS.Characteristics
 {
+    /// <summary>
+    /// Characteristic that stores rulesets for WFC. Used by Exterior Main Bundles.
+    /// </summary>
     [System.Serializable]
     public class WFCRulesetsCharacteristic : LBSCharacteristic
     {
         [SerializeField]
         private List<WFCRuleset> rulesets = new List<WFCRuleset>();
 
+        /// <summary>
+        /// List of non-null rulesets stored.
+        /// </summary>
         [JsonIgnore]
         public List<WFCRuleset> Rulesets
         {
@@ -36,6 +42,10 @@ namespace ISILab.LBS.Characteristics
             Owner.OnRemoveCharacteristic += ConfirmRemove;
         }
 
+        /// <summary>
+        /// Event method that asks confirmation when removing this characteristic from its owner bundle.
+        /// </summary>
+        /// <param name="c">This characteristic.</param>
         private void ConfirmRemove(LBSCharacteristic c)
         {
             if (c is null || !c.Equals(this)) return;
@@ -48,6 +58,7 @@ namespace ISILab.LBS.Characteristics
             }
             else
             {
+                // Restores the characteristic that was going to be removed.
                 var clone = c.Clone() as WFCRulesetsCharacteristic;
                 c = null;
                 Owner.AddCharacteristic(clone);

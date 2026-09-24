@@ -1,5 +1,8 @@
 namespace ISILab.LBS.Characteristics
 {
+    /// <summary>
+    /// Characteristic used to identify its owner <see cref="Plugin.Components.Bundles.Bundle"/> as a Main Bundle of type Population.
+    /// </summary>
     [System.Serializable]
     //[LBSCharacteristic("Main Population", "")]
     public class LBSMainPopulationBundle : LBSCharacteristic
