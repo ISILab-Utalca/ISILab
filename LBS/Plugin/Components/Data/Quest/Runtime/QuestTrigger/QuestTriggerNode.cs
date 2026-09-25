@@ -139,9 +139,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
         #endregion
 
-
-
-
         #region EDITOR VALIDATION
 #if UNITY_EDITOR
         /// <summary>
