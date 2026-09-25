@@ -19,8 +19,10 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
     {
         // Wrapper class used to easily find the backup file with 
         // DirectoryTools.GetScriptable()
+        [System.Serializable]
         public class BackUpWrapper : ScriptableObject
         {
+            [SerializeField]
             public LoadedLevel level;
         }
 
@@ -84,6 +86,7 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
                 LBSAssetsStorage.folderName = "Cache";
                 LBSAssetsStorage.ResetInstance();
             }
+
             LoadBackUp();
             ReloadCurrentLevel();
         }
@@ -98,8 +101,7 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
 
             if (data != null)
             {
-                //Instance
-                localBackUp = ScriptableObject.CreateInstance<BackUpWrapper>();
+                
 
                 //Backup file setup
                 var settings = LBSSettings.Instance;
@@ -112,8 +114,10 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
                     Directory.CreateDirectory(folderPath);
                 }
 
+                //Instance
+                localBackUp = ScriptableObject.CreateInstance<BackUpWrapper>();
                 //Save the level into the backup
-                switch(level == null)
+                switch (level == null)
                 {
                     case true:
                         localBackUp.level = LBSController.CreateNewLevel("new file");
@@ -124,7 +128,6 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
                         break;
                 }
 
-                //Make the asset
                 AssetDatabase.CreateAsset(localBackUp, path);
                 AssetDatabase.SaveAssets();
             }
@@ -150,7 +153,6 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
             {
                 // load the level from the backup
                 LBSController.CurrentLevel = backUp.level;
-                Debug.Log("level loaded: " + backUp.level.data.Layers.First().Name);
             } 
             else
             {
