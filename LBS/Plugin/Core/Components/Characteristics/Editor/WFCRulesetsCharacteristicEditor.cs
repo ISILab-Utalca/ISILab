@@ -7,6 +7,9 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
+    /// <summary>
+    /// Editor of <see cref="WFCRulesetsCharacteristic"/>.
+    /// </summary>
     [LBSCustomEditor("WFC Rulesets", typeof(WFCRulesetsCharacteristic))]
     public class WFCRulesetsCharacteristicEditor : LBSCustomEditor
     {

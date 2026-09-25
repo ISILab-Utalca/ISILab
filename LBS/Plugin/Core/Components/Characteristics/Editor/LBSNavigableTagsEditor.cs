@@ -1,19 +1,21 @@
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Editor;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UIElements;
-using System.Linq;
-using UnityEditor;
 
 namespace ISILab.LBS.VisualElements
 {
+    /// <summary>
+    /// Editor of <see cref="LBSNavigableTags"/>.
+    /// </summary>
     [LBSCustomEditor("Navigable Tags", typeof(LBSNavigableTags))]
     public class LBSNavigableTagsEditor : LBSCustomEditor
     {
-        public VisualElement content;
+        /// <summary>
+        /// Container of the editor itself.
+        /// </summary>
+        private VisualElement content;
 
         public LBSNavigableTagsEditor(object target) : base(target) 
         {
