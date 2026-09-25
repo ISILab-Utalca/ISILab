@@ -3,21 +3,25 @@ using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.UIElements;
-using static ISILab.LBS.Modules.ConnectedTileMapModule;
-using static ISILab.LBS.Characteristics.LBSDirectionedChance;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static ISILab.LBS.Characteristics.LBSDirectionedChance;
+using static ISILab.LBS.Modules.ConnectedTileMapModule;
 
 namespace ISILab.LBS.VisualElements
 {
     /// <summary>
-    /// Shows what was captured using CaptureChance() in AssistantWFC. It orders the information into a treeview, in which
+    /// Editor of <see cref="LBSDirectionedChance"/>.
+    /// Shows what was captured using <see cref="Plugin.Core.AI.Assistant.AssistantWFC.CaptureRules"/>. It orders the information into a treeview, in which
     /// the data can be partially manipulated, like the chance, but not which new tiles will appear.
     /// </summary>
     [LBSCustomEditor("Connections group chance", typeof(LBSDirectionedChance))]
     public class LBSDirectionedChanceEditor : LBSCustomEditor
     {
-        public VisualElement content;
+        /// <summary>
+        /// Container of the editor itself.
+        /// </summary>
+        private VisualElement content;
 
         public LBSDirectionedChanceEditor()
         {
@@ -296,21 +300,51 @@ namespace ISILab.LBS.VisualElements
         }
     }
 
-    public class TreeNodeData
+    /// <summary>
+    /// Info for different kinds of nodes for a Tree View.
+    /// </summary>
+    internal class TreeNodeData
     {
+        /// <summary>
+        /// Identifier used in the Tree View.
+        /// </summary>
         public int Id { get; set; }
+        /// <summary>
+        /// Text information of the node.
+        /// </summary>
         public string Label { get; set; }
+        /// <summary>
+        /// Used for nodes that contains a Slider.
+        /// </summary>
         public float? SliderValue { get; set; }
-        public UnityEngine.Object ObjectFieldValue { get; set; }
+        /// <summary>
+        /// Used for nodes that contains an Object Field.
+        /// </summary>
+        public Object ObjectFieldValue { get; set; }
+        /// <summary>
+        /// What type of information the node contains.
+        /// </summary>
         public NodeType Type { get; set; }
         public List<TreeNodeData> Children { get; set; } = new();
 
     }
 
-    public enum NodeType
+    /// <summary>
+    /// Indicates the visual element represented.
+    /// </summary>
+    internal enum NodeType
     {
+        /// <summary>
+        /// The node is a text Label.
+        /// </summary>
         Label,
+        /// <summary>
+        /// The node is a Slider.
+        /// </summary>
         Slider,
+        /// <summary>
+        /// The node is an Object Field.
+        /// </summary>
         ObjectField
     }
 }

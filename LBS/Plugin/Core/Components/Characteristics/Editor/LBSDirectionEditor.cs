@@ -1,22 +1,34 @@
-using UnityEngine;
-using UnityEngine.UIElements;
-using ISILab.LBS.Characteristics;
-using ISILab.LBS.Editor;
-using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleDirectionsWindows;
 using ISILab.Commons.Utility.Editor;
-using UnityEditor.UIElements;
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Editor;
+using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleDirectionsWindows;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
+    /// <summary>
+    /// Editor of <see cref="LBSDirection"/>.
+    /// </summary>
     [LBSCustomEditor("Weights", typeof(LBSDirection))]
     public class LBSDirectionEditor : LBSCustomEditor
     {
+        /// <summary>
+        /// Center <see cref="LBSTag"/> field.
+        /// </summary>
         LBSCustomObjectField cField;
+        /// <summary>
+        /// Direction <see cref="LBSTag"/> fields.
+        /// </summary>
         LBSCustomObjectField[] fields;
 
         private Button openDirectionToolButton;
+        /// <summary>
+        /// Visual windowed editor.
+        /// </summary>
         private static BundleDirectionEditorWindow directionWindow;
 
         public LBSDirectionEditor()
@@ -39,7 +51,7 @@ namespace ISILab.LBS.VisualElements
                 return;
             
             target.Size = 4;
-            var connections = target.Connections;
+            List<string> connections = target.Connections;
 
             cField.objectType = typeof(LBSTag);
             cField.value = DirectoryTools.GetAssetByName<LBSTag>(target.Center, true);
@@ -86,6 +98,9 @@ namespace ISILab.LBS.VisualElements
             return this;
         }
 
+        /// <summary>
+        /// Button event that opens a more sofisticated window editor.
+        /// </summary>
         private void OpenDirectionTool()
         {
             if (directionWindow)
