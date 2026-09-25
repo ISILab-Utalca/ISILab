@@ -77,27 +77,16 @@ namespace ISILab.LBS.Manipulators
                 LBSMainWindow.MessageNotify(new LBSLog("The destination is a root of this node.", LogType.Error));
                 return;
             }
-            // Avoid multiple connections without branching nodes
-            if(_first is QuestNode first)
+            // only branching nodes can be a To on multiple edges
+            if (second is QuestNode && _first is QuestNode)
             {
-                if (_quest.Edges.Any(e => Equals(e.From, first)))
+                bool alreadyTarget = _quest.Edges.Any(e => Equals(e.To, second));
+                if (alreadyTarget)
                 {
-                    LBSMainWindow.MessageNotify(new LBSLog("Origin is already connected to another node. For multiple use Branching nodes", LogType.Error));
+                    LBSMainWindow.MessageNotify(new LBSLog("Action Nodes can only be the destination of one edge. For multiple use Branching nodes", LogType.Error));
                     return;
                 }
-                // only branching nodes can be a To on multiple edges
-                if (second is QuestNode)
-                {
-                    //bool alreadyTarget = _quest.Edges.Any(e => Equals(e.To, second));
-                    //if (alreadyTarget)
-                    if (second.HasRoots())
-                    {
-                        LBSMainWindow.MessageNotify(new LBSLog("Destination is already connected to another node. For multiple use Branching nodes", LogType.Error));
-                        return;
-                    }
-                }
             }
-            
 
             var level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();

@@ -4,7 +4,6 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor; // TODO: Search the reference to this namespace and remove it
@@ -155,7 +154,7 @@ namespace ISILab.LBS.Drawers
             Vector2 size = DefaultSize * teselationSize;
             tView.SetPosition(new Rect(pos * size, size));
             tView.SetSelectionMode(layerSelected);
-            tView.layer = layerIndex * LBSSettings.Instance.general.layerScale;
+            tView.layer = layerIndex;
         }
 
         private void LoadAllTiles(ExteriorBehaviour exterior, ConnectedTileMapModule connectMod, Vector2 teselationSize, MainView view)

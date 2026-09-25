@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 using System.IO;
-using ISILab.Commons.JsonNet.Editor;
+using ISILab.Commons.JsonNet;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Core.Settings;
 
@@ -20,22 +20,14 @@ namespace ISILab.LBS
         {
             get
             {
+               
                 /*
-                var level = LBS.loadedLevel;
-                if (level == null)
-                {
-                    level = ScriptableObject.CreateInstance<LoadedLevel>();
-                    level.data = new LBSLevelData();
-                    level.fullName = "";
-                }
-                return level;//*/
-
                 if (_currentLevel == null)
                 {
                     _currentLevel = ScriptableObject.CreateInstance<LoadedLevel>();
-                    _currentLevel.data = new LBSLevelData();
+                     _currentLevel.data = new LBSLevelData();
                     _currentLevel.fullName = "";
-                }
+                }*/
                 return _currentLevel;
             }
             set
@@ -193,6 +185,7 @@ namespace ISILab.LBS
         /// <returns></returns>
         public static LoadedLevel CreateNewLevel(string levelName = "new file")
         {
+            Debug.Log("creating new level!");
             var data = new LBSLevelData();
             var loaded = LoadedLevel.CreateInstance(data, null);
             CurrentLevel = loaded;

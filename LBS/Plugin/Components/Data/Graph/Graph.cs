@@ -120,7 +120,7 @@ namespace ISILab.LBS.Modules
         {
             _nodes.Add(node);
 
-            if (fillEmptyRoot && root == null && node is not BranchNode)
+            if (fillEmptyRoot && root == null)
             {
                 SetRoot(node);
             }

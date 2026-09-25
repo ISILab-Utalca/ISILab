@@ -261,6 +261,7 @@ namespace ISILab.LBS.Editor.Windows
                     w.Close();
                 }
             };//*/
+
         }
 
         private void OnDestroy()
@@ -331,6 +332,7 @@ namespace ISILab.LBS.Editor.Windows
         /// </summary>
         private void Init()
         {
+            Debug.Log("level has " + LBSController.CurrentLevel.data.LayerCount + " layers");
 
             var sw = Stopwatch.StartNew();
             #region LOAD & BACKUP LEVEL DATA
