@@ -8,6 +8,9 @@ using Random = UnityEngine.Random;
 
 namespace ISILab.LBS.Plugin.Components.Bundles.Tools
 {
+    /// <summary>
+    /// Editor tool used by population bundles to add diversity during generation process.
+    /// </summary>
     [Serializable]
     public class MicroGenTool
     {

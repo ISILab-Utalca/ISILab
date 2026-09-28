@@ -7,7 +7,6 @@ using PathOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Serialization;
@@ -16,6 +15,9 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.Components.Bundles
 {
+    /// <summary>
+    /// Specifies the layers for which a bundle is intended to operate.
+    /// </summary>
     [System.Flags]
     public enum BundleFlags
     {
@@ -26,7 +28,10 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         Quest = 1 << 3,
         Simulation = 1 << 4
     }
-    
+
+    /// <summary>
+    /// Indicates spatial positioning a bundle should adopt when instantiated.
+    /// </summary>
     [System.Serializable]
     public enum Positioning
     {
@@ -36,10 +41,19 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         Other
     }
 
+    /// <summary>
+    /// Container to configure a prefab GameObject.
+    /// </summary>
     [System.Serializable]
     public class Asset : ICloneable
     {
+        /// <summary>
+        /// Prefab to instantiate.
+        /// </summary>
         public GameObject obj;
+        /// <summary>
+        /// Weighted probability of instantiating.
+        /// </summary>
         [Range(0f,1f)]
         public float probability;
         [HideInInspector]
@@ -51,6 +65,10 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             this.obj = obj;
             this.probability = probability;
         }
+        /// <summary>
+        /// Sets a unique ID.
+        /// </summary>
+        /// <returns>The ID created.</returns>
         public string SetID()
         {
             id = Guid.NewGuid().ToString();
@@ -77,6 +95,10 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         }
     }
 
+    /// <summary>
+    /// Object that wraps game assets, models, prefabs and its metadata used by LBS to generate interior, exterior and population layer content.<br/>
+    /// Bundles also contain <see cref="LBSCharacteristic"/>s that provides necesary information to function.
+    /// </summary>
     //[CreateAssetMenu(fileName = "New Bundle", menuName = "ISILab/LBS/Bundle")] <- Replaced with BundleMenuItem
     [System.Serializable]
     public class Bundle : ScriptableObject, ICloneable
@@ -172,25 +194,34 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         #region PROPERTIES
 
+        /// <summary>
+        /// Custom bundle name. If empty, it uses its object name.
+        /// </summary>
         public string BundleName
         {
             get => string.IsNullOrEmpty(bundleName) ? Name : bundleName;
             set => bundleName = value;
         }
 
+        /// <summary>
+        /// Flags specifying the layers for which the bundle is intended to operate.
+        /// </summary>
         public BundleFlags LayerContentFlags
         {
             get => layerContentFlags;
             set => layerContentFlags = value;
         }
 
+        /// <summary>
+        /// A representative icon of the bundle.
+        /// </summary>
         public VectorImage Icon
         {
             get
             {
-                if (icon is not null)
+                if (icon != null)
                 {
-                    iconGuid = AssetMacro.GetGuidFromAsset(icon); ;
+                    iconGuid = AssetMacro.GetGuidFromAsset(icon);
                 }
                 else
                 {
@@ -205,12 +236,21 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             }
         }
 
+        /// <summary>
+        /// A representative color of the bundle.
+        /// </summary>
         public Color Color
         {
             get => color;
             set => color = value;
         }
+        /// <summary>
+        /// Object name.
+        /// </summary>
         public string Name => name;
+        /// <summary>
+        /// The prefabs that can be instantiated for this bundle.
+        /// </summary>
         public List<Asset> Assets
         {
             get => new List<Asset>(assets);
@@ -219,14 +259,27 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         public Vector2Int TileSize => tileSize;
         
+        /// <summary>
+        /// Identifies this bundle as a population element.
+        /// </summary>
         public EElementFlag ElementFlag => elementFlag;
+
+        /// <summary>
+        /// Provides identity, information and diferent functionalities to this bundle.
+        /// </summary>
         public List<LBSCharacteristic> Characteristics => characteristics;
 
+        /// <summary>
+        /// Bundle units, used if this bundle is a Main Bundle.
+        /// </summary>
         public List<Bundle> ChildsBundles => new List<Bundle>(childsBundles);
 
         
         public bool IsLeaf => (childsBundles.Count <= 0);
 
+        /// <summary>
+        /// Indicates spatial positioning the bundle should adopt when instantiated.
+        /// </summary>
         public Positioning Positioning => anchorPosition;
 
         [Obsolete("Use layer content flags instead.")]
@@ -236,21 +289,27 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             set => type = value;
         }
 
+        /// <summary>
+        /// Asset GUID.
+        /// </summary>
         public string GUID
         {
             get => guid;
             set => guid = value;
         }
 
+        /// <summary>
+        /// Label utilized by Simulation agent. Determines how the agent will react to this instantiated bundle.
+        /// </summary>
         public EntityType EntityType
         {
             get => entityType;
-            internal set // Quiza no deberia haber un setter, pero se usa en PathOSTag.ToLBSTag. No se si sirva de mucho pero lo dejare como internal por ahora
-            {
-                if (entityType == value) return;
+            //internal set // Quiza no deberia haber un setter, pero se usa en PathOSTag.ToLBSTag. No se si sirva de mucho pero lo dejare como internal por ahora
+            //{
+            //    if (entityType == value) return;
 
-                entityType = value;
-            }
+            //    entityType = value;
+            //}
         }
 
         public List<EntityType> AdmissibleEntityTypes { get => admissibleTypes; }
@@ -268,6 +327,11 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         public event Action<LBSCharacteristic> OnRemoveCharacteristic;
         #endregion
 
+        /// <summary>
+        /// Searches the bundle hierarchy for all children bundles with a specific positioning value.
+        /// </summary>
+        /// <param name="positioning">The type of positioning serched for in children bundles.</param>
+        /// <returns>Every descendant with the specified positioning.</returns>
         #region METHODS
         public List<Bundle> GetChildrenByPositioning(Positioning positioning)
         {
@@ -282,6 +346,11 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             return r;
         }
 
+        /// <summary>
+        /// Searches the bundle hierarchy for all children bundles with a specific tag.
+        /// </summary>
+        /// <param name="tag">The tag searched for in children bundles.</param>
+        /// <returns>Every descendant with the specified tag.</returns>
         internal List<Bundle> GetChildrensByTag(string tag)
         {
             var r = new List<Bundle>();
@@ -295,6 +364,9 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             return r;
         }
 
+        /// <summary>
+        /// Initializes every characteristic on this bundle.
+        /// </summary>
         public void Reload()
         {
             foreach (LBSCharacteristic characteristic in characteristics)
@@ -306,6 +378,9 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             }
         }
 
+        /// <summary>
+        /// Refreshes every characteristic on this bundle.
+        /// </summary>
         public void Refresh()
         {
             foreach(LBSCharacteristic characteristic in Characteristics)
@@ -320,6 +395,14 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             - has at least one of the current bundle's flags
     
         */
+        /// <summary>
+        /// Indicates whether a bundle is allowed to become a child of this bundle.
+        /// </summary>
+        /// <param name="potentialChild">Desired child Bundle to verify.</param>
+        /// <returns>
+        /// True if the potential child shares the same flags as this bundle, is not part of this bundle's ascendance, and is not already a child of this bundle.<br/>
+        /// False if the potential child has not the same flags as this bundle, or is an ascendant or child of this bundle.
+        /// </returns>
         public bool IsBundleValidChild(Bundle potentialChild)
         {
             // Get all parent bundles to avoid recursion
@@ -336,7 +419,10 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             return true;
         }
         
-        
+        /// <summary>
+        /// Adds a valid bundle to the children list of this bundle.
+        /// </summary>
+        /// <param name="child">The new child bundle.</param>
         public void AddChild(Bundle child)
         {
             if (IsRecursive(this, child))
@@ -353,6 +439,11 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             OnAddChild?.Invoke(child);
         }
 
+        /// <summary>
+        /// Inserts at a specified position a valid bundle to the children list of this bundle.
+        /// </summary>
+        /// <param name="index">The position to insert the child bundle.</param>
+        /// <param name="child">The new child bundle.</param>
         public void InsertChild(int index, Bundle child)
         {
             Assert.IsTrue(IsRecursive(this, child), "[ISI Lab]: Bundle '" + this.name + "' is contained in bundle '" + child.name + "' or one of its child bundles.");
@@ -361,6 +452,10 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             OnAddChild?.Invoke(child);
         }
 
+        /// <summary>
+        /// Removes a bundle from the children list of this bundle.
+        /// </summary>
+        /// <param name="child">The child to remove.</param>
         public void RemoveChild(Bundle child)
         {
             if (childsBundles.Remove(child))
@@ -369,6 +464,9 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             }
         }
         
+        /// <summary>
+        /// Clears from the children list all null children bundles.
+        /// </summary>
         public void RemoveNullChildren()
         {
             for (int i = 0; i < childsBundles.Count; i++)
@@ -381,29 +479,46 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             }
         }
 
+        /// <summary>
+        /// Clears the entire children list.
+        /// </summary>
         public void ClearChilds()
         {
-            while (childsBundles.Count() > 0)
+            while (childsBundles.Count > 0)
             {
-                Bundle last = childsBundles.Last();
+                Bundle last = childsBundles[^1];
                 OnRemoveChild?.Invoke(this);
                 childsBundles.Remove(last);
             }
         }
 
-        public void AddAsset(GameObject obj, float provability = .5f)
+        /// <summary>
+        /// Creates an <see cref="Asset"/> from a prefab and adds it to the assets list.
+        /// </summary>
+        /// <param name="obj">The prefab gameobject from which the asset will be created.</param>
+        /// <param name="probability">Weighted probability of the prefab of being chosen when instantiating this bundle.</param>
+        public void AddAsset(GameObject obj, float probability = .5f)
         {
-            var asset = new Asset(obj, provability);
+            var asset = new Asset(obj, probability);
             assets.Add(asset);
             OnAddAsset?.Invoke(asset);
         }
 
+        /// <summary>
+        /// Adds a given <see cref="Asset"/> to the assets list.
+        /// </summary>
+        /// <param name="asset"></param>
         public void AddAsset(Asset asset)
         {
             assets.Add(asset);
             OnAddAsset?.Invoke(asset);
         }
 
+        /// <summary>
+        /// Replaces an asset at a specified position with another asset.
+        /// </summary>
+        /// <param name="index">Position of the asset to replace.</param>
+        /// <param name="asset">New asset.</param>
         public void ReplaceAsset(int index, Asset asset)
         {
             if (index == -1)
@@ -414,18 +529,31 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             OnAddAsset?.Invoke(asset);
         }
 
+        /// <summary>
+        /// Inserts a new <see cref="Asset"/> at a specified position.
+        /// </summary>
+        /// <param name="index">The position to insert the asset.</param>
+        /// <param name="asset">The new asset.</param>
         public void InsertAsset(int index, Asset asset)
         {
             assets.Insert(index, asset);
             OnAddAsset?.Invoke(asset);
         }
 
+        /// <summary>
+        /// Removes an <see cref="Asset"/> from the assets list.
+        /// </summary>
+        /// <param name="asset">The asset to remove.</param>
         public void RemoveAsset(Asset asset)
         {
             if (assets.Remove(asset))
                 OnRemoveAsset?.Invoke(asset);
         }
 
+        /// <summary>
+        /// Adds a new <see cref="LBSCharacteristic"/> to this bundle.
+        /// </summary>
+        /// <param name="characteristic">The new characteristic to add.</param>
         public void AddCharacteristic(LBSCharacteristic characteristic)
         {
             characteristics.Add(characteristic);
@@ -433,6 +561,11 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             OnAddCharacteristic?.Invoke(characteristic);
         }
 
+        /// <summary>
+        /// Inserts at a specified position a new <see cref="LBSCharacteristic"/> to this bundle.
+        /// </summary>
+        /// <param name="index">The position to insert the new characteristic.</param>
+        /// <param name="characteristic">The characteristic to insert.</param>
         public void InsertCharacteristic(int index, LBSCharacteristic characteristic)
         {
             characteristic.Init(this);
@@ -440,6 +573,10 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             OnAddCharacteristic?.Invoke(characteristic);
         }
 
+        /// <summary>
+        /// Removes an <see cref="Asset"/> at a specified index.
+        /// </summary>
+        /// <param name="index">Index of the asset to remove.</param>
         public void RemoveAssetAt(int index)
         {
             Asset asset = assets[index];
@@ -447,6 +584,10 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             OnRemoveAsset?.Invoke(asset);
         }
 
+        /// <summary>
+        /// Remove a specified <see cref="LBSCharacteristic"/>.
+        /// </summary>
+        /// <param name="characteristic">The characteristic to remove.</param>
         public void RemoveCharacteristic(LBSCharacteristic characteristic)
         {
             if (characteristics.Remove(characteristic))
@@ -455,11 +596,20 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             }
         }
 
+        /// <summary>
+        /// Manually invoked callback for specific cases of removing a <see cref="LBSCharacteristic"/> from this bundle.
+        /// </summary>
+        /// <param name="characteristic"></param>
         public void RemoveCharacteristicCallback(LBSCharacteristic characteristic)
         {
             OnRemoveCharacteristic?.Invoke(characteristic);
         }
 
+        /// <summary>
+        /// Searches for every <see cref="LBSCharacteristic"/> of a specified subtype in this bundle and its descendance.
+        /// </summary>
+        /// <typeparam name="T">Subtype of <see cref="LBSCharacteristic"/>.</typeparam>
+        /// <returns>A list of the subtype specified with all found characteristics.</returns>
         public List<T> GetChildrenCharacteristics<T>() where T : LBSCharacteristic
         {
             var chars = new List<T>();
@@ -475,14 +625,19 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             return chars;
         }
 
+        /// <summary>
+        /// Gets all <see cref="LBSCharacteristic"/>s of the specified subtype in this bundle.
+        /// </summary>
+        /// <typeparam name="T">Subtype of <see cref="LBSCharacteristic"/>.</typeparam>
+        /// <returns>A list of the subtype specified with all found characteristics.</returns>
         public List<T> GetCharacteristics<T>() where T : LBSCharacteristic
         {
             var list = new List<T>();
             foreach (object item in characteristics)
             {
-                if (item is T)
+                if (item is T t)
                 {
-                    list.Add((T)item);
+                    list.Add(t);
                 }
             }
 
