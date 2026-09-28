@@ -1,5 +1,7 @@
 using ISILab.Commons.Extensions;
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
+#endif
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
@@ -17,8 +19,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
-    
-
     [Serializable]
     [RequieredModule(typeof(TileMapModule),
         typeof(ConnectedTileMapModule),
@@ -87,6 +87,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         #endregion
 
         #region PROPERTIES
+
+#if UNITY_EDITOR
         [JsonIgnore, ShowOnLayerTemplate]
         public Bundle PressetInsideStyle
         {
@@ -100,6 +102,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             get => AssetMacro.LoadAssetByGuid<Bundle>(pressetOutsideStyleGuid);
             set => pressetOutsideStyleGuid = AssetMacro.GetGuidFromAsset(value);
         }
+#endif
 
         [JsonIgnore, ShowOnLayerTemplate]
         public bool MultiLayerConnections { get => multiLayerConnections; set => multiLayerConnections = value; }
@@ -197,6 +200,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             return tile;
         }
 
+#if UNITY_EDITOR
         public Zone AddZone(string insideStyle = null, string outsideStyle = null)
         {
             string name = GetNewZoneName();
@@ -211,6 +215,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             areas.AddZone(zone);
             return zone;
         }
+#endif
 
         private string GetNewZoneName()
         {

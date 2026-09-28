@@ -1,6 +1,6 @@
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
-using ISILab.LBS.Components;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+#endif
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
@@ -66,13 +66,19 @@ namespace ISILab.LBS.Behaviours
         {
             get
             {
+#if UNITY_EDITOR
                 return icon = AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+#else
+                return icon;
+#endif
             }
             set
             {
                 icon = value;
+#if UNITY_EDITOR
                 string guid = AssetMacro.GetGuidFromAsset(icon);
                 iconGuid = guid != string.Empty ? guid : LBSSettings.Instance.view.DebugVectorGUID;
+#endif
             }
         }
 
@@ -99,7 +105,7 @@ namespace ISILab.LBS.Behaviours
         public HashSet<object> NewTiles => _newTiles ??= new HashSet<object>();
         [JsonIgnore]
         public HashSet<object> ExpiredTiles => _expiredTiles ??= new HashSet<object>();
-        #endregion
+#endregion
 
         #region CONSTRUCTORS
         public LBSBehaviour(string IconGuid, string name, Color colorTint)

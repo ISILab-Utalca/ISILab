@@ -1,4 +1,6 @@
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
+#endif
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Core.Settings;
 using System;
@@ -28,6 +30,7 @@ namespace ISILab.AI.Grammar
         [HideInInspector]
         public string generatedClassName = string.Empty;
 
+#if UNITY_EDITOR
         // the monobehvior that gets instanced and added into a gameobject in the scene
         [SerializeField]
         private MonoScript script;
@@ -81,5 +84,6 @@ namespace ISILab.AI.Grammar
                 iconGuid = defaultIconGuid;
             }
         }
+#endif
     }
 }

@@ -3,19 +3,17 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.Generators;
+#if UNITY_EDITOR
 using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
-using LBS.Components;
 using PathOS;
-using System;
+#endif
+using LBS.Components;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.AI.Navigation;
 using UnityEditor;
-using UnityEditor.PackageManager.UI;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
@@ -68,7 +66,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             wallPrefab = Resources.Load<GameObject>("Prefabs/WallPrefab");
 
             // Get PathOS window reference
-            PathOSWindow window = 
+            PathOSWindow window =
                 EditorWindow.GetWindow(typeof(PathOSWindow), false, "PathOS+", false) as PathOSWindow;
 
             // Setup
@@ -118,22 +116,22 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 foreach (SimulationTile tile in tiles)
                 {
                     var instance = GenerateSimulationTile(parent.transform, settings, tile, i);
-                    
+
                     // Player settings
-                    if(tile.Tag != null && tile.Tag.label == "Player" && agentGO is null)
+                    if (tile.Tag != null && tile.Tag.label == "Player" && agentGO is null)
                     {
                         agentGO = instance.gameObject;
                         window.SetAgentReference(agentGO.GetComponent<PathOSAgent>());
                         continue;
                     }
                     // Wall settings
-                    else if(tile.Tag != null && tile.Tag.label == "Wall")
+                    else if (tile.Tag != null && tile.Tag.label == "Wall")
                     {
                         instance.transform.SetParent(wallsContainer.transform);
                         walls.Add((tile, instance.gameObject));
                     }
                     // Stair settings
-                    else if(tile.Tag != null && tile.Tag == simBehaviour.upStairTag)
+                    else if (tile.Tag != null && tile.Tag == simBehaviour.upStairTag)
                     {
                         // Set instance properties
                         instance.transform.SetParent(stairContainer.transform);
@@ -146,13 +144,13 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
                         // Create entity for the opposite stair object
                         var otherStairPosition = tile.StairRef.Positions[tile.StairRef.Positions.Count - 1];
-                        var otherStairTile = 
+                        var otherStairTile =
                             new SimulationTile(simBehaviour, otherStairPosition.x, otherStairPosition.y,
                             EntityType.ET_STAIR_DOWN, simBehaviour.downStairTag)
-                        {
-                            StairRef = tile.StairRef
-                        };
-                        var otherStair = GenerateSimulationTile(parent.transform, settings, otherStairTile, i+1);
+                            {
+                                StairRef = tile.StairRef
+                            };
+                        var otherStair = GenerateSimulationTile(parent.transform, settings, otherStairTile, i + 1);
 
                         // Set other instance properties
                         otherStair.gameObject.name += " (Down)";
@@ -196,9 +194,9 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             }
 
             // Error case: agentGameObject wasn't generated
-            if(agentGO is null)
+            if (agentGO is null)
             {
-                return new GeneratedGO(parent, 
+                return new GeneratedGO(parent,
                     new LBSLog("[SimulatorRuleGenerator]: The simulation layer needs a Player entity on the level to generate.",
                     LogType.Error, 3));
             }
@@ -206,7 +204,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             manager.floorCount = notEmptyFloorCount;
             manager.gameObject.GetComponent<OGLogManager>().floorCount = notEmptyFloorCount;
             var heatmapVisualizer = manager.gameObject.GetComponentInChildren<OGLogHeatmap>().gameObject;
-            for(int i = 1; i < notEmptyFloorCount; i++)
+            for (int i = 1; i < notEmptyFloorCount; i++)
             {
                 GameObject.Instantiate(heatmapVisualizer, manager.gameObject.transform);
             }
@@ -249,27 +247,26 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
             return new GeneratedGO(parent, new LBSLog(0));
 #else
-                Debug.LogError("Attempting to use PathOSRuleGenerator class outside of Editor!"); return null;
+                Debug.LogError("Attempting to use PathOSRuleGenerator class outside of Editor!"); return default;
 #endif
         }
 
+#if UNITY_EDITOR
         private GameObject GenerateManager(Transform parent, PathOSWindow window)
         {
             GameObject mgo = PrefabUtility.InstantiatePrefab(managerPrefab, parent) as GameObject;
             window.SetManagerReference(mgo.GetComponent<PathOSManager>());
             return mgo;
         }
-
-        private GameObject GenerateWorldCamera(Transform parent)
-        {
-            return PrefabUtility.InstantiatePrefab(worldCameraPrefab, parent) as GameObject;
-        }
-
         private GameObject GenerateScreenshotCamera(Transform parent, PathOSWindow window)
         {
             GameObject sgo = PrefabUtility.InstantiatePrefab(screenshotCameraPrefab, parent) as GameObject;
             window.SetScreenshotCameraReference(sgo.GetComponent<ScreenshotManager>());
             return sgo;
+        }
+        private GameObject GenerateWorldCamera(Transform parent)
+        {
+            return PrefabUtility.InstantiatePrefab(worldCameraPrefab, parent) as GameObject;
         }
 
         private LBSGeneratedSimulation GenerateSimulationTile
@@ -340,7 +337,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 genComp.hideAtStart = true;
             return genComp;
         }
-
+#endif
         private GameObject GenerateNavMesh(List<(SimulationTile, GameObject)> walls)
         {
             // Si existe un NavMesh, evita generar otro.
@@ -352,7 +349,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             //}
 
             // Interior Layers: GameObjects
-            List<GameObject> interiorLayerGameObjects = 
+            List<GameObject> interiorLayerGameObjects =
                 //GameObject.FindObjectsOfType<GameObject>()
                 GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
                 .Where(
@@ -426,7 +423,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 if (obj.GetComponentsInChildren<MeshRenderer>().Length > 0 && obj.GetComponentsInChildren<Collider>().Length == 0)
                 {
                     var currMeshPlusChildren = obj.GetComponentsInChildren<MeshRenderer>();
-                    foreach(var mesh in currMeshPlusChildren)
+                    foreach (var mesh in currMeshPlusChildren)
                     {
                         mesh.gameObject.AddComponent<BoxCollider>();
                         doNotHaveColliderList.Add(mesh.gameObject);
@@ -465,68 +462,6 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             tempParent.name = "NavMeshSurface";
 
             return tempParent;
-        }
-
-        // [GABO DEBUG] Generador de prueba hecho originalmente para probar colocacion de elementos
-        private GameObject SimpleBoxGenerate(LBSLayer layer, LBSGenerator3DSettings settings)
-        {
-            // Variables
-            SimulationModule module = layer.GetModule<SimulationModule>();
-            var tiles = module.GetTiles();
-            var scale = settings.scale;
-
-            // Obtiene (o crea) instancia de PathOSWindow
-            PathOSWindow window = EditorWindow.GetWindow(typeof(PathOSWindow), false, "PathOS+", false) as PathOSWindow;
-
-            // Objeto contenedor padre
-            GameObject parent = new GameObject("PathOS+ Tags");
-            // Prefab
-            elementPrefab = Resources.Load<GameObject>("Prefabs/BoxWithTexture");
-            // GameObject List
-            List<GameObject> boxes = new List<GameObject>();
-
-            foreach (SimulationTile tile in tiles)
-            {
-                // Instanciar prefab
-#if UNITY_EDITOR
-                GameObject currInstance = PrefabUtility.InstantiatePrefab(elementPrefab) as GameObject;
-#else
-                Debug.LogError("Attempting to use PathOSRuleGenerator class outside of Editor!"); return null;
-#endif
-                // Agregar icono del Tag asociado a este tile como textura al cubo
-                MeshRenderer currRenderer = currInstance.GetComponentInChildren<MeshRenderer>();
-                Material originalMaterial = currRenderer.sharedMaterial;
-                Material currMaterial = new Material(originalMaterial);
-                //currMaterial.SetTexture("_MainTex", tile.Tag.Icon);
-                currRenderer.material = currMaterial;
-
-                // Setear posicion
-                currInstance.transform.position = settings.position +
-                                                  new Vector3(tile.X * scale.x, 0, tile.Y * scale.y)
-                                                  - new Vector3(scale.x, 0, scale.y) / 2f; // GABO TODO: Necesario ??? Basado en PopulationRuleGenerator.
-                boxes.Add(currInstance);
-            }
-
-            if (boxes.Count > 0)
-            {
-                // Obtener posicion planar promedio de las cajas, y altura del objeto mas bajo.
-                var x = boxes.Average(o => o.transform.position.x);
-                var y = boxes.Min(o => o.transform.position.y);
-                var z = boxes.Average(o => o.transform.position.z);
-                // Asignar esta posicion al objeto contenedor padre
-                parent.transform.position = new Vector3(x, y, z);
-            }
-
-            foreach (var box in boxes)
-            {
-                box.transform.parent = parent.transform;
-            }
-
-            // Ya unidos los objetos hijos con padre, trasladar segun Settings
-            // GABO TODO: No es esto un error? Basado en PopulationRuleGenerator.
-            parent.transform.position += settings.position;
-
-            return parent;
         }
         #endregion
     }

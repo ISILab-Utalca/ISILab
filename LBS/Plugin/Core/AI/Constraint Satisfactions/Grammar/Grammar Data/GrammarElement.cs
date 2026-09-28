@@ -39,24 +39,30 @@ namespace ISILab.AI.Grammar
         {
             get
             {
+#if UNITY_EDITOR
                 if (icon == null && !string.IsNullOrEmpty(iconGuid))
                 {
                     icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
                 }
+#endif
                 return icon;
             }
 
             set
             {
                 icon = value;
+#if UNITY_EDITOR
                 iconGuid = LBSAssetMacro.GetGuidFromAsset(icon);
+#endif
             }
         }
 
         public virtual void OnEnable()
         {
+#if UNITY_EDITOR
             // on load get vector image by guid. VectorImage is not serialized
             Icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+#endif
         }
 
         protected virtual void OnValidate()

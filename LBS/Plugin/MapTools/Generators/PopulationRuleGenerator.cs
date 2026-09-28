@@ -108,7 +108,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                     go = PrefabUtility.InstantiatePrefab(pref.obj) as GameObject;
 #else
-                var go = GameObject.Instantiate(pref.obj);
+                    go = GameObject.Instantiate(pref.obj);
 #endif
                     if (go == null && current.GetHasTagCharacteristic("TriggerArea")) go = new GameObject(current.Name);
                     if (go == null && current.GetHasTagCharacteristic("TriggerUnlock")) go = new GameObject(current.Name);

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEditor;
+#if UNITY_EDITOR
 using UnityEditor.Experimental.GraphView;
+#endif
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -29,7 +31,7 @@ namespace ISILab.LBS.Macros
             return null;
         }
 
-
+#if UNITY_EDITOR
         /// <summary>
         /// Captures a portion of a <see cref="GraphView"/> and returns the result as a <see cref="Texture2D"/>.
         /// </summary>
@@ -143,6 +145,7 @@ namespace ISILab.LBS.Macros
 
             return graph.Query<T>().First();
         }
+#endif
 
     }
 }

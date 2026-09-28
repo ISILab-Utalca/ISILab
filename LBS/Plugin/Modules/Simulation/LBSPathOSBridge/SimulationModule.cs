@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using Newtonsoft.Json;
-using PathOS;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge

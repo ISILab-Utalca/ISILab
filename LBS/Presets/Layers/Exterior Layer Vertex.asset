@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c744a98d20f087843ac0884b895e0b43, type: 3}
   m_Name: Exterior Layer Vertex
   m_EditorClassIdentifier: 
-  _templateName: Exterior Layer/Vertex
+  _templateName: Exterior Layer
   Order: 21
   layer:
     visible: 1
@@ -23,28 +23,28 @@ MonoBehaviour:
     name: V_Exterior_Layer
     tileSize: {x: 2, y: 2}
     floors:
-    - rid: 7451303950148173992
+    - rid: 7451304092753461371
     behaviours:
-    - rid: 7451303950148174042
-    - rid: 7451303950148174043
+    - rid: 7451304092753461385
+    - rid: 7451304092753461386
     assistants:
-    - rid: 7451303950148174044
+    - rid: 7451304092753461387
     generatorRules:
-    - rid: 7451303950148174045
+    - rid: 7451304092753461388
     index: 0
   references:
     version: 2
     RefIds:
-    - rid: 7451303950148173992
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS.Editor}
+    - rid: 7451304092753461371
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS.Commons}
       data:
         modules:
-        - rid: 7451303950148174002
-        - rid: 7451303950148174012
-        - rid: 7451303950148174022
-        - rid: 7451303950148174032
-    - rid: 7451303950148174002
-      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS.Editor}
+        - rid: 7451304092753461381
+        - rid: 7451304092753461382
+        - rid: 7451304092753461383
+        - rid: 7451304092753461384
+    - rid: 7451304092753461381
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS.Commons}
       data:
         id: TileMapModule
         ownerLayer:
@@ -56,18 +56,18 @@ MonoBehaviour:
           name: V_Exterior_Layer
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 7451303950148173992
+          - rid: 7451304092753461371
           behaviours:
-          - rid: 7451303950148174042
-          - rid: 7451303950148174043
+          - rid: 7451304092753461385
+          - rid: 7451304092753461386
           assistants:
-          - rid: 7451303950148174044
+          - rid: 7451304092753461387
           generatorRules:
-          - rid: 7451303950148174045
+          - rid: 7451304092753461388
           index: 0
         tiles: []
-    - rid: 7451303950148174012
-      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS.Editor}
+    - rid: 7451304092753461382
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS.Commons}
       data:
         id: ConnectedTileMapModule
         ownerLayer:
@@ -79,42 +79,19 @@ MonoBehaviour:
           name: V_Exterior_Layer
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 7451303950148173992
+          - rid: 7451304092753461371
           behaviours:
-          - rid: 7451303950148174042
-          - rid: 7451303950148174043
+          - rid: 7451304092753461385
+          - rid: 7451304092753461386
           assistants:
-          - rid: 7451303950148174044
+          - rid: 7451304092753461387
           generatorRules:
-          - rid: 7451303950148174045
+          - rid: 7451304092753461388
           index: 0
         gridType: 1
         pairs: []
-    - rid: 7451303950148174022
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS.Editor}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 02a644759487ae249bc3a20d019c8745
-          id: Exterior
-          subTypeId: Vertex
-          name: V_Exterior_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 7451303950148173992
-          behaviours:
-          - rid: 7451303950148174042
-          - rid: 7451303950148174043
-          assistants:
-          - rid: 7451303950148174044
-          generatorRules:
-          - rid: 7451303950148174045
-          index: 0
-        notes: []
-    - rid: 7451303950148174032
-      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS.Editor}
+    - rid: 7451304092753461383
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS.Commons}
       data:
         id: SectorizedTileMapModule
         ownerLayer:
@@ -126,19 +103,42 @@ MonoBehaviour:
           name: V_Exterior_Layer
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 7451303950148173992
+          - rid: 7451304092753461371
           behaviours:
-          - rid: 7451303950148174042
-          - rid: 7451303950148174043
+          - rid: 7451304092753461385
+          - rid: 7451304092753461386
           assistants:
-          - rid: 7451303950148174044
+          - rid: 7451304092753461387
           generatorRules:
-          - rid: 7451303950148174045
+          - rid: 7451304092753461388
           index: 0
         zones: []
         pairs: []
-    - rid: 7451303950148174042
-      type: {class: ExteriorBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS.Editor}
+    - rid: 7451304092753461384
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS.Commons}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          subTypeId: Vertex
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 7451304092753461371
+          behaviours:
+          - rid: 7451304092753461385
+          - rid: 7451304092753461386
+          assistants:
+          - rid: 7451304092753461387
+          generatorRules:
+          - rid: 7451304092753461388
+          index: 0
+        notes: []
+    - rid: 7451304092753461385
+      type: {class: ExteriorBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS.Commons}
       data:
         visible: 1
         ownerLayer:
@@ -150,23 +150,23 @@ MonoBehaviour:
           name: V_Exterior_Layer
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 7451303950148173992
+          - rid: 7451304092753461371
           behaviours:
-          - rid: 7451303950148174042
-          - rid: 7451303950148174043
+          - rid: 7451304092753461385
+          - rid: 7451304092753461386
           assistants:
-          - rid: 7451303950148174044
+          - rid: 7451304092753461387
           generatorRules:
-          - rid: 7451303950148174045
+          - rid: 7451304092753461388
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
         name: ExteriorBehaviour
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
-        bundleGuid: 38075b72e84101f499766c3c0a48cb25
+        bundleGuid: 9d3dac0f9a486fd47866f815b4fefc29
         identifierToSet: {fileID: 0}
-    - rid: 7451303950148174043
-      type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS.Editor}
+    - rid: 7451304092753461386
+      type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS.Commons}
       data:
         visible: 1
         ownerLayer:
@@ -178,21 +178,21 @@ MonoBehaviour:
           name: V_Exterior_Layer
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 7451303950148173992
+          - rid: 7451304092753461371
           behaviours:
-          - rid: 7451303950148174042
-          - rid: 7451303950148174043
+          - rid: 7451304092753461385
+          - rid: 7451304092753461386
           assistants:
-          - rid: 7451303950148174044
+          - rid: 7451304092753461387
           generatorRules:
-          - rid: 7451303950148174045
+          - rid: 7451304092753461388
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
         name: NoteBehaviour
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
-    - rid: 7451303950148174044
-      type: {class: AssistantWFC, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS.Editor}
+    - rid: 7451304092753461387
+      type: {class: AssistantWFC, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS.Commons}
       data:
         visible: 1
         ownerLayer:
@@ -204,14 +204,14 @@ MonoBehaviour:
           name: V_Exterior_Layer
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 7451303950148173992
+          - rid: 7451304092753461371
           behaviours:
-          - rid: 7451303950148174042
-          - rid: 7451303950148174043
+          - rid: 7451304092753461385
+          - rid: 7451304092753461386
           assistants:
-          - rid: 7451303950148174044
+          - rid: 7451304092753461387
           generatorRules:
-          - rid: 7451303950148174045
+          - rid: 7451304092753461388
           index: 0
         colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
         name: AssistantWFC
@@ -219,6 +219,6 @@ MonoBehaviour:
         icon: {fileID: 0}
         overrideValues: 0
         targetBundleRef: {fileID: 11400000, guid: 9d3dac0f9a486fd47866f815b4fefc29, type: 2}
-    - rid: 7451303950148174045
-      type: {class: ExteriorRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS.Editor}
+    - rid: 7451304092753461388
+      type: {class: ExteriorRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS.Commons}
       data: 

@@ -22,6 +22,7 @@ namespace ISILab.AI.Grammar
         private const string Tab2 = "        ";
         private const string Tab3 = "            ";
 
+#if UNITY_EDITOR
         public static void Generate(GrammarTerminal terminal)
         {
             string className = GetSafeClassName(terminal.id);
@@ -34,6 +35,7 @@ namespace ISILab.AI.Grammar
             terminal.generatedClassName = fileName;
             EditorUtility.SetDirty(terminal);
         }
+#endif
 
         private static string GetSafeClassName(string id)
         {

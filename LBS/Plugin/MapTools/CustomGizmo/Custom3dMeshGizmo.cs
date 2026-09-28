@@ -18,6 +18,8 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo
         public bool canDrawPopup = false;
 
         private MeshRenderer mRendererComponent;
+
+#if UNITY_EDITOR
         private void OnEnable()
         {
             Selection.selectionChanged += UpdatePosition;
@@ -28,6 +30,7 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo
         {
             Selection.selectionChanged -= UpdatePosition;
         }
+#endif
 
         private void OnDrawGizmosSelected()
         {

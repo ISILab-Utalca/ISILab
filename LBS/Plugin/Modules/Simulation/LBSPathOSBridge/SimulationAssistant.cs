@@ -1,19 +1,19 @@
 ﻿using LBS.Components;
 using PathOS;
-using System.Collections;
 using ISILab.LBS.Assistants;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
     public class SimulationAssistant : LBSAssistant
     {
-        private PathOSWindow pathOSOriginalWindow;
 
         public System.Action OnDetach;
 
+#if UNITY_EDITOR
+        private PathOSWindow pathOSOriginalWindow;
         public PathOSWindow PathOSOriginalWindow { get => pathOSOriginalWindow; set => pathOSOriginalWindow = value; }
+#endif
 
         public SimulationAssistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
@@ -30,7 +30,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             base.OnDetachLayer(layer);
             OnDetach?.Invoke();
+#if UNITY_EDITOR
             Object.DestroyImmediate(pathOSOriginalWindow);
+#endif
         }
 
         public override bool Equals(object obj)
