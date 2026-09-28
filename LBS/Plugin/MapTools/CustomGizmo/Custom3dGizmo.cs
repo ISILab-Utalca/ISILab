@@ -16,7 +16,8 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo
         
         private MeshRenderer mRendererComponent;
         public VisualElement RootVisualElement { get; set; }
-        
+
+#if UNITY_EDITOR
         private void OnEnable()
         {
             Selection.selectionChanged += UpdatePosition;
@@ -32,6 +33,7 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo
         {
             Selection.selectionChanged -= UpdatePosition;
         }
+#endif
 
         protected virtual void OnDrawGizmosSelected()
         {

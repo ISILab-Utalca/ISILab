@@ -90,7 +90,9 @@ namespace ISILab.LBS.VisualElements
                 if (element is VisualElementQuest questEntryVe)
                 {
                     var item = _questTree.GetItemDataForIndex<QuestTrigger>(index);
+#if UNITY_EDITOR
                     questEntryVe.SetTrigger(item);
+#endif
                 }
             };
         }
@@ -266,7 +268,7 @@ namespace ISILab.LBS.VisualElements
 #endif
     }
 
-
+#if UNITY_EDITOR
     [CustomEditor(typeof(QuestVisualTree))]
     public class QuestVisualTreeEditor : UnityEditor.Editor
     {
@@ -287,4 +289,5 @@ namespace ISILab.LBS.VisualElements
             GUI.backgroundColor = Color.white; // Reset coloring
         }
     }
+#endif
 }

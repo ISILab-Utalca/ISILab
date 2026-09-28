@@ -36,8 +36,10 @@ namespace ISILab.LBS.Components
             set
             {
                 blueprintName = value;
+#if UNITY_EDITOR
                 EditorUtility.SetDirty(this);
                 AssetDatabase.SaveAssets();
+#endif
             }
         }
 
@@ -74,9 +76,10 @@ namespace ISILab.LBS.Components
                 previewImageData = value.EncodeToPNG();
 
                 previewImageCache = value;
-
+#if UNITY_EDITOR
                 EditorUtility.SetDirty(this);
                 AssetDatabase.SaveAssets();
+#endif
             }
         }
 

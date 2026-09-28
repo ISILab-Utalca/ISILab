@@ -39,9 +39,18 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         #region PROPERTIES
 
-        private LightingSettings LightningSettings =>
-            lightningSettings ??= LBSAssetMacro.LoadAssetByGuid<LightingSettings>(
+        private LightingSettings LightningSettings
+        {
+            get
+            {
+#if UNITY_EDITOR
+                return lightningSettings ??= LBSAssetMacro.LoadAssetByGuid<LightingSettings>(
                 "e64852b0a0c259543bc34a95930684dd");
+#else
+                return lightningSettings;
+#endif
+            }
+        }
 
         private OptimizerGeometry OptGeo 
         { 
@@ -69,7 +78,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
         }
 
-        #endregion
+#endregion
 
         #region METHODS
 
@@ -145,6 +154,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         #region MULTI LAYER GENERATION
 
+#if UNITY_EDITOR
         public LBSLog GenerateAllLayers(List<LBSLayer> layers)
         {
             if (layers == null || layers.Count == 0)
@@ -248,8 +258,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             if (result.Item1) OnFinishGenerate();
 
         }
-
-        #endregion
+#endif
+#endregion
 
         private void Optimize(GameObject root)
         {
@@ -284,6 +294,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
 
 
+#if UNITY_EDITOR
         private void PostOptimization(GeneratedEntry generated)
         {
             if (settings.bakeLights)  Bake(generated.ParentGO);
@@ -303,7 +314,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             foreach (LightProbeCubeGenerator lpcg in probes) lpcg.Execute();
         }
 
-
         private void OnFinishGenerate()
         {
             if (settings.bakeLights && LightningSettings)
@@ -314,6 +324,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             EditorWindow.FocusWindowIfItsOpen<SceneView>();
         }
+#endif
 
         #region HELPERS
 

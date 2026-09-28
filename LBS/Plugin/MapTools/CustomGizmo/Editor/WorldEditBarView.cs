@@ -1,4 +1,8 @@
+#if UNITY_EDITOR
 using ISILab.Commons.Utility.Editor;
+using UnityEditor.Experimental.GraphView;
+using UnityEditor.UIElements;
+#endif
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
@@ -7,8 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;

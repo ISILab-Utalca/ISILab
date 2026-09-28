@@ -1,5 +1,7 @@
-using ISILab.Commons.Attributes;
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
+#endif
+using ISILab.Commons.Attributes;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -35,10 +37,12 @@ namespace ISILab.LBS.Components
         {
             get
             {
+#if UNITY_EDITOR
                 if (icon == null)
                 {
                     return AssetMacro.LoadAssetByGuid<VectorImage>("d6f94a68988be8b45894b9f0e677e8d1");
                 }
+#endif
                 return icon;
             }
             set

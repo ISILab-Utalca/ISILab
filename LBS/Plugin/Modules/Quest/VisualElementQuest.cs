@@ -1,6 +1,8 @@
 using System;
+#if UNITY_EDITOR
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
+#endif
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine;
@@ -25,7 +27,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private const string AndIconGuid = "84fdb6a97aae79e4eb5eba243b760ee7";
         private const string FailedIconGuid = "19533ec5deae6304ebe6b68e51ddeda1";
 
-
+#if UNITY_EDITOR
         public VisualElementQuest()
         {
             CreateVisualElement();
@@ -108,7 +110,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     : trigger.gameObject.name;
             }
         }
+#endif
     }
-
-
 }

@@ -7,6 +7,7 @@ namespace ISILab.Commons
     {
         private const float PADDING = 1.2f;
 
+#if UNITY_EDITOR
         public static void SetStandardTopDown(GameObject target)
         {
             SceneView view = SceneView.lastActiveSceneView;
@@ -34,7 +35,7 @@ namespace ISILab.Commons
             view.LookAt(centerPoint, standardRotation, cameraSize);
             view.Repaint();
         }
-
+#endif
         private static Bounds CalculateBounds(GameObject obj)
         {
             Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();

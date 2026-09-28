@@ -3,9 +3,7 @@ using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEditor;
-using UnityEditor.Compilation;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators

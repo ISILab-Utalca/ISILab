@@ -1,5 +1,4 @@
 using ISILab.Commons.Utility;
-using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS;
 using ISILab.LBS.Assistants;
@@ -11,7 +10,6 @@ using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.Generators;
 using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using Newtonsoft.Json;
-using PathOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;

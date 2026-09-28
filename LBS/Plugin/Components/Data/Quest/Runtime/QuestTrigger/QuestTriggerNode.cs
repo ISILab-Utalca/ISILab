@@ -118,10 +118,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         public static bool IsPlayer(Collider other) => other.CompareTag("Player");
 
 
+#if UNITY_EDITOR
         public static bool HasItem(Collider other, Object target, int amount = 1)
         {
             return HasItem(other, LBSAssetMacro.GetGuidFromAsset(target), amount);
         }
+#endif
 
         public static bool HasItem(Collider other, string GUID, int amount = 1)
         {

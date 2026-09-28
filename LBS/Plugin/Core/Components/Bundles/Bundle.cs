@@ -1,4 +1,6 @@
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
+#endif
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles.Tools;
@@ -7,7 +9,6 @@ using PathOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Serialization;
@@ -188,6 +189,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         {
             get
             {
+#if UNITY_EDITOR
                 if (icon is not null)
                 {
                     iconGuid = AssetMacro.GetGuidFromAsset(icon); ;
@@ -196,12 +198,15 @@ namespace ISILab.LBS.Plugin.Components.Bundles
                 {
                     icon = AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
                 }
+#endif
                 return icon;
             }
             set
             {
                 icon = value;
+#if UNITY_EDITOR
                 iconGuid = AssetMacro.GetGuidFromAsset(icon);
+#endif
             }
         }
 
@@ -255,7 +260,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         public List<EntityType> AdmissibleEntityTypes { get => admissibleTypes; }
 
-        #endregion
+#endregion
 
         #region EVENTS
         public event Action<Bundle> OnAddChild;

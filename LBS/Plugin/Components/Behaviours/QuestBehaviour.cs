@@ -1,5 +1,7 @@
 using ISILab.AI.Grammar;
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
+#endif
 using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
@@ -48,17 +50,20 @@ namespace ISILab.LBS.Behaviours
         {
             get
             {
+#if UNITY_EDITOR
                 if (grammar != null) return grammar;
 
                 Grammar = AssetMacro.LoadAssetByGuid<LBSGrammar>(grammarGuid)
                       ?? AssetMacro.LoadAssetByGuid<LBSGrammar>(defaultGrammarGuid);
-
+#endif
                 return grammar;
             }
             set
             {
                 grammar = value;
+#if UNITY_EDITOR
                 grammarGuid = AssetMacro.GetGuidFromAsset(Grammar);
+#endif
                 ValidateGraph();
             }
         }

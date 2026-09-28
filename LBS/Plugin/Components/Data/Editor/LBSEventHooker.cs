@@ -32,6 +32,7 @@ namespace ISILab.LBS.Plugin.Components.Data
         {
             get
             {
+#if UNITY_EDITOR
                 if (_target is not null) return _target;
 
                 if (LBSAssetMacro.GetActiveSceneGUID() == sceneGuid)
@@ -39,6 +40,7 @@ namespace ISILab.LBS.Plugin.Components.Data
                     Target = UnityEngine.Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
                         .FirstOrDefault(o => o.name == targetName);
                 }
+#endif
 
                 return _target;
             }
@@ -67,8 +69,10 @@ namespace ISILab.LBS.Plugin.Components.Data
             if (Target is not null)
             {
                 targetName = _target.name;
+#if UNITY_EDITOR
                 string scenePath = _target.scene.path;
                 sceneGuid = AssetDatabase.AssetPathToGUID(scenePath);
+#endif
             }
         }
 

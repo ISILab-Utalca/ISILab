@@ -4,14 +4,16 @@ using System.Linq;
 using System.Speech.Recognition.SrgsGrammar;
 using System.Xml;
 using UnityEditor;
+#if UNITY_EDITOR
 using UnityEditor.Compilation;
+#endif
 using UnityEngine;
 
 namespace ISILab.AI.Grammar
 {
     public static class LBSGrammarReader
     {
-
+#if UNITY_EDITOR
         private static void ClearSubAssets(LBSGrammar grammar)
         {
             string path = AssetDatabase.GetAssetPath(grammar);
@@ -68,6 +70,7 @@ namespace ISILab.AI.Grammar
             foreach (var terminal in grammar.LBSTerminals)
                 QuestScriptGenerator.Generate(terminal);
         }
+#endif
 
         private static SrgsDocument ParseSrgs(XmlDocument xml)
         {
@@ -76,7 +79,7 @@ namespace ISILab.AI.Grammar
         }
 
         #region Rules
-
+#if UNITY_EDITOR
         private static void CreateRules(SrgsDocument doc, LBSGrammar grammar)
         {
             foreach (var srgsRule in doc.Rules)
@@ -100,6 +103,7 @@ namespace ISILab.AI.Grammar
             grammar.LBSRules.Add(rule);
             return rule;
         }
+#endif
 
         private static void ExtractExpansions(SrgsElement element, List<GrammarExpansion> expansions)
         {
@@ -168,7 +172,7 @@ namespace ISILab.AI.Grammar
         #endregion
 
         #region Terminals
-
+#if UNITY_EDITOR
         private static void CreateTerminals(LBSGrammar grammar)
         {
             var terminalIds = CollectTerminalIds(grammar);
@@ -204,7 +208,8 @@ namespace ISILab.AI.Grammar
 
             return set;
         }
-        #endregion
+#endif
+#endregion
 
         #region Terminal Fields
 

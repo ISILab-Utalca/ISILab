@@ -14,6 +14,7 @@ namespace ISILab.Commons.Attributes
         public ReadOnlyIncludeChildrenAttribute() : base(true) { }
     }
 
+#if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(ReadOnlyAttribute), true)]
     public class ReadOnlyDrawer : PropertyDrawer
     {
@@ -36,4 +37,5 @@ namespace ISILab.Commons.Attributes
             EditorGUI.EndDisabledGroup();
         }
     }
+#endif
 }
