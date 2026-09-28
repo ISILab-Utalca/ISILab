@@ -1,15 +1,14 @@
 ﻿using ISILab.Commons.Utility.Editor;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Internal;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.DevTools.Macros;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS;
-using ISILab.LBS.Plugin.Internal;
 
 namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleDirectionsWindows
 {
@@ -18,7 +17,14 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleDirectionsWindow
         #region VIEW ELEMENTS
 
         //Top Enums
+
+        /// <summary>
+        /// <see cref="LBS.Modules.ConnectedTileMapModule.ConnectedTileType"/> selector. Defines whether we are setting edges or corners.
+        /// </summary>
         private LBSCustomEnumField directionTypeEnum;
+        /// <summary>
+        /// <see cref="LBSTagGroup"/> selector.
+        /// </summary>
         private LBSCustomDropdown tagGroupDropdown;
 
         //Centre

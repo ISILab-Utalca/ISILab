@@ -1,36 +1,20 @@
 using ISILab.Commons.Extensions;
 using ISILab.Extensions;
-using ISILab.LBS;
 using ISILab.LBS.Components;
 using Newtonsoft.Json;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using UnityEngine;
-
 
 namespace ISILab.LBS.Characteristics
 {
+    /// <summary>
+    /// Characteristic containing 4-connected directioned labels and a center label. Mainly used for spatial tiled modules (E.g.: Interior, Exterior).
+    /// </summary>
     [System.Serializable]
     //[LBSCharacteristic("Directions", "")]
     public class LBSDirection : LBSCharacteristic, ICloneable
     {
-
-        #region SUB-STRUCTURE
-        /*
-        [System.Serializable]
-        public class weightStruct
-        {
-            [SerializeField]
-            public GameObject target;
-
-            [Range(0f, 1f)]
-            public float weigh;
-        };*/
-        #endregion
-
         #region FIELDS
         [Tooltip("4-Connected: 0: Right, 1: Up, 2: Left, 3: Down")]
         [SerializeField, JsonRequired]
@@ -38,7 +22,6 @@ namespace ISILab.LBS.Characteristics
 
         [SerializeField, JsonRequired]
         private string center;
-
 
         public const string Right = "Right";
         public const string Left = "Left";
@@ -50,12 +33,19 @@ namespace ISILab.LBS.Characteristics
         #endregion
 
         #region PROPERTIES
+        /// <summary>
+        /// 4-connected directioned labels. This property retrieves a copy of the real values.
+        /// </summary>
         [JsonIgnore]
         public List<string> Connections => new List<string>(connections);
 
+        /// <summary>
+        /// Center label.
+        /// </summary>
         [JsonIgnore]
         public string Center => center ?? string.Empty;
 
+        // Size should always be 4; therefore, this property should be removed or reworked.
         [JsonIgnore]
         public int Size
         { 
@@ -73,11 +63,6 @@ namespace ISILab.LBS.Characteristics
                 }
             }
         }
-
-        //[SerializeField]
-        //public List<weightStruct> Weights => new List<weightStruct>(weights); 
-
-        //public float TotalWeight => weights.Sum( w => w.weigth);
         #endregion
 
         #region CONSTRUCTORS
@@ -137,23 +122,33 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
+        /// <summary>
+        /// Retrieves an array with the connections rotated by a specified amount.
+        /// </summary>
+        /// <param name="rotation">Times to rotate the connections.</param>
+        /// <returns>An array with the rotated connections.</returns>
         public string[] GetConnection(int rotation = 0)
         {
-            var conections = connections;
-            var toR = new List<string>(connections);
+            var toR = Connections;
 
             toR = toR.Rotate(rotation);
 
             return toR.ToArray();
         }
 
+        /// <summary>
+        /// Replace a connection with the value of a given tag.
+        /// </summary>
+        /// <param name="tag">The label from which the connection will be assigned.</param>
+        /// <param name="index">Index representing the direction to replace.<br/>Follow the convention: 0: Right, 1: Up, 2: Left, 3: Down</param>
         public void SetConnection(LBSTag tag, int index)
         {
-            if(connections.Count <= index)
+            if(connections.Count <= index || index < 0)
             {
                 Debug.LogError("[ISILab] Index out of Range ");
                 return;
             }
+
             try
             {
                 connections[index] = tag.Label;
@@ -165,6 +160,10 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
+        /// <summary>
+        /// Replace the center label with the value of a given tile.
+        /// </summary>
+        /// <param name="tag">The label from which the center will be asigned.</param>
         public void SetCenter(LBSTag tag)
         {
             try

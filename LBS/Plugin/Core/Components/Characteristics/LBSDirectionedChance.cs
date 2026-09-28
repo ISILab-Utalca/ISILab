@@ -1,4 +1,4 @@
-using ISILab.LBS.Modules;
+using ISILab.Commons.Utility;
 using ISILab.LBS.Plugin.Components.Bundles;
 using Newtonsoft.Json;
 using System;
@@ -10,26 +10,41 @@ using static ISILab.LBS.Modules.ConnectedTileMapModule;
 namespace ISILab.LBS.Characteristics
 {
     /// <summary>
-    /// The replacement for LBSDirectionedGroup characteristic, allowing to define chances based on each direction
-    /// of the tile.
+    /// Meant to register a pool of tiles from a Main Exterior <see cref="Bundle"/> and the neighbourhood probabilities for each of them.
+    /// The tiles and its neighbourhood probabilities are consulted when running the <see cref="Plugin.Core.AI.Assistant.AssistantWFC"/>.
     /// </summary>
     [System.Serializable]
     //[LBSCharacteristicAttribute("Directioned Chance", "Define chances based on direction")]
 
     public class LBSDirectionedChance : LBSCharacteristic, ICloneable
     {
+        /// <summary>
+        /// Represents a tile that could be a valid neighbour of another tile.
+        /// </summary>
         [System.Serializable]
         public class TileDirectionChance
         {
+            /// <summary>
+            /// The target bundle defining a neighbour tile.
+            /// </summary>
             [SerializeField]
             public Bundle target;
 
+            /// <summary>
+            /// The rotation of the neighbour tile, where each unit represents +90 degrees.
+            /// </summary>
             [SerializeField]
             public int rotation;
 
+            /// <summary>
+            /// The weighted probability this tile has to convert into a definitive neighbour tile.
+            /// </summary>
             [Range(0f, 1f)]
             public float chance;
 
+            /// <summary>
+            /// Non-rotated connection labels of the target bundle.
+            /// </summary>
             public List<string> Connections => target.GetCharacteristics<LBSDirection>()[0].GetConnection().ToList();
 
             public override bool Equals(object obj)
@@ -44,32 +59,58 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
+        /// <summary>
+        /// Represents a tile and its possible neighbours at each direction.
+        /// </summary>
         [System.Serializable]
         public class TileDirection
         {
+            /// <summary>
+            /// The target bundle defining a tile.
+            /// </summary>
             [SerializeField]
             public Bundle mainTarget;
 
+            /// <summary>
+            /// The rotation of the tile, where each unit represents +90 degrees.
+            /// </summary>
             [SerializeField]
             public int rotation;
 
+            /// <summary>
+            /// Lists of possible neighbours for each direction (Right, Up, Left, Down).
+            /// </summary>
             [SerializeField]
             public List<NestedList<TileDirectionChance>> chances = new List<NestedList<TileDirectionChance>>(4);
 
+            /// <summary>
+            /// Non-rotated connection labels of the target bundle.
+            /// </summary>
             public List<string> Connections => mainTarget.GetCharacteristics<LBSDirection>()[0].GetConnection().ToList();
         }
 
-        //This list holds the different tile directions and their chances. Imagine for each tile placed in the map,
-        //it has 4 possible directions (right, up, left, down), and for each direction, there are different bundles that can be placed.
+        /// <summary>
+        /// Tiles registered and its neighbourhood probabilities.<br/>
+        /// Imagine for each tile placed in the map, it has 4 possible directions (right, up, left, down), and for each direction, there are different tiles that can be placed as neighbours.
+        /// </summary>
         [SerializeField]
         public List<TileDirection> tileDirections = new List<TileDirection>();
 
+        /// <summary>
+        /// What type of grid is this bundle for.
+        /// </summary>
         [SerializeField]
         public ConnectedTileType currentType = ConnectedTileType.EdgeBased;
 
+        /// <summary>
+        /// Utility that clamps probabilities of every <see cref="TileDirectionChance"/>. Modifying this value does not permanently overwrite the probabilities unless they are manually changed.
+        /// </summary>
         [SerializeField, Range(0f, 1f)]
         public float maxLimit = 1f;
 
+        /// <summary>
+        /// Indicates whether a <see cref="Bundle"/> with 'Empty' tagged connections exists in this Main Bundle or not.
+        /// </summary>
         [JsonIgnore]
         public bool UsesEmpties
         {
@@ -90,6 +131,9 @@ namespace ISILab.LBS.Characteristics
             //_Update();
         }
 
+        /// <summary>
+        /// Reinitializes <see cref="tileDirections"/> with the current children bundles.
+        /// </summary>
         public void _Update()
         {
             if (Owner == null)
@@ -129,29 +173,35 @@ namespace ISILab.LBS.Characteristics
             return new LBSDirectionedChance();
         }
 
+        /// <summary>
+        /// Creates a deep copy of a list of <see cref="TileDirection"/>.
+        /// </summary>
+        /// <param name="original">The list to be copied.</param>
+        /// <returns>A safe to use deep copy of the list.</returns>
         public static List<TileDirection> DeepCopy(List<TileDirection> original)
         {
-            List<TileDirection> copy = new(original.Select(td =>
+            List<TileDirection> copy = new(original.Select(td => new TileDirection()
             {
-                return new TileDirection()
+                mainTarget = td.mainTarget,
+                rotation = td.rotation,
+                chances = new(td.chances.Select(nested => new NestedList<TileDirectionChance>()
                 {
-                    mainTarget = td.mainTarget,
-                    rotation = td.rotation,
-                    chances = new(td.chances.Select(nested => new NestedList<TileDirectionChance>()
+                    list = new(nested.list.Select(tdc => new TileDirectionChance()
                     {
-                        list = new(nested.list.Select(tdc => new TileDirectionChance()
-                        {
-                            target = tdc.target,
-                            rotation = tdc.rotation,
-                            chance = tdc.chance
-                        }))
+                        target = tdc.target,
+                        rotation = tdc.rotation,
+                        chance = tdc.chance
                     }))
-                };
+                }))
             }));
 
             return copy;
         }
 
+        /// <summary>
+        /// Gets a <see cref="LBSDirection"/> characteristic from every <see cref="TileDirection"/> stored.
+        /// </summary>
+        /// <returns>A list of <see cref="LBSDirection"/> characteristics.</returns>
         public List<LBSDirection> GetDirs()
         {
             var r = new List<LBSDirection>();
@@ -178,7 +228,4 @@ namespace ISILab.LBS.Characteristics
             return base.GetHashCode();
         }
     }
-
 }
-
-

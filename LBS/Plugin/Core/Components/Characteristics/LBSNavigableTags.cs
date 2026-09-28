@@ -1,12 +1,16 @@
+using ISILab.Commons.Extensions;
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Internal;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.Commons.Extensions;
-using ISILab.LBS.Plugin.Internal;
 using UnityEngine;
 
 namespace ISILab.LBS.Characteristics
 {
+    /// <summary>
+    /// Characteristic used to mark which connection tags from the children bundles' tiles are meant to be traversable by a in-game character.<br/>
+    /// This info is useful for Population's MAP Elites algorithm and Simulation's agent.
+    /// </summary>
     [System.Serializable]
     //[LBSCharacteristic("Navigable Tags", "")]
     public class LBSNavigableTags : LBSCharacteristic
@@ -19,10 +23,23 @@ namespace ISILab.LBS.Characteristics
 
         private Dictionary<LBSTag, bool> navigableTags = new Dictionary<LBSTag, bool>();
 
+
+        /// <summary>
+        /// Pool of tags contained by children bundles.
+        /// </summary>
         public List<LBSTag> Tags => new List<LBSTag>(tags);
+        /// <summary>
+        /// List of traversability values of the tags.
+        /// </summary>
         public List<bool> Navigable => navigable;
+        /// <summary>
+        /// Pairing of tags and its traversability values.
+        /// </summary>
         public Dictionary<LBSTag, bool> NavigableTagsRef => navigableTags;
 
+        /// <summary>
+        /// Read every tag in children bundles and lists them.
+        /// </summary>
         public void SetTags()
         {
             List<LBSTag> identifierTags = LBSAssetsStorage.Instance.Get<LBSTag>();
@@ -54,6 +71,10 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
+        /// <summary>
+        /// Gets the labels of tags that are marked as navigable.
+        /// </summary>
+        /// <returns>A list of all navigable tags' labels.</returns>
         public List<string> GetNavigableTags()
         {
             return navigableTags.Keys.Where(t => navigableTags[t]).Select(t => t.Label).ToList();
@@ -78,7 +99,10 @@ namespace ISILab.LBS.Characteristics
 
         public override List<string> Validate()
         {
-            return new List<string>();
+            var w = new List<string>();
+            if (!navigable.Any())
+                w.Add("It is recommended to mark at least one tag as navigable in order to ensure MAP Elites and Simulation compatibility.");
+            return w;
         }
     }
 }

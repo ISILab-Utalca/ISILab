@@ -1,5 +1,6 @@
 using ISILab.Commons;
 using ISILab.Commons.Extensions;
+using ISILab.Commons.Utility;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Assistants;
@@ -18,7 +19,6 @@ using System.Threading;
 using UnityEditor;
 using UnityEngine;
 using static ISILab.LBS.Characteristics.LBSDirectionedChance;
-using static UnityEngine.GraphicsBuffer;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {

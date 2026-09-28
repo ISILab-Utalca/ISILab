@@ -1,25 +1,44 @@
-using ISILab.LBS.Characteristics;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using static ISILab.LBS.Characteristics.LBSDirectionedChance;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
+    /// <summary>
+    /// Object used by <see cref="Characteristics.LBSDirectionedChance"/> to save and load tiles and its neighbourhood probabilities.
+    /// </summary>
     [System.Serializable]
     [CreateAssetMenu(menuName = "ISILab/LBS/WFCRuleset")]
     public class WFCRuleset : ScriptableObject
     {
+        /// <summary>
+        /// Name of this ruleset.
+        /// </summary>
         [SerializeField]
         string rulesetName = "New WFC Ruleset";
 
+        /// <summary>
+        /// Tiles with neighbourhood probabilities.
+        /// </summary>
         [SerializeField]
-        List<LBSDirectionedChance.TileDirection> tileDirections = new();
+        List<TileDirection> tileDirections = new();
 
+        /// <summary>
+        /// Name of this ruleset.
+        /// </summary>
         public string Name { get => rulesetName; set => rulesetName = name = value; }
 
-        public List<LBSDirectionedChance.TileDirection> GetRules() => LBSDirectionedChance.DeepCopy(tileDirections);
+        /// <summary>
+        /// Makes a copy of the stored tiles and its neighbourhood rules.
+        /// </summary>
+        /// <returns>A deep copy of the stored tiles.</returns>
+        public List<TileDirection> GetRules() => DeepCopy(tileDirections);
 
-        public void SetRules(List<LBSDirectionedChance.TileDirection> newRules) => tileDirections = LBSDirectionedChance.DeepCopy(newRules);
+        /// <summary>
+        /// Replace the current neighbourhood rules with new ones.
+        /// </summary>
+        /// <param name="newRules">The new tiles to store and its neighbourhood rules.</param>
+        public void SetRules(List<TileDirection> newRules) => tileDirections = DeepCopy(newRules);
     }
 }
 

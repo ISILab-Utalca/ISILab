@@ -1,5 +1,8 @@
 namespace ISILab.LBS.Characteristics
 {
+    /// <summary>
+    /// Characteristic used to identify its owner <see cref="Plugin.Components.Bundles.Bundle"/> as a Main Bundle of type Exterior.
+    /// </summary>
     [System.Serializable]
     //[LBSCharacteristic("Main Exterior", "")]
     public class LBSMainExteriorBundle : LBSCharacteristic
