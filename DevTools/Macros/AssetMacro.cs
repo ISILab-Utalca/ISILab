@@ -13,7 +13,8 @@ namespace ISILab.DevTools.Macros
         
         private const string PLACEHOLDER_TEXTURE_GUID = "edcbfe04a88995d49aabd5bf8ee28e79";
         private const string PLACEHOLDER_UI_VECTOR_ICON_G_UID = "5aa5737462342b24c866198641cdaf08";
-        
+
+#if UNITY_EDITOR
         /// <summary>
         /// Loads an asset of type T from its GUID.
         /// </summary>
@@ -49,7 +50,7 @@ namespace ISILab.DevTools.Macros
         {
             return LoadAssetByGuid<VectorImage>(PLACEHOLDER_UI_VECTOR_ICON_G_UID);
         }
-        
+#endif
     }
 
 

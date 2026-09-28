@@ -3,6 +3,7 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
 using System.Collections.Generic;
@@ -82,7 +83,7 @@ namespace ISILab.LBS.Drawers
                     else
                     {
                         tView = GetTileView(schema.OwnerLayer, newTile, tz.Zone, tc.Connections, teselationSize);
-                        tView.layer = schema.OwnerLayer.index;
+                        tView.layer = schema.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
 
                         // Stores using LBSTile as key
                         view.AddElementToLayerContainer(schema.OwnerLayer, newTile, tView);
@@ -99,12 +100,12 @@ namespace ISILab.LBS.Drawers
                     {
                         sView = previousElement[0] as StairsGraph;
                         sView.Update(newStair);
-                        sView.layer = schema.OwnerLayer.index;
+                        sView.layer = schema.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
                     }
                     else
                     {
                         sView = new StairsGraph(newStair, schema.OwnerLayer);
-                        sView.layer = schema.OwnerLayer.index;
+                        sView.layer = schema.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
 
                         var pos = new Vector2(newStair.Positions[0].x, -newStair.Positions[0].y);
                         var size = DefaultSize * teselationSize;
@@ -162,7 +163,7 @@ namespace ISILab.LBS.Drawers
                         if (graphElement is not StairsGraph sView) continue;
                         if (!sView.visible) continue;
                         sView.Update(stair);
-                        sView.layer = schema.OwnerLayer.index;
+                        sView.layer = schema.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
 
                     }
                 }
@@ -172,7 +173,7 @@ namespace ISILab.LBS.Drawers
         private void UpdateTileView(SchemaTileView tView, LBSTile tile, Zone zone, List<string> connections, Vector2 teselationSize, int layerIndex)
         {
             AdjustTileView(tView, tile, zone, connections, teselationSize);
-            tView.layer = layerIndex;
+            tView.layer = layerIndex * LBSSettings.Instance.general.layerScale;
         }
 
         private void LoadAllTiles(SchemaBehaviour schema, Vector2 teselationSize, MainView view, 
@@ -196,7 +197,7 @@ namespace ISILab.LBS.Drawers
                 {
                     // TODO tileZonepair gets broken on on blueprint cloning merge-
                     tView = GetTileView(schema.OwnerLayer, tile, tz.Zone, tc.Connections, teselationSize);
-                    tView.layer = schema.OwnerLayer.index;
+                    tView.layer = schema.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
                     // Stores using LBSTile as key
                     view.AddElementToLayerContainer(schema.OwnerLayer, tile, tView);
                     schema.Keys.Add(tile);
@@ -215,12 +216,12 @@ namespace ISILab.LBS.Drawers
                 {
                     sView = previousElement[0] as StairsGraph;
                     sView.Update(stair);
-                    sView.layer = schema.OwnerLayer.index;
+                    sView.layer = schema.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
                 }
                 else
                 {
                     sView = new StairsGraph(stair, schema.OwnerLayer);
-                    sView.layer = schema.OwnerLayer.index;
+                    sView.layer = schema.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
 
                     var pos = new Vector2(stair.Positions[0].x, -stair.Positions[0].y);
                     var size = DefaultSize * teselationSize;

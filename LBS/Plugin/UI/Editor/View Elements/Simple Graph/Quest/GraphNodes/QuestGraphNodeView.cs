@@ -215,6 +215,14 @@ namespace ISILab.LBS.VisualElements
             Node.Area = rect;
         }
 
+        protected void OnMouseDownCapsule(MouseDownEvent evt)
+        {
+            if (ToolKit.Instance.GetActiveManipulatorInstance() is not RemoveGraphNode rgn)
+                return;
+
+            rgn.Delete(Node);
+        }
+
         #region Selection
 
         public abstract VisualElement GetSelectVisualElement();

@@ -1,4 +1,4 @@
-using ISILab.Commons.JsonNet;
+using ISILab.Commons.JsonNet.Editor;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
 

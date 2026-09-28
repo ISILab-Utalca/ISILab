@@ -67,17 +67,20 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var pivot = new GameObject("Quest Tracker");
             var observer = pivot.AddComponent<QuestTracker>();
 
-            CloneRefs.Start();
-            var graph = layer.GetModule<Graph>().Clone() as Graph;
-            var bh = layer.GetBehaviour<QuestBehaviour>().Clone() as QuestBehaviour;
+            // (!) Clones are failing because behaviour's clone does not copy OwnerLayer, so let's see what happens if we use the originals
+            //CloneRefs.Start();
+            //var graph = layer.GetModule<Graph>().Clone() as Graph;
+            //var bh = layer.GetBehaviour<QuestBehaviour>().Clone() as QuestBehaviour;
 
-            if (graph == null)
-            {
-                Object.DestroyImmediate(pivot);
-                return new GeneratedGO(null, 
-                    new LBSLog("No quest graph found. Can't generate", LogType.Error));
-            }
-            CloneRefs.End();
+            //if (graph == null)
+            //{
+            //    Object.DestroyImmediate(pivot);
+            //    return new GeneratedGO(null,
+            //        new LBSLog("No quest graph found. Can't generate", LogType.Error));
+            //}
+            //CloneRefs.End();
+            var graph = layer.GetModule<Graph>();
+            var bh = layer.GetBehaviour<QuestBehaviour>();
 
             if (!graph.Edges.Any())
             {
@@ -210,7 +213,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             QuestTracker tracker, GameObject pivot)
         {
             Dictionary<object, QuestTriggerNode> dict = new();
-            var bh = graph.OwnerLayer.GetBehaviour<QuestBehaviour>().Clone() as QuestBehaviour;
+            var bh = graph.OwnerLayer.GetBehaviour<QuestBehaviour>();//.Clone() as QuestBehaviour;
 
             foreach (var node in bh.QuestNodes)
             {
