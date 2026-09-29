@@ -8,7 +8,7 @@ using UnityEngine;
 namespace ISILab.LBS.Characteristics
 {
     /// <summary>
-    /// Base class for <see cref="Bundle"/> characteristics. A LBSCharacteristic provides information and functionality to bundles, allowing customized behavior.
+    /// Base class for bundle characteristics. A LBSCharacteristic provides information and functionality to <see cref="Bundle"/>s, allowing customized behavior.
     /// </summary>
     [System.Serializable]
     public abstract class LBSCharacteristic : ICloneable
