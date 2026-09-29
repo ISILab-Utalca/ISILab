@@ -59,14 +59,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         #endregion
 
         #region METHODS
- 
+#if UNITY_EDITOR
         private void Reset()
         {
             // This runs when the script is first added to a GameObject
             EnsureGizmoComponent();
         }
 
-#if UNITY_EDITOR
         private void OnValidate()
         {
             // Schedule the AddComponent for after the current editor update
@@ -81,7 +80,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 Undo.AddComponent<Custom3dMeshGizmo>(gameObject); // Supports undo in editor
             }
         }
-#endif
 
         private void EnsureGizmoComponent()
         {
@@ -90,7 +88,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 gameObject.AddComponent<Custom3dMeshGizmo>();
             }
         }
-                
+#endif
         #endregion
     }
 }

@@ -30,7 +30,6 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo
         {
             Selection.selectionChanged -= UpdatePosition;
         }
-#endif
 
         private void OnDrawGizmosSelected()
         {
@@ -60,6 +59,6 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo
                 gizmoBounds = mRendererComponent.bounds;
             }
         }
+#endif
     }
-    
 }

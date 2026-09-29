@@ -70,7 +70,7 @@ namespace ISILab.LBS.Behaviours
             var prevMod = OwnerLayer.GetModule<NoteModule>("", prevLevelIndex);
             var nextMod = OwnerLayer.GetModule<NoteModule>("", nextLevelIndex);
 
-            RequestFullRepaint<LBSNote>(prevMod.Notes, nextMod.Notes);
+            RequestFullRepaint<LBSNote>(prevMod?.Notes, nextMod?.Notes);
         }
 
     }
