@@ -11,7 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace ISILab.LBS.Components
@@ -62,11 +61,11 @@ namespace ISILab.LBS.Components
         {
             get
             {
+#if UNITY_EDITOR
                 if (string.IsNullOrEmpty(terminalGUID))
                     return null;
 
                 string path = AssetDatabase.GUIDToAssetPath(terminalGUID);
-
                 var assets = AssetDatabase.LoadAllAssetsAtPath(path);
 
                 foreach (var asset in assets)
@@ -79,6 +78,7 @@ namespace ISILab.LBS.Components
                     if (localID == terminalLocalID)
                         return asset as GrammarTerminal;
                 }
+#endif
 
                 return null;
             }
@@ -90,11 +90,12 @@ namespace ISILab.LBS.Components
                     terminalLocalID = 0;
                     return;
                 }
-
+#if UNITY_EDITOR
                 AssetDatabase.TryGetGUIDAndLocalFileIdentifier(
                     value,
                     out terminalGUID,
                     out terminalLocalID);
+#endif
             }
         }
 

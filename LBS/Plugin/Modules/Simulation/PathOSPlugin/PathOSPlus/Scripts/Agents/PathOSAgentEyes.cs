@@ -455,6 +455,7 @@ namespace PathOS
 
         private void OnValidate()
         {
+#if UNITY_EDITOR
             if (UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode) return;
 
             if (lastCamera == null)
@@ -516,6 +517,7 @@ namespace PathOS
                 //lastCamera = cam;
 
             }
+#endif
         }
     }
 

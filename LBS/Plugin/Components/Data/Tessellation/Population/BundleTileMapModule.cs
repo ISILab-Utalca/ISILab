@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons.Extensions;
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
+#endif
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
@@ -453,7 +455,9 @@ namespace ISILab.LBS.Modules
         {
             tileGroup = tiles;
             this.bData = bData;
+#if UNITY_EDITOR
             guid = AssetMacro.GetGuidFromAsset(bData.Bundle);
+#endif
             this.rotation = rotation;
             if (_addons is not null)
                 this.Addons = _addons;
@@ -474,7 +478,9 @@ namespace ISILab.LBS.Modules
             }
             
             this.bData = bData;
+#if UNITY_EDITOR
             guid = AssetMacro.GetGuidFromAsset(bData.Bundle);
+#endif
             this.rotation = rotation;
 
             BuildAddons(bData);

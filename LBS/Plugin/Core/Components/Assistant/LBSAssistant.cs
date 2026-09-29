@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
+#endif
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
@@ -61,13 +63,19 @@ namespace ISILab.LBS.Assistants
         {
             get
             {
+#if UNITY_EDITOR
                 return icon = AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+#else
+                return icon;
+#endif
             }
             set
             {
                 icon = value;
+#if UNITY_EDITOR
                 string guid = AssetMacro.GetGuidFromAsset(icon);
                 iconGuid = guid != string.Empty ? guid : LBSSettings.Instance.view.DebugVectorGUID;
+#endif
             }
         }
 
@@ -81,7 +89,7 @@ namespace ISILab.LBS.Assistants
         [JsonIgnore]
         public string Name => name;
 
-        #endregion
+#endregion
 
         #region EVENTS
         [JsonIgnore]

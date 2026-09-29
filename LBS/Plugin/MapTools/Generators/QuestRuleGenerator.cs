@@ -1,8 +1,10 @@
 using GeneticSharp.Domain.Mutations;
 using ISILab.AI.Grammar;
 using ISILab.Commons.Extensions;
+#if UNITY_EDITOR
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
+#endif
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
@@ -15,10 +17,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using Graph = ISILab.LBS.Modules.Graph;
 using Object = UnityEngine.Object;
 
@@ -54,6 +54,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return new QuestRuleGenerator();
         }
 
+
         /// <summary>
         /// Generates the quest observer (to set up the quest triggers in the scene)
         /// it also generates a UI Document that will display the default display for quest
@@ -64,20 +65,24 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <returns></returns>
         public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
+#if UNITY_EDITOR
             var pivot = new GameObject("Quest Tracker");
             var observer = pivot.AddComponent<QuestTracker>();
 
-            CloneRefs.Start();
-            var graph = layer.GetModule<Graph>().Clone() as Graph;
-            var bh = layer.GetBehaviour<QuestBehaviour>().Clone() as QuestBehaviour;
+            // (!) Clones are failing because behaviour's clone does not copy OwnerLayer, so let's see what happens if we use the originals
+            //CloneRefs.Start();
+            //var graph = layer.GetModule<Graph>().Clone() as Graph;
+            //var bh = layer.GetBehaviour<QuestBehaviour>().Clone() as QuestBehaviour;
 
-            if (graph == null)
-            {
-                Object.DestroyImmediate(pivot);
-                return new GeneratedGO(null, 
-                    new LBSLog("No quest graph found. Can't generate", LogType.Error));
-            }
-            CloneRefs.End();
+            //if (graph == null)
+            //{
+            //    Object.DestroyImmediate(pivot);
+            //    return new GeneratedGO(null,
+            //        new LBSLog("No quest graph found. Can't generate", LogType.Error));
+            //}
+            //CloneRefs.End();
+            var graph = layer.GetModule<Graph>();
+            var bh = layer.GetBehaviour<QuestBehaviour>();
 
             if (!graph.Edges.Any())
             {
@@ -137,6 +142,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             CreateUIDocument(pivot.transform, observer.gameObject);
             
             return new GeneratedGO(pivot, new LBSLog(0));
+#else
+            return default;
+#endif
         }
 
         private void GenerateTriggers(LBSGenerator3DSettings settings, Graph graph, QuestTracker tracker, GameObject pivot)
@@ -148,16 +156,20 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 // Find if it has a reference to another layer
                 GenerateRequiredLayers(node);
             }
-            
+
+#if UNITY_EDITOR
             // Delay execution so the engine enables the colliders
             EditorApplication.update += DelayGeneration;
             return;
+#endif
 
             void DelayGeneration()
             {
                 if (_currentFrameDelay-- > 0) return;
                 _currentFrameDelay = frameDelay;
+#if UNITY_EDITOR
                 EditorApplication.update -= DelayGeneration;
+#endif
                 GenerateGraphTriggers(settings, graph, tracker, pivot);
             }
         }
@@ -210,8 +222,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             QuestTracker tracker, GameObject pivot)
         {
             Dictionary<object, QuestTriggerNode> dict = new();
-            var bh = graph.OwnerLayer.GetBehaviour<QuestBehaviour>().Clone() as QuestBehaviour;
+            var bh = graph.OwnerLayer.GetBehaviour<QuestBehaviour>();//.Clone() as QuestBehaviour;
 
+#if UNITY_EDITOR
             foreach (var node in bh.QuestNodes)
             {
                 Type triggerType = node.Data.Terminal.Script.GetClass();
@@ -225,6 +238,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 dict[node] = go;
             }
+#endif
 
             return dict;
         }
@@ -368,6 +382,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 referencedLayers.Remove(gameObject.name);
             }
 
+#if UNITY_EDITOR
             // the list keeps the non existing objects
             foreach (var pendingLayerID in referencedLayers.Distinct())
             {
@@ -381,8 +396,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 {
                     _onLayerRequired?.Invoke(pendingLayerID);
                 }
-              
             }
+#endif
 
         }
 
@@ -396,6 +411,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
 
 
+#if UNITY_EDITOR
         /// <summary>
         /// Creates the ui document class (that's displayed during game mode) and
         /// adds it into the layer generated game object
@@ -423,5 +439,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             uiDocument.panelSettings = panelSettings;
             uiGameObject.transform.SetParent(pivotTransform);
         }
+#endif
     }
 }

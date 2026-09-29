@@ -36,6 +36,7 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
+#if UNITY_EDITOR
         public override void OnEnable()
         {
             Owner.OnRemoveCharacteristic -= ConfirmRemove;
@@ -66,6 +67,7 @@ namespace ISILab.LBS.Characteristics
                 EditorApplication.delayCall += () => Selection.activeObject = Owner;
             }
         }
+#endif
 
         public override object Clone()
         {

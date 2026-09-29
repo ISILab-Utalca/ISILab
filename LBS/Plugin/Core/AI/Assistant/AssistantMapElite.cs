@@ -142,7 +142,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         private void OnTerminateBind()
         {
+#if UNITY_EDITOR
             EditorApplication.delayCall += () => OnTermination?.Invoke("MapElites ended!", LogType.Log, null);
+#endif
         }
 
         public void RequestOptimizerStop() => mapElites?.Optimizer?.RequestStop();
@@ -168,6 +170,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 evaluator.InitializeDefault();
             else
             {
+#if UNITY_EDITOR
                 string path = LBSSettings.Instance.paths.assistantPresetFolderPath + "/Evaluators";
                 string assetName = evaluator.GetType().Name;
                 string fullPath = path + "/" + assetName + " configuration.asset";
@@ -176,6 +179,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     configurableChoice.ReadConfiguration();
                 else
                     evaluator.InitializeDefault();
+#endif
             }
 
             contextualChoice?.InitializeContext(Data.ContextLayers, RawToolRect);

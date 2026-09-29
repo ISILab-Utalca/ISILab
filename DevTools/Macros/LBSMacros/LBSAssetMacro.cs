@@ -18,6 +18,7 @@ namespace ISILab.LBS.Macros
         private const string PLACEHOLDER_TEXTURE_GUID = "edcbfe04a88995d49aabd5bf8ee28e79";
         private const string PLACEHOLDER_UI_VECTOR_ICON_G_UID = "5aa5737462342b24c866198641cdaf08";
 
+#if UNITY_EDITOR
         /// <summary>
         /// Loads an asset of type T from its GUID.
         /// </summary>
@@ -42,6 +43,14 @@ namespace ISILab.LBS.Macros
             return string.IsNullOrEmpty(path) ? null : AssetDatabase.AssetPathToGUID(path);
         }
 
+        public static string GetActiveSceneGUID()
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            if (!currentScene.isLoaded) return string.Empty;
+
+            return AssetDatabase.AssetPathToGUID(currentScene.path);
+        }
+
         /// <summary>
         /// Tries to return a LBSTag
         /// </summary>
@@ -64,6 +73,8 @@ namespace ISILab.LBS.Macros
         {
             return LoadAssetByGuid<VectorImage>(PLACEHOLDER_UI_VECTOR_ICON_G_UID);
         }
+
+#endif
 
         public static IEnumerable<LBSTag> GetTagsFromBundle(Bundle bundle, List<string> Filter = null)
         {
@@ -154,13 +165,6 @@ namespace ISILab.LBS.Macros
             return result;
         }
 
-        public static string GetActiveSceneGUID()
-        {
-            Scene currentScene = SceneManager.GetActiveScene();
-            if (!currentScene.isLoaded) return string.Empty;
-
-           return  AssetDatabase.AssetPathToGUID(currentScene.path);
-        }
 
     }
 }

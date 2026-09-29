@@ -6,6 +6,5 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
     public interface IConfigurableEvaluator : IEvaluator
     {
         public void ReadConfiguration();
-        public List<EvaluatorConfiguration.EvaluatorConfigurationField> GetEvaluatorFields();
     }
 }

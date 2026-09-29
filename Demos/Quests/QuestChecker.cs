@@ -1,6 +1,8 @@
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR // TODO: THIS IS JUST A PATCH, A RUNTIME SCRIPT SHOULDN'T HAVE EDITOR CODE
 using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.Runtime.Examples
@@ -42,3 +44,4 @@ namespace ISILab.Runtime.Examples
         }
     }
 }
+#endif

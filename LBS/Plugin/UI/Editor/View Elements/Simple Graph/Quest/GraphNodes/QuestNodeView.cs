@@ -92,21 +92,7 @@ namespace ISILab.LBS.VisualElements
             _questNode.Graph.OnForceUpdate += Refresh;
         }
 
-        private void OnMouseDownCapsule(MouseDownEvent evt)
-        {
-            if (ToolKit.Instance.GetActiveManipulatorInstance() is null) 
-                return;
-
-            var activeManipulator = ToolKit.Instance.GetActiveManipulatorInstance();
-            if (activeManipulator is null)
-                return;
-
-            var rgn = activeManipulator as RemoveGraphNode;
-            if (rgn is null)
-                return;
-
-            rgn.Delete(Node);
-        }
+        
 
         public override void Refresh()
         {

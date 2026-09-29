@@ -97,17 +97,17 @@ namespace ISILab.LBS.AI.Clippy.VisualElements
             //--------------- CALLBACKS ---------------//
             // Element - Action
 
-            // Draggable - Drag
+            // Draggable - Allows dragging the visual element around the screen
             Draggable.RegisterCallback<PointerDownEvent>(OnPointerDown);
             Draggable.RegisterCallback<PointerMoveEvent>(OnPointerMove);
             Draggable.RegisterCallback<PointerUpEvent>(OnPointerUp);
             Draggable.RegisterCallback<PointerCaptureOutEvent>(OnPointerCaptureOut);
 
-            // Draggable - Fade
+            // ModSelector - Change the selector wheel's transparency when the mouse hovers over it
             ModSelector.RegisterCallback<MouseEnterEvent>(evt => { this.ShowImage(ModSelector); });
             ModSelector.RegisterCallback<MouseLeaveEvent>(evt => { this.HideImage(ModSelector); });
 
-            // Reset - Set initial position
+            // Reset - Set the visual element back to the initial position
             Reset.RegisterCallback<ClickEvent>(evt => {
                 this.HideImage(Reset); 
                 ResetPosition();

@@ -1,7 +1,5 @@
 using ISILab.Commons.Attributes;
 using PathOS;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ISILab.LBS.Components

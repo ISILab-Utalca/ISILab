@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 using System.IO;
-using ISILab.Commons.JsonNet;
+using ISILab.Commons.JsonNet.Editor;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Core.Settings;
 

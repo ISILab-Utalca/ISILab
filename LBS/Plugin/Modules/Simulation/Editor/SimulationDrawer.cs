@@ -1,12 +1,13 @@
 using ISILab.AI.Optimization.Populations;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -81,7 +82,7 @@ namespace ISILab.LBS.Drawers
 
                     tView.SetPosition(new Rect(pos * size, size));
 
-                    tView.layer = behaviour.OwnerLayer.index;
+                    tView.layer = behaviour.OwnerLayer.index * LBSSettings.Instance.general.layerScale;
                 }
             }
         }

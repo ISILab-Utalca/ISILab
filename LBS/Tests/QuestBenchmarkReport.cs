@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.AI.Grammar;
-using ISILab.Commons.JsonNet;
+using ISILab.Commons.JsonNet.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;

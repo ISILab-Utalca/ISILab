@@ -1,4 +1,3 @@
-#if UNITY_EDITOR  
 using UnityEngine;  
 using static UnityEngine.Mathf;
 
@@ -27,6 +26,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 colliderZone = gameObject.GetComponent<BoxCollider>() ?? gameObject.AddComponent<BoxCollider>();
         }
 
+#if UNITY_EDITOR
         public void Execute()
         {
             GetFields();
@@ -55,10 +55,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                             _count++;                    }                }            }  
                 lightProbeComp.probePositions = positions;  
             }    
-        }  
-    }  
-
-}
-
-
+        }
 #endif
+    }  
+}

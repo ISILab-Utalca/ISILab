@@ -60,7 +60,9 @@ namespace ISILab.LBS.Plugin.Core.Settings
 
         public void MarkSettingsAsDirty()
         {
+#if UNITY_EDITOR
             EditorUtility.SetDirty(this);
+#endif
         }
 
         //private void OnEnable()
@@ -81,6 +83,8 @@ namespace ISILab.LBS.Plugin.Core.Settings
         public Test test = new Test();
         public Generator3D generator = new Generator3D();
 
+
+#if UNITY_EDITOR
         public void ReplacePaths()
         {
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
@@ -127,6 +131,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
                 //Debug.Log("Updated path: " +  path);
             }
         }
+#endif
 
         [System.Serializable]
         public class Test
@@ -142,6 +147,8 @@ namespace ISILab.LBS.Plugin.Core.Settings
 
             [SerializeField]
             Vector2 tileSize = new Vector2(50, 50);
+
+            public int layerScale = 100;
 
             public Vector2 TileSize
             {

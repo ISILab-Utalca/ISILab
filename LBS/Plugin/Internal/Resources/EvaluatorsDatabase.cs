@@ -118,6 +118,7 @@ namespace ISILab.LBS.Plugin.Internal
         {
             evaluators.Remove(item);
         }
+#if UNITY_EDITOR
         public void SaveDatabaseChanges()
         {
             // Marca el objeto como "sucio" para que Unity sepa que debe guardarlo
@@ -126,6 +127,7 @@ namespace ISILab.LBS.Plugin.Internal
             // Fuerza el guardado de los assets modificados en el disco
             AssetDatabase.SaveAssets();
         }
-        #endregion
+#endif
+#endregion
     }
 }
