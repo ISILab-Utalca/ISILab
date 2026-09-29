@@ -49,7 +49,6 @@ namespace ISILab.LBS.Manipulators
             base.Init(layer, provider);
 
             _population = provider as PopulationBehaviour;
-
             _population.OwnerLayer.OnChange += () =>
             {
                 MainView.Instance.RemoveElement(_dottedFeedback);
@@ -141,7 +140,8 @@ namespace ISILab.LBS.Manipulators
                 var endPos = _population.OwnerLayer.ToFixedPosition(endPosition);
 
                 // Check if the move is valid
-                if (!_population.BundleTilemap.ValidMoveGroup(endPos, Selected, Vector2.right)) return;
+                if (!_population.BundleTilemap.ValidMoveGroup(endPos, Selected, Vector2.right)) {
+                    return; }
 
                 var level = LBSController.CurrentLevel;
                 EditorGUI.BeginChangeCheck();
@@ -183,6 +183,7 @@ namespace ISILab.LBS.Manipulators
                 MainView.Instance.AddElement(_dottedFeedback);
                 Selected = null;
             }
+
         }
 
         private void ActualizeFeedbackPosition(Vector2 pos)
@@ -191,9 +192,9 @@ namespace ISILab.LBS.Manipulators
             var bottomRightCorner = topLeftCorner;
 
             // Set corner by tile size
-            if (ToSet != null && (ToSet.TileSize.x > 1 || ToSet.TileSize.y > 1))
+            if (Selected != null)
             {
-                var offset = ToSet.TileSize - new Vector2Int(1, 1);
+                var offset = Selected.GetBundleSize() - new Vector2Int(1, 1);
                 offset.x = -Mathf.Abs(offset.x);
                 offset.y = Mathf.Abs(offset.y);
                 bottomRightCorner += offset;
