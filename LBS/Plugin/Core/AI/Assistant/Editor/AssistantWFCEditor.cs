@@ -265,6 +265,22 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
         private void LoadRules()
         {
             WFCRuleset loaded = rulesetsList.GetRootElementForIndex(rulesetsList.selectedIndex)?.Q<ObjectField>("Element")?.value as WFCRuleset;
+
+            // --------------------------------------------------------------------------------------------------------------------------
+            // This code was improvised for reading a preset that is not in the bundle's presets list. 
+            // !!! THIS SHOULD NOT BE IN THE APPLICATION RELEASE. USE THE LINE ABOVE INSTEAD. !!!
+            // If we ever want to allow loading not registered presets, it should be in a safer way than this.
+            //WFCRuleset loaded = null;
+            //if (rulesetsList.itemsSource.Count > 0)
+            //    loaded = rulesetsList.GetRootElementForIndex(rulesetsList.selectedIndex)?.Q<ObjectField>("Element")?.value as WFCRuleset;
+            //else
+            //{
+            //    loaded = currentRuleset.value as WFCRuleset;
+            //    if (loaded) assistant.Bundle.GetCharacteristics<LBSDirectionedChance>()[0].tileDirections = loaded.GetRules();
+            //    return;
+            //}
+            // --------------------------------------------------------------------------------------------------------------------------
+
             if (loaded)
             {
                 assistant.LoadRules(loaded);

@@ -21,10 +21,10 @@ MonoBehaviour:
   icon: {fileID: 0}
   assets: []
   characteristics:
-  - rid: 7203808286574904117
-  - rid: 7203808286574904118
-  - rid: 7203808286574904119
-  - rid: 7203808303720431676
+  - rid: 7203808439916822570
+  - rid: 7203808439916822548
+  - rid: 7203808439916822549
+  - rid: 7203808439916822591
   elementFlag: 0
   tileSize: {x: 1, y: 1}
   childsBundles:
@@ -47,12 +47,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7203808286574904117
-      type: {class: LBSMainExteriorBundle, ns: ISILab.LBS.Characteristics, asm: LBS.Editor}
-      data:
-        owner: {fileID: 11400000}
-    - rid: 7203808286574904118
-      type: {class: LBSDirectionedChance, ns: ISILab.LBS.Characteristics, asm: LBS.Editor}
+    - rid: 7203808439916822548
+      type: {class: LBSDirectionedChance, ns: ISILab.LBS.Characteristics, asm: LBS.Commons}
       data:
         owner: {fileID: 11400000}
         tileDirections:
@@ -398,16 +394,20 @@ MonoBehaviour:
               chance: 0.8676278
         currentType: 1
         maxLimit: 1
-    - rid: 7203808286574904119
-      type: {class: LBSNavigableTags, ns: ISILab.LBS.Characteristics, asm: LBS.Editor}
+    - rid: 7203808439916822549
+      type: {class: LBSNavigableTags, ns: ISILab.LBS.Characteristics, asm: LBS.Commons}
       data:
         owner: {fileID: 11400000}
         tags:
         - {fileID: 11400000, guid: 7f4f15def595c724f91b2b6305e43a0c, type: 2}
         - {fileID: 11400000, guid: 6250d4dc1497e2f4bb088157a4da725f, type: 2}
         navigable: 0100
-    - rid: 7203808303720431676
-      type: {class: WFCRulesetsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS.Editor}
+    - rid: 7203808439916822570
+      type: {class: LBSMainExteriorBundle, ns: ISILab.LBS.Characteristics, asm: LBS.Commons}
+      data:
+        owner: {fileID: 11400000}
+    - rid: 7203808439916822591
+      type: {class: WFCRulesetsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS.Commons}
       data:
         owner: {fileID: 11400000}
         rulesets:
