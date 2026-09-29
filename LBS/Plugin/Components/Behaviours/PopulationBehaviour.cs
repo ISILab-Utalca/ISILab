@@ -191,8 +191,9 @@ namespace ISILab.LBS.Behaviours
             if (offset.Equals(Vector2Int.zero)) return null;
 
             Vector2Int oldPos = group.TileGroup[0].Position;
-            TileBundleGroup newTileGroup = AddTileGroup(oldPos + offset, group.BundleData, group.Rotation, group.Addons);
             RemoveTileGroup(oldPos);
+            TileBundleGroup newTileGroup = AddTileGroup(oldPos + offset, group.BundleData, group.Rotation, group.Addons);
+            
             return newTileGroup;
         }
 

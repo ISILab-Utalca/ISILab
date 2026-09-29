@@ -121,7 +121,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region LOGIC METHODS
-        private void AutoAssignExteriorBundle(ConnectedTileMapModule.ConnectedTileType type)
+        private void AutoAssignExteriorBundle(ConnectedTileMapModule.ConnectedTileType type = ConnectedTileMapModule.ConnectedTileType.EdgeBased)
         {
             if (_templates == null || _templates.Count == 0 || _extThemeBundle == null) return;
 

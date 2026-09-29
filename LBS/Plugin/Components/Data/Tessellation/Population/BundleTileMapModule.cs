@@ -552,9 +552,9 @@ namespace ISILab.LBS.Modules
 
             return new Rect(
                 xMin,
-                yMin,
+                yMax,
                 xMax - xMin + 1,
-                yMax - yMin + 1
+                yMin - yMax + 1
             );
         }
 
