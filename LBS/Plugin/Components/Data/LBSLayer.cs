@@ -289,6 +289,7 @@ namespace LBS.Components
         public T GetModule<T>(string moduleID = "", int index = -1) where T : LBSModule
         {
             if (index < 0) index = activeFloor;
+            if (index >= floors.Length) index = floors.Length - 1;
             //if (floors is null)
             //{ }
             //if (floors[index] is null)

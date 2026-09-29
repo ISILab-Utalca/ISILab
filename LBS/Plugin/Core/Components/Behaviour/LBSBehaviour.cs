@@ -284,8 +284,8 @@ namespace ISILab.LBS.Behaviours
         }
         public void RequestFullRepaint<T>(List<T> olds, List<T> news)
         {
-            olds.ForEach(t => RequestTileRemove(t));
-            news.ForEach(t => RequestTilePaint(t));
+            olds?.ForEach(t => RequestTileRemove(t));
+            news?.ForEach(t => RequestTilePaint(t));
         }
     }
 }
