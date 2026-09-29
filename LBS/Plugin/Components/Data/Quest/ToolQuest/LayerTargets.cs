@@ -18,7 +18,9 @@ namespace ISILab.LBS.Components
         public BundleTarget(Bundle bundle)
         {
             if (bundle == null) return;
+#if UNITY_EDITOR
             guid = LBSAssetMacro.GetGuidFromAsset(bundle);
+#endif
         }
 
         public BundleTarget(TileBundleGroup bundle) => guid = bundle?.GetGuid() ?? string.Empty;

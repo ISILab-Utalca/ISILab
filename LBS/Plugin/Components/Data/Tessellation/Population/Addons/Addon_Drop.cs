@@ -11,11 +11,13 @@ namespace ISILab.LBS.Components
         [SerializeField]
         private string onDestroyDropGuid;
 
+#if UNITY_EDITOR
         public Bundle OnDestroyDrop 
         {
             get => LBSAssetMacro.LoadAssetByGuid<Bundle>(onDestroyDropGuid); 
             set => onDestroyDropGuid = LBSAssetMacro.GetGuidFromAsset(value); 
         }
+#endif
 
         public override object Clone()
         {

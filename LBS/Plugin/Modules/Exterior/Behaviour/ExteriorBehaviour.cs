@@ -1,4 +1,6 @@
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
+#endif
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
@@ -51,17 +53,20 @@ namespace ISILab.LBS.Behaviours
         {
             get
             {
+#if UNITY_EDITOR
                 if (bundle != null) return bundle;
 
                 Bundle = AssetMacro.LoadAssetByGuid<Bundle>(bundleGuid)
                       ?? AssetMacro.LoadAssetByGuid<Bundle>(defaultBundleGuid);
-
+#endif
                 return bundle;
             }
             set
             {
                 bundle = value;
+#if UNITY_EDITOR
                 bundleGuid = AssetMacro.GetGuidFromAsset(value);
+#endif
             }
         }
 

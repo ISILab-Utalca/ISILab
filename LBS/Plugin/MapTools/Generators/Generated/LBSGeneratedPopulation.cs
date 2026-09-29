@@ -1,4 +1,6 @@
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
+#endif
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Data;
 using System;
@@ -251,11 +253,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             /* unlocables use their instanced ID just as when they are assigned to their 
              * connection/lock handler */
             if (IsUnlockable()) return gameObject.GetInstanceID().ToString();
-
+#if UNITY_EDITOR
             // common items use the bundle guid
             return AssetMacro.GetGuidFromAsset(BundleRef);
+#else
+            return default;
+#endif
         }
-        #endregion
+#endregion
     }
 
 }

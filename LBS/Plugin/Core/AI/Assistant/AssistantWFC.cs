@@ -1,7 +1,8 @@
 using ISILab.Commons;
 using ISILab.Commons.Extensions;
-using ISILab.Commons.Utility;
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
+#endif
 using ISILab.Extensions;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
@@ -1159,6 +1160,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             return candidates;
         }
 
+#if UNITY_EDITOR
         public bool CaptureWeights(out string errMsg)
         {
             errMsg = null;
@@ -1374,7 +1376,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             return true;
         }
-
+#endif
         private Bundle FindEqualConnection(List<Bundle> bundle, List<string> tileConnection, string center, out int rot)
         {
             int count = 0;
@@ -1446,6 +1448,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
 
 
+#if UNITY_EDITOR
         public bool SaveWeights(string presetName, string folder, out string endName, out WFCPreset newPreset, out string errMsg)
         {
             endName = null;
@@ -1583,7 +1586,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             }
 
             string n = endName;
-            bool overwrite = rulesetChar.Rulesets.Find(r => r.Name.Equals(n)) is not null;
+            bool overwrite = rulesetChar.Rulesets.Find(r => r.Name.Equals(n)) is not null; // Aun puede sobreescribir sin pedir confirmacion si se ingresa el nombre de un ruleset que existe fuera de el bundle actual.
             if (overwrite)
             {
                 bool confirmOverwrite = EditorUtility.DisplayDialog("Overwrite?", $"You are about to overwrite the WFC ruleset from Bundle {targetBundleRef.BundleName}. Continue?", "Yes", "No");
@@ -1656,6 +1659,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 };
             };
         }
+#endif
 
         public bool Compare(string[] a, string[] b, bool ignoreEmpties = true)
         {
@@ -1715,8 +1719,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
        
         public Bundle GetBundleRef()
         {
+#if UNITY_EDITOR
             // if null assign default
             targetBundleRef ??= AssetMacro.LoadAssetByGuid<Bundle>(defaultBundleGuid);
+#endif
             return targetBundleRef;
         }
         #endregion

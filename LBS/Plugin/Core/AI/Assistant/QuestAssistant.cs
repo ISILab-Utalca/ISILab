@@ -11,8 +11,6 @@ using System.Linq;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Assertions;
-using static System.Collections.Specialized.BitVector32;
-using static UnityEditor.PlayerSettings;
 using Random = UnityEngine.Random;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant

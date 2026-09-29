@@ -187,7 +187,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 #if UNITY_EDITOR
                 var go = PrefabUtility.InstantiatePrefab(toGen.GameObject, null) as GameObject;
 #else
-                var go = GameObject.Instantiate(pref,null);
+                var go = GameObject.Instantiate(toGen.GameObject,null);
 #endif
 
                 var pos = new Vector3(toGen.Tile.Position.x * scale.x, 0, toGen.Tile.Position.y * scale.z);
@@ -610,8 +610,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             throw new NotImplementedException();
         }
-
-        
     }
 
     public class ToGenerateExterior : ToGenerate

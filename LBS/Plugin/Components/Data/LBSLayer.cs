@@ -1,5 +1,4 @@
 using ISILab.Commons.Utility;
-using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS;
 using ISILab.LBS.Assistants;
@@ -11,7 +10,6 @@ using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.Generators;
 using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using Newtonsoft.Json;
-using PathOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,7 +72,20 @@ namespace LBS.Components
 
         // "First" lists are less safe, but are meant to be used in editor
         // as a quick way to make design changes.
-        [JsonIgnore] public List<LBSModule> FirstModules => floors[0].Modules;
+        [JsonIgnore] public List<LBSModule> FirstModules
+        {
+            get
+            {
+                if (floors[0] != null) return floors[0].Modules;
+
+                floors = new LBSFloor[defaultFloorCount];
+                for (int i = 0; i < floors.Length; i++)
+                {
+                    floors[i] ??= new();//
+                }
+                return floors[0].Modules;
+            }
+        }
         [JsonIgnore] public List<LBSBehaviour> FirstBehaviours => behaviours;
         [JsonIgnore] public List<LBSAssistant> FirstAssistants => assistants;
         [JsonIgnore] public List<LBSGeneratorRule> FirstGeneratorRules => generatorRules;

@@ -112,6 +112,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
             foreach (LBSLayer layer in blueprint.Layers)
             {
+                if(layer == null)
+                {
+                    blueprint = null;
+                    return "Empty blueprint slot";
+                }
+
                 foreach (LBSBehaviour bh in layer.Behaviours)
                 {
                     if (bh == null) continue;

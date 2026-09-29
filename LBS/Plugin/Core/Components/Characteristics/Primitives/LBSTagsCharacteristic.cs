@@ -1,6 +1,8 @@
 using ISILab.LBS.Components;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using ISILab.DevTools.Macros;
+#endif
 using Newtonsoft.Json;
 using System;
 using UnityEngine;
@@ -30,9 +32,11 @@ namespace ISILab.LBS.Characteristics
         {
             get
             {
+#if UNITY_EDITOR
                 if (value == null)
                     //value = LBSAssetsStorage.Instance.Get<LBSTag>().Find(i => i.Label == tagName);
                     value = AssetMacro.LoadAssetByGuid<LBSTag>(tagGUID);
+#endif
                 return value;
             }
             set
@@ -51,11 +55,13 @@ namespace ISILab.LBS.Characteristics
             get
             {
                 string s = "";
+#if UNITY_EDITOR
                 if (string.IsNullOrEmpty(tagGUID))
                 {
                     tagGUID = AssetMacro.GetGuidFromAsset(value);
                     s += $"Null or Empty Tag GUID -> Calling GetGuidFromAsset( {value} )\n"; // Por alguna razon hay veces en que 'value' se muestra como Material??? Pero no pasa con bundles de population
                 }
+#endif
                 s += $"Tag GUID = {tagGUID}";
                 //Debug.Log(s);
                 return tagGUID;
@@ -92,6 +98,7 @@ namespace ISILab.LBS.Characteristics
             //tagGUID = AssetMacro.GetGuidFromAsset(value);
         }
 
+#if UNITY_EDITOR
         public void OnBeforeSerialize()
         {
             if (value != null)
@@ -100,6 +107,7 @@ namespace ISILab.LBS.Characteristics
                 tagName = value.Label;
             }
         }
+#endif
     }
 
     /// <summary>
@@ -273,6 +281,7 @@ namespace ISILab.LBS.Characteristics
 
         public void OnBeforeSerialize()
         {
+#if UNITY_EDITOR
             //Debug.Log("Before Deserialize");
             /*
             List<TagCharacteristicEntry> validEntries = new();
@@ -296,13 +305,11 @@ namespace ISILab.LBS.Characteristics
                 if (tagEntry.Value != null) tagEntry.UpdateInfo();
             }
             */
-
             foreach (var tagEntry in tagEntries)
             {
                 if (tagEntry != null) tagEntry.OnBeforeSerialize();
             }
-
-
+#endif
         }
 
         public void OnAfterDeserialize()

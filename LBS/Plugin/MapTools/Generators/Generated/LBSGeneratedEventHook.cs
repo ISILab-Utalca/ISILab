@@ -2,7 +2,9 @@
 using ISILab.LBS.Plugin.Components.Data;
 using System;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor.Events;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -98,10 +100,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         default:
                             break;
                     }
-                   
+
                 }
-#else
-                onCompleteEvent.AddListener(entry.MakeAction(paramNode.Data.Target));
 #endif
             }
         }
@@ -170,11 +170,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 {
                     bool SameName = entry.objectName == target.name;
                     bool SameMethod = entry.methodName == method;
+#if UNITY_EDITOR
                     if (SameName && SameMethod)
                     {
                         UnityEventTools.RemovePersistentListener(eventToInvoke, i);
                         break;
                     }
+#endif
                 }
             }
 

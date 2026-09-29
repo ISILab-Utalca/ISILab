@@ -37,6 +37,7 @@ namespace ISILab.LBS.Plugin.Internal
         {
             get
             {
+#if UNITY_EDITOR
                 if (instance == null)
                 {
                     //Debug.Log(folderName + "/" + assetName);
@@ -53,6 +54,7 @@ namespace ISILab.LBS.Plugin.Internal
                     }
                     Debug.Log("[LBSAssetsStorage]: Instance loaded: " + (instance != null));
                 }
+#endif
                 return instance;
             }
         }

@@ -30,11 +30,18 @@ namespace ISILab.AI.Grammar
         {
             if(objs == null || objs.Length == 0) return;
             Bundle bundle = objs.FirstOrDefault() as Bundle;
-
+#if UNITY_EDITOR
             SetValue(LBSAssetMacro.GetGuidFromAsset(bundle));
+#endif
         }
-
-        public override Bundle GetBundle() => LBSAssetMacro.LoadAssetByGuid<Bundle>(value);
+        public override Bundle GetBundle()
+        {
+#if UNITY_EDITOR
+            return LBSAssetMacro.LoadAssetByGuid<Bundle>(value);
+#else
+            return default;
+#endif
+        }
     }
 
     [Serializable]
